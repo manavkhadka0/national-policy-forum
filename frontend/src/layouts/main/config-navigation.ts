@@ -6,7 +6,6 @@ export const pageLinks = [
   {
     order: '1',
     subheader: 'Marketing',
-    cover: '/assets/images/menu/menu_marketing.jpg',
     items: [
       { title: 'Landing', path: paths.marketing.root },
       { title: 'Services', path: paths.marketing.services },
@@ -21,7 +20,6 @@ export const pageLinks = [
   {
     order: '6',
     subheader: 'Travel',
-    cover: '/assets/images/menu/menu_travel.jpg',
     items: [
       { title: 'Landing', path: paths.travel.root },
       { title: 'Tours', path: paths.travel.tours },
@@ -37,7 +35,6 @@ export const pageLinks = [
   {
     order: '2',
     subheader: 'Career',
-    cover: '/assets/images/menu/menu_career.jpg',
     items: [
       { title: 'Landing', path: paths.career.root },
       { title: 'Jobs', path: paths.career.jobs },
@@ -51,7 +48,6 @@ export const pageLinks = [
   {
     order: '5',
     subheader: 'E-learning',
-    cover: '/assets/images/menu/menu_elearning.jpg',
     items: [
       { title: 'Landing', path: paths.eLearning.root },
       { title: 'Courses', path: paths.eLearning.courses },
@@ -66,7 +62,6 @@ export const pageLinks = [
     isNew: true,
     order: '3',
     subheader: 'E-commerce',
-    cover: '/assets/images/menu/menu_ecommerce.jpg',
     items: [
       { title: 'Landing', path: paths.eCommerce.root },
       { title: 'Products', path: paths.eCommerce.products },
@@ -107,9 +102,13 @@ export const pageLinks = [
   },
 ];
 
+
+
+
+
 export const navConfig = [
   { title: 'Home', path: '/' },
-  { title: 'Components', path: paths.components.root },
+  {title:'About',path:'/about'},
   {
     title: 'Pages',
     path: paths.pages,

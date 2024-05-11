@@ -7,32 +7,36 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { alpha, useTheme } from '@mui/material/styles';
 
+import { paths } from 'src/routes/paths';
+import { RouterLink } from 'src/routes/components';
+
 import { useResponsive } from 'src/hooks/use-responsive';
 
-import { fCurrency } from 'src/utils/format-number';
+import { fDate } from 'src/utils/format-time';
 
 import { bgBlur, bgGradient } from 'src/theme/css';
 
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 import TextMaxLine from 'src/components/text-max-line';
-import Carousel, { useCarousel, CarouselDots } from 'src/components/carousel';
+import Carousel, { useCarousel, CarouselDots, CarouselArrows } from 'src/components/carousel';
 
-import { ITourProps } from 'src/types/tour';
+import { IBlogPostProps } from 'src/types/blog';
+import PostTags from 'src/sections/blog/common/post-tags';
+import { Chip } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  tours: ITourProps[];
+  articles: IBlogPostProps[];
 };
 
-export default function TravelLandingHero({ tours }: Props) {
+export default function TravelLandingHero({ articles }: Props) {
   const mdUp = useResponsive('up', 'md');
 
   const carouselLarge = useCarousel({
     speed: 500,
     slidesToShow: 1,
-    draggable: false,
     slidesToScroll: 1,
     adaptiveHeight: true,
     ...CarouselDots({
@@ -55,6 +59,8 @@ export default function TravelLandingHero({ tours }: Props) {
     slidesToScroll: 1,
     swipeToSlide: true,
     focusOnSelect: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
     centerPadding: '0px',
     verticalSwiping: true,
   });
@@ -66,14 +72,14 @@ export default function TravelLandingHero({ tours }: Props) {
 
   return (
     <Box sx={{ minHeight: { md: '100vh' }, position: 'relative' }}>
-      {!!tours.length && (
+      {!!articles.length && (
         <Carousel
           {...carouselLarge.carouselSettings}
           asNavFor={carouselThumb.nav}
           ref={carouselLarge.carouselRef}
         >
-          {tours.map((tour) => (
-            <CarouselItem key={tour.id} tour={tour} />
+          {articles.map((article) => (
+            <CarouselItem key={article.id} article={article} />
           ))}
         </Carousel>
       )}
@@ -85,25 +91,36 @@ export default function TravelLandingHero({ tours }: Props) {
           sx={{
             top: 0,
             height: 1,
-            maxWidth: 220,
+            maxWidth: 440,
             position: 'absolute',
-            right: { xs: 20, lg: '6%', xl: '10%' },
+            right: 0,
+            mx: 10,
           }}
         >
-          {!!tours.length && (
-            <Carousel
-              {...carouselThumb.carouselSettings}
-              asNavFor={carouselLarge.nav}
-              ref={carouselThumb.carouselRef}
-            >
-              {tours.map((tour, index) => (
-                <ThumbnailItem
-                  key={tour.id}
-                  tour={tour}
-                  selected={carouselLarge.currentIndex === index}
-                />
-              ))}
-            </Carousel>
+          {!!articles.length && (
+            <>
+              <Carousel
+                {...carouselThumb.carouselSettings}
+                asNavFor={carouselLarge.nav}
+                ref={carouselThumb.carouselRef}
+              >
+                {articles.map((article, index) => (
+                  <ThumbnailItem
+                    key={article.id}
+                    article={article}
+                    selected={carouselLarge.currentIndex === index}
+                  />
+                ))}
+              </Carousel>
+              <CarouselArrows
+                spacing={2}
+                filled
+                justifyContent="center"
+                onNext={carouselThumb.onNext}
+                onPrev={carouselThumb.onPrev}
+                sx={{ width: 1 }}
+              />
+            </>
           )}
         </Stack>
       )}
@@ -114,20 +131,20 @@ export default function TravelLandingHero({ tours }: Props) {
 // ----------------------------------------------------------------------
 
 type CarouselItemProps = {
-  tour: ITourProps;
+  article: IBlogPostProps;
 };
 
-function CarouselItem({ tour }: CarouselItemProps) {
+function CarouselItem({ article }: CarouselItemProps) {
   const theme = useTheme();
 
   const renderOverlay = (
     <Box
       sx={{
         ...bgGradient({
-          startColor: `${alpha(theme.palette.common.black, 0)} 0%`,
-          endColor: `${theme.palette.common.black} 75%`,
+          startColor: `${alpha(theme.palette.primary.main, 0)} 0%`,
+          endColor: `${alpha(theme.palette.primary.darker, 1)} 100%`,
         }),
-        backgroundColor: alpha(theme.palette.common.black, 0.24),
+        backgroundColor: alpha(theme.palette.primary.main, 0.6),
         top: 0,
         left: 0,
         zIndex: 8,
@@ -142,54 +159,91 @@ function CarouselItem({ tour }: CarouselItemProps) {
     <Box
       sx={{
         display: 'flex',
-        textAlign: 'center',
         alignItems: 'center',
         position: 'relative',
         color: 'common.white',
-        justifyContent: 'center',
+        justifyContent: 'start',
       }}
     >
       <Stack
-        alignItems="center"
+        alignItems="left"
         sx={{
           zIndex: 9,
           py: { xs: 20, md: 0 },
+          px: { xs: 2, md: 5 },
           position: { md: 'absolute' },
         }}
       >
         <Typography variant="overline" sx={{ color: 'info.main', mb: 5 }}>
-          {tour.location}
+          {article.category}
         </Typography>
 
-        <Typography variant="h1" sx={{ maxWidth: 480 }}>
-          {tour.slug}
+        <Typography variant="h1" sx={{ maxWidth: 680 }}>
+          {article.title}
+        </Typography>
+        <Typography variant="body1" sx={{ maxWidth: 680, mt:2 }}>
+          {article.description}
         </Typography>
 
         <Stack
-          alignItems="center"
+          alignItems="left"
           spacing={{ xs: 2.5, md: 5 }}
           direction={{ xs: 'column', md: 'row' }}
           sx={{ my: 5 }}
         >
           <Stack direction="row" alignItems="center" sx={{ typography: 'subtitle2' }}>
-            <Iconify icon="carbon:time" width={24} sx={{ mr: 1, color: 'primary.main' }} />
-            {tour.duration}
+            <Iconify icon="carbon:time" width={24} sx={{ mr: 1, color: 'common.white' }} />
+            {article.duration}
           </Stack>
 
           <Stack direction="row" alignItems="center" sx={{ typography: 'subtitle2' }}>
-            <Iconify icon="carbon:star" width={24} sx={{ mr: 1, color: 'primary.main' }} />
-            {`${tour.ratingNumber} reviews`}
+          <Stack direction="row" alignItems="center" flexWrap="wrap" sx={{ mt: 0}}>
+      <Typography variant="subtitle2" sx={{ mr: 1 }}>
+        Tags:
+      </Typography>
+
+      <Stack direction="row" flexWrap="wrap" spacing={1}>
+        {article.tags.map((tag) => (
+          <Chip key={tag} size="medium" variant="filled" label={tag} onClick={() => {}} />
+        ))}
+      </Stack>
+    </Stack>
           </Stack>
 
-          <Stack direction="row" alignItems="center" sx={{ typography: 'subtitle2' }}>
-            <Iconify icon="carbon:currency" width={24} sx={{ mr: 1, color: 'primary.main' }} />
-            {`Starting at ${fCurrency(tour.price)}`}
+        </Stack>
+
+        <Stack direction="row" justifyContent="flex-start" spacing={1.5} sx={{ py: 3 }}>
+          <Avatar src={article.author.avatarUrl} sx={{ width: 48, height: 48 }} />
+
+          <Stack spacing={0.5} flexGrow={1}>
+            <Typography variant="subtitle2">{article.author.name}</Typography>
+            <Typography variant="caption" sx={{ color: 'common.white' }}>
+              {fDate(article.createdAt, 'dd/MM/yyyy p')}
+            </Typography>
           </Stack>
         </Stack>
 
-        <Button variant="contained" size="large" color="primary">
-          Book Now
-        </Button>
+        <Box
+          sx={{
+            mt: { xs: 8, md: 5 },
+            mb: 10,
+          }}
+        >
+          <Button
+            variant="contained"
+            color="primary"
+            component={RouterLink}
+            size='large'
+            href={paths.travel.post}
+            sx={{
+              background: theme.palette.common.white,
+              color: theme.palette.common.black
+            }}
+            endIcon={<Iconify icon="carbon:chevron-right" />}
+          >
+            Read More
+          </Button>
+        </Box>
       </Stack>
 
       <Box
@@ -206,7 +260,7 @@ function CarouselItem({ tour }: CarouselItemProps) {
 
         <Image
           alt="hero"
-          src={tour.heroUrl}
+          src={article.heroUrl}
           sx={{
             width: 1,
             height: { xs: 1, md: '100vh' },
@@ -220,11 +274,11 @@ function CarouselItem({ tour }: CarouselItemProps) {
 // ----------------------------------------------------------------------
 
 type ThumbnailItemProps = {
-  tour: ITourProps;
+  article: IBlogPostProps;
   selected?: boolean;
 };
 
-function ThumbnailItem({ tour, selected }: ThumbnailItemProps) {
+function ThumbnailItem({ article, selected }: ThumbnailItemProps) {
   const theme = useTheme();
 
   return (
@@ -235,28 +289,33 @@ function ThumbnailItem({ tour, selected }: ThumbnailItemProps) {
       sx={{
         px: 2,
         py: 1.5,
+        my: 1,
         cursor: 'pointer',
         color: 'common.white',
+        borderRadius: 2,
+        ...bgBlur({
+          opacity: 0.08,
+          color: theme.palette.common.white,
+        }),
         ...(selected && {
-          borderRadius: 2,
           ...bgBlur({
-            opacity: 0.08,
+            opacity: 0.5,
             color: theme.palette.common.white,
           }),
         }),
       }}
     >
-      <Avatar src={tour.heroUrl} sx={{ width: 48, height: 48 }} />
+      <Avatar src={article.heroUrl} sx={{ width: 48, height: 48, borderRadius: '8px' }} />
 
       <Stack spacing={0.5}>
         <TextMaxLine variant="h6" line={1}>
-          {tour.location}
+          {article.title}
         </TextMaxLine>
 
         <Stack direction="row" alignItems="center">
-          <Iconify icon="carbon:location" sx={{ mr: 1, color: 'primary.main' }} />
+          <Iconify icon="carbon:category" sx={{ mr: 1, color: 'common.white' }} />
           <TextMaxLine variant="caption" line={1} sx={{ opacity: 0.48 }}>
-            {tour.continent}
+            {article.category}
           </TextMaxLine>
         </Stack>
       </Stack>

@@ -79,7 +79,7 @@ export const _marketingPosts = [...Array(12)].map((_, index) => ({
   ...base(index),
   content: content('marketing'),
   coverUrl: _mock.image.marketing(index),
-  heroUrl: `/assets/images/marketing/marketing_post_hero.jpg`,
+  heroUrl: `/assets/images/marketing/marketing_${index+1}.jpg`,
 }));
 
 export const _travelPosts = [...Array(12)].map((_, index) => ({
