@@ -16,6 +16,7 @@ export type IBlogPostProps = {
   createdAt: Date;
   category: string;
   coverUrl: string;
+  content: string;
   duration: string;
   favorited: boolean;
   description: string;

@@ -178,30 +178,18 @@ const NAV_ITEMS = [
     ],
     children: [
       {
-        subheader: 'Other Machinery & Parts',
+        subheader: 'Organization',
         items: [
-          { title: 'Metallic Processing Machinery', path: '#' },
-          { title: 'Machinery for Food, Beverage & Cereal', path: '#' },
-          { title: 'Laser Equipment', path: '#' },
-          { title: 'Mould', path: '#' },
-          { title: 'Textile Machinery & Parts', path: '#' },
-          { title: 'Cutting & Fold-bend Machine', path: '#' },
-          { title: 'Paper Machinery', path: '#' },
-          { title: 'Rubber Machinery', path: '#' },
-          { title: 'Chemical Equipment & Machinery', path: '#' },
-          { title: 'Mixing Equipment', path: '#' },
-          { title: 'Machinery for Garment, Shoes & Accessories', path: '#' },
-          { title: 'Crushing & Culling Machine', path: '#' },
+          {title : 'About Organization', path: '#'},
         ],
       },
       {
-        subheader: 'Plastic & Woodworking',
+        subheader: 'Our Teams',
         items: [
-          { title: 'Plastic Machinery', path: '#' },
-          { title: 'Woodworking Machinery', path: '#' },
-          { title: 'Blow Molding Machine', path: '#' },
-          { title: 'Plastic Recycling Machine', path: '#' },
-          { title: 'Injection Molding Machine', path: '#' },
+          {title : 'Board of Directors', path: '#'},
+          {title : 'Advisory Board', path: '#' },
+          {title : 'Founders', path: '#'},
+          {title : 'Members', path: '#'},
         ],
       },
       {

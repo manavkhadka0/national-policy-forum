@@ -1,6 +1,9 @@
 // ----------------------------------------------------------------------
 
 export const paths = {
+  // post 
+  post: (id: string) => `/posts/${id}`,
+  posts: '/posts',
   // Marketing
   marketing: {
     root: '/marketing',

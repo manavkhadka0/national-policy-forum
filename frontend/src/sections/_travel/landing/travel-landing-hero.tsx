@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -22,8 +23,6 @@ import TextMaxLine from 'src/components/text-max-line';
 import Carousel, { useCarousel, CarouselDots, CarouselArrows } from 'src/components/carousel';
 
 import { IBlogPostProps } from 'src/types/blog';
-import PostTags from 'src/sections/blog/common/post-tags';
-import { Chip } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -234,7 +233,7 @@ function CarouselItem({ article }: CarouselItemProps) {
             color="primary"
             component={RouterLink}
             size='large'
-            href={paths.travel.post}
+            href={paths.post(article.id)}
             sx={{
               background: theme.palette.common.white,
               color: theme.palette.common.black

@@ -23,7 +23,7 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "project": "./tsconfig.json"
+    "project": "./frontend/tsconfig.json"
   },
   "settings": {
     "import/resolver": {
