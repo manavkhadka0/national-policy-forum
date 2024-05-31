@@ -148,7 +148,7 @@ function NavSubList({ subheader, isNew, cover, items }: NavSubListProps) {
         )}
       </ListSubheader>
 
-      {!commonList && (
+      {/* {!commonList && (
         <Link component={RouterLink} href={coverPath}>
           <Image
             disabledEffect
@@ -167,7 +167,7 @@ function NavSubList({ subheader, isNew, cover, items }: NavSubListProps) {
             }}
           />
         </Link>
-      )}
+      )} */}
 
       <Stack spacing={1.5} alignItems="flex-start">
         {items.map((item) => {

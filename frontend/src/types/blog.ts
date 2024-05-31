@@ -12,10 +12,11 @@ export type IBlogPostProps = {
   id: string;
   title: string;
   heroUrl: string;
-  tags?: string[];
+  tags: string[];
   createdAt: Date;
   category: string;
   coverUrl: string;
+  content: string;
   duration: string;
   favorited: boolean;
   description: string;

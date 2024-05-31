@@ -85,7 +85,7 @@ const StyledNavItem = styled(ListItemButton, {
     },
     ...(active && {
       color: theme.palette.primary.main,
-      fontWeight: theme.typography.fontWeightSemiBold,
+      fontWeight: theme.typography.fontWeightBold,
     }),
     ...(opened && {
       opacity: 0.64,

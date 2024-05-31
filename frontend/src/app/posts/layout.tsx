@@ -9,5 +9,5 @@ type Props = {
 };
 
 export default function Layout({ children }: Props) {
-  return <MainLayout headerOnDark>{children}</MainLayout>;
+  return <MainLayout >{children}</MainLayout>;
 }

@@ -12,6 +12,8 @@ import { _tags, _mock, _categories, _travelPosts } from 'src/_mock';
 import Markdown from 'src/components/markdown';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
+import { IBlogPostProps } from 'src/types/blog';
+
 import PostTags from '../../blog/common/post-tags';
 import TravelNewsletter from '../travel-newsletter';
 import PostAuthor from '../../blog/common/post-author';
@@ -22,19 +24,20 @@ import TravelLatestPosts from '../../blog/travel/travel-latest-posts';
 
 // ----------------------------------------------------------------------
 
-export default function TravelPostView() {
-  const { title, description, author, tags, content } = _travelPosts[0];
+export default function TravelPostView({ post }: { post: IBlogPostProps } ) {
+
+  const { title, description, author, tags, content } = post;
 
   return (
     <>
-      <TravelPostHero post={_travelPosts[0]} />
+      <TravelPostHero post={post} />
 
       <Container>
         <CustomBreadcrumbs
           sx={{ my: 3 }}
           links={[
             { name: 'Home', href: '/' },
-            { name: 'Blog', href: paths.travel.posts },
+            { name: 'Blog', href: paths.posts },
             { name: title },
           ]}
         />
