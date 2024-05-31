@@ -11,7 +11,7 @@ import { useResponsive } from 'src/hooks/use-responsive';
 
 import Iconify from 'src/components/iconify';
 
-import { IBlogPostProps } from 'src/types/blog';
+import { IBlogListProps } from 'src/types/blog';
 
 import PostItem from './travel-latest-post-item';
 import PostItemMobile from '../common/post-item-mobile';
@@ -19,7 +19,7 @@ import PostItemMobile from '../common/post-item-mobile';
 // ----------------------------------------------------------------------
 
 type Props = {
-  posts: IBlogPostProps[];
+  posts: IBlogListProps[];
 };
 
 export default function TravelLatestPosts({ posts }: Props) {

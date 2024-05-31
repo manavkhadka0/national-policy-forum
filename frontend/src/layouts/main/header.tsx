@@ -14,7 +14,7 @@ import { useBoolean } from 'src/hooks/use-boolean';
 import { useOffSetTop } from 'src/hooks/use-off-set-top';
 import { useResponsive } from 'src/hooks/use-responsive';
 
-import { _mock, _socials } from 'src/_mock';
+import { _socials } from 'src/_mock';
 
 import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify/iconify';
@@ -22,9 +22,7 @@ import Scrollbar from 'src/components/scrollbar/scrollbar';
 import MegaMenuMobile from 'src/components/mega-menu/mobile/mega-menu-mobile';
 import MegaMenuDesktopHorizontal from 'src/components/mega-menu/horizontal/mega-menu-desktop-horizontal';
 
-import NavMobile from './nav/mobile';
 import { HEADER } from '../config-layout';
-import { navConfig } from './config-navigation';
 import HeaderShadow from '../common/header-shadow';
 
 // ----------------------------------------------------------------------
@@ -52,26 +50,25 @@ export default function Header({ headerOnDark }: Props) {
   }, [pathname]);
 
   const renderHorizontal = (
-<>
-        {mdUp && <MegaMenuDesktopHorizontal data={NAV_ITEMS} />}
+    <>
+      {mdUp && <MegaMenuDesktopHorizontal data={NAV_ITEMS} />}
 
-        <Stack
+      <Stack
         sx={{ display: { xs: 'none', md: 'flex' } }}
         spacing={2}
         direction="row"
         alignItems="center"
         justifyContent="flex-end"
       >
-          <Stack direction="row">
-            {_socials.map((social) => (
-              <IconButton key={social.value} color="inherit">
-                <Iconify icon={social.icon} />
-              </IconButton>
-            ))}
+        <Stack direction="row">
+          {_socials.map((social) => (
+            <IconButton key={social.value} color="inherit">
+              <Iconify icon={social.icon} />
+            </IconButton>
+          ))}
         </Stack>
       </Stack>
-</>     
-
+    </>
   );
 
   const renderMobile = (
@@ -137,9 +134,9 @@ export default function Header({ headerOnDark }: Props) {
             py: 1,
           }}
         >
-           <Box sx={{ lineHeight: 0, position: 'relative' }}>
-        <Logo />
-        </Box>
+          <Box sx={{ lineHeight: 0, position: 'relative' }}>
+            <Logo />
+          </Box>
           {mdUp ? renderHorizontal : renderMobile}
         </Container>
       </Toolbar>
@@ -148,7 +145,6 @@ export default function Header({ headerOnDark }: Props) {
     </AppBar>
   );
 }
-
 
 const NAV_ITEMS = [
   {
@@ -179,17 +175,15 @@ const NAV_ITEMS = [
     children: [
       {
         subheader: 'Organization',
-        items: [
-          {title : 'About Organization', path: '#'},
-        ],
+        items: [{ title: 'About Organization', path: '#' }],
       },
       {
         subheader: 'Our Teams',
         items: [
-          {title : 'Board of Directors', path: '#'},
-          {title : 'Advisory Board', path: '#' },
-          {title : 'Founders', path: '#'},
-          {title : 'Members', path: '#'},
+          { title: 'Board of Directors', path: '#' },
+          { title: 'Advisory Board', path: '#' },
+          { title: 'Founders', path: '#' },
+          { title: 'Members', path: '#' },
         ],
       },
       {

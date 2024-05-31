@@ -35,6 +35,8 @@ export const _mock = {
   time: (index: number) => sub(new Date(), { days: index, hours: index }),
   boolean: (index: number) => _booleans[index],
   role: (index: number) => _roles[index],
+  slug: (index: number) => _postTitles[index].replace(/\s+/g, '-').toLowerCase(),
+  updatedAt : (index: number) => sub(new Date(), { days: index, hours: index }),
   // Text
   courseTitle: (index: number) => _courseTitle[index],
   taskNames: (index: number) => _taskNames[index],

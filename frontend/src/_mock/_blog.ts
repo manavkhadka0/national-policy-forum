@@ -56,11 +56,13 @@ const content = (name: string) => `
 
 const base = (index: number) => ({
   id: _mock.id(index),
+  slug: _mock.slug(index),
   title: _mock.postTitle(index),
   description: _mock.description(index),
   category: 'Marketing',
   favorited: _mock.boolean(index),
   createdAt: _mock.time(index),
+  updatedAt: _mock.time(index),
   duration: '8 minutes read',
   tags: _tags.slice(index + 1, index + 2),
   author: {
@@ -79,7 +81,7 @@ export const _marketingPosts = [...Array(12)].map((_, index) => ({
   ...base(index),
   content: content('marketing'),
   coverUrl: _mock.image.marketing(index),
-  heroUrl: `/assets/images/marketing/marketing_${index+1}.jpg`,
+  heroUrl: `/assets/images/marketing/marketing_${index + 1}.jpg`,
 }));
 
 export const _travelPosts = [...Array(12)].map((_, index) => ({

@@ -15,7 +15,7 @@ import { _socials } from 'src/_mock';
 import Iconify from 'src/components/iconify';
 
 import { IAuthorProps } from 'src/types/author';
-import { IBlogPostProps, IBlogCategoryProps } from 'src/types/blog';
+import { IBlogListProps, IBlogCategoryProps } from 'src/types/blog';
 
 import PostItemMobile from './post-item-mobile';
 import Advertisement, { AdvertisementProps } from '../../advertisement';
@@ -28,7 +28,7 @@ interface Props extends StackProps {
   categories?: IBlogCategoryProps[];
   advertisement?: AdvertisementProps;
   recentPosts?: {
-    list: IBlogPostProps[];
+    list: IBlogListProps[];
   };
 }
 

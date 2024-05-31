@@ -7,7 +7,8 @@ import Typography from '@mui/material/Typography';
 
 import { paths } from 'src/routes/paths';
 
-import { _tags, _mock, _categories, _travelPosts } from 'src/_mock';
+import { useGetPosts } from 'src/api/blog';
+import { _tags, _mock, _categories } from 'src/_mock';
 
 import Markdown from 'src/components/markdown';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
@@ -27,6 +28,8 @@ import TravelLatestPosts from '../../blog/travel/travel-latest-posts';
 export default function TravelPostView({ post }: { post: IBlogPostProps } ) {
 
   const { title, description, author, tags, content } = post;
+
+  const {posts} = useGetPosts();
 
   return (
     <>
@@ -68,7 +71,7 @@ export default function TravelPostView({ post }: { post: IBlogPostProps } ) {
               popularTags={_tags}
               author={author}
               categories={_categories}
-              recentPosts={{ list: _travelPosts.slice(-4) }}
+              recentPosts={{ list: posts.slice(-4) }}
               advertisement={{
                 title: 'Advertisement',
                 description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',
@@ -80,7 +83,7 @@ export default function TravelPostView({ post }: { post: IBlogPostProps } ) {
         </Grid>
       </Container>
 
-      <TravelLatestPosts posts={_travelPosts.slice(0, 4)} />
+      <TravelLatestPosts posts={posts} />
 
       <TravelNewsletter />
     </>

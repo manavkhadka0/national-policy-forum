@@ -5,4 +5,5 @@ export type ISocialLinks = {
   instagram?: string;
   linkedin?: string;
   twitter?: string;
+  whatsapp?: string;
 };

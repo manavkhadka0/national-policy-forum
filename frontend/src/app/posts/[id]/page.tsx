@@ -1,4 +1,6 @@
-import { _marketingPosts, } from 'src/_mock';
+'use-client';
+
+import { useGetPost } from 'src/api/blog';
 
 import TravelPostView from 'src/sections/_travel/view/travel-post-view';
 
@@ -9,8 +11,7 @@ export const metadata = {
 };
 
 export default function TravelPostPage({ params }: { params: { id: string } }) {
+  const { post } = useGetPost(params.id);
 
-  const fetchedPost = _marketingPosts.filter((post) => post.id === params.id)[0];
-
-  return <TravelPostView post={fetchedPost} />;
+  return <TravelPostView post={post} />;
 }

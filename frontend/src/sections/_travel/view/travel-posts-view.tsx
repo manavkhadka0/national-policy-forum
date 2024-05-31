@@ -3,6 +3,7 @@
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 
+import { useGetPosts } from 'src/api/blog';
 import { _tags, _mock, _categories, _travelPosts } from 'src/_mock';
 
 import TravelNewsletter from '../travel-newsletter';
@@ -15,11 +16,12 @@ import TravelTrendingTopics from '../../blog/travel/travel-trending-topics';
 // ----------------------------------------------------------------------
 
 export default function TravelPostsView() {
+  const { posts } = useGetPosts();
   return (
     <>
       <PostSearchMobile />
 
-      <TravelFeaturedPosts posts={_travelPosts.slice(-5)} />
+      <TravelFeaturedPosts posts={posts} />
 
       <TravelTrendingTopics />
 

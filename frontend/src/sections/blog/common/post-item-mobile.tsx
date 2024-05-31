@@ -6,14 +6,14 @@ import { fDate } from 'src/utils/format-time';
 import Image from 'src/components/image';
 import TextMaxLine from 'src/components/text-max-line';
 
-import { IBlogPostProps } from 'src/types/blog';
+import { IBlogListProps } from 'src/types/blog';
 
 import PostTimeBlock from './post-time-block';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  post: IBlogPostProps;
+  post: IBlogListProps;
   onSiderbar?: boolean;
 };
 

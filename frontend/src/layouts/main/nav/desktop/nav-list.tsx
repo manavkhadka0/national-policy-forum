@@ -1,7 +1,6 @@
 import { useEffect, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Fade from '@mui/material/Fade';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
@@ -10,13 +9,11 @@ import Grid from '@mui/material/Unstable_Grid2';
 import ListSubheader from '@mui/material/ListSubheader';
 
 import { usePathname } from 'src/routes/hooks';
-import { RouterLink } from 'src/routes/components';
 import { useActiveLink } from 'src/routes/hooks/use-active-link';
 
 import { useBoolean } from 'src/hooks/use-boolean';
 
 import Label from 'src/components/label';
-import Image from 'src/components/image';
 
 import NavItem from './nav-item';
 import { NavListProps, NavSubListProps } from '../types';

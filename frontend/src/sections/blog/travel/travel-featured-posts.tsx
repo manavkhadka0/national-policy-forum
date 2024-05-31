@@ -1,14 +1,14 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
-import { IBlogPostProps } from 'src/types/blog';
+import { IBlogListProps } from 'src/types/blog';
 
 import PostItem from './travel-featured-post-item';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  posts: IBlogPostProps[];
+  posts: IBlogListProps[];
 };
 
 export default function TravelFeaturedPosts({ posts }: Props) {
