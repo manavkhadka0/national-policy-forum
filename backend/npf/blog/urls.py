@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+#urls
+
 urlpatterns = [
    path('blog/', views.BlogListCreate.as_view(), name='blog_list_create'),
    path('blog/<int:pk>/', views.BlogRetrieveUpdateDestroy.as_view(), name='blog_retrieve_update_destroy'),
