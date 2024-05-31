@@ -9,6 +9,7 @@ class Author(models.Model):
    verified = models.BooleanField(default=False)
    phone_number = models.CharField(max_length=20, null=True, blank=True)
    rating_number = models.FloatField(default=0.0)
+   social_links = models.ForeignKey('SocialLinks', on_delete=models.SET_NULL, null=True, blank=True)
    total_reviews = models.PositiveIntegerField(default=0)
 
    def __str__(self):
