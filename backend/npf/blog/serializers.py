@@ -1,4 +1,4 @@
-from .models import Author, SocialLinks, Category, Tag, Blog, FAQ
+from .models import Author, SocialLinks, Category, Tag, Blog, FAQ,Testimonial
 
 from rest_framework import serializers
 
@@ -31,3 +31,11 @@ class FAQSerializer(serializers.ModelSerializer):
       class Meta:
          model = FAQ
          fields = '__all__'
+
+class TestimonialSerializer(serializers.ModelSerializer):
+      class Meta:
+         model = Testimonial
+         fields = '__all__'
+
+      # sort by created_at
+      ordering = ['-created_at']
