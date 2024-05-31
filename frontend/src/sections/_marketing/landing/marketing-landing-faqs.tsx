@@ -10,7 +10,7 @@ import AccordionSummary, { accordionSummaryClasses } from '@mui/material/Accordi
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
-import { _faqs } from 'src/_mock';
+import { useGetFaqs } from 'src/api/faq';
 
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
@@ -20,6 +20,8 @@ import Iconify from 'src/components/iconify';
 export default function MarketingLandingFaqs() {
   const mdUp = useResponsive('up', 'md');
 
+  const { faqs, faqsError } = useGetFaqs();
+
   const [expanded, setExpanded] = useState<string | false>(false);
 
   const handleChangeExpanded = useCallback(
@@ -28,6 +30,10 @@ export default function MarketingLandingFaqs() {
     },
     []
   );
+
+  if (faqsError) {
+    return null;
+  }
 
   return (
     <Container
@@ -46,11 +52,11 @@ export default function MarketingLandingFaqs() {
             <Typography variant="h2">Frequently Asked Questions</Typography>
           </Stack>
 
-          {_faqs.map((faq) => (
+          {faqs.map((faq) => (
             <Accordion
               key={faq.id}
-              expanded={expanded === faq.question}
-              onChange={handleChangeExpanded(faq.question)}
+              expanded={expanded === faq.id}
+              onChange={handleChangeExpanded(faq.id)}
             >
               <AccordionSummary
                 sx={{

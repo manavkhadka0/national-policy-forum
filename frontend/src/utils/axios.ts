@@ -4,7 +4,12 @@ import { HOST_API } from 'src/config-global';
 
 // ----------------------------------------------------------------------
 
-const axiosInstance = axios.create({ baseURL: HOST_API });
+const axiosInstance = axios.create({
+  baseURL: HOST_API,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
 axiosInstance.interceptors.response.use(
   (res) => res,
@@ -29,5 +34,9 @@ export const endpoints = {
   blog: {
     list: '/api/blogs',
     post: (id: string) => `/api/blogs/${id}`,
+    latest_post: '/api/blogs/latest',
+  },
+  faq: {
+    list: '/api/faqs/',
   },
 };
