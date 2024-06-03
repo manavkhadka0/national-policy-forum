@@ -22,14 +22,19 @@ import PostSidebar from '../../blog/common/post-sidebar';
 import TravelPostHero from '../../blog/travel/travel-post-hero';
 import PostSocialsShare from '../../blog/common/post-socials-share';
 import TravelLatestPosts from '../../blog/travel/travel-latest-posts';
+import { Tags, getTags } from 'src/actions/tag';
 
 // ----------------------------------------------------------------------
 
-export default function TravelPostView({ post }: { post: IBlogPostProps } ) {
+interface TravelPostViewProps {
+  post: IBlogPostProps;
+  tags: Tags[];
+}
+const TravelPostView: React.FC<TravelPostViewProps> = ({ post, tags: popularTags }) => {
 
   const { title, description, author, tags, content } = post;
 
-  const {posts} = useGetPosts();
+  const { posts } = useGetPosts();
 
   return (
     <>
@@ -68,7 +73,7 @@ export default function TravelPostView({ post }: { post: IBlogPostProps } ) {
 
           <Grid xs={12} md={4}>
             <PostSidebar
-              popularTags={_tags}
+              popularTags={popularTags}
               author={author}
               categories={_categories}
               recentPosts={{ list: posts.slice(-4) }}
@@ -89,3 +94,4 @@ export default function TravelPostView({ post }: { post: IBlogPostProps } ) {
     </>
   );
 }
+export default TravelPostView;

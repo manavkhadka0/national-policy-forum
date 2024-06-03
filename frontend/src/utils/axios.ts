@@ -45,4 +45,7 @@ export const endpoints = {
   category: {
     list: '/api/category/',
   },
+  tag: {
+    list: '/api/tag/',
+  },
 };
