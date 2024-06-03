@@ -17,10 +17,21 @@ class CategorySerializer(serializers.ModelSerializer):
          model = Category
          fields = '__all__'
 
+class CategoryNameSerializer(serializers.ModelSerializer):
+      class Meta:
+        model = Category
+        fields = ['name']  # Only include the name field
+
+      def to_representation(self, instance):
+        # Return the name directly
+        return instance.name
+      
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = ['id', 'name']  # Add other fields as necessary  
+
+
 
 class BlogSerializer(serializers.ModelSerializer):
       tags = serializers.SerializerMethodField()

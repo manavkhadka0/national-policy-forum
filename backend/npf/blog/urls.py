@@ -12,6 +12,7 @@ urlpatterns = [
    path('social-links/<int:pk>/', views.SocialLinksRetrieveUpdateDestroy.as_view(), name='social_links_retrieve_update_destroy'),
    path('category/', views.CategoryListCreate.as_view(), name='category_list_create'),
    path('category/<int:pk>/', views.CategoryRetrieveUpdateDestroy.as_view(), name='category_retrieve_update_destroy'),
+   path('category-name/', views.CategoryListView.as_view(), name='category_name_list_create'),
    path('tag/', views.TagListCreate.as_view(), name='tag_list_create'),
    path('tag/<int:pk>/', views.TagRetrieveUpdateDestroy.as_view(), name='tag_retrieve_update_destroy'),
    path('faq/', views.FAQListCreate.as_view(), name='faq_list_create'),
