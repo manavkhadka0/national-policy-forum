@@ -26,7 +26,7 @@ type Props = {
 };
 
 export default function TravelTourItem({ tour }: Props) {
-  const { slug, location, price, priceSale, favorited, duration, ratingNumber, coverUrl } = tour;
+  const { slug, location, price, priceSale, favorited, duration, ratingNumber, cover } = tour;
 
   const [favorite, setFavorite] = useState(favorited);
 
@@ -85,7 +85,7 @@ export default function TravelTourItem({ tour }: Props) {
         />
       </Stack>
 
-      <Image alt={slug} src={coverUrl} ratio="1/1" />
+      <Image alt={slug} src={cover} ratio="1/1" />
 
       <Stack spacing={0.5} sx={{ p: 2.5 }}>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>

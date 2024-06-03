@@ -22,7 +22,7 @@ type Props = {
 };
 
 export default function ReviewTourGuideInfo({ tourGuide }: Props) {
-  const { name, about, quotes, totalReviews, ratingNumber, verified, avatarUrl } = tourGuide;
+  const { name, about, quotes, totalReviews, ratingNumber, verified, avatar } = tourGuide;
 
   return (
     <Paper variant="outlined" sx={{ borderRadius: 2 }}>
@@ -45,7 +45,7 @@ export default function ReviewTourGuideInfo({ tourGuide }: Props) {
             ) : null
           }
         >
-          <Avatar src={avatarUrl} sx={{ width: 96, height: 96 }} />
+          <Avatar src={avatar} sx={{ width: 96, height: 96 }} />
         </Badge>
 
         <Stack spacing={1} sx={{ my: 2 }}>

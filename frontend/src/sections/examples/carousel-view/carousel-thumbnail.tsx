@@ -63,7 +63,7 @@ type Props = {
   data: {
     id: string;
     title: string;
-    coverUrl: string;
+    cover: string;
     description: string;
   }[];
 };
@@ -105,7 +105,7 @@ export default function CarouselThumbnail({ data }: Props) {
         ref={carouselLarge.carouselRef}
       >
         {data.map((item) => (
-          <Image key={item.id} alt={item.title} src={item.coverUrl} ratio="16/9" />
+          <Image key={item.id} alt={item.title} src={item.cover} ratio="16/9" />
         ))}
       </Carousel>
 
@@ -130,7 +130,7 @@ export default function CarouselThumbnail({ data }: Props) {
             <Avatar
               variant="rounded"
               alt={item.title}
-              src={item.coverUrl}
+              src={item.cover}
               sx={{
                 width: THUMB_SIZE,
                 height: THUMB_SIZE,

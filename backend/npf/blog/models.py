@@ -49,7 +49,8 @@ class Blog(models.Model):
    tags = models.ManyToManyField(Tag)
    cover = models.FileField()
    duration = models.CharField(max_length=20)
-   description = models.TextField()
+   description = models.TextField(max_length=100)
+   content= models.TextField()
    author = models.ForeignKey(Author, on_delete=models.CASCADE)
    share_links = models.ForeignKey(SocialLinks, on_delete=models.SET_NULL, null=True, blank=True)
 

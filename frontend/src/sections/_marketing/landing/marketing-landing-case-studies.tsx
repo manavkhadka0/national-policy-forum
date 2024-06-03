@@ -140,7 +140,7 @@ function LargeItem({ caseStudy }: LargeItemProps) {
       }}
     >
       <Box sx={{ p: 0.75 }}>
-        <Image alt="cover" src={caseStudy.coverUrl} ratio="3/4" sx={{ borderRadius: 2 }} />
+        <Image alt="cover" src={caseStudy.cover} ratio="3/4" sx={{ borderRadius: 2 }} />
       </Box>
 
       <Stack alignItems="flex-end" justifyContent="space-between" sx={{ p: 3, pt: 5, height: 1 }}>
@@ -218,7 +218,7 @@ function SmallItem({ caseStudy, square }: SmallItemProps) {
         <m.div variants={varHover(1.25)} transition={varTranHover()}>
           <Image
             alt="cover"
-            src={caseStudy.coverUrl}
+            src={caseStudy.cover}
             ratio={(square && '1/1') || (mdUp && '3/4') || '1/1'}
             overlay={alpha(theme.palette.grey[900], 0.48)}
           />

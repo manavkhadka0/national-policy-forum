@@ -21,7 +21,7 @@ export type IJobByCategoryProps = {
 export type IJobByCountryProps = {
   id: string;
   location: string;
-  coverUrl: string;
+  cover: string;
   totalJobs: number;
 };
 

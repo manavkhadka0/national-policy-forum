@@ -89,7 +89,7 @@ export default function TravelTourDetailsHeader({ tour }: Props) {
         </Stack>
 
         <Stack direction="row" alignItems="center">
-          <Avatar src={tourGuide?.avatarUrl} sx={{ width: 24, height: 24 }} />
+          <Avatar src={tourGuide?.avatar} sx={{ width: 24, height: 24 }} />
 
           <Typography variant="body2" sx={{ color: 'text.secondary', mx: 0.5 }}>
             Tour guide by

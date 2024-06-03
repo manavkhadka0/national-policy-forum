@@ -32,7 +32,7 @@ export default function TravelPostHero({ post }: Props) {
         ...bgGradient({
           startColor: `${alpha(theme.palette.common.black, 0)} 0%`,
           endColor: `${theme.palette.common.black} 75%`,
-          imgUrl: post.heroUrl,
+          imgUrl: post.hero,
         }),
       }}
     >

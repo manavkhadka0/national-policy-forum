@@ -87,7 +87,7 @@ export const _productsCarousel = [...Array(4)].map((_, index) => ({
   id: _mock.id(index),
   title: _mock.productName(index),
   caption: _mock.description(index),
-  coverUrl: _mock.image.product(index),
+  cover: _mock.image.product(index),
   label: 'Opening Sale Discount 50%',
 }));
 
@@ -99,7 +99,7 @@ export const _productsCompare = [
   id: _mock.id(index),
   name,
   price: _mock.number.price(index),
-  coverUrl: _mock.image.product(4),
+  cover: _mock.image.product(4),
   ratingNumber: _mock.number.rating(index),
   details: (index === 0 && [
     'Super Retina XDR (OLED)',
@@ -120,7 +120,7 @@ export const _products = [...Array(24)].map((_, index) => ({
   price: _mock.number.price(index),
   sold: _mock.number.nativeM(index),
   caption: _mock.description(index),
-  coverUrl: _mock.image.product(index),
+  cover: _mock.image.product(index),
   ratingNumber: _mock.number.rating(index),
   totalReviews: _mock.number.nativeL(index),
   label: ['sale', 'new', 'sale', 'sale'][index] || '',

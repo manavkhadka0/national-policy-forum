@@ -34,7 +34,7 @@ import BlogMarketingLatestPosts from '../../blog/marketing/marketing-latest-post
 // ----------------------------------------------------------------------
 
 export default function MarketingPostView() {
-  const { title, description, duration, createdAt, author, favorited, heroUrl, tags, content } =
+  const { title, description, duration, createdAt, author, favorited, hero, tags, content } =
     _marketingPosts[0];
 
   const [favorite, setFavorite] = useState(favorited);
@@ -55,7 +55,7 @@ export default function MarketingPostView() {
 
   return (
     <>
-      <Image alt="hero" src={heroUrl} ratio="21/9" />
+      <Image alt="hero" src={hero} ratio="21/9" />
 
       <Container>
         <CustomBreadcrumbs
@@ -93,7 +93,7 @@ export default function MarketingPostView() {
 
             <Divider />
             <Stack direction="row" justifyContent="space-between" spacing={1.5} sx={{ py: 3 }}>
-              <Avatar src={author.avatarUrl} sx={{ width: 48, height: 48 }} />
+              <Avatar src={author.avatar} sx={{ width: 48, height: 48 }} />
 
               <Stack spacing={0.5} flexGrow={1}>
                 <Typography variant="subtitle2">{author.name}</Typography>

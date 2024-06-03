@@ -22,7 +22,7 @@ export default function EcommerceCompareItem({ product }: Props) {
   return (
     <Stack spacing={3} alignItems="center" sx={{ textAlign: 'center' }}>
       <Image
-        src={product.coverUrl}
+        src={product.cover}
         sx={{
           flexShrink: 0,
           borderRadius: 1.5,

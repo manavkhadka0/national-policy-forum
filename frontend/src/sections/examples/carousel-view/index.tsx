@@ -26,7 +26,7 @@ import CarouselCenterMode from './carousel-center-mode';
 const _carouselsExample = [...Array(20)].map((_, index) => ({
   id: _mock.id(index),
   title: _mock.postTitle(index),
-  coverUrl: _mock.image.cover(index),
+  cover: _mock.image.cover(index),
   description: _mock.description(index),
 }));
 

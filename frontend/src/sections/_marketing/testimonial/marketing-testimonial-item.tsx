@@ -37,7 +37,7 @@ export default function TestimonialItem({ testimonial, ...other }: Props) {
       <Stack sx={{ flexShrink: 0, textAlign: 'center' }}>
         <Avatar
           alt={testimonial.name}
-          src={testimonial.avatarUrl}
+          src={testimonial.avatar}
           sx={{ width: 96, height: 96, mx: 'auto' }}
         />
 

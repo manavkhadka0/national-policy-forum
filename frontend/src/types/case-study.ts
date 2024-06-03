@@ -5,11 +5,11 @@ import { ISocialLinks } from './socials';
 export type ICaseStudyProps = {
   id: string;
   title: string;
-  heroUrl: string;
+  hero: string;
   createdAt: Date;
   website: string;
   category: string;
-  coverUrl: string;
+  cover: string;
   description: string;
   galleryImgs: string[];
   socialLinks?: ISocialLinks;

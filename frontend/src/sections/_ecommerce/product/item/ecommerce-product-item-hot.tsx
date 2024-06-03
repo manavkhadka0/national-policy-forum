@@ -44,7 +44,7 @@ export default function EcommerceProductItemHot({ product, hotProduct = false, s
         }}
       >
         <Image
-          src={product.coverUrl}
+          src={product.cover}
           sx={{
             mb: 2,
             borderRadius: 1.5,

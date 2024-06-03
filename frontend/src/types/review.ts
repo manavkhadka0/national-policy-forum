@@ -3,7 +3,7 @@
 type IReviewUsers = {
   id: string;
   name: string;
-  avatarUrl: string;
+  avatar: string;
 };
 
 type IReviewReplyComment = {
@@ -21,7 +21,7 @@ export type IReviewItemProp = {
   createdAt: Date;
   message: string;
   helpful: number;
-  avatarUrl: string;
+  avatar: string;
   users: IReviewUsers[];
   replyComment: IReviewReplyComment[];
 };

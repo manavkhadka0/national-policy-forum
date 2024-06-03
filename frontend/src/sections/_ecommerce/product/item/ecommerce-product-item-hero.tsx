@@ -22,7 +22,7 @@ type Props = {
 export default function EcommerceProductItemHero({ product }: Props) {
   const theme = useTheme();
 
-  const { label, title, caption, coverUrl } = product;
+  const { label, title, caption, cover } = product;
 
   return (
     <Grid
@@ -70,7 +70,7 @@ export default function EcommerceProductItemHero({ product }: Props) {
 
       <Grid xs={12} md={6}>
         <Image
-          src={coverUrl}
+          src={cover}
           sx={{
             filter: `drop-shadow(20px 20px 24px ${alpha(theme.palette.common.black, 0.16)})`,
             maxWidth: 400,

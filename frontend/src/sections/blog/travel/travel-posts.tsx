@@ -1,6 +1,8 @@
 import Box from '@mui/material/Box';
 import Pagination, { paginationClasses } from '@mui/material/Pagination';
 
+import EmptyView from 'src/sections/error/empty-view';
+
 import { IBlogPostProps } from 'src/types/blog';
 
 import PostItem from './travel-post-item';
@@ -12,6 +14,10 @@ type Props = {
 };
 
 export default function TravelPosts({ posts }: Props) {
+  if (posts?.length === 0) {
+    return <EmptyView />;
+  }
+
   return (
     <>
       <Box

@@ -55,7 +55,7 @@ export function TestimonialItemThumbnail({ testimonial, selected }: TestimonialI
       }}
     >
       <Avatar
-        src={testimonial.avatarUrl}
+        src={testimonial.avatar}
         sx={{
           width: 48,
           height: 48,

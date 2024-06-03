@@ -17,7 +17,7 @@ type Props = {
   data: {
     id: string;
     title: string;
-    coverUrl: string;
+    cover: string;
     description: string;
   }[];
 };
@@ -74,14 +74,14 @@ type CarouselItemProps = {
   item: {
     title: string;
     description: string;
-    coverUrl: string;
+    cover: string;
   };
 };
 
 function CarouselItem({ item }: CarouselItemProps) {
   const theme = useTheme();
 
-  const { coverUrl, title } = item;
+  const { cover, title } = item;
 
   return (
     <Paper
@@ -91,7 +91,7 @@ function CarouselItem({ item }: CarouselItemProps) {
         position: 'relative',
       }}
     >
-      <Image alt={title} src={coverUrl} ratio="3/4" />
+      <Image alt={title} src={cover} ratio="3/4" />
 
       <CardContent
         sx={{

@@ -14,7 +14,7 @@ export type SlotProps = {
 export type NavProducts = {
   name: string;
   path: string;
-  coverUrl: string;
+  cover: string;
 };
 
 export type NavLink = {

@@ -35,7 +35,7 @@ export default function TravelOrderCompletedView() {
         gridTemplateColumns: { md: 'repeat(2, 1fr)' },
       }}
     >
-      {mdUp && <Image alt="cover" src={_mockTour.coverUrl} ratio="3/4" sx={{ borderRadius: 2 }} />}
+      {mdUp && <Image alt="cover" src={_mockTour.cover} ratio="3/4" sx={{ borderRadius: 2 }} />}
 
       <Stack spacing={5}>
         <Typography variant="h2">Completed 🎉</Typography>

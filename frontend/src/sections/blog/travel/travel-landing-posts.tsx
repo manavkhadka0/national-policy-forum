@@ -35,6 +35,10 @@ export default function TravelLandingPosts({ posts }: Props) {
     }),
   });
 
+  if (!posts?.length) {
+    return null;
+  }
+
   return (
     <Box sx={{ bgcolor: 'grey.900' }}>
       {!mdUp && (

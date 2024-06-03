@@ -18,7 +18,7 @@ export default function ReviewList({ reviews }: Props) {
         <ReviewItem
           key={review.id}
           name={review.name}
-          avatarUrl={review.avatarUrl}
+          avatar={review.avatar}
           createdAt={review.createdAt}
           message={review.message}
           rating={review.rating}

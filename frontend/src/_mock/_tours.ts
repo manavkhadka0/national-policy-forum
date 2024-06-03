@@ -30,7 +30,7 @@ export const _tours = [...Array(12)].map((_, index) => {
 
   const highlights = [...Array(6)].map((__, itemIndex) => _mock.sentence(itemIndex));
 
-  const heroUrl = [
+  const hero = [
     '/assets/images/travel/travel_post_hero.jpg',
     '/assets/images/travel/travel_post_01.jpg',
     '/assets/images/travel/travel_post_02.jpg',
@@ -56,7 +56,7 @@ export const _tours = [...Array(12)].map((_, index) => {
     verified: true,
     role: _mock.role(index),
     name: _mock.fullName(index),
-    avatarUrl: _mock.image.avatar(index),
+    avatar: _mock.image.avatar(index),
     quotes: 'Member since Mar 15, 2021',
     phoneNumber: _mock.phoneNumber(index),
     ratingNumber: _mock.number.rating(index),
@@ -73,7 +73,7 @@ export const _tours = [...Array(12)].map((_, index) => {
 
   return {
     id: _mock.id(index),
-    heroUrl,
+    hero,
     gallery,
     program,
     location,
@@ -88,7 +88,7 @@ export const _tours = [...Array(12)].map((_, index) => {
     favorited: _mock.boolean(index),
     price: _mock.number.price(index),
     languages: ['Russian', 'Spanish'],
-    coverUrl: _mock.image.travel(index),
+    cover: _mock.image.travel(index),
     description: _mock.description(index),
     ratingNumber: _mock.number.rating(index),
     totalReviews: _mock.number.nativeL(index),

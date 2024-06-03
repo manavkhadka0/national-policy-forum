@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 
 import { fetcher, endpoints } from 'src/utils/axios';
 
-import { IBlogListProps, IBlogPostProps } from 'src/types/blog';
+import { IBlogPostProps } from 'src/types/blog';
 
 // ----------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ export function useGetPosts() {
 
   const memoizedValue = useMemo(
     () => ({
-      posts: (data?.posts as IBlogListProps[]) || [],
+      posts: (data?.posts as IBlogPostProps[]) || [],
       postsLoading: isLoading,
       postsError: error,
       postsValidating: isValidating,

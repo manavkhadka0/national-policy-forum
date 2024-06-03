@@ -31,7 +31,7 @@ export default function ReviewItem({
   tagUser,
   createdAt,
   hasReply,
-  avatarUrl,
+  avatar,
   helpful = 0,
 }: Props) {
   const replyOpen = useBoolean();
@@ -49,11 +49,7 @@ export default function ReviewItem({
           }),
         }}
       >
-        <Avatar
-          alt={name}
-          src={avatarUrl}
-          sx={{ width: AVATAR_SIZE, height: AVATAR_SIZE, mr: 2.5 }}
-        />
+        <Avatar alt={name} src={avatar} sx={{ width: AVATAR_SIZE, height: AVATAR_SIZE, mr: 2.5 }} />
 
         <Stack sx={{ width: 1 }}>
           <Stack

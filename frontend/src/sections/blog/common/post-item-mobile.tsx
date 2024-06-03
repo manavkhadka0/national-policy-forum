@@ -6,14 +6,14 @@ import { fDate } from 'src/utils/format-time';
 import Image from 'src/components/image';
 import TextMaxLine from 'src/components/text-max-line';
 
-import { IBlogListProps } from 'src/types/blog';
+import { IBlogPostProps } from 'src/types/blog';
 
 import PostTimeBlock from './post-time-block';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  post: IBlogListProps;
+  post: IBlogPostProps;
   onSiderbar?: boolean;
 };
 
@@ -27,7 +27,7 @@ export default function PostItemMobile({ post, onSiderbar }: Props) {
     >
       <Image
         alt={post.title}
-        src={post.coverUrl}
+        src={post.cover}
         sx={{
           width: 80,
           height: 80,

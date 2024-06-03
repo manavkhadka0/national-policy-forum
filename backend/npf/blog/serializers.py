@@ -18,14 +18,25 @@ class CategorySerializer(serializers.ModelSerializer):
          fields = '__all__'
 
 class TagSerializer(serializers.ModelSerializer):
-      class Meta:
-         model = Tag
-         fields = '__all__'   
+    class Meta:
+        model = Tag
+        fields = ['id', 'name']  # Add other fields as necessary  
 
 class BlogSerializer(serializers.ModelSerializer):
+      tags = serializers.SerializerMethodField()
+      category = serializers.CharField(source='category.name', read_only=True)
+      author = AuthorSerializer()
+      
       class Meta:
-         model = Blog
-         fields = '__all__'
+        model = Blog
+        fields = [
+            'id', 'slug', 'title', 'hero', 'created_at', 'updated_at',
+            'cover', 'duration', 'description', 'content', 'category',
+            'author', 'share_links', 'tags'
+        ]
+      
+      def get_tags(self, obj):
+        return obj.tags.values_list('name', flat=True)
 
 class FAQSerializer(serializers.ModelSerializer):
       class Meta:

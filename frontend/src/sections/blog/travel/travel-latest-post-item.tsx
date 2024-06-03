@@ -11,20 +11,20 @@ import { fDate } from 'src/utils/format-time';
 import Image from 'src/components/image';
 import TextMaxLine from 'src/components/text-max-line';
 
-import { IBlogListProps } from 'src/types/blog';
+import { IBlogPostProps } from 'src/types/blog';
 
 import PostTimeBlock from '../common/post-time-block';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  post: IBlogListProps;
+  post: IBlogPostProps;
 };
 
 export default function TravelLatestPostItem({ post }: Props) {
   return (
     <Stack spacing={2.5}>
-      <Image src={post.coverUrl} alt={post.title} ratio="1/1" sx={{ borderRadius: 2 }} />
+      <Image src={post.cover} alt={post.title} ratio="1/1" sx={{ borderRadius: 2 }} />
 
       <Stack spacing={1}>
         <PostTimeBlock createdAt={fDate(post.createdAt)} duration={post.duration} />
@@ -37,7 +37,7 @@ export default function TravelLatestPostItem({ post }: Props) {
       </Stack>
 
       <Stack spacing={1} direction="row" alignItems="center">
-        <Avatar src={post.author.avatarUrl} sx={{ width: 32, height: 32 }} />
+        <Avatar src={post.author.avatar} sx={{ width: 32, height: 32 }} />
         <Typography variant="body2">{post.author.name}</Typography>
       </Stack>
     </Stack>

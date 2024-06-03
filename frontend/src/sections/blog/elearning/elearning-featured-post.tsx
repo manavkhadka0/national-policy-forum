@@ -33,7 +33,7 @@ export default function ElearningFeaturedPost({ post }: Props) {
       <Container>
         <Stack direction={{ xs: 'column', md: 'row' }}>
           <Image
-            src={post.coverUrl}
+            src={post.cover}
             alt={post.title}
             sx={{ flexGrow: 1, height: 560, borderRadius: 2 }}
           />
@@ -58,7 +58,7 @@ export default function ElearningFeaturedPost({ post }: Props) {
             </Typography>
 
             <Stack direction="row" alignItems="center" sx={{ pt: 1.5, typography: 'body2' }}>
-              <Avatar src={post.author.avatarUrl} sx={{ mr: 1 }} />
+              <Avatar src={post.author.avatar} sx={{ mr: 1 }} />
               {post.author.name}
             </Stack>
           </Stack>

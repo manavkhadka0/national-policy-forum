@@ -10,17 +10,19 @@ import AccordionSummary, { accordionSummaryClasses } from '@mui/material/Accordi
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
-import { useGetFaqs } from 'src/api/faq';
-
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 
-export default function MarketingLandingFaqs() {
-  const mdUp = useResponsive('up', 'md');
+export type Faq = {
+  id: string;
+  question: string;
+  answer: string;
+};
 
-  const { faqs, faqsError } = useGetFaqs();
+export default function MarketingLandingFaqs({ faqs }: { faqs: Faq[] }) {
+  const mdUp = useResponsive('up', 'md');
 
   const [expanded, setExpanded] = useState<string | false>(false);
 
@@ -31,9 +33,7 @@ export default function MarketingLandingFaqs() {
     []
   );
 
-  if (faqsError) {
-    return null;
-  }
+  if (!faqs.length) return null;
 
   return (
     <Container

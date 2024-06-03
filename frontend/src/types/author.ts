@@ -7,10 +7,10 @@ export type IAuthorProps = {
   role: string;
   about: string;
   quotes: string;
-  avatarUrl: string;
+  avatar: string;
   verified?: boolean;
-  phoneNumber?: string;
-  ratingNumber?: number;
-  totalReviews?: number;
-  socialLinks?: ISocialLinks;
+  phone_number?: string;
+  rating_number?: number;
+  total_reviews?: number;
+  social_links?: ISocialLinks;
 };

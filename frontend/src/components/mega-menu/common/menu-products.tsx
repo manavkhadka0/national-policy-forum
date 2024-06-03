@@ -61,8 +61,8 @@ export default function MenuProducts({ products, displayProduct = 8, sx }: Props
               }}
             >
               <Image
-                alt={product.coverUrl}
-                src={product.coverUrl}
+                alt={product.cover}
+                src={product.cover}
                 ratio="1/1"
                 disabledEffect
                 sx={{ borderRadius: 1, mb: 1 }}

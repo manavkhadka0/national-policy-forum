@@ -34,9 +34,7 @@ export default function CareerPostItem({ post, index }: Props) {
         position: 'relative',
       }}
     >
-      {!noImage && (
-        <Image src={post.coverUrl} alt={post.title} ratio={smallImage ? '4/3' : '1/1'} />
-      )}
+      {!noImage && <Image src={post.cover} alt={post.title} ratio={smallImage ? '4/3' : '1/1'} />}
 
       <Stack
         spacing={1}
@@ -93,7 +91,7 @@ export default function CareerPostItem({ post, index }: Props) {
             }),
           }}
         >
-          <Avatar src={post.author?.avatarUrl} sx={{ mr: 1 }} />
+          <Avatar src={post.author?.avatar} sx={{ mr: 1 }} />
           {post.author?.name}
         </Stack>
       </Stack>

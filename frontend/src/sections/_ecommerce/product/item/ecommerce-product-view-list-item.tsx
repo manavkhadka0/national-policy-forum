@@ -68,7 +68,7 @@ export default function EcommerceProductViewListItem({ product, ...other }: Prop
       </Fab>
 
       <Image
-        src={product.coverUrl}
+        src={product.cover}
         sx={{
           mr: 2,
           width: 160,

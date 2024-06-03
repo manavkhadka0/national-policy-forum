@@ -1,6 +1,7 @@
 'use client';
 
 import {
+  _faqs,
   _brands,
   _members,
   _caseStudies,
@@ -44,7 +45,7 @@ export default function MarketingLandingView() {
 
       <PricingMarketing plans={_pricingMarketing} />
 
-      <MarketingLandingFaqs />
+      <MarketingLandingFaqs faqs={_faqs} />
 
       <MarketingTestimonial testimonials={_testimonials} />
 

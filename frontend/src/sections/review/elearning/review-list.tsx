@@ -15,7 +15,7 @@ export default function Reviews({ reviews }: Props) {
   return (
     <>
       {reviews.map((review) => {
-        const { id, name, rating, helpful, message, createdAt, avatarUrl, replyComment, users } =
+        const { id, name, rating, helpful, message, createdAt, avatar, replyComment, users } =
           review;
 
         const hasReply = !!replyComment.length;
@@ -24,7 +24,7 @@ export default function Reviews({ reviews }: Props) {
           <Box key={id}>
             <ReviewItem
               name={name}
-              avatarUrl={avatarUrl}
+              avatar={avatar}
               createdAt={createdAt}
               message={message}
               rating={rating}
@@ -41,7 +41,7 @@ export default function Reviews({ reviews }: Props) {
                     createdAt={reply.createdAt}
                     message={reply.message}
                     name={userReply.name}
-                    avatarUrl={userReply.avatarUrl}
+                    avatar={userReply.avatar}
                     hasReply
                   />
                 );

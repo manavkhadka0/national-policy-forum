@@ -3,8 +3,10 @@
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 
-import { useGetPosts } from 'src/api/blog';
-import { _tags, _mock, _categories, _travelPosts } from 'src/_mock';
+import { Category } from 'src/actions/faq';
+import { _tags, _mock, _categories } from 'src/_mock';
+
+import { IBlogPostProps } from 'src/types/blog';
 
 import TravelNewsletter from '../travel-newsletter';
 import PostSidebar from '../../blog/common/post-sidebar';
@@ -15,15 +17,18 @@ import TravelTrendingTopics from '../../blog/travel/travel-trending-topics';
 
 // ----------------------------------------------------------------------
 
-export default function TravelPostsView() {
-  const { posts } = useGetPosts();
+type TravelPostsViewProps = {
+  posts: IBlogPostProps[];
+  categories: Category[];
+};
+export default function TravelPostsView({ posts, categories }: TravelPostsViewProps) {
   return (
     <>
       <PostSearchMobile />
 
       <TravelFeaturedPosts posts={posts} />
 
-      <TravelTrendingTopics />
+      <TravelTrendingTopics categories={categories} />
 
       <Container
         sx={{
@@ -32,14 +37,14 @@ export default function TravelPostsView() {
       >
         <Grid container spacing={{ md: 8 }}>
           <Grid xs={12} md={8}>
-            <TravelPosts posts={_travelPosts} />
+            <TravelPosts posts={posts} />
           </Grid>
 
           <Grid xs={12} md={4}>
             <PostSidebar
               popularTags={_tags}
               categories={_categories}
-              recentPosts={{ list: _travelPosts.slice(-4) }}
+              recentPosts={{ list: posts }}
               advertisement={{
                 title: 'Advertisement',
                 description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',

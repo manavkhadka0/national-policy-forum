@@ -14,7 +14,7 @@ import { IReviewItemProp } from 'src/types/review';
 
 type Props = Partial<IReviewItemProp>;
 
-export default function ReviewItem({ name, rating, message, createdAt, avatarUrl }: Props) {
+export default function ReviewItem({ name, rating, message, createdAt, avatar }: Props) {
   return (
     <Stack
       direction="row"
@@ -23,7 +23,7 @@ export default function ReviewItem({ name, rating, message, createdAt, avatarUrl
         borderBottom: (theme) => `solid 1px ${theme.palette.divider}`,
       }}
     >
-      <Avatar alt={name} src={avatarUrl} sx={{ width: 64, height: 64, mr: 2.5 }} />
+      <Avatar alt={name} src={avatar} sx={{ width: 64, height: 64, mr: 2.5 }} />
 
       <Stack spacing={1}>
         <Rating

@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
-import { _mock } from 'src/_mock';
+import { Category } from 'src/actions/faq';
 
 import Carousel, { useCarousel, CarouselArrows } from 'src/components/carousel';
 
@@ -14,27 +14,13 @@ import TopicItem from './travel-trending-topic-item';
 
 // ----------------------------------------------------------------------
 
-const CATEGORIES = [
-  'Marketing',
-  'Community',
-  'Tutorials',
-  'Business',
-  'Management',
-  'Sports',
-  'Travel',
-  'Design',
-];
-
-export const TOPICS = [...Array(8)].map((_, index) => ({
-  id: _mock.id(index),
-  cover: _mock.image.travel(index + 4),
-  totalPost: index + 10,
-  category: CATEGORIES[index],
-}));
+type TravelTrendingTopicsProps = {
+  categories: Category[];
+};
 
 // ----------------------------------------------------------------------
 
-export default function TravelTrendingTopics() {
+export default function TravelTrendingTopics({ categories }: TravelTrendingTopicsProps) {
   const theme = useTheme();
 
   const mdUp = useResponsive('up', 'md');
@@ -74,7 +60,7 @@ export default function TravelTrendingTopics() {
         </Stack>
 
         <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
-          {TOPICS.map((topic) => (
+          {categories.map((topic) => (
             <TopicItem key={topic.id} topic={topic} />
           ))}
         </Carousel>

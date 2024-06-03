@@ -8,26 +8,13 @@ export type IBlogCategoryProps = {
   path: string;
 };
 
-export type IBlogPostProps = {
-  id: string;
-  slug: string;
-  title: string;
-  heroUrl: string;
-  tags: string[];
-  createdAt: Date;
-  updatedAt: Date;
-  category: string;
-  coverUrl: string;
+export interface IBlogPostProps extends IBlogListProps {
+  hero: string;
   content: string;
-  duration: string;
-  description: string;
-  author: IAuthorProps;
-  shareLinks?: ISocialLinks;
-};
+  share_links?: ISocialLinks;
+}
 
-
-
-export type IBlogListProps = {
+export interface IBlogListProps {
   id: string;
   slug: string;
   category: string;
@@ -35,8 +22,8 @@ export type IBlogListProps = {
   description: string;
   duration: string;
   tags: string[];
-  createdAt: Date;
+  created_at: Date;
   author: IAuthorProps;
-  updatedAt: Date;
-  coverUrl: string;
+  updated_at: Date;
+  cover: string;
 }

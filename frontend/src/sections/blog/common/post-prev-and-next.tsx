@@ -22,7 +22,7 @@ export default function PostPrevAndNext({ prevPost, nextPost }: Props) {
       <Grid xs={12} md={6}>
         <PostItem
           title={prevPost?.title}
-          coverUrl={prevPost?.coverUrl}
+          cover={prevPost?.cover}
           icon={<Iconify icon="carbon:chevron-left" width={24} sx={{ color: 'text.disabled' }} />}
         />
       </Grid>
@@ -31,7 +31,7 @@ export default function PostPrevAndNext({ prevPost, nextPost }: Props) {
         <PostItem
           isNext
           title={nextPost?.title}
-          coverUrl={nextPost?.coverUrl}
+          cover={nextPost?.cover}
           icon={<Iconify width={24} icon="carbon:chevron-right" sx={{ color: 'text.disabled' }} />}
         />
       </Grid>
@@ -42,13 +42,13 @@ export default function PostPrevAndNext({ prevPost, nextPost }: Props) {
 // ----------------------------------------------------------------------
 
 type PostItemProps = {
-  coverUrl?: string;
+  cover?: string;
   title?: string;
   icon?: JSX.Element;
   isNext?: boolean;
 };
 
-function PostItem({ coverUrl, title, icon, isNext }: PostItemProps) {
+function PostItem({ cover, title, icon, isNext }: PostItemProps) {
   return (
     <CardActionArea sx={{ borderRadius: 2 }}>
       <Link color="inherit" underline="none">
@@ -66,7 +66,7 @@ function PostItem({ coverUrl, title, icon, isNext }: PostItemProps) {
         >
           {icon}
 
-          <Avatar src={coverUrl} sx={{ width: 64, height: 64 }} />
+          <Avatar src={cover} sx={{ width: 64, height: 64 }} />
 
           <Stack
             spacing={0.5}

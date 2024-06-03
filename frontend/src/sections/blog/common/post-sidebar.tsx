@@ -15,7 +15,7 @@ import { _socials } from 'src/_mock';
 import Iconify from 'src/components/iconify';
 
 import { IAuthorProps } from 'src/types/author';
-import { IBlogListProps, IBlogCategoryProps } from 'src/types/blog';
+import { IBlogPostProps, IBlogCategoryProps } from 'src/types/blog';
 
 import PostItemMobile from './post-item-mobile';
 import Advertisement, { AdvertisementProps } from '../../advertisement';
@@ -28,7 +28,7 @@ interface Props extends StackProps {
   categories?: IBlogCategoryProps[];
   advertisement?: AdvertisementProps;
   recentPosts?: {
-    list: IBlogListProps[];
+    list: IBlogPostProps[];
   };
 }
 
@@ -45,7 +45,7 @@ export default function PostSidebar({
 
   const renderAuthor = author && (
     <Stack spacing={2} direction="row" sx={{ mb: { md: 5 } }}>
-      <Avatar src={author.avatarUrl} sx={{ width: 64, height: 64 }} />
+      <Avatar src={author.avatar} sx={{ width: 64, height: 64 }} />
 
       <Stack>
         <Typography variant="h5">{author.name}</Typography>
@@ -136,7 +136,7 @@ export default function PostSidebar({
         spacing={5}
         sx={{
           pt: { md: 5 },
-          pb: { xs: 8, md: 0 },
+          pb: { xs: 8, md: 8 },
           ...sx,
         }}
         {...other}

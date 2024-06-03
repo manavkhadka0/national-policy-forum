@@ -30,7 +30,7 @@ export default function EcommerceProductItemTop({ product, variant = 'small', sx
 
   const isLarge = mdUp && variant === 'large';
 
-  const coverUrl = <Image src={product.coverUrl} />;
+  const cover = <Image src={product.cover} />;
 
   const nameText = (
     <TextMaxLine variant="h5" line={1}>
@@ -56,7 +56,7 @@ export default function EcommerceProductItemTop({ product, variant = 'small', sx
 
   const renderLargeItem = (
     <Stack spacing={5}>
-      {coverUrl}
+      {cover}
 
       <Stack spacing={5} direction="row" alignItems="center">
         <Stack spacing={1} flexGrow={1}>
@@ -81,7 +81,7 @@ export default function EcommerceProductItemTop({ product, variant = 'small', sx
           order: { sm: 2 },
         }}
       >
-        {coverUrl}
+        {cover}
       </Box>
 
       <Stack spacing={1}>

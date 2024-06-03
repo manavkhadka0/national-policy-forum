@@ -7,7 +7,7 @@ export type ICourseTeacherProp = {
   id: string;
   name: string;
   role: string;
-  avatarUrl: string;
+  avatar: string;
   ratingNumber: number;
   totalCourses: number;
   totalReviews: number;
@@ -35,7 +35,7 @@ export type ICourseProps = {
   price: number;
   level: string;
   createdAt: Date;
-  coverUrl: string;
+  cover: string;
   category: string;
   skills: string[];
   priceSale: number;

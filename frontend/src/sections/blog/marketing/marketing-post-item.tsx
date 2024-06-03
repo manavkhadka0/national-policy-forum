@@ -37,7 +37,7 @@ export default function MarketingPostItem({ post }: Props) {
     >
       <m.div variants={varHover(1.25)} transition={varTranHover()}>
         <Image
-          src={post.coverUrl}
+          src={post.cover}
           alt={post.title}
           ratio="3/4"
           overlay={`linear-gradient(to top, ${alpha(theme.palette.common.black, 0)} 0%, ${
@@ -69,7 +69,7 @@ export default function MarketingPostItem({ post }: Props) {
         </Stack>
 
         <Stack direction="row" alignItems="center" sx={{ typography: 'body2' }}>
-          <Avatar src={post.author.avatarUrl} sx={{ mr: 1 }} />
+          <Avatar src={post.author.avatar} sx={{ mr: 1 }} />
           {post.author.name}
         </Stack>
       </Stack>

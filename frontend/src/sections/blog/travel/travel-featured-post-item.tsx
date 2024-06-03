@@ -12,14 +12,14 @@ import { fDate } from 'src/utils/format-time';
 import Image from 'src/components/image';
 import TextMaxLine from 'src/components/text-max-line';
 
-import { IBlogListProps } from 'src/types/blog';
+import { IBlogPostProps } from 'src/types/blog';
 
 import PostTimeBlock from '../common/post-time-block';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  post: IBlogListProps;
+  post: IBlogPostProps;
   largePost?: boolean;
 };
 
@@ -29,7 +29,7 @@ export default function TravelFeaturedPostItem({ post, largePost }: Props) {
   return (
     <Box sx={{ borderRadius: 2, overflow: 'hidden', position: 'relative' }}>
       <Image
-        src={post.coverUrl}
+        src={post.cover}
         alt={post.title}
         ratio="1/1"
         overlay={`linear-gradient(to bottom, ${alpha(theme.palette.common.black, 0)} 0%, ${
@@ -73,7 +73,7 @@ export default function TravelFeaturedPostItem({ post, largePost }: Props) {
 
         <Stack direction="row" alignItems="center" sx={{ typography: 'body2', pt: 1.5 }}>
           <Avatar
-            src={post.author.avatarUrl}
+            src={post.author.avatar}
             sx={{
               mr: 1,
               width: 32,

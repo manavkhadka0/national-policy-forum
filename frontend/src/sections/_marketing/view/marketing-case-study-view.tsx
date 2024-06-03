@@ -32,7 +32,7 @@ export default function MarketingCaseStudyView() {
           pb: { xs: 10, md: 15 },
         }}
       >
-        <Image alt="hero" src={_mockCaseStudy.heroUrl} ratio="16/9" sx={{ borderRadius: 2 }} />
+        <Image alt="hero" src={_mockCaseStudy.hero} ratio="16/9" sx={{ borderRadius: 2 }} />
 
         <CustomBreadcrumbs
           sx={{ my: 5 }}

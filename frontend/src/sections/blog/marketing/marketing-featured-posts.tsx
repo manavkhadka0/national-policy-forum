@@ -78,7 +78,7 @@ export default function MarketingFeaturedPosts({ posts }: Props) {
             <Image
               key={post.id}
               alt="post cover"
-              src={post.coverUrl}
+              src={post.cover}
               overlay={`linear-gradient(to bottom, ${alpha(theme.palette.common.black, 0)} 0%, ${
                 theme.palette.common.black
               } 75%)`}

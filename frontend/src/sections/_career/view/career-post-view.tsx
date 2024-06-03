@@ -73,7 +73,7 @@ export default function CareerPostView() {
             </Typography>
 
             <Stack direction="row" justifyContent="space-between" spacing={1.5} sx={{ my: 5 }}>
-              <Avatar src={author.avatarUrl} sx={{ width: 48, height: 48 }} />
+              <Avatar src={author.avatar} sx={{ width: 48, height: 48 }} />
 
               <Stack spacing={0.5} flexGrow={1}>
                 <Typography variant="subtitle2">{author.name}</Typography>

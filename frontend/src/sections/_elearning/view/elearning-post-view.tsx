@@ -42,7 +42,7 @@ export default function ElearningPostView() {
 
   const mdUp = useResponsive('up', 'md');
 
-  const { title, description, duration, createdAt, author, favorited, heroUrl, tags, content } =
+  const { title, description, duration, createdAt, author, favorited, hero, tags, content } =
     _coursePosts[0];
 
   const [favorite, setFavorite] = useState(favorited);
@@ -92,7 +92,7 @@ export default function ElearningPostView() {
 
           <Image
             alt="hero"
-            src={heroUrl}
+            src={hero}
             ratio={mdUp ? '21/9' : '16/9'}
             overlay={`linear-gradient(to bottom, ${alpha(theme.palette.common.black, 0)} 0%, ${
               theme.palette.common.black
@@ -124,7 +124,7 @@ export default function ElearningPostView() {
             <Divider />
 
             <Stack direction="row" justifyContent="space-between" spacing={1.5} sx={{ py: 3 }}>
-              <Avatar src={author.avatarUrl} sx={{ width: 48, height: 48 }} />
+              <Avatar src={author.avatar} sx={{ width: 48, height: 48 }} />
 
               <Stack spacing={0.5} flexGrow={1}>
                 <Typography variant="subtitle2">{author.name}</Typography>

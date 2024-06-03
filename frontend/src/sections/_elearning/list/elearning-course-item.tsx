@@ -31,7 +31,7 @@ export default function ElearningCourseItem({ course, vertical }: Props) {
     level,
     price,
     teachers,
-    coverUrl,
+    cover,
     category,
     priceSale,
     bestSeller,
@@ -57,7 +57,7 @@ export default function ElearningCourseItem({ course, vertical }: Props) {
       <Box sx={{ flexShrink: { sm: 0 } }}>
         <Image
           alt={slug}
-          src={coverUrl}
+          src={cover}
           sx={{
             height: 1,
             objectFit: 'cover',
@@ -163,7 +163,7 @@ export default function ElearningCourseItem({ course, vertical }: Props) {
         </Stack>
 
         <Stack direction="row" alignItems="center">
-          <Avatar src={teachers[0]?.avatarUrl} />
+          <Avatar src={teachers[0]?.avatar} />
 
           <Typography variant="body2" sx={{ ml: 1, mr: 0.5 }}>
             {teachers[0]?.name}

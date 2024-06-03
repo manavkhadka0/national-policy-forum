@@ -38,7 +38,7 @@ export default function ElearningCourseDetailsHero({ course }: Props) {
     level,
     lessons,
     category,
-    coverUrl,
+    cover,
     languages,
     bestSeller,
     totalHours,
@@ -101,7 +101,7 @@ export default function ElearningCourseDetailsHero({ course }: Props) {
 
                 <Image
                   alt="hero"
-                  src={coverUrl}
+                  src={cover}
                   ratio={mdUp ? '3/4' : '4/3'}
                   overlay={`linear-gradient(to bottom, ${alpha(
                     theme.palette.common.black,
@@ -159,7 +159,7 @@ export default function ElearningCourseDetailsHero({ course }: Props) {
                 </Stack>
 
                 <Stack direction="row" alignItems="center">
-                  <Avatar src={teachers[0]?.avatarUrl} />
+                  <Avatar src={teachers[0]?.avatar} />
 
                   <Typography variant="body2" sx={{ ml: 1, mr: 0.5 }}>
                     {teachers[0]?.name}

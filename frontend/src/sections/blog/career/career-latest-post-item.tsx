@@ -38,7 +38,7 @@ export default function CareerLatestPostItem({ post, order, largePost }: Props) 
       }}
     >
       <Image
-        src={post.coverUrl}
+        src={post.cover}
         alt={post.title}
         ratio={(largePost && '3/4') || (order && '4/3') || '1/1'}
         overlay={

@@ -30,7 +30,7 @@ export default function EcommerceCartItem({ product, wishlist }: Props) {
     >
       <Stack direction="row" alignItems="center" flexGrow={1}>
         <Image
-          src={product.coverUrl}
+          src={product.cover}
           sx={{
             width: 80,
             height: 80,

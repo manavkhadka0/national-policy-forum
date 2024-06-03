@@ -24,7 +24,7 @@ type Props = {
 export default function ElearningPostItem({ post }: Props) {
   return (
     <Paper variant="outlined" sx={{ borderRadius: 2, overflow: 'hidden' }}>
-      <Image src={post.coverUrl} alt={post.title} ratio="1/1" />
+      <Image src={post.cover} alt={post.title} ratio="1/1" />
 
       <Stack direction="row" spacing={3} sx={{ p: 3 }}>
         <Stack sx={{ textAlign: 'center' }}>
@@ -47,7 +47,7 @@ export default function ElearningPostItem({ post }: Props) {
           </TextMaxLine>
 
           <Stack spacing={1.5} direction="row" alignItems="center" sx={{ pt: 1.5 }}>
-            <Avatar src={post.author.avatarUrl} sx={{ width: 40, height: 40 }} />
+            <Avatar src={post.author.avatar} sx={{ width: 40, height: 40 }} />
             <Stack>
               <Typography variant="body2">{post.author.name}</Typography>
               <Typography variant="caption" sx={{ color: 'text.disabled' }}>

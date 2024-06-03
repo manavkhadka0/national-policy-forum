@@ -29,7 +29,7 @@ export default function MarketingFeaturedPostItem({ post }: Props) {
       }}
       sx={{ bgcolor: 'background.default', borderRadius: 2 }}
     >
-      <Image src={post.coverUrl} alt={post.title} sx={{ flexGrow: 1, height: { md: 560 } }} />
+      <Image src={post.cover} alt={post.title} sx={{ flexGrow: 1, height: { md: 560 } }} />
 
       <Stack
         justifyContent="space-between"
@@ -52,7 +52,7 @@ export default function MarketingFeaturedPostItem({ post }: Props) {
         </Stack>
 
         <Stack direction="row" alignItems="center" sx={{ pt: 2, typography: 'body2' }}>
-          <Avatar src={post.author.avatarUrl} sx={{ mr: 1 }} />
+          <Avatar src={post.author.avatar} sx={{ mr: 1 }} />
           {post.author.name}
         </Stack>
       </Stack>

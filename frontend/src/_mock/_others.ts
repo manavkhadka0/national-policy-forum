@@ -16,7 +16,7 @@ export const _testimonials = [...Array(8)].map((_, index) => ({
   id: _mock.id(index),
   name: _mock.fullName(index),
   role: _mock.role(index),
-  avatarUrl: _mock.image.avatar(index),
+  avatar: _mock.image.avatar(index),
   createdAt: _mock.time(index),
   ratingNumber: 5,
   review:

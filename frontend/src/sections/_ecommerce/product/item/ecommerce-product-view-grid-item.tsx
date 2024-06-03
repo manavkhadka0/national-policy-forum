@@ -70,7 +70,7 @@ export default function EcommerceProductViewGridItem({ product, sx, ...other }: 
         </Fab>
 
         <Image
-          src={product.coverUrl}
+          src={product.cover}
           sx={{
             flexShrink: 0,
             borderRadius: 1.5,

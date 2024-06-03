@@ -20,7 +20,7 @@ type Props = {
   data: {
     id: string;
     title: string;
-    coverUrl: string;
+    cover: string;
     description: string;
   }[];
 };
@@ -55,7 +55,7 @@ type CarouselItemProps = {
   item: {
     title: string;
     description: string;
-    coverUrl: string;
+    cover: string;
   };
   active: boolean;
 };
@@ -63,13 +63,13 @@ type CarouselItemProps = {
 function CarouselItem({ item, active }: CarouselItemProps) {
   const theme = useTheme();
 
-  const { coverUrl, title } = item;
+  const { cover, title } = item;
 
   const variants = theme.direction === 'rtl' ? varFade().inLeft : varFade().inRight;
 
   return (
     <Paper sx={{ position: 'relative' }}>
-      <Image dir="ltr" alt={title} src={coverUrl} ratio="16/9" />
+      <Image dir="ltr" alt={title} src={cover} ratio="16/9" />
 
       <Box
         sx={{

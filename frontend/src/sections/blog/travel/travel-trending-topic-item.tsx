@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import { alpha, useTheme } from '@mui/material/styles';
 
 import { _mock } from 'src/_mock';
+import { Category } from 'src/actions/faq';
 
 import Image from 'src/components/image';
 import { varHover, varTranHover } from 'src/components/animate';
@@ -33,11 +34,7 @@ export const TOPICS = [...Array(8)].map((_, index) => ({
 // ----------------------------------------------------------------------
 
 type Props = {
-  topic: {
-    cover: string;
-    totalPost: number;
-    category: string;
-  };
+  topic: Category;
 };
 
 export default function TravelTrendingTopicItem({ topic }: Props) {
@@ -65,18 +62,18 @@ export default function TravelTrendingTopicItem({ topic }: Props) {
           }}
         >
           <m.div variants={varHover(1.05)} transition={varTranHover()}>
-            <Typography variant="h6">{topic.category}</Typography>
+            <Typography variant="h6">{topic.name}</Typography>
           </m.div>
 
-          <Typography variant="body2" sx={{ opacity: 0.72 }}>
-            {topic.totalPost} posts
-          </Typography>
+          {/* <Typography variant="caption" sx={{ opacity: 0.72 }}>
+            {topic.description}
+          </Typography> */}
         </Stack>
 
         <m.div variants={varHover(1.25)} transition={varTranHover()}>
           <Image
-            alt={topic.category}
-            src={topic.cover}
+            alt={topic.description}
+            src={topic.category_thumbnail}
             ratio="4/3"
             overlay={`linear-gradient(to bottom, ${alpha(theme.palette.common.black, 0)} 0%, ${
               theme.palette.common.black

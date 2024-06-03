@@ -56,7 +56,7 @@ export default function TravelLandingPostItemCarousel({ post }: Props) {
       </Stack>
 
       <Image
-        src={post.coverUrl}
+        src={post.cover}
         alt={post.title}
         overlay={`linear-gradient(to bottom, ${alpha(theme.palette.common.black, 0)} 0%, ${
           theme.palette.common.black

@@ -170,7 +170,7 @@ type JobByCountryItemProp = {
 };
 
 function JobByCountryItem({ country }: JobByCountryItemProp) {
-  const { location, coverUrl, totalJobs } = country;
+  const { location, cover, totalJobs } = country;
 
   return (
     <Link component={RouterLink} href={paths.career.jobs} underline="none">
@@ -186,7 +186,7 @@ function JobByCountryItem({ country }: JobByCountryItemProp) {
       >
         <Box sx={{ overflow: 'hidden' }}>
           <m.div variants={varHover(1.1)} transition={varTranHover()}>
-            <Image src={coverUrl} alt="cover" ratio="3/4" />
+            <Image src={cover} alt="cover" ratio="3/4" />
           </m.div>
         </Box>
 

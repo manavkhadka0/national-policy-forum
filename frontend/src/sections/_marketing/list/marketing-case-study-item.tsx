@@ -17,11 +17,11 @@ type Props = {
 };
 
 export default function MarketingCaseStudyItem({ project }: Props) {
-  const { title, coverUrl, category } = project;
+  const { title, cover, category } = project;
 
   return (
     <div>
-      <Image src={coverUrl} alt={title} ratio="1/1" sx={{ borderRadius: 2 }} />
+      <Image src={cover} alt={title} ratio="1/1" sx={{ borderRadius: 2 }} />
 
       <Stack spacing={1} sx={{ pt: 2.5, px: 2.5 }}>
         <Typography variant="overline" sx={{ color: 'text.disabled' }}>

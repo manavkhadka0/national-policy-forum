@@ -48,7 +48,7 @@ export default function TravelCheckOutSummary({
 }: Props) {
   const smUp = useResponsive('up', 'sm');
 
-  const { coverUrl, slug, ratingNumber, totalReviews, price, tourGuide } = tour;
+  const { cover, slug, ratingNumber, totalReviews, price, tourGuide } = tour;
 
   return (
     <Card>
@@ -66,7 +66,7 @@ export default function TravelCheckOutSummary({
           },
         }}
       >
-        <Image alt={slug} src={coverUrl} ratio="1/1" sx={{ borderRadius: 2 }} />
+        <Image alt={slug} src={cover} ratio="1/1" sx={{ borderRadius: 2 }} />
 
         <Stack>
           <TextMaxLine variant="h5" sx={{ mb: 2 }}>
@@ -90,7 +90,7 @@ export default function TravelCheckOutSummary({
           <Divider sx={{ borderStyle: 'dashed', my: 2.5 }} />
 
           <Stack direction="row" alignItems="center" spacing={1.5}>
-            <Avatar src={tourGuide.avatarUrl} />
+            <Avatar src={tourGuide.avatar} />
 
             <div>
               <Typography variant="body2" sx={{ color: 'text.disabled' }}>

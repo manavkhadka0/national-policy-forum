@@ -23,7 +23,7 @@ type Props = {
 export default function TravelPostItem({ post }: Props) {
   return (
     <Stack spacing={2.5}>
-      <Image src={post.coverUrl} alt={post.title} ratio="1/1" sx={{ borderRadius: 2 }} />
+      <Image src={post.cover} alt={post.title} ratio="1/1" sx={{ borderRadius: 2 }} />
 
       <Stack spacing={1}>
         <PostTimeBlock createdAt={fDate(post.createdAt)} duration={post.duration} />
@@ -36,7 +36,7 @@ export default function TravelPostItem({ post }: Props) {
       </Stack>
 
       <Stack direction="row" alignItems="center" sx={{ typography: 'body2' }}>
-        <Avatar src={post.author.avatarUrl} sx={{ mr: 1 }} />
+        <Avatar src={post.author.avatar} sx={{ mr: 1 }} />
         {post.author.name}
       </Stack>
     </Stack>

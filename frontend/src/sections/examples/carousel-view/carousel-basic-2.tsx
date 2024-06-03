@@ -12,7 +12,7 @@ type Props = {
   data: {
     id: string;
     title: string;
-    coverUrl: string;
+    cover: string;
     description: string;
   }[];
 };
@@ -29,7 +29,7 @@ export default function CarouselBasic2({ data }: Props) {
       <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
         {data.map((item) => (
           <Stack key={item.id}>
-            <Image alt={item.title} src={item.coverUrl} ratio="4/3" />
+            <Image alt={item.title} src={item.cover} ratio="4/3" />
 
             <CardContent sx={{ textAlign: 'left' }}>
               <Typography variant="h6" noWrap gutterBottom>

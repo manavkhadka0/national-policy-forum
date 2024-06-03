@@ -115,7 +115,7 @@ function ProductItem({ product, ...other }: ProductItemProps) {
   return (
     <Stack direction="row" alignItems="flex-start" {...other}>
       <Image
-        src={product.coverUrl}
+        src={product.cover}
         sx={{
           mr: 2,
           width: 64,

@@ -32,7 +32,7 @@ export default function EcommerceProductItemFeaturedByBrand({ product, sx, ...ot
       {...other}
     >
       <Image
-        src={product.coverUrl}
+        src={product.cover}
         sx={{
           width: 128,
           height: 128,

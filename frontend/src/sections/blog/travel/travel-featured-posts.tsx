@@ -1,18 +1,22 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
-import { IBlogListProps } from 'src/types/blog';
+import { IBlogPostProps } from 'src/types/blog';
 
 import PostItem from './travel-featured-post-item';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  posts: IBlogListProps[];
+  posts: IBlogPostProps[];
 };
 
 export default function TravelFeaturedPosts({ posts }: Props) {
   const featuredPost = posts[0];
+
+  if (!featuredPost) {
+    return null;
+  }
 
   return (
     <Container

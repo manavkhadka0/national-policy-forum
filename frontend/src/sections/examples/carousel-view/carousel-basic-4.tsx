@@ -33,7 +33,7 @@ type Props = {
   data: {
     id: string;
     title: string;
-    coverUrl: string;
+    cover: string;
     description: string;
   }[];
 };
@@ -62,15 +62,15 @@ export default function CarouselBasic4({ data }: Props) {
 type CarouselItemProps = {
   title: string;
   description: string;
-  coverUrl: string;
+  cover: string;
 };
 
 function CarouselItem({ item }: { item: CarouselItemProps }) {
-  const { coverUrl, title } = item;
+  const { cover, title } = item;
 
   return (
     <Box sx={{ position: 'relative', zIndex: 0 }}>
-      <Image alt={title} src={coverUrl} ratio="1/1" />
+      <Image alt={title} src={cover} ratio="1/1" />
 
       <StyledContentItem>
         <Typography variant="h6" sx={{ color: 'common.white' }}>

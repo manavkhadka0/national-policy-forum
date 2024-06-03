@@ -69,6 +69,10 @@ export default function TravelLandingHero({ articles }: Props) {
     carouselThumb.onSetNav();
   }, [carouselLarge, carouselThumb]);
 
+  if (!articles?.length) {
+    return null;
+  }
+
   return (
     <Box sx={{ minHeight: { md: '100vh' }, position: 'relative' }}>
       {!!articles.length && (
@@ -180,7 +184,7 @@ function CarouselItem({ article }: CarouselItemProps) {
         <Typography variant="h1" sx={{ maxWidth: 680 }}>
           {article.title}
         </Typography>
-        <Typography variant="body1" sx={{ maxWidth: 680, mt:2 }}>
+        <Typography variant="body1" sx={{ maxWidth: 680, mt: 2 }}>
           {article.description}
         </Typography>
 
@@ -196,28 +200,27 @@ function CarouselItem({ article }: CarouselItemProps) {
           </Stack>
 
           <Stack direction="row" alignItems="center" sx={{ typography: 'subtitle2' }}>
-          <Stack direction="row" alignItems="center" flexWrap="wrap" sx={{ mt: 0}}>
-      <Typography variant="subtitle2" sx={{ mr: 1 }}>
-        Tags:
-      </Typography>
+            <Stack direction="row" alignItems="center" flexWrap="wrap" sx={{ mt: 0 }}>
+              <Typography variant="subtitle2" sx={{ mr: 1 }}>
+                Tags:
+              </Typography>
 
-      <Stack direction="row" flexWrap="wrap" spacing={1}>
-        {article.tags.map((tag) => (
-          <Chip key={tag} size="medium" variant="filled" label={tag} onClick={() => {}} />
-        ))}
-      </Stack>
-    </Stack>
+              <Stack direction="row" flexWrap="wrap" spacing={1}>
+                {article.tags.map((tag) => (
+                  <Chip key={tag} size="medium" variant="filled" label={tag} onClick={() => {}} />
+                ))}
+              </Stack>
+            </Stack>
           </Stack>
-
         </Stack>
 
         <Stack direction="row" justifyContent="flex-start" spacing={1.5} sx={{ py: 3 }}>
-          <Avatar src={article.author.avatarUrl} sx={{ width: 48, height: 48 }} />
+          <Avatar src={article.author.avatar} sx={{ width: 48, height: 48 }} />
 
           <Stack spacing={0.5} flexGrow={1}>
             <Typography variant="subtitle2">{article.author.name}</Typography>
             <Typography variant="caption" sx={{ color: 'common.white' }}>
-              {fDate(article.createdAt, 'dd/MM/yyyy p')}
+              {fDate(article.created_at, 'dd/MM/yyyy p')}
             </Typography>
           </Stack>
         </Stack>
@@ -232,11 +235,11 @@ function CarouselItem({ article }: CarouselItemProps) {
             variant="contained"
             color="primary"
             component={RouterLink}
-            size='large'
+            size="large"
             href={paths.post(article.id)}
             sx={{
               background: theme.palette.common.white,
-              color: theme.palette.common.black
+              color: theme.palette.common.black,
             }}
             endIcon={<Iconify icon="carbon:chevron-right" />}
           >
@@ -259,7 +262,7 @@ function CarouselItem({ article }: CarouselItemProps) {
 
         <Image
           alt="hero"
-          src={article.heroUrl}
+          src={article.hero}
           sx={{
             width: 1,
             height: { xs: 1, md: '100vh' },
@@ -304,7 +307,7 @@ function ThumbnailItem({ article, selected }: ThumbnailItemProps) {
         }),
       }}
     >
-      <Avatar src={article.heroUrl} sx={{ width: 48, height: 48, borderRadius: '8px' }} />
+      <Avatar src={article.hero} sx={{ width: 48, height: 48, borderRadius: '8px' }} />
 
       <Stack spacing={0.5}>
         <TextMaxLine variant="h6" line={1}>

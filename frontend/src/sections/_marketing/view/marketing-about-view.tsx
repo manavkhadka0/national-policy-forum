@@ -1,6 +1,6 @@
 'use client';
 
-import { _members, _brandsColor, _testimonials } from 'src/_mock';
+import { _faqs, _members, _brandsColor, _testimonials } from 'src/_mock';
 
 import MarketingAbout from '../about/marketing-about';
 import MarketingNewsletter from '../marketing-newsletter';
@@ -32,7 +32,7 @@ export default function MarketingAboutView() {
 
       <MarketingTestimonial testimonials={_testimonials} />
 
-      <MarketingLandingFaqs />
+      <MarketingLandingFaqs faqs={_faqs} />
 
       <MarketingLandingFreeSEO />
 

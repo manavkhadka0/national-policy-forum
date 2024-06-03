@@ -29,6 +29,10 @@ export default function MarketingTestimonial({ testimonials }: Props) {
     }),
   });
 
+  if (!testimonials.length) {
+    return null;
+  }
+
   return (
     <Box sx={{ bgcolor: 'background.neutral', overflow: 'hidden' }}>
       <Container

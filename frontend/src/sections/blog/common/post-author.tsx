@@ -16,7 +16,7 @@ type Props = {
 };
 
 export default function PostAuthor({ author }: Props) {
-  const { name, role, about, quotes, avatarUrl } = author;
+  const { name, role, about, quotes, avatar } = author;
 
   return (
     <Stack
@@ -26,7 +26,7 @@ export default function PostAuthor({ author }: Props) {
         py: { xs: 5, md: 10 },
       }}
     >
-      <Avatar src={avatarUrl} sx={{ width: 96, height: 96 }} />
+      <Avatar src={avatar} sx={{ width: 96, height: 96 }} />
 
       <Stack spacing={2}>
         <Stack

@@ -43,7 +43,7 @@ export default function TravelOrderCompletedInfo({ tour }: Props) {
       </Stack>
 
       <Stack direction="row" alignItems="center" spacing={1.5}>
-        <Avatar src={tourGuide?.avatarUrl} />
+        <Avatar src={tourGuide?.avatar} />
         <div>
           <Typography variant="body2" sx={{ color: 'text.disabled' }}>
             Tour guide by

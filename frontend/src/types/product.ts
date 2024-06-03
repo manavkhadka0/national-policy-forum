@@ -3,7 +3,7 @@
 export type IProductItemHeroProps = {
   title: string;
   caption: string;
-  coverUrl: string;
+  cover: string;
   label: string;
 };
 
@@ -11,7 +11,7 @@ export type IProductItemCompareProps = {
   id: string;
   name: string;
   price: number;
-  coverUrl: string;
+  cover: string;
   details: string[];
   ratingNumber: number;
 };
@@ -24,7 +24,7 @@ export type IProductItemProps = {
   price: number;
   caption: string;
   stock: number;
-  coverUrl: string;
+  cover: string;
   category: string;
   images: string[];
   priceSale: number;
