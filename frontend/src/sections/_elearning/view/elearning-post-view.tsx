@@ -42,7 +42,7 @@ export default function ElearningPostView() {
 
   const mdUp = useResponsive('up', 'md');
 
-  const { title, description, duration, createdAt, author, favorited, hero, tags, content } =
+  const { title, description, duration, created_at, author, favorited, hero, tags, content } =
     _coursePosts[0];
 
   const [favorite, setFavorite] = useState(favorited);
@@ -129,7 +129,7 @@ export default function ElearningPostView() {
               <Stack spacing={0.5} flexGrow={1}>
                 <Typography variant="subtitle2">{author.name}</Typography>
                 <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                  {fDate(createdAt, 'dd/MM/yyyy p')}
+                  {fDate(created_at, 'dd/MM/yyyy p')}
                 </Typography>
               </Stack>
 

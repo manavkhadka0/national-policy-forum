@@ -10,7 +10,7 @@ type IReviewReplyComment = {
   id: string;
   userId: string;
   message: string;
-  createdAt: Date;
+  created_at: Date;
   tagUser?: string;
 };
 
@@ -18,7 +18,7 @@ export type IReviewItemProp = {
   id: string;
   name: string;
   rating: number;
-  createdAt: Date;
+  created_at: Date;
   message: string;
   helpful: number;
   avatar: string;

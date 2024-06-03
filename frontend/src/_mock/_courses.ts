@@ -56,7 +56,7 @@ export const _courses = [...Array(12)].map((_, index) => {
     totalReviews: 3458,
     teachers: TEACHERS,
     totalStudents: 180000,
-    createdAt: new Date(),
+    created_at: new Date(),
     category: _tags[index],
     slug: _mock.courseTitle(index),
     bestSeller: index === 2 || false,

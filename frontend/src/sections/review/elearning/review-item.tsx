@@ -33,7 +33,7 @@ export default function ReviewItem({
   rating,
   message,
   tagUser,
-  createdAt,
+  created_at,
   hasReply,
   avatar,
   helpful = 0,
@@ -68,7 +68,7 @@ export default function ReviewItem({
             {!hasReply && <Rating size="small" value={rating} precision={0.5} readOnly />}
           </Stack>
 
-          {createdAt && (
+          {created_at && (
             <Typography
               variant="body2"
               sx={{
@@ -77,7 +77,7 @@ export default function ReviewItem({
                 color: 'text.disabled',
               }}
             >
-              {fDate(createdAt)}
+              {fDate(created_at)}
             </Typography>
           )}
 

@@ -33,7 +33,7 @@ export type IJobProps = {
   deadline: Date;
   urgent: boolean;
   content: string;
-  createdAt: Date;
+  created_at: Date;
   category: string;
   location: string;
   skills: string[];

@@ -61,7 +61,7 @@ export default function MarketingLatestPostItem({ post }: Props) {
       >
         <Stack spacing={2}>
           <PostTimeBlock
-            createdAt={fDate(post.createdAt)}
+            created_at={fDate(post.created_at)}
             duration={post.duration}
             sx={{ color: 'inherit', opacity: 0.72 }}
           />

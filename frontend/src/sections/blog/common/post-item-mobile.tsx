@@ -41,7 +41,7 @@ export default function PostItemMobile({ post, onSiderbar }: Props) {
           <TextMaxLine variant={onSiderbar ? 'subtitle2' : 'h6'}>{post.title}</TextMaxLine>
         </Link>
 
-        <PostTimeBlock createdAt={fDate(post.createdAt)} duration={post.duration} />
+        <PostTimeBlock created_at={fDate(post.created_at)} duration={post.duration} />
       </Stack>
     </Stack>
   );

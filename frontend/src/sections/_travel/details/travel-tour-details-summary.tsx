@@ -55,7 +55,7 @@ export default function TravelTourDetailsSummary({ tour }: Props) {
           <OverviewItem
             icon="carbon:mobile"
             label="Contact phone"
-            text={tourGuide?.phoneNumber || ''}
+            text={tourGuide?.phone_number || ''}
           />
           <OverviewItem icon="carbon:time" label="Durations" text={duration} />
           <OverviewItem icon="carbon:translate" label="Languages" text={languages.join(', ')} />

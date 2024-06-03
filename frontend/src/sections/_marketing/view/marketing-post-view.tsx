@@ -6,7 +6,6 @@ import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
 import Popover from '@mui/material/Popover';
-import Checkbox from '@mui/material/Checkbox';
 import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -34,10 +33,8 @@ import BlogMarketingLatestPosts from '../../blog/marketing/marketing-latest-post
 // ----------------------------------------------------------------------
 
 export default function MarketingPostView() {
-  const { title, description, duration, createdAt, author, favorited, hero, tags, content } =
+  const { title, description, duration, created_at, author, hero, tags, content } =
     _marketingPosts[0];
-
-  const [favorite, setFavorite] = useState(favorited);
 
   const [open, setOpen] = useState<HTMLElement | null>(null);
 
@@ -47,10 +44,6 @@ export default function MarketingPostView() {
 
   const handleClose = useCallback(() => {
     setOpen(null);
-  }, []);
-
-  const handleChangeFavorite = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    setFavorite(event.target.checked);
   }, []);
 
   return (
@@ -98,7 +91,7 @@ export default function MarketingPostView() {
               <Stack spacing={0.5} flexGrow={1}>
                 <Typography variant="subtitle2">{author.name}</Typography>
                 <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                  {fDate(createdAt, 'dd/MM/yyyy p')}
+                  {fDate(created_at, 'dd/MM/yyyy p')}
                 </Typography>
               </Stack>
 
@@ -106,14 +99,6 @@ export default function MarketingPostView() {
                 <IconButton onClick={handleOpen} color={open ? 'primary' : 'default'}>
                   <Iconify icon="carbon:share" />
                 </IconButton>
-
-                <Checkbox
-                  color="error"
-                  checked={favorite}
-                  onChange={handleChangeFavorite}
-                  icon={<Iconify icon="carbon:favorite" />}
-                  checkedIcon={<Iconify icon="carbon:favorite-filled" />}
-                />
               </Stack>
             </Stack>
 

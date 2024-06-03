@@ -34,7 +34,7 @@ export type ICourseProps = {
   slug: string;
   price: number;
   level: string;
-  createdAt: Date;
+  created_at: Date;
   cover: string;
   category: string;
   skills: string[];

@@ -29,7 +29,7 @@ export default function MarketingTestimonial({ testimonials }: Props) {
     }),
   });
 
-  if (!testimonials.length) {
+  if (!testimonials?.length) {
     return null;
   }
 

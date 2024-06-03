@@ -26,7 +26,7 @@ export default function TravelLandingView({ faqs, testimonials, posts }: TravelL
 
       <MarketingTestimonial testimonials={testimonials} />
 
-      {faqs && <MarketingLandingFaqs faqs={faqs} />}
+      <MarketingLandingFaqs faqs={faqs} />
 
       <TravelNewsletter />
     </>

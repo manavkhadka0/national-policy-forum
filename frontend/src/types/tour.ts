@@ -8,7 +8,7 @@ export type ITourProps = {
   slug: string;
   price: number;
   hero: string;
-  createdAt: Date;
+  created_at: Date;
   cover: string;
   location: string;
   duration: string;
