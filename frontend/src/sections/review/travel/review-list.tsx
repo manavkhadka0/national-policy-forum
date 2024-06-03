@@ -15,7 +15,7 @@ export default function ReviewList({ reviews }: Props) {
   return (
     <>
       {reviews.map((review) => {
-        const { id, name, rating, helpful, message, createdAt, avatar, replyComment, users } =
+        const { id, name, rating, helpful, message, created_at, avatar, replyComment, users } =
           review;
 
         const hasReply = !!replyComment.length;
@@ -25,7 +25,7 @@ export default function ReviewList({ reviews }: Props) {
             <ReviewItem
               name={name}
               avatar={avatar}
-              createdAt={createdAt}
+              created_at={created_at}
               message={message}
               rating={rating}
               helpful={helpful}
@@ -39,7 +39,7 @@ export default function ReviewList({ reviews }: Props) {
                   <ReviewItem
                     key={reply.id}
                     tagUser={reply.tagUser}
-                    createdAt={reply.createdAt}
+                    created_at={reply.created_at}
                     message={reply.message}
                     name={userReply.name}
                     avatar={userReply.avatar}

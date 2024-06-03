@@ -22,7 +22,7 @@ type Props = {
 };
 
 export default function ReviewTourGuideInfo({ tourGuide }: Props) {
-  const { name, about, quotes, totalReviews, ratingNumber, verified, avatar } = tourGuide;
+  const { name, about, quotes, total_reviews, rating_number, verified, avatar } = tourGuide;
 
   return (
     <Paper variant="outlined" sx={{ borderRadius: 2 }}>
@@ -55,11 +55,11 @@ export default function ReviewTourGuideInfo({ tourGuide }: Props) {
             <Iconify icon="carbon:star-filled" sx={{ color: 'warning.main' }} />
 
             <Box sx={{ typography: 'h6' }}>
-              {Number.isInteger(ratingNumber) ? `${ratingNumber}.0` : ratingNumber}
+              {Number.isInteger(rating_number) ? `${rating_number}.0` : rating_number}
             </Box>
 
             <Box sx={{ typography: 'body2', color: 'text.secondary' }}>
-              ({totalReviews ? fShortenNumber(totalReviews) : 0} reviews)
+              ({total_reviews ? fShortenNumber(total_reviews) : 0} reviews)
             </Box>
           </Stack>
         </Stack>

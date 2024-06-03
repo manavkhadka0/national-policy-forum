@@ -84,7 +84,7 @@ export const _tours = [...Array(12)].map((_, index) => {
     tags: _tags.slice(0, 5),
     slug: _mock.tourName(index),
     duration: '3 days 2 nights',
-    createdAt: _mock.time(index),
+    created_at: _mock.time(index),
     favorited: _mock.boolean(index),
     price: _mock.number.price(index),
     languages: ['Russian', 'Spanish'],

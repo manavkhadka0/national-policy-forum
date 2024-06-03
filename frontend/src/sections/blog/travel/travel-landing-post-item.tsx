@@ -21,7 +21,7 @@ export default function TravelLandingPostItem({ post }: Props) {
   return (
     <div>
       <Typography variant="caption" sx={{ color: 'primary.main' }}>
-        {fDate(post.createdAt)}
+        {fDate(post.created_at)}
       </Typography>
 
       <Link component={RouterLink} href={paths.travel.post} sx={{ color: 'common.white' }}>

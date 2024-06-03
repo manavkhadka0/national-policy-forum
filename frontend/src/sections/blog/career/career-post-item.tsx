@@ -47,7 +47,7 @@ export default function CareerPostItem({ post, index }: Props) {
         }}
       >
         <PostTimeBlock
-          createdAt={fDate(post.createdAt)}
+          created_at={fDate(post.created_at)}
           duration={post.duration}
           sx={{
             ...(noImage && { color: 'grey.500' }),

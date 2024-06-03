@@ -94,7 +94,7 @@ export const _jobs = [...Array(12)].map((_, index) => {
     languages,
     locationMap,
     content: CONTENT,
-    createdAt: new Date(),
+    created_at: new Date(),
     experience: index + 1,
     category: _tags[index],
     slug: _mock.jobTitle(index),

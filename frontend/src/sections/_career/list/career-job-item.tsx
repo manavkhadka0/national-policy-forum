@@ -28,8 +28,18 @@ type Props = {
 };
 
 export default function CareerJobItem({ job }: Props) {
-  const { slug, type, level, salary, location, urgent, createdAt, favorited, experience, company } =
-    job;
+  const {
+    slug,
+    type,
+    level,
+    salary,
+    location,
+    urgent,
+    created_at,
+    favorited,
+    experience,
+    company,
+  } = job;
 
   const [favorite, setFavorite] = useState(favorited);
 
@@ -87,7 +97,7 @@ export default function CareerJobItem({ job }: Props) {
         </Stack>
 
         <Typography variant="caption" sx={{ color: 'text.disabled' }}>
-          Posted day: {fDate(createdAt)}
+          Posted day: {fDate(created_at)}
         </Typography>
       </Stack>
 

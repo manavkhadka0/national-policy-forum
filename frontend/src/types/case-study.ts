@@ -6,7 +6,7 @@ export type ICaseStudyProps = {
   id: string;
   title: string;
   hero: string;
-  createdAt: Date;
+  created_at: Date;
   website: string;
   category: string;
   cover: string;

@@ -47,7 +47,7 @@ export default function ElearningFeaturedPost({ post }: Props) {
               maxWidth: { md: 408 },
             }}
           >
-            <PostTimeBlock createdAt={fDate(post.createdAt)} duration={post.duration} />
+            <PostTimeBlock created_at={fDate(post.created_at)} duration={post.duration} />
 
             <Link component={RouterLink} href={paths.eLearning.post} color="inherit" variant="h3">
               {post.title}

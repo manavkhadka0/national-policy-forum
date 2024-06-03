@@ -63,7 +63,7 @@ export const _caseStudies = TITLE.map((_, index) => {
     content: CONTENT,
     title: TITLE[index],
     category: _tags[index],
-    createdAt: _mock.time(index),
+    created_at: _mock.time(index),
     website: 'https://example.com/',
     description: _mock.description(index),
     hero: '/assets/images/marketing/marketing_post_hero.jpg',

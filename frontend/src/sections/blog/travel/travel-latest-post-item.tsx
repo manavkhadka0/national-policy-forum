@@ -27,7 +27,7 @@ export default function TravelLatestPostItem({ post }: Props) {
       <Image src={post.cover} alt={post.title} ratio="1/1" sx={{ borderRadius: 2 }} />
 
       <Stack spacing={1}>
-        <PostTimeBlock createdAt={fDate(post.createdAt)} duration={post.duration} />
+        <PostTimeBlock created_at={fDate(post.created_at)} duration={post.duration} />
 
         <Link component={RouterLink} href={paths.travel.post} color="inherit">
           <TextMaxLine variant="h6" persistent>

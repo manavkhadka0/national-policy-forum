@@ -51,7 +51,7 @@ export default function TravelFeaturedPostItem({ post, largePost }: Props) {
         }}
       >
         <PostTimeBlock
-          createdAt={fDate(post.createdAt)}
+          created_at={fDate(post.created_at)}
           duration={post.duration}
           sx={{ color: 'inherit', opacity: 0.72 }}
         />
