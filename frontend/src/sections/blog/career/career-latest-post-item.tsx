@@ -64,7 +64,7 @@ export default function CareerLatestPostItem({ post, order, largePost }: Props) 
         }}
       >
         <PostTimeBlock
-          createdAt={fDate(post.createdAt)}
+          created_at={fDate(post.created_at)}
           duration={post.duration}
           sx={{
             ...(largePost && {

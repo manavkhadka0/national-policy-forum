@@ -13,6 +13,8 @@ import { _tags, _mock, _categories } from 'src/_mock';
 import Markdown from 'src/components/markdown';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
+import PostSocialsShare from 'src/sections/blog/common/post-socials-share';
+
 import { IBlogPostProps } from 'src/types/blog';
 
 import PostTags from '../../blog/common/post-tags';
@@ -20,7 +22,6 @@ import TravelNewsletter from '../travel-newsletter';
 import PostAuthor from '../../blog/common/post-author';
 import PostSidebar from '../../blog/common/post-sidebar';
 import TravelPostHero from '../../blog/travel/travel-post-hero';
-import PostSocialsShare from '../../blog/common/post-socials-share';
 import TravelLatestPosts from '../../blog/travel/travel-latest-posts';
 import { Tags, getTags } from 'src/actions/tag';
 
@@ -64,7 +65,7 @@ const TravelPostView: React.FC<TravelPostViewProps> = ({ post, tags: popularTags
 
             <PostTags tags={tags} />
 
-            <PostSocialsShare />
+            <PostSocialsShare longButtons />
 
             <Divider sx={{ mt: 8 }} />
 

@@ -28,11 +28,11 @@ export default function ElearningPostItem({ post }: Props) {
 
       <Stack direction="row" spacing={3} sx={{ p: 3 }}>
         <Stack sx={{ textAlign: 'center' }}>
-          <Typography variant="subtitle2">{fDate(post.createdAt, 'MMM')}</Typography>
+          <Typography variant="subtitle2">{fDate(post.created_at, 'MMM')}</Typography>
 
           <Divider sx={{ mt: 1, mb: 0.5 }} />
 
-          <Typography variant="h3">{fDate(post.createdAt, 'dd')}</Typography>
+          <Typography variant="h3">{fDate(post.created_at, 'dd')}</Typography>
         </Stack>
 
         <Stack spacing={1}>

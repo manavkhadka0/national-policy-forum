@@ -1,3 +1,5 @@
+import { IBlogPostProps } from 'src/types/blog';
+
 import { _mock } from './_mock';
 import { _tags } from './assets';
 
@@ -61,8 +63,8 @@ const base = (index: number) => ({
   description: _mock.description(index),
   category: 'Marketing',
   favorited: _mock.boolean(index),
-  createdAt: _mock.time(index),
-  updatedAt: _mock.time(index),
+  created_at: _mock.time(index),
+  updated_at: _mock.time(index),
   duration: '8 minutes read',
   tags: _tags.slice(index + 1, index + 2),
   author: {
@@ -77,7 +79,7 @@ const base = (index: number) => ({
 
 // ----------------------------------------------------------------------
 
-export const _marketingPosts = [...Array(12)].map((_, index) => ({
+export const _marketingPosts: IBlogPostProps[] = [...Array(12)].map((_, index) => ({
   ...base(index),
   content: content('marketing'),
   cover: _mock.image.marketing(index),

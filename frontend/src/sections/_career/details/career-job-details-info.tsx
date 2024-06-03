@@ -16,7 +16,7 @@ type Props = {
 };
 
 export default function CareerJobDetailsInfo({ job }: Props) {
-  const { createdAt, salary, experience, deadline, level, languages } = job;
+  const { created_at, salary, experience, deadline, level, languages } = job;
 
   return (
     <Card sx={{ p: 3 }}>
@@ -26,7 +26,7 @@ export default function CareerJobDetailsInfo({ job }: Props) {
           <Stack>
             <Typography variant="subtitle2"> Date Posted </Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              {fDate(createdAt)}
+              {fDate(created_at)}
             </Typography>
           </Stack>
         </Stack>

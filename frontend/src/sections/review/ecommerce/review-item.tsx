@@ -14,7 +14,7 @@ import { IReviewItemProp } from 'src/types/review';
 
 type Props = Partial<IReviewItemProp>;
 
-export default function ReviewItem({ name, rating, message, createdAt, avatar }: Props) {
+export default function ReviewItem({ name, rating, message, created_at, avatar }: Props) {
   return (
     <Stack
       direction="row"
@@ -40,9 +40,9 @@ export default function ReviewItem({ name, rating, message, createdAt, avatar }:
 
         <Typography variant="subtitle1">{name}</Typography>
 
-        {createdAt && (
+        {created_at && (
           <Typography variant="caption" sx={{ color: 'text.disabled' }}>
-            {fDate(createdAt)}
+            {fDate(created_at)}
           </Typography>
         )}
 

@@ -3,17 +3,15 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
 import { alpha, useTheme } from '@mui/material/styles';
 
 import { fDate } from 'src/utils/format-time';
 
-import { _socials } from 'src/_mock';
 import { bgGradient } from 'src/theme/css';
 
-import Iconify from 'src/components/iconify';
-
 import { IBlogPostProps } from 'src/types/blog';
+
+import PostSocialsShare from '../common/post-socials-share';
 
 // ----------------------------------------------------------------------
 
@@ -62,16 +60,10 @@ export default function TravelPostHero({ post }: Props) {
               </Typography>
 
               <Typography variant="caption" sx={{ opacity: 0.72 }}>
-                {fDate(post.createdAt, 'dd/MM/yyyy p')}
+                {fDate(post.created_at, 'dd/MM/yyyy p')}
               </Typography>
 
-              <Stack direction="row">
-                {_socials.map((social) => (
-                  <IconButton key={social.value}>
-                    <Iconify icon={social.icon} sx={{ color: social.color }} />
-                  </IconButton>
-                ))}
-              </Stack>
+              <PostSocialsShare url={window.location.href} longButtons={false} />
             </Stack>
           </Grid>
         </Grid>

@@ -19,7 +19,7 @@ type Props = {
 };
 
 export default function MarketingCaseStudyDetailsSummary({ caseStudy }: Props) {
-  const { title, description, category, website, createdAt } = caseStudy;
+  const { title, description, category, website, created_at } = caseStudy;
 
   return (
     <Stack spacing={3} sx={{ p: 5, borderRadius: 2, bgcolor: 'background.neutral' }}>
@@ -56,7 +56,7 @@ export default function MarketingCaseStudyDetailsSummary({ caseStudy }: Props) {
           Date
         </Typography>
 
-        <Typography variant="body2">{fDate(createdAt)}</Typography>
+        <Typography variant="body2">{fDate(created_at)}</Typography>
       </Stack>
 
       <Divider sx={{ borderStyle: 'dashed' }} />

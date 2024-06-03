@@ -24,9 +24,9 @@ export default function TestimonialItem({ testimonial, sx, ...other }: Props) {
       }}
       {...other}
     >
-      {testimonial.createdAt && (
+      {testimonial.created_at && (
         <Typography variant="caption" sx={{ color: 'text.disabled' }}>
-          {fDate(testimonial.createdAt)}
+          {fDate(testimonial.created_at)}
         </Typography>
       )}
 

@@ -33,7 +33,7 @@ import CareerLatestPosts from '../../blog/career/career-latest-posts';
 // ----------------------------------------------------------------------
 
 export default function CareerPostView() {
-  const { title, description, duration, createdAt, favorited, author, tags, content } =
+  const { title, description, duration, created_at, favorited, author, tags, content } =
     _careerPosts[0];
 
   const [favorite, setFavorite] = useState(favorited);
@@ -78,7 +78,7 @@ export default function CareerPostView() {
               <Stack spacing={0.5} flexGrow={1}>
                 <Typography variant="subtitle2">{author.name}</Typography>
 
-                <PostTimeBlock createdAt={fDate(createdAt)} duration={duration} />
+                <PostTimeBlock created_at={fDate(created_at)} duration={duration} />
               </Stack>
 
               <Stack direction="row" alignItems="center">
