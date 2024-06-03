@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from rest_framework import status
+from rest_framework.views import APIView
 from rest_framework import generics
 from rest_framework.response import Response
 from .models import Author, SocialLinks, Category, Tag, Blog, FAQ,Testimonial
-from .serializers import AuthorSerializer, SocialLinksSerializer,TestimonialSerializer, CategorySerializer, TagSerializer, BlogSerializer, FAQSerializer
+from .serializers import AuthorSerializer, SocialLinksSerializer,TestimonialSerializer, CategorySerializer, TagSerializer, BlogSerializer, FAQSerializer,CategoryNameSerializer
 
 class BlogListCreate(generics.ListCreateAPIView):
    queryset = Blog.objects.all()
@@ -32,6 +32,12 @@ class SocialLinksRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
 class CategoryListCreate(generics.ListCreateAPIView):
    queryset = Category.objects.all()
    serializer_class = CategorySerializer
+
+class CategoryListView(APIView):
+   def get(self, request):
+      categories = Category.objects.all()     
+      serializer = CategoryNameSerializer(categories, many=True)
+      return Response(serializer.data)
 
 class CategoryRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
    queryset = Category.objects.all()
