@@ -4,15 +4,13 @@ import Chip from '@mui/material/Chip';
 import Avatar from '@mui/material/Avatar';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
 import Stack, { StackProps } from '@mui/material/Stack';
 import InputAdornment from '@mui/material/InputAdornment';
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
-import { _socials } from 'src/_mock';
-
 import Iconify from 'src/components/iconify';
+import SocialLinks from 'src/components/social-links/social-links';
 
 import { IAuthorProps } from 'src/types/author';
 import { IBlogPostProps, IBlogCategoryProps } from 'src/types/blog';
@@ -54,13 +52,7 @@ export default function PostSidebar({
           {author.role}
         </Typography>
 
-        <Stack direction="row">
-          {_socials.map((social) => (
-            <IconButton key={social.value}>
-              <Iconify icon={social.icon} sx={{ color: social.color }} />
-            </IconButton>
-          ))}
-        </Stack>
+        <SocialLinks socialLinks={author.social_links} />
       </Stack>
     </Stack>
   );

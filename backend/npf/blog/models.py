@@ -52,7 +52,6 @@ class Blog(models.Model):
    description = models.TextField(max_length=100)
    content= models.TextField()
    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-   share_links = models.ForeignKey(SocialLinks, on_delete=models.SET_NULL, null=True, blank=True)
 
    def __str__(self):
       return self.title

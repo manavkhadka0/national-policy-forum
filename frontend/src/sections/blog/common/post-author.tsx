@@ -1,11 +1,8 @@
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
 
-import { _socials } from 'src/_mock';
-
-import Iconify from 'src/components/iconify';
+import SocialLinks from 'src/components/social-links/social-links';
 
 import { IAuthorProps } from 'src/types/author';
 
@@ -43,13 +40,7 @@ export default function PostAuthor({ author }: Props) {
             </Typography>
           </Stack>
 
-          <Stack direction="row">
-            {_socials.map((social) => (
-              <IconButton key={social.value}>
-                <Iconify icon={social.icon} sx={{ color: social.color }} />
-              </IconButton>
-            ))}
-          </Stack>
+          <SocialLinks socialLinks={author.social_links} />
         </Stack>
 
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
