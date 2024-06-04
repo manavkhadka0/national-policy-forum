@@ -39,10 +39,13 @@ class CategoryNameSerializer(serializers.ModelSerializer):
         return instance.name
       
 class TagSerializer(serializers.ModelSerializer):
-    class Meta:
+      class Meta:
         model = Tag
-        fields = ['id', 'name']  # Add other fields as necessary  
+        fields = ['name']  # Add other fields as necessary  
 
+      def to_representation(self, instance):
+        # Return the name directly
+        return instance.name
 
 
 class BlogSerializer(serializers.ModelSerializer):
