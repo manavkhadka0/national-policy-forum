@@ -33,7 +33,7 @@ export default function MarketingLandingFaqs({ faqs }: { faqs: Faq[] }) {
     []
   );
 
-  if (!faqs.length) return null;
+  if (!faqs?.length) return null;
 
   return (
     <Container
