@@ -2,13 +2,7 @@ import { _mock } from './_mock';
 
 // ----------------------------------------------------------------------
 
-export const _categories = [
-  { label: 'Marketing', path: '' },
-  { label: 'Community', path: '' },
-  { label: 'Tutorials', path: '' },
-  { label: 'Business', path: '' },
-  { label: 'Management', path: '' },
-];
+export const _categories = ['Marketing', 'Community', 'Tutorials', 'Business', 'Management'];
 
 // ----------------------------------------------------------------------
 

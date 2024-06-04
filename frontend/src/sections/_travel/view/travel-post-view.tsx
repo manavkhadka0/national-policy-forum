@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 import { paths } from 'src/routes/paths';
 
 import { _mock } from 'src/_mock';
-import { Tags } from 'src/actions/tag';
 
 import Markdown from 'src/components/markdown';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
@@ -28,7 +27,7 @@ import TravelLatestPosts from '../../blog/travel/travel-latest-posts';
 
 type Props = {
   post: IBlogPostProps;
-  tags: Tags[];
+  tags: string[];
   categories: string[];
   recentPosts: IBlogPostProps[];
 };

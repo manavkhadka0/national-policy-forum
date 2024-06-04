@@ -73,14 +73,13 @@ export const getCategories = async () => {
   }
 };
 
-export const getCategoriesNameOnly=async()=>{
-try {
-   const res = await axiosInstance.get(endpoints.category.nameList);
-   if (res.status === 200) {
-     return res.data;
-   }
-  
-} catch (error) {
-  
-}
-}
+export const getCategoriesNameOnly = async () => {
+  try {
+    const res = await axiosInstance.get(endpoints.category.nameList);
+    if (res.status === 200) {
+      return res.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -9,8 +9,6 @@ import InputAdornment from '@mui/material/InputAdornment';
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
-import { Tags } from 'src/actions/tag';
-
 import Iconify from 'src/components/iconify';
 import SocialLinks from 'src/components/social-links/social-links';
 
@@ -24,7 +22,7 @@ import Advertisement, { AdvertisementProps } from '../../advertisement';
 
 interface Props extends StackProps {
   author?: IAuthorProps;
-  popularTags?: Tags[];
+  popularTags?: string[];
   categories?: string[];
   advertisement?: AdvertisementProps;
   recentPosts?: {
@@ -101,7 +99,7 @@ export default function PostSidebar({
 
       <Stack direction="row" flexWrap="wrap" spacing={1}>
         {popularTags.map((tag) => (
-          <Chip key={tag.id} label={tag.name} variant="soft" size="small" onClick={() => {}} />
+          <Chip key={tag} label={tag} variant="soft" size="small" onClick={() => {}} />
         ))}
       </Stack>
     </Stack>

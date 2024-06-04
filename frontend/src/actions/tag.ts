@@ -5,6 +5,7 @@ export type Tags = {
   name: string;
 };
 
+// eslint-disable-next-line consistent-return
 export const getTags = async () => {
   try {
     const res = await axiosInstance.get(endpoints.tag.list);
