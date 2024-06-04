@@ -1,25 +1,24 @@
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
-import IconButton from '@mui/material/IconButton';
-import InputAdornment from '@mui/material/InputAdornment';
 import Link from '@mui/material/Link';
-import Stack, { StackProps } from '@mui/material/Stack';
+import Avatar from '@mui/material/Avatar';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import Stack, { StackProps } from '@mui/material/Stack';
+import InputAdornment from '@mui/material/InputAdornment';
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
-import { _socials } from 'src/_mock';
+import { Tags } from 'src/actions/tag';
 
 import Iconify from 'src/components/iconify';
+import SocialLinks from 'src/components/social-links/social-links';
 
 import { IAuthorProps } from 'src/types/author';
 import { IBlogPostProps } from 'src/types/blog';
 
-import { Tags } from 'src/actions/tag';
-import Advertisement, { AdvertisementProps } from '../../advertisement';
 import PostItemMobile from './post-item-mobile';
+import Advertisement, { AdvertisementProps } from '../../advertisement';
 
 // ----------------------------------------------------------------------
 
@@ -55,13 +54,7 @@ export default function PostSidebar({
           {author.role}
         </Typography>
 
-        <Stack direction="row">
-          {_socials.map((social) => (
-            <IconButton key={social.value}>
-              <Iconify icon={social.icon} sx={{ color: social.color }} />
-            </IconButton>
-          ))}
-        </Stack>
+        <SocialLinks socialLinks={author.social_links} />
       </Stack>
     </Stack>
   );
@@ -84,7 +77,7 @@ export default function PostSidebar({
             }}
           />
 
-          <Link variant="body2" href='#' color="inherit">
+          <Link variant="body2" href="#" color="inherit">
             {category}
           </Link>
         </Stack>
@@ -108,7 +101,7 @@ export default function PostSidebar({
 
       <Stack direction="row" flexWrap="wrap" spacing={1}>
         {popularTags.map((tag) => (
-          <Chip key={tag.id} label={tag.name} variant="soft" size="small" onClick={() => { }} />
+          <Chip key={tag.id} label={tag.name} variant="soft" size="small" onClick={() => {}} />
         ))}
       </Stack>
     </Stack>

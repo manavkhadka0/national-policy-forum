@@ -1,42 +1,40 @@
 'use client';
 
-import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
+import Typography from '@mui/material/Typography';
 
 import { paths } from 'src/routes/paths';
 
 import { _mock } from 'src/_mock';
-import { useGetPosts } from 'src/api/blog';
+import { Tags } from 'src/actions/tag';
 
-import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 import Markdown from 'src/components/markdown';
+import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
 import PostSocialsShare from 'src/sections/blog/common/post-socials-share';
 
 import { IBlogPostProps } from 'src/types/blog';
 
-import { Tags } from 'src/actions/tag';
+import PostTags from '../../blog/common/post-tags';
+import TravelNewsletter from '../travel-newsletter';
 import PostAuthor from '../../blog/common/post-author';
 import PostSidebar from '../../blog/common/post-sidebar';
-import PostTags from '../../blog/common/post-tags';
-import TravelLatestPosts from '../../blog/travel/travel-latest-posts';
 import TravelPostHero from '../../blog/travel/travel-post-hero';
-import TravelNewsletter from '../travel-newsletter';
+import TravelLatestPosts from '../../blog/travel/travel-latest-posts';
 
 // ----------------------------------------------------------------------
 
-interface TravelPostViewProps {
+type Props = {
   post: IBlogPostProps;
   tags: Tags[];
   categories: string[];
-}
-const TravelPostView: React.FC<TravelPostViewProps> = ({ post,categories:mainCategory, tags: popularTags }) => {
+  recentPosts: IBlogPostProps[];
+};
 
+export default function TravelPostView({ post, recentPosts, categories, tags: mainTag }: Props) {
   const { title, description, author, tags, content } = post;
-
-  const { posts } = useGetPosts();
 
   return (
     <>
@@ -75,10 +73,10 @@ const TravelPostView: React.FC<TravelPostViewProps> = ({ post,categories:mainCat
 
           <Grid xs={12} md={4}>
             <PostSidebar
-              popularTags={popularTags}
+              popularTags={mainTag}
               author={author}
-              categories={mainCategory}
-              recentPosts={{ list: posts.slice(-4) }}
+              recentPosts={{ list: recentPosts }}
+              categories={categories}
               advertisement={{
                 title: 'Advertisement',
                 description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',
@@ -90,10 +88,9 @@ const TravelPostView: React.FC<TravelPostViewProps> = ({ post,categories:mainCat
         </Grid>
       </Container>
 
-      <TravelLatestPosts posts={posts} />
+      <TravelLatestPosts posts={recentPosts} />
 
       <TravelNewsletter />
     </>
   );
 }
-export default TravelPostView;

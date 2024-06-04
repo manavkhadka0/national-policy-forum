@@ -6,13 +6,12 @@ import Share from 'src/components/share';
 type ShareProps = {
   quote?: string;
   hashtag?: string;
-  url?: string;
   longButtons?: boolean;
 };
 
 // ----------------------------------------------------------------------
 
-export default function PostSocialsShare({ url, hashtag, quote, longButtons }: ShareProps) {
+export default function PostSocialsShare({ hashtag, quote, longButtons = false }: ShareProps) {
   return (
     <Stack direction="row" sx={{ mt: 5 }}>
       {longButtons && (
@@ -22,7 +21,12 @@ export default function PostSocialsShare({ url, hashtag, quote, longButtons }: S
       )}
 
       <Stack direction="row" alignItems="center" flexWrap="wrap">
-        <Share url={url} hashtag={hashtag} quote={quote} longButtons={longButtons} />
+        <Share
+          url={`${window.location.origin}${window.location.pathname}`}
+          hashtag={hashtag}
+          quote={quote}
+          longButtons={longButtons}
+        />
       </Stack>
     </Stack>
   );

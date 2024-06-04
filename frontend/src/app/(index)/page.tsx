@@ -13,6 +13,8 @@ export const metadata = {
   title: 'Home - National Policy Forum',
 };
 
+export const revalidate = 10;
+
 export default async function TravelLandingPage() {
   const faqs: Faq[] = await getFaqs();
   const testimonials: ITestimonialProps[] = await getTestimonials();

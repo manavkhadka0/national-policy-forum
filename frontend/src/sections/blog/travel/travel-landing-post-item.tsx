@@ -24,7 +24,7 @@ export default function TravelLandingPostItem({ post }: Props) {
         {fDate(post.created_at)}
       </Typography>
 
-      <Link component={RouterLink} href={paths.travel.post} sx={{ color: 'common.white' }}>
+      <Link component={RouterLink} href={paths.post(post.id)} sx={{ color: 'common.white' }}>
         <TextMaxLine variant="h5" sx={{ mt: 1, mb: 2 }}>
           {post.title}
         </TextMaxLine>

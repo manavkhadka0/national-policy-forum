@@ -63,7 +63,7 @@ export default function TravelPostHero({ post }: Props) {
                 {fDate(post.created_at, 'dd/MM/yyyy p')}
               </Typography>
 
-              <PostSocialsShare url={window.location.href} longButtons={false} />
+              <PostSocialsShare longButtons={false} />
             </Stack>
           </Grid>
         </Grid>

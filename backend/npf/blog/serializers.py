@@ -3,9 +3,21 @@ from .models import Author, SocialLinks, Category, Tag, Blog, FAQ,Testimonial
 from rest_framework import serializers
 
 class AuthorSerializer(serializers.ModelSerializer):
+      social_links = serializers.SerializerMethodField()
       class Meta:
          model = Author
-         fields = '__all__'
+         fields = ['id', 'name', 'avatar', 'quotes',
+                    'social_links', 'total_reviews','role','about',
+                    'verified','phone_number','rating_number']
+      
+      def get_social_links(self, obj):
+            return {
+                  'facebook': obj.social_links.facebook,
+                  'instagram': obj.social_links.instagram,
+                  'linkedin': obj.social_links.linkedin,
+                  'twitter': obj.social_links.twitter,
+                  'whatsapp': obj.social_links.whatsapp
+            }
 
 class SocialLinksSerializer(serializers.ModelSerializer):
       class Meta:
@@ -43,7 +55,7 @@ class BlogSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'slug', 'title', 'hero', 'created_at', 'updated_at',
             'cover', 'duration', 'description', 'content', 'category',
-            'author', 'share_links', 'tags'
+            'author', 'tags'
         ]
       
       def get_tags(self, obj):
