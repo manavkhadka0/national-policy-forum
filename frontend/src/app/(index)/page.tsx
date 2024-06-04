@@ -1,4 +1,5 @@
 import { getFaqs, getPosts, getTestimonials } from 'src/actions/faq';
+import { getTags } from 'src/actions/tag';
 
 import { Faq } from 'src/sections/_marketing/landing/marketing-landing-faqs';
 import TravelLandingView from 'src/sections/_travel/view/travel-landing-view';
