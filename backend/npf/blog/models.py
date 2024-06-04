@@ -42,6 +42,7 @@ class Tag(models.Model):
 class Blog(models.Model):
    slug = models.SlugField(unique=True)
    title = models.CharField(max_length=200)
+   is_featured = models.BooleanField(default=False)
    hero = models.FileField()
    created_at = models.DateTimeField(auto_now_add=True)
    updated_at = models.DateTimeField(auto_now=True)

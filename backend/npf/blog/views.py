@@ -9,10 +9,43 @@ class BlogListCreate(generics.ListCreateAPIView):
    queryset = Blog.objects.all()
    serializer_class = BlogSerializer
 
+class BlogFeatured(APIView):
+   def get(self, request):
+      blogs = Blog.objects.filter(is_featured=True)
+      serializer = BlogSerializer(blogs, many=True)
+      return Response(serializer.data)
+   
+class BlogLatest(APIView):
+   def get(self, request):
+      blogs = Blog.objects.all().order_by('-created_at')[:3]
+      serializer = BlogSerializer(blogs, many=True)
+      return Response(serializer.data)
 class BlogRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
    queryset = Blog.objects.all()
    serializer_class = BlogSerializer
 
+class BlogCategory(APIView):
+   def get(self, request):
+      per_page = request.GET.get('per_page')
+      category = request.GET.get('category')
+      if per_page:
+         blogs = Blog.objects.filter(category__name=category)[:int(per_page)]
+      else:
+         blogs = Blog.objects.filter(category__name=category)
+      serializer = BlogSerializer(blogs, many=True)
+      return Response(serializer.data)
+
+class BlogTag(APIView):
+   def get(self, request):
+      per_page = request.GET.get('per_page')
+      tag = request.GET.get('tag')
+      if per_page:
+         blogs = Blog.objects.filter(tags__name=tag)[:int(per_page)]
+      else:
+         blogs = Blog.objects.filter(tags__name=tag)
+      serializer = BlogSerializer(blogs, many=True)
+      return Response(serializer.data)
+   
 class AuthorListCreate(generics.ListCreateAPIView):
    queryset = Author.objects.all()
    serializer_class = AuthorSerializer
