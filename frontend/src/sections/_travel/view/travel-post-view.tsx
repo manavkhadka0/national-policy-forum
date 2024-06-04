@@ -1,37 +1,38 @@
 'use client';
 
-import Divider from '@mui/material/Divider';
-import Grid from '@mui/material/Unstable_Grid2';
 import Container from '@mui/material/Container';
+import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Unstable_Grid2';
 
 import { paths } from 'src/routes/paths';
 
+import { _mock } from 'src/_mock';
 import { useGetPosts } from 'src/api/blog';
-import { _tags, _mock, _categories } from 'src/_mock';
 
-import Markdown from 'src/components/markdown';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
+import Markdown from 'src/components/markdown';
 
 import PostSocialsShare from 'src/sections/blog/common/post-socials-share';
 
 import { IBlogPostProps } from 'src/types/blog';
 
-import PostTags from '../../blog/common/post-tags';
-import TravelNewsletter from '../travel-newsletter';
+import { Tags } from 'src/actions/tag';
 import PostAuthor from '../../blog/common/post-author';
 import PostSidebar from '../../blog/common/post-sidebar';
-import TravelPostHero from '../../blog/travel/travel-post-hero';
+import PostTags from '../../blog/common/post-tags';
 import TravelLatestPosts from '../../blog/travel/travel-latest-posts';
-import { Tags, getTags } from 'src/actions/tag';
+import TravelPostHero from '../../blog/travel/travel-post-hero';
+import TravelNewsletter from '../travel-newsletter';
 
 // ----------------------------------------------------------------------
 
 interface TravelPostViewProps {
   post: IBlogPostProps;
   tags: Tags[];
+  categories: string[];
 }
-const TravelPostView: React.FC<TravelPostViewProps> = ({ post, tags: popularTags }) => {
+const TravelPostView: React.FC<TravelPostViewProps> = ({ post,categories:mainCategory, tags: popularTags }) => {
 
   const { title, description, author, tags, content } = post;
 
@@ -76,7 +77,7 @@ const TravelPostView: React.FC<TravelPostViewProps> = ({ post, tags: popularTags
             <PostSidebar
               popularTags={popularTags}
               author={author}
-              categories={_categories}
+              categories={mainCategory}
               recentPosts={{ list: posts.slice(-4) }}
               advertisement={{
                 title: 'Advertisement',
