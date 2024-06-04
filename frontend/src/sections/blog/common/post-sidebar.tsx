@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Chip from '@mui/material/Chip';
+import Link from '@mui/material/Link';
 import Avatar from '@mui/material/Avatar';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -9,11 +9,13 @@ import InputAdornment from '@mui/material/InputAdornment';
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
+import { Tags } from 'src/actions/tag';
+
 import Iconify from 'src/components/iconify';
 import SocialLinks from 'src/components/social-links/social-links';
 
 import { IAuthorProps } from 'src/types/author';
-import { IBlogPostProps, IBlogCategoryProps } from 'src/types/blog';
+import { IBlogPostProps } from 'src/types/blog';
 
 import PostItemMobile from './post-item-mobile';
 import Advertisement, { AdvertisementProps } from '../../advertisement';
@@ -22,8 +24,8 @@ import Advertisement, { AdvertisementProps } from '../../advertisement';
 
 interface Props extends StackProps {
   author?: IAuthorProps;
-  popularTags?: string[];
-  categories?: IBlogCategoryProps[];
+  popularTags?: Tags[];
+  categories?: string[];
   advertisement?: AdvertisementProps;
   recentPosts?: {
     list: IBlogPostProps[];
@@ -60,11 +62,11 @@ export default function PostSidebar({
   const renderCategories = categories && (
     <Stack spacing={1}>
       <Typography variant="h5" gutterBottom>
-        Categories
+        Popular Categories
       </Typography>
 
       {categories.map((category) => (
-        <Stack key={category.label} direction="row" alignItems="center">
+        <Stack key={category} direction="row" alignItems="center">
           <Box
             sx={{
               mr: 2,
@@ -75,8 +77,8 @@ export default function PostSidebar({
             }}
           />
 
-          <Link variant="body2" href={category.path} color="inherit">
-            {category.label}
+          <Link variant="body2" href="#" color="inherit">
+            {category}
           </Link>
         </Stack>
       ))}
@@ -99,7 +101,7 @@ export default function PostSidebar({
 
       <Stack direction="row" flexWrap="wrap" spacing={1}>
         {popularTags.map((tag) => (
-          <Chip key={tag} label={tag} variant="soft" size="small" onClick={() => {}} />
+          <Chip key={tag.id} label={tag.name} variant="soft" size="small" onClick={() => {}} />
         ))}
       </Stack>
     </Stack>

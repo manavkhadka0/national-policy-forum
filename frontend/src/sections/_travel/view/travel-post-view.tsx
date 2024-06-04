@@ -1,13 +1,14 @@
 'use client';
 
 import Divider from '@mui/material/Divider';
-import Grid from '@mui/material/Unstable_Grid2';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
 import { paths } from 'src/routes/paths';
 
-import { _tags, _mock, _categories } from 'src/_mock';
+import { _mock } from 'src/_mock';
+import { Tags } from 'src/actions/tag';
 
 import Markdown from 'src/components/markdown';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
@@ -27,10 +28,12 @@ import TravelLatestPosts from '../../blog/travel/travel-latest-posts';
 
 type Props = {
   post: IBlogPostProps;
+  tags: Tags[];
+  categories: string[];
   recentPosts: IBlogPostProps[];
 };
 
-export default function TravelPostView({ post, recentPosts }: Props) {
+export default function TravelPostView({ post, recentPosts, categories, tags: mainTag }: Props) {
   const { title, description, author, tags, content } = post;
 
   return (
@@ -70,10 +73,10 @@ export default function TravelPostView({ post, recentPosts }: Props) {
 
           <Grid xs={12} md={4}>
             <PostSidebar
-              popularTags={_tags}
+              popularTags={mainTag}
               author={author}
-              categories={_categories}
               recentPosts={{ list: recentPosts }}
+              categories={categories}
               advertisement={{
                 title: 'Advertisement',
                 description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',

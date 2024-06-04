@@ -44,5 +44,9 @@ export const endpoints = {
   },
   category: {
     list: '/api/category/',
+    nameList: '/api/category-name/',
+  },
+  tag: {
+    list: '/api/tag/',
   },
 };
