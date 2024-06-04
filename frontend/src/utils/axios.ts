@@ -33,7 +33,7 @@ export const fetcher = async (args: string | [string, AxiosRequestConfig]) => {
 export const endpoints = {
   blog: {
     list: '/api/blog',
-    post: (id: string) => `/api/blog/${id}`,
+    post: (slug: string) => `/api/blog?slug=${slug}`,
     latest_posts: '/api/blog?is_latest=True',
     featured_posts: '/api/blog?is_featured=True',
   },

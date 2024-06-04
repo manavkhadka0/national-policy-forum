@@ -236,7 +236,7 @@ function CarouselItem({ article }: CarouselItemProps) {
             color="primary"
             component={RouterLink}
             size="large"
-            href={paths.post(article.id)}
+            href={paths.post(article.slug)}
             sx={{
               background: theme.palette.common.white,
               color: theme.palette.common.black,
