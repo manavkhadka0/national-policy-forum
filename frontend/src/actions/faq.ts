@@ -30,9 +30,20 @@ export const getTestimonials = async () => {
   }
 };
 
-export const getPosts = async () => {
+export const getFeaturedPosts = async () => {
   try {
-    const res = await axiosInstance.get(endpoints.blog.list);
+    const res = await axiosInstance.get(endpoints.blog.featured_posts);
+
+    if (res.status === 200) {
+      return res.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getLatestPosts = async () => {
+  try {
+    const res = await axiosInstance.get(endpoints.blog.latest_posts);
 
     if (res.status === 200) {
       return res.data;

@@ -34,7 +34,8 @@ export const endpoints = {
   blog: {
     list: '/api/blog',
     post: (id: string) => `/api/blog/${id}`,
-    latest_post: '/api/blogs/latest',
+    latest_posts: '/api/blog?is_latest=True',
+    featured_posts: '/api/blog?is_featured=True',
   },
   faq: {
     list: '/api/faq/',

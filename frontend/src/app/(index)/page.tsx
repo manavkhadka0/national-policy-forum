@@ -1,4 +1,4 @@
-import { getFaqs, getPosts, getTestimonials } from 'src/actions/faq';
+import { getFaqs, getFeaturedPosts, getLatestPosts, getTestimonials } from 'src/actions/faq';
 import { getTags } from 'src/actions/tag';
 
 import { Faq } from 'src/sections/_marketing/landing/marketing-landing-faqs';
@@ -18,7 +18,12 @@ export const revalidate = 10;
 export default async function TravelLandingPage() {
   const faqs: Faq[] = await getFaqs();
   const testimonials: ITestimonialProps[] = await getTestimonials();
-  const posts: IBlogPostProps[] = await getPosts();
+  const featured_posts: IBlogPostProps[] = await getFeaturedPosts();
+  const latest_posts: IBlogPostProps[] = await getLatestPosts();
 
-  return <TravelLandingView faqs={faqs} testimonials={testimonials} posts={posts} />;
+  return <TravelLandingView
+    faqs={faqs}
+    testimonials={testimonials}
+    featured_posts={featured_posts}
+    latest_posts={latest_posts} />;
 }

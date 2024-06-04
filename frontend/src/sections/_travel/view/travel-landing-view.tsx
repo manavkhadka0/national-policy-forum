@@ -14,15 +14,16 @@ import BlogTravelLandingLatestPosts from '../../blog/travel/travel-landing-posts
 type TravelLandingViewProps = {
   faqs: Faq[];
   testimonials: ITestimonialProps[];
-  posts: IBlogPostProps[];
+  featured_posts: IBlogPostProps[];
+  latest_posts: IBlogPostProps[];
 };
 
-export default function TravelLandingView({ faqs, testimonials, posts }: TravelLandingViewProps) {
+export default function TravelLandingView({ faqs, testimonials, featured_posts, latest_posts }: TravelLandingViewProps) {
   return (
     <>
-      <TravelLandingHero articles={posts} />
+      <TravelLandingHero articles={featured_posts} />
 
-      <BlogTravelLandingLatestPosts posts={posts} />
+      <BlogTravelLandingLatestPosts posts={latest_posts} />
 
       <MarketingTestimonial testimonials={testimonials} />
 
