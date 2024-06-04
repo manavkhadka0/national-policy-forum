@@ -9,41 +9,37 @@ class BlogListCreate(generics.ListCreateAPIView):
    queryset = Blog.objects.all()
    serializer_class = BlogSerializer
 
-class BlogFeatured(APIView):
-   def get(self, request):
-      blogs = Blog.objects.filter(is_featured=True)
-      serializer = BlogSerializer(blogs, many=True)
-      return Response(serializer.data)
-   
-class BlogLatest(APIView):
-   def get(self, request):
-      blogs = Blog.objects.all().order_by('-created_at')[:3]
-      serializer = BlogSerializer(blogs, many=True)
-      return Response(serializer.data)
-class BlogRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-   queryset = Blog.objects.all()
-   serializer_class = BlogSerializer
-
-class BlogCategory(APIView):
-   def get(self, request):
+   def get(self, request, *args, **kwargs):
+      is_featured = request.GET.get('is_featured')
+      is_latest = request.GET.get('is_latest')
       per_page = request.GET.get('per_page')
       category = request.GET.get('category')
-      if per_page:
-         blogs = Blog.objects.filter(category__name=category)[:int(per_page)]
-      else:
-         blogs = Blog.objects.filter(category__name=category)
-      serializer = BlogSerializer(blogs, many=True)
-      return Response(serializer.data)
-
-class BlogTag(APIView):
-   def get(self, request):
-      per_page = request.GET.get('per_page')
       tag = request.GET.get('tag')
-      if per_page:
-         blogs = Blog.objects.filter(tags__name=tag)[:int(per_page)]
-      else:
-         blogs = Blog.objects.filter(tags__name=tag)
-      serializer = BlogSerializer(blogs, many=True)
+
+      queryset = self.get_queryset()
+
+      if is_featured:
+         queryset = queryset.filter(is_featured=True)
+      elif is_latest:
+         queryset = queryset.order_by('-created_at')[:3]
+      elif category:
+         queryset = queryset.filter(category__name=category)
+         if per_page:
+            try:
+               per_page = int(per_page)
+               queryset = queryset[:per_page]
+            except ValueError:
+               pass
+      elif tag:
+         queryset = queryset.filter(tags__name=tag)
+         if per_page:
+            try:
+               per_page = int(per_page)
+               queryset = queryset[:per_page]
+            except ValueError:
+               pass
+
+      serializer = self.get_serializer(queryset, many=True)
       return Response(serializer.data)
    
 class AuthorListCreate(generics.ListCreateAPIView):

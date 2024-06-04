@@ -5,10 +5,6 @@ from . import views
 
 urlpatterns = [
    path('blog/', views.BlogListCreate.as_view(), name='blog_list_create'),
-   path('blog/featured/', views.BlogFeatured.as_view(), name='blog_featured'),
-   path('blog/latest/', views.BlogLatest.as_view(), name='blog_latest'),
-   path('blog/category/', views.BlogCategory.as_view(), name='blog_category'),
-   path('blog/tag/', views.BlogTag.as_view(), name='blog_tag'),
    path('blog/<int:pk>/', views.BlogRetrieveUpdateDestroy.as_view(), name='blog_retrieve_update_destroy'),
    path('author/', views.AuthorListCreate.as_view(), name='author_list_create'),
    path('author/<int:pk>/', views.AuthorRetrieveUpdateDestroy.as_view(), name='author_retrieve_update_destroy'),
