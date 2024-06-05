@@ -1,18 +1,16 @@
 'use client';
 
-import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import { _caseStudies, _testimonials, _marketingPosts } from 'src/_mock';
+import { _caseStudies, _marketingPosts, _testimonials } from 'src/_mock';
 
-import MarketingNewsletter from '../marketing-newsletter';
-import MarketingCaseStudyList from '../list/marketing-case-study-list';
-import MarketingTestimonial from '../testimonial/marketing-testimonial';
-import MarketingLandingFreeSEO from '../landing/marketing-landing-free-seo';
 import BlogMarketingLatestPosts from '../../blog/marketing/marketing-latest-posts';
-import { IPublicationProps } from 'src/types/blog';
-import { Category } from 'src/actions/categories';
+import MarketingLandingFreeSEO from '../landing/marketing-landing-free-seo';
+import MarketingCaseStudyList from '../list/marketing-case-study-list';
+import MarketingNewsletter from '../marketing-newsletter';
+import MarketingTestimonial from '../testimonial/marketing-testimonial';
 
 // ----------------------------------------------------------------------
 type MarketingCaseStudiesViewProps = {
