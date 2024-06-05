@@ -13,14 +13,14 @@ import MarketingCaseStudyItem from './marketing-case-study-item';
 
 type Props = {
   caseStudies: ICaseStudyProps[];
+  categoriesFetched: string[];
 };
 
-export default function MarketingCaseStudyList({ caseStudies }: Props) {
+export default function MarketingCaseStudyList({ caseStudies, categoriesFetched }: Props) {
   const [tab, setTab] = useState('All');
 
-  const getCategories = caseStudies.map((project) => project.category);
 
-  const categories = ['All', ...Array.from(new Set(getCategories))];
+  const categories = ['All', ...Array.from(new Set(categoriesFetched))];
 
   const filtered = applyFilter(caseStudies, tab);
 
