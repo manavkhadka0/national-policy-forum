@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'tinymce',
     'corsheaders',
     'blog',
+    'about',
 ]
 
 MIDDLEWARE = [
