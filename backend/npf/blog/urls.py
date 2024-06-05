@@ -43,4 +43,15 @@ urlpatterns = [
         views.TagRetrieveUpdateDestroy.as_view(),
         name="tag_retrieve_update_destroy",
     ),
+    # publication
+    path(
+        "publication/",
+        views.PublicationListCreate.as_view(),
+        name="publication_list_create",
+    ),
+    path(
+        "publication/<int:pk>/",
+        views.PublicationRetrieveUpdateDestroy.as_view(),
+        name="publication_retrieve_update_destroy",
+    ),
 ]
