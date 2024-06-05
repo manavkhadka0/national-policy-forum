@@ -1,4 +1,4 @@
-from .models import Author, SocialLinks, Category, Tag, Blog
+from .models import Author, SocialLinks, Category, Tag, Blog,Publication
 
 from rest_framework import serializers
 
@@ -85,6 +85,34 @@ class BlogSerializer(serializers.ModelSerializer):
             "category",
             "author",
             "tags",
+        ]
+
+    def get_tags(self, obj):
+        return obj.tags.values_list("name", flat=True)
+    
+
+class PublicationSerializer(serializers.ModelSerializer):
+    tags = serializers.SerializerMethodField()
+    category = serializers.CharField(source="category.name", read_only=True)
+    author = AuthorSerializer()
+
+    class Meta:
+        model = Publication
+        fields = [
+            "id",
+            "slug",
+            "title",
+            "hero",
+            "created_at",
+            "updated_at",
+            "cover",
+            "duration",
+            "description",
+            "content",
+            "category",
+            "author",
+            "tags",
+            "pdf",
         ]
 
     def get_tags(self, obj):

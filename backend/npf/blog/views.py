@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework import generics
 from rest_framework.response import Response
-from .models import Author, SocialLinks, Category, Tag, Blog
-from .serializers import AuthorSerializer, SocialLinksSerializer,CategorySerializer, TagSerializer, BlogSerializer, CategoryNameSerializer
+from .models import Author, SocialLinks, Category, Tag, Blog,Publication
+from .serializers import AuthorSerializer, SocialLinksSerializer,CategorySerializer, TagSerializer, BlogSerializer, CategoryNameSerializer,PublicationSerializer
 
 class BlogListCreate(generics.ListCreateAPIView):
    queryset = Blog.objects.all()
@@ -84,3 +84,12 @@ class TagListCreate(generics.ListCreateAPIView):
 class TagRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
    queryset = Tag.objects.all()
    serializer_class = TagSerializer
+
+class PublicationListCreate(generics.ListCreateAPIView):
+   queryset = Publication.objects.all()
+   serializer_class = PublicationSerializer
+
+class PublicationRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+   queryset = Publication.objects.all()
+   serializer_class = PublicationSerializer
+
