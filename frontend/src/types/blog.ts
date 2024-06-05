@@ -14,6 +14,10 @@ export interface IBlogPostProps extends IBlogListProps {
   share_links?: ISocialLinks;
 }
 
+export interface IPublicationProps extends IBlogPostProps {
+  pdf: string;
+}
+
 export interface IBlogListProps {
   id: string;
   slug: string;
