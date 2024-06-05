@@ -44,8 +44,17 @@ class BlogListCreate(generics.ListCreateAPIView):
 class BlogRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
    queryset = Blog.objects.all()
    serializer_class = BlogSerializer
-   lookup_field = 'slug'
+   lookup_field = "slug"
 
+#api view to get blog from slug
+class BlogRetrieveBySlug(APIView):
+   def get(self, request, slug):
+      try:
+         blog = Blog.objects.get(slug=slug)
+         serializer = BlogSerializer(blog)
+         return Response(serializer.data)
+      except Blog.DoesNotExist:
+         return Response(status=404)
    
 class AuthorListCreate(generics.ListCreateAPIView):
    queryset = Author.objects.all()

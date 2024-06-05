@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
@@ -14,8 +15,6 @@ import { useBoolean } from 'src/hooks/use-boolean';
 import { useOffSetTop } from 'src/hooks/use-off-set-top';
 import { useResponsive } from 'src/hooks/use-responsive';
 
-import { _socials } from 'src/_mock';
-
 import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify/iconify';
 import Scrollbar from 'src/components/scrollbar/scrollbar';
@@ -24,14 +23,12 @@ import MegaMenuDesktopHorizontal from 'src/components/mega-menu/horizontal/mega-
 
 import { HEADER } from '../config-layout';
 import HeaderShadow from '../common/header-shadow';
-import Link from 'next/link';
 
 // ----------------------------------------------------------------------
 
 type Props = {
   headerOnDark: boolean;
 };
-
 
 export const socials = [
   {
@@ -53,7 +50,7 @@ export const socials = [
     label: 'Linkedin',
     icon: 'carbon:logo-linkedin',
     color: '#007EBB',
-    link: '#'
+    link: '#',
   },
   {
     value: 'twitter',
@@ -95,8 +92,11 @@ export default function Header({ headerOnDark }: Props) {
       >
         <Stack direction="row">
           {socials.map((social) => (
-            <Link target='_blank' rel="noopener noreferrer" href={social.link}>
-              <IconButton key={social.value} sx={{ color: offset ? 'text.primary' : 'common.white' }}>
+            <Link target="_blank" rel="noopener noreferrer" href={social.link}>
+              <IconButton
+                key={social.value}
+                sx={{ color: offset ? 'text.primary' : 'common.white' }}
+              >
                 <Iconify icon={social.icon} />
               </IconButton>
             </Link>
@@ -113,8 +113,7 @@ export default function Header({ headerOnDark }: Props) {
         variant="text"
         onClick={mobileOpen.onTrue}
         startIcon={<Iconify icon="carbon:menu" />}
-      >
-      </Button>
+      />
 
       <Drawer
         open={mobileOpen.value}
