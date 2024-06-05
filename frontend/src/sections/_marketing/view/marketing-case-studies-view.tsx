@@ -11,10 +11,14 @@ import MarketingCaseStudyList from '../list/marketing-case-study-list';
 import MarketingTestimonial from '../testimonial/marketing-testimonial';
 import MarketingLandingFreeSEO from '../landing/marketing-landing-free-seo';
 import BlogMarketingLatestPosts from '../../blog/marketing/marketing-latest-posts';
+import { IPublicationProps } from 'src/types/blog';
+import { Category } from 'src/actions/categories';
 
 // ----------------------------------------------------------------------
-
-export default function MarketingCaseStudiesView() {
+type MarketingCaseStudiesViewProps = {
+  category: string[];
+};
+export default function MarketingCaseStudiesView({ category }: MarketingCaseStudiesViewProps) {
   return (
     <>
       <Container>
@@ -25,7 +29,7 @@ export default function MarketingCaseStudiesView() {
             textAlign: { xs: 'center', md: 'left' },
           }}
         >
-          <Typography variant="h2">Our Case Studies</Typography>
+          <Typography variant="h2">Our Publications</Typography>
 
           <Typography sx={{ color: 'text.secondary' }}>
             Nullam tincidunt adipiscing enim.
@@ -33,7 +37,7 @@ export default function MarketingCaseStudiesView() {
           </Typography>
         </Stack>
 
-        <MarketingCaseStudyList caseStudies={_caseStudies} />
+        <MarketingCaseStudyList caseStudies={_caseStudies} categoriesFetched={category} />
       </Container>
 
       <MarketingTestimonial testimonials={_testimonials} />

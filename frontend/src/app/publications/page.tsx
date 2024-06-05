@@ -1,3 +1,4 @@
+import { Category, getCategories, getCategoriesNameOnly } from 'src/actions/categories';
 import MarketingCaseStudiesView from 'src/sections/_marketing/view/marketing-case-studies-view';
 
 // ----------------------------------------------------------------------
@@ -9,5 +10,8 @@ export const metadata = {
 export const revalidate = 10;
 
 export default async function TravelLandingPage() {
-  return <MarketingCaseStudiesView />;
+
+  const categories: string[] = await getCategoriesNameOnly();
+
+  return <MarketingCaseStudiesView category={categories}/>;
 }
