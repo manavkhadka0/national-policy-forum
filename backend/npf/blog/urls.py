@@ -6,10 +6,11 @@ from . import views
 urlpatterns = [
     path("blog/", views.BlogListCreate.as_view(), name="blog_list_create"),
     path(
-        "blog/<slug:str>/",
+        "blog/<str:slug>/",
         views.BlogRetrieveUpdateDestroy.as_view(),
         name="blog_retrieve_update_destroy",
     ),
+    path("aaa/<str:slug>/", views.BlogRetrieveBySlug.as_view(), name="blog_retrieve_by_slug"),
     path("author/", views.AuthorListCreate.as_view(), name="author_list_create"),
     path(
         "author/<int:pk>/",

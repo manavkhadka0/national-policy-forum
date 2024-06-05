@@ -3,7 +3,7 @@
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 
-import { Category } from 'src/actions/faq';
+import { Category } from 'src/actions/categories';
 import { _tags, _mock, _categories } from 'src/_mock';
 
 import { IBlogPostProps } from 'src/types/blog';

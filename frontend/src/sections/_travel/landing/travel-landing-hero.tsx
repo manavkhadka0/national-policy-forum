@@ -215,7 +215,7 @@ function CarouselItem({ article }: CarouselItemProps) {
           </Stack>
         </Stack>
 
-        <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2, md: 4 }} justifyContent={'flex-start'} alignItems={{ xs: 'flex-start', md: 'center' }}>
+        <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2, md: 4 }} justifyContent="flex-start" alignItems={{ xs: 'flex-start', md: 'center' }}>
           <Stack direction="row" justifyContent="flex-start" spacing={1.5} sx={{ py: 3 }}>
             <Avatar src={article.author.avatar} sx={{ width: 48, height: 48 }} />
 
