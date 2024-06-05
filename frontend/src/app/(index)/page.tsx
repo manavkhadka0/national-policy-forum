@@ -1,5 +1,6 @@
-import { getFaqs, getFeaturedPosts, getLatestPosts, getTestimonials } from 'src/actions/faq';
-import { getTags } from 'src/actions/tag';
+import { getFaqs } from 'src/actions/faq';
+import { getFeaturedPosts, getLatestPosts } from 'src/actions/post';
+import { getTestimonials } from 'src/actions/testimonials';
 
 import { Faq } from 'src/sections/_marketing/landing/marketing-landing-faqs';
 import TravelLandingView from 'src/sections/_travel/view/travel-landing-view';

@@ -24,12 +24,45 @@ import MegaMenuDesktopHorizontal from 'src/components/mega-menu/horizontal/mega-
 
 import { HEADER } from '../config-layout';
 import HeaderShadow from '../common/header-shadow';
+import Link from 'next/link';
 
 // ----------------------------------------------------------------------
 
 type Props = {
   headerOnDark: boolean;
 };
+
+
+export const socials = [
+  {
+    value: 'facebook',
+    label: 'FaceBook',
+    icon: 'carbon:logo-facebook',
+    color: '#1877F2',
+    link: 'https://www.facebook.com/profile.php?id=61555066314243',
+  },
+  {
+    value: 'instagram',
+    label: 'Instagram',
+    icon: 'carbon:logo-instagram',
+    color: '#E02D69',
+    link: 'https://www.instagram.com/nnpolicyforum/',
+  },
+  {
+    value: 'linkedin',
+    label: 'Linkedin',
+    icon: 'carbon:logo-linkedin',
+    color: '#007EBB',
+    link: '#'
+  },
+  {
+    value: 'twitter',
+    label: 'Twitter',
+    icon: 'carbon:logo-twitter',
+    color: '#00AAEC',
+    link: 'https://twitter.com/nnpolicyforum',
+  },
+];
 
 export default function Header({ headerOnDark }: Props) {
   const theme = useTheme();
@@ -61,10 +94,12 @@ export default function Header({ headerOnDark }: Props) {
         justifyContent="flex-end"
       >
         <Stack direction="row">
-          {_socials.map((social) => (
-            <IconButton key={social.value} color="inherit">
-              <Iconify icon={social.icon} />
-            </IconButton>
+          {socials.map((social) => (
+            <Link target='_blank' rel="noopener noreferrer" href={social.link}>
+              <IconButton key={social.value} sx={{ color: offset ? 'text.primary' : 'common.white' }}>
+                <Iconify icon={social.icon} />
+              </IconButton>
+            </Link>
           ))}
         </Stack>
       </Stack>
@@ -75,11 +110,10 @@ export default function Header({ headerOnDark }: Props) {
     <>
       <Button
         color="inherit"
-        variant="contained"
+        variant="text"
         onClick={mobileOpen.onTrue}
         startIcon={<Iconify icon="carbon:menu" />}
       >
-        Menu Mobile
       </Button>
 
       <Drawer

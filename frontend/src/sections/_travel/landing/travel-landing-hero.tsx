@@ -172,19 +172,20 @@ function CarouselItem({ article }: CarouselItemProps) {
         alignItems="left"
         sx={{
           zIndex: 9,
-          py: { xs: 20, md: 0 },
+          py: { xs: 14, md: 0 },
           px: { xs: 2, md: 5 },
+          mt: { lg: 8 },
           position: { md: 'absolute' },
         }}
       >
-        <Typography variant="overline" sx={{ color: 'info.main', mb: 5 }}>
+        <Typography variant="overline" sx={{ color: 'info.main', mb: { lg: 2 } }}>
           {article.category}
         </Typography>
 
-        <Typography variant="h1" sx={{ maxWidth: 680 }}>
+        <Typography variant="h2" sx={{ maxWidth: 680 }}>
           {article.title}
         </Typography>
-        <Typography variant="body1" sx={{ maxWidth: 680, mt: 2 }}>
+        <Typography variant="body1" sx={{ maxWidth: 680, mt: 3 }}>
           {article.description}
         </Typography>
 
@@ -207,45 +208,43 @@ function CarouselItem({ article }: CarouselItemProps) {
 
               <Stack direction="row" flexWrap="wrap" spacing={1}>
                 {article.tags.map((tag) => (
-                  <Chip key={tag} size="medium" variant="filled" label={tag} onClick={() => {}} />
+                  <Chip key={tag} size="medium" variant="filled" label={tag} onClick={() => { }} />
                 ))}
               </Stack>
             </Stack>
           </Stack>
         </Stack>
 
-        <Stack direction="row" justifyContent="flex-start" spacing={1.5} sx={{ py: 3 }}>
-          <Avatar src={article.author.avatar} sx={{ width: 48, height: 48 }} />
+        <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2, md: 4 }} justifyContent={'flex-start'} alignItems={{ xs: 'flex-start', md: 'center' }}>
+          <Stack direction="row" justifyContent="flex-start" spacing={1.5} sx={{ py: 3 }}>
+            <Avatar src={article.author.avatar} sx={{ width: 48, height: 48 }} />
 
-          <Stack spacing={0.5} flexGrow={1}>
-            <Typography variant="subtitle2">{article.author.name}</Typography>
-            <Typography variant="caption" sx={{ color: 'common.white' }}>
-              {fDate(article.created_at, 'dd/MM/yyyy p')}
-            </Typography>
+            <Stack spacing={0.5} flexGrow={1}>
+              <Typography variant="subtitle2">{article.author.name}</Typography>
+              <Typography variant="caption" sx={{ color: 'common.white' }}>
+                {fDate(article.created_at, 'dd/MM/yyyy p')}
+              </Typography>
+            </Stack>
           </Stack>
-        </Stack>
-
-        <Box
-          sx={{
-            mt: { xs: 8, md: 5 },
-            mb: 10,
-          }}
-        >
-          <Button
-            variant="contained"
-            color="primary"
-            component={RouterLink}
-            size="large"
-            href={paths.post(article.slug)}
-            sx={{
-              background: theme.palette.common.white,
-              color: theme.palette.common.black,
-            }}
-            endIcon={<Iconify icon="carbon:chevron-right" />}
+          <Box
           >
-            Read More
-          </Button>
-        </Box>
+            <Button
+              variant="contained"
+              color="primary"
+              component={RouterLink}
+              size="large"
+              href={paths.post(article.slug)}
+              sx={{
+                background: theme.palette.common.white,
+                color: theme.palette.common.black,
+                height: 'fit'
+              }}
+              endIcon={<Iconify icon="carbon:chevron-right" />}
+            >
+              Read More
+            </Button>
+          </Box>
+        </Stack>
       </Stack>
 
       <Box
@@ -269,7 +268,7 @@ function CarouselItem({ article }: CarouselItemProps) {
           }}
         />
       </Box>
-    </Box>
+    </Box >
   );
 }
 

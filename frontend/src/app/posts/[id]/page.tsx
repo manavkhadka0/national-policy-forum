@@ -1,7 +1,8 @@
 'use-client';
 
+import { getCategoriesNameOnly } from 'src/actions/categories';
+import { getFeaturedPosts, getSinglePost } from 'src/actions/post';
 import { getTags } from 'src/actions/tag';
-import { getFeaturedPosts, getSinglePost, getCategoriesNameOnly } from 'src/actions/faq';
 
 import TravelPostView from 'src/sections/_travel/view/travel-post-view';
 
