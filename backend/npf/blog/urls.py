@@ -10,7 +10,11 @@ urlpatterns = [
         views.BlogRetrieveUpdateDestroy.as_view(),
         name="blog_retrieve_update_destroy",
     ),
-    path("aaa/<str:slug>/", views.BlogRetrieveBySlug.as_view(), name="blog_retrieve_by_slug"),
+    path(
+        "aaa/<str:slug>/",
+        views.BlogRetrieveBySlug.as_view(),
+        name="blog_retrieve_by_slug",
+    ),
     path("author/", views.AuthorListCreate.as_view(), name="author_list_create"),
     path(
         "author/<int:pk>/",
@@ -51,7 +55,7 @@ urlpatterns = [
         name="publication_list_create",
     ),
     path(
-        "publication/<int:pk>/",
+        "publication/<str:slug>/",
         views.PublicationRetrieveUpdateDestroy.as_view(),
         name="publication_retrieve_update_destroy",
     ),
