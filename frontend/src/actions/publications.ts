@@ -29,3 +29,26 @@ export const getPublicationNameList = async () => {
     console.log(error);
   }
 };
+
+export const getSinglePublication = async (slug: string) => {
+  try {
+    const res = await axiosInstance.get(endpoints.publication.publication_details(slug));
+
+    if (res.status === 200) {
+      return res.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getFeaturedPublication = async () => {
+  try {
+    const res = await axiosInstance.get(endpoints.publication.featured_publications);
+
+    if (res.status === 200) {
+      return res.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
