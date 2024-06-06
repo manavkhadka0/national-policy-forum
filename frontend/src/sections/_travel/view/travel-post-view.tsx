@@ -1,5 +1,6 @@
 'use client';
 
+
 import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -26,10 +27,10 @@ import TravelLatestPosts from '../../blog/travel/travel-latest-posts';
 // ----------------------------------------------------------------------
 
 type Props = {
-  post: IBlogPostProps;
+  post: IPublicationProps;
   tags: string[];
   categories: string[];
-  recentPosts: IBlogPostProps[];
+  recentPosts: IPublicationProps[];
 };
 
 export default function TravelPostView({ post, recentPosts, categories, tags: mainTag }: Props) {
@@ -58,6 +59,7 @@ export default function TravelPostView({ post, recentPosts, categories, tags: ma
             <Typography variant="h5" sx={{ mb: 5 }}>
               {description}
             </Typography>
+            {post.pdf ? <PDFViewer file={post.pdf} /> : null}
 
             <Markdown content={content} firstLetter />
 

@@ -278,7 +278,7 @@ const NAV_ITEMS = [
   },
   {
     title: 'Blogs',
-    path: '#',
+    path: '/posts',
     icon: <Iconify icon="carbon:folder" sx={{ width: 1, height: 1 }} />,
     moreLink: {
       title: 'More Blog Articles',
@@ -288,7 +288,7 @@ const NAV_ITEMS = [
   },
   {
     title: 'Publications',
-    path: '#',
+    path: '/publications',
     icon: <Iconify icon="carbon:document" sx={{ width: 1, height: 1 }} />,
     children: [],
   },

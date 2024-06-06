@@ -19,12 +19,12 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 }
 
 export default async function TravelPostPage({ params }: { params: { id: string } }) {
-    const post = await getSinglePublication(params.id);
+    const publication = await getSinglePublication(params.id);
     const recentPublication = await getLatestPublication();
     const tags: string[] = await getTags();
     const categories: string[] = await getCategoriesNameOnly();
 
     return (
-        <TravelPostView categories={categories} tags={tags} post={post} recentPosts={recentPublication} />
+        <TravelPostView categories={categories} tags={tags} post={publication} recentPosts={recentPublication} />
     );
 }
