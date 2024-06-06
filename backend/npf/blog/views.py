@@ -1,5 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework import generics
+from rest_framework import status
 from rest_framework.response import Response
 from .models import Author, SocialLinks, Category, Tag, Blog, Publication
 from .serializers import (
@@ -10,12 +11,16 @@ from .serializers import (
     BlogSerializer,
     CategoryNameSerializer,
     PublicationSerializer,
+    BlogListSerializer,
+    PublicationListSerializer,
+    PublicationNameSerializer,
+    NavigationSerializer,
 )
 
 
 class BlogListCreate(generics.ListCreateAPIView):
     queryset = Blog.objects.all()
-    serializer_class = BlogSerializer
+    serializer_class = BlogListSerializer
 
     def get(self, request, *args, **kwargs):
         is_featured = request.GET.get("is_featured")
@@ -55,17 +60,6 @@ class BlogRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
     lookup_field = "slug"
-
-
-# api view to get blog from slug
-class BlogRetrieveBySlug(APIView):
-    def get(self, request, slug):
-        try:
-            blog = Blog.objects.get(slug=slug)
-            serializer = BlogSerializer(blog)
-            return Response(serializer.data)
-        except Blog.DoesNotExist:
-            return Response(status=404)
 
 
 class AuthorListCreate(generics.ListCreateAPIView):
@@ -117,10 +111,31 @@ class TagRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
 
 class PublicationListCreate(generics.ListCreateAPIView):
     queryset = Publication.objects.all()
-    serializer_class = PublicationSerializer
+    serializer_class = PublicationListSerializer
 
 
 class PublicationRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Publication.objects.all()
     serializer_class = PublicationSerializer
     lookup_field = "slug"
+
+
+class PublicationNameListView(APIView):
+    queryset = Publication.objects.all()
+    serializer_class = PublicationNameSerializer
+
+    # get only name
+    def get(self, request):
+        # get latest 8 publications
+        publications = Publication.objects.all().order_by("-created_at")[:8]
+        serializer = PublicationNameSerializer(publications, many=True)
+        return Response(serializer.data)
+
+
+class NavigationView(APIView):
+
+    def get(self, request, *args, **kwargs):
+        serializer = NavigationSerializer(data={})
+        if serializer.is_valid():
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

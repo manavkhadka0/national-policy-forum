@@ -208,14 +208,19 @@ function CarouselItem({ article }: CarouselItemProps) {
 
               <Stack direction="row" flexWrap="wrap" spacing={1}>
                 {article.tags.map((tag) => (
-                  <Chip key={tag} size="medium" variant="filled" label={tag} onClick={() => { }} />
+                  <Chip key={tag} size="medium" variant="filled" label={tag} onClick={() => {}} />
                 ))}
               </Stack>
             </Stack>
           </Stack>
         </Stack>
 
-        <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2, md: 4 }} justifyContent="flex-start" alignItems={{ xs: 'flex-start', md: 'center' }}>
+        <Stack
+          direction={{ xs: 'column', md: 'row' }}
+          spacing={{ xs: 2, md: 4 }}
+          justifyContent="flex-start"
+          alignItems={{ xs: 'flex-start', md: 'center' }}
+        >
           <Stack direction="row" justifyContent="flex-start" spacing={1.5} sx={{ py: 3 }}>
             <Avatar src={article.author.avatar} sx={{ width: 48, height: 48 }} />
 
@@ -226,8 +231,7 @@ function CarouselItem({ article }: CarouselItemProps) {
               </Typography>
             </Stack>
           </Stack>
-          <Box
-          >
+          <Box>
             <Button
               variant="contained"
               color="primary"
@@ -237,7 +241,7 @@ function CarouselItem({ article }: CarouselItemProps) {
               sx={{
                 background: theme.palette.common.white,
                 color: theme.palette.common.black,
-                height: 'fit'
+                height: 'fit',
               }}
               endIcon={<Iconify icon="carbon:chevron-right" />}
             >
@@ -261,14 +265,14 @@ function CarouselItem({ article }: CarouselItemProps) {
 
         <Image
           alt="hero"
-          src={article.hero}
+          src={article.cover}
           sx={{
             width: 1,
             height: { xs: 1, md: '100vh' },
           }}
         />
       </Box>
-    </Box >
+    </Box>
   );
 }
 
@@ -306,7 +310,7 @@ function ThumbnailItem({ article, selected }: ThumbnailItemProps) {
         }),
       }}
     >
-      <Avatar src={article.hero} sx={{ width: 48, height: 48, borderRadius: '8px' }} />
+      <Avatar src={article.cover} sx={{ width: 48, height: 48, borderRadius: '8px' }} />
 
       <Stack spacing={0.5}>
         <TextMaxLine variant="h6" line={1}>
