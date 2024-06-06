@@ -9,3 +9,15 @@ export type ITeamMemberProps = {
   photo: string;
   socialLinks?: ISocialLinks;
 };
+
+
+export type IOurTeamProps = {
+  id: string;
+  name: string;
+  role: string;
+  photo: string;
+  facebook?: string;
+  instagram?: string;
+  linkedin?: string;
+  twitter?: string;
+};

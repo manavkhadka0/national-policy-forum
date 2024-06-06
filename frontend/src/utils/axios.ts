@@ -47,6 +47,9 @@ export const endpoints = {
   navLinks: {
     list: '/api/nav-links/',
   },
+  team: {
+    list: '/api/our-team/',
+  },
   faq: {
     list: '/api/faq/',
   },
