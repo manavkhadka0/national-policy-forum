@@ -1,6 +1,11 @@
 from rest_framework import generics
-from .models import FAQ, Testimonial, OurTeam
-from .serializers import FAQSerializer, TestimonialSerializer, OurTeamSerializer
+from .models import FAQ, Testimonial, OurTeam, OurClient
+from .serializers import (
+    FAQSerializer,
+    TestimonialSerializer,
+    OurTeamSerializer,
+    OurClientSerializer,
+)
 
 # Create your views here.
 
@@ -33,3 +38,13 @@ class OurTeamListCreate(generics.ListCreateAPIView):
 class OurTeamRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = OurTeam.objects.all()
     serializer_class = OurTeamSerializer
+
+
+class OutClientListCreate(generics.ListCreateAPIView):
+    queryset = OurClient.objects.all()
+    serializer_class = OurClientSerializer
+
+
+class OutClientRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OurClient.objects.all()
+    serializer_class = OurClientSerializer

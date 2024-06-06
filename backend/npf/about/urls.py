@@ -19,4 +19,19 @@ urlpatterns = [
         name="testimonial_retrieve_update_destroy",
     ),
     path("our-team/", views.OurTeamListCreate.as_view(), name="our_team_list_create"),
+    path(
+        "our-team/<int:pk>/",
+        views.OurTeamRetrieveUpdateDestroy.as_view(),
+        name="our_team_retrieve_update_destroy",
+    ),
+    path(
+        "our-client/",
+        views.OutClientListCreate.as_view(),
+        name="our_client_list_create",
+    ),
+    path(
+        "our-client/<int:pk>/",
+        views.OutClientRetrieveUpdateDestroy.as_view(),
+        name="our_client_retrieve_update_destroy",
+    ),
 ]

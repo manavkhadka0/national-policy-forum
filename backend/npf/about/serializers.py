@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import FAQ, Testimonial, OurTeam
+from .models import FAQ, Testimonial, OurTeam, OurClient
 
 
 class FAQSerializer(serializers.ModelSerializer):
@@ -20,4 +20,10 @@ class TestimonialSerializer(serializers.ModelSerializer):
 class OurTeamSerializer(serializers.ModelSerializer):
     class Meta:
         model = OurTeam
+        fields = "__all__"
+
+
+class OurClientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OurClient
         fields = "__all__"
