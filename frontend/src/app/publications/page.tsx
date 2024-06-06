@@ -1,6 +1,8 @@
-import { Category, getCategories, getCategoriesNameOnly } from 'src/actions/categories';
 import { getPublications } from 'src/actions/publications';
+import { getCategoriesNameOnly } from 'src/actions/categories';
+
 import MarketingCaseStudiesView from 'src/sections/_marketing/view/marketing-case-studies-view';
+
 import { IPublicationProps } from 'src/types/blog';
 
 // ----------------------------------------------------------------------

@@ -39,9 +39,9 @@ export const endpoints = {
   },
   publication: {
     list: '/api/publication/',
-    post: (slug: string) => `/api/publication/${slug}`,
-    latest_posts: '/api/publication?is_latest=True',
-    featured_posts: '/api/publication?is_featured=True',
+    publication_details: (slug: string) => `/api/publication/${slug}`,
+    latest_publications: '/api/publication?is_latest=True',
+    featured_publications: '/api/publication?is_featured=True',
     nameList: '/api/publication-name/',
   },
   navLinks: {

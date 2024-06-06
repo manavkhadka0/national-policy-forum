@@ -4,6 +4,8 @@ export const paths = {
   // post 
   post: (id: string) => `/posts/${id}`,
   posts: '/posts',
+  publication:(id: string)=> `/publications/${id}`,
+  publications:'/publications',
   // Marketing
   marketing: {
     root: '/marketing',
