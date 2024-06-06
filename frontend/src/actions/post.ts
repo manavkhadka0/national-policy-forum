@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import axiosInstance, { endpoints } from "src/utils/axios";
 
 export const getFeaturedPosts = async () => {
@@ -11,6 +12,7 @@ export const getFeaturedPosts = async () => {
     console.log(error);
   }
 };
+
 export const getLatestPosts = async () => {
   try {
     const res = await axiosInstance.get(endpoints.blog.latest_posts);

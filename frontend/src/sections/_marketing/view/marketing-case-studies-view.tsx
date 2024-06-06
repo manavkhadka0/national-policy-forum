@@ -4,7 +4,9 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import { _caseStudies, _testimonials, _marketingPosts } from 'src/_mock';
+import { _testimonials, _marketingPosts } from 'src/_mock';
+
+import { IPublicationProps } from 'src/types/blog';
 
 import MarketingNewsletter from '../marketing-newsletter';
 import MarketingCaseStudyList from '../list/marketing-case-study-list';
@@ -13,8 +15,11 @@ import MarketingLandingFreeSEO from '../landing/marketing-landing-free-seo';
 import BlogMarketingLatestPosts from '../../blog/marketing/marketing-latest-posts';
 
 // ----------------------------------------------------------------------
-
-export default function MarketingCaseStudiesView() {
+type MarketingCaseStudiesViewProps = {
+  category: string[];
+  publications: IPublicationProps[];
+};
+export default function MarketingCaseStudiesView({ category, publications }: MarketingCaseStudiesViewProps) {
   return (
     <>
       <Container>
@@ -25,7 +30,7 @@ export default function MarketingCaseStudiesView() {
             textAlign: { xs: 'center', md: 'left' },
           }}
         >
-          <Typography variant="h2">Our Case Studies</Typography>
+          <Typography variant="h2">Our Publications</Typography>
 
           <Typography sx={{ color: 'text.secondary' }}>
             Nullam tincidunt adipiscing enim.
@@ -33,7 +38,7 @@ export default function MarketingCaseStudiesView() {
           </Typography>
         </Stack>
 
-        <MarketingCaseStudyList caseStudies={_caseStudies} />
+        <MarketingCaseStudyList publications={publications} categoriesFetched={category} />
       </Container>
 
       <MarketingTestimonial testimonials={_testimonials} />

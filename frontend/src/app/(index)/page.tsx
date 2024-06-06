@@ -1,6 +1,6 @@
 import { getFaqs } from 'src/actions/faq';
-import { getFeaturedPosts, getLatestPosts } from 'src/actions/post';
 import { getTestimonials } from 'src/actions/testimonials';
+import { getLatestPosts, getFeaturedPosts } from 'src/actions/post';
 
 import { Faq } from 'src/sections/_marketing/landing/marketing-landing-faqs';
 import TravelLandingView from 'src/sections/_travel/view/travel-landing-view';
@@ -22,9 +22,12 @@ export default async function TravelLandingPage() {
   const featured_posts: IBlogPostProps[] = await getFeaturedPosts();
   const latest_posts: IBlogPostProps[] = await getLatestPosts();
 
-  return <TravelLandingView
-    faqs={faqs}
-    testimonials={testimonials}
-    featured_posts={featured_posts}
-    latest_posts={latest_posts} />;
+  return (
+    <TravelLandingView
+      faqs={faqs}
+      testimonials={testimonials}
+      featured_posts={featured_posts}
+      latest_posts={latest_posts}
+    />
+  );
 }

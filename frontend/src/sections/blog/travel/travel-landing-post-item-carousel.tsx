@@ -49,7 +49,7 @@ export default function TravelLandingPostItemCarousel({ post }: Props) {
 
           <Typography sx={{ opacity: 0.72, mb: 10 }}>{post.description}</Typography>
 
-          <Fab component={RouterLink} href={paths.post(post.id)}>
+          <Fab component={RouterLink} href={paths.post(post.slug)}>
             <Iconify icon="carbon:chevron-right" />
           </Fab>
         </Box>
@@ -58,9 +58,8 @@ export default function TravelLandingPostItemCarousel({ post }: Props) {
       <Image
         src={post.cover}
         alt={post.title}
-        overlay={`linear-gradient(to bottom, ${alpha(theme.palette.common.black, 0)} 0%, ${
-          theme.palette.common.black
-        } 75%)`}
+        overlay={`linear-gradient(to bottom, ${alpha(theme.palette.common.black, 0)} 0%, ${theme.palette.common.black
+          } 75%)`}
         sx={{
           width: 1,
           height: { xs: 720, md: 960 },

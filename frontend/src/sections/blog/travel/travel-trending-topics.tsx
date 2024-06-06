@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
-import { Category } from 'src/actions/faq';
+import { Category } from 'src/actions/categories';
 
 import Carousel, { useCarousel, CarouselArrows } from 'src/components/carousel';
 

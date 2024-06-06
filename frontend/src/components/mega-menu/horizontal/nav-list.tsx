@@ -133,7 +133,12 @@ export default function NavList({ data, slotProps }: NavListProps) {
           {singleList ? (
             <NavSubList data={data.children} slotProps={slotProps} />
           ) : (
-            <Masonry columns={4} spacing={3} defaultColumns={4} defaultSpacing={3}>
+            <Masonry
+              columns={data.children.length > 4 ? 4 : data.children.length}
+              spacing={3}
+              defaultColumns={4}
+              defaultSpacing={3}
+            >
               <NavSubList data={data.children} slotProps={slotProps} sx={{ mb: 2.5 }} />
             </Masonry>
           )}

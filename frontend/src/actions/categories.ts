@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import axiosInstance, { endpoints } from "src/utils/axios";
 
 export type Category = {

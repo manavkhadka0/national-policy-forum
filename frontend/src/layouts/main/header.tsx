@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
@@ -14,7 +15,7 @@ import { useBoolean } from 'src/hooks/use-boolean';
 import { useOffSetTop } from 'src/hooks/use-off-set-top';
 import { useResponsive } from 'src/hooks/use-responsive';
 
-import { _socials } from 'src/_mock';
+import { useGetNavlinks } from 'src/api/navlinks';
 
 import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify/iconify';
@@ -24,14 +25,12 @@ import MegaMenuDesktopHorizontal from 'src/components/mega-menu/horizontal/mega-
 
 import { HEADER } from '../config-layout';
 import HeaderShadow from '../common/header-shadow';
-import Link from 'next/link';
 
 // ----------------------------------------------------------------------
 
 type Props = {
   headerOnDark: boolean;
 };
-
 
 export const socials = [
   {
@@ -53,7 +52,7 @@ export const socials = [
     label: 'Linkedin',
     icon: 'carbon:logo-linkedin',
     color: '#007EBB',
-    link: '#'
+    link: '#',
   },
   {
     value: 'twitter',
@@ -66,6 +65,55 @@ export const socials = [
 
 export default function Header({ headerOnDark }: Props) {
   const theme = useTheme();
+
+  const { navlinks, navlinksLoading } = useGetNavlinks();
+
+  // change Nav Items to  nav items with publication and add publications to the nav items
+  const NAV_ITEMS_WITH_PUBLICATIONS = NAV_ITEMS.map((item) => {
+    if (item.title === 'Publications') {
+      return {
+        ...item,
+        children: [
+          {
+            subheader: 'Latest Publications',
+            items: navlinks.publication?.latest_publications.map((publication) => ({
+              title: publication.title,
+              path: publication.path,
+            })),
+          },
+          {
+            subheader: 'Featured Publications',
+            items: navlinks.publication?.featured_publications.map((publication) => ({
+              title: publication.title,
+              path: publication.path,
+            })),
+          },
+        ],
+      };
+    }
+    if (item.title === 'Blogs') {
+      return {
+        ...item,
+        children: [
+          {
+            subheader: 'Latest Blogs',
+            items: navlinks.blog?.latest_blogs.map((blog) => ({
+              title: blog.title,
+              path: blog.path,
+            })),
+          },
+          {
+            subheader: 'Featured Blogs',
+            items: navlinks.blog?.featured_blogs.map((blog) => ({
+              title: blog.title,
+              path: blog.path,
+            })),
+          },
+        ],
+      };
+    }
+    return item;
+  });
 
   const pathname = usePathname();
 
@@ -84,7 +132,7 @@ export default function Header({ headerOnDark }: Props) {
 
   const renderHorizontal = (
     <>
-      {mdUp && <MegaMenuDesktopHorizontal data={NAV_ITEMS} />}
+      {mdUp && <MegaMenuDesktopHorizontal data={NAV_ITEMS_WITH_PUBLICATIONS} />}
 
       <Stack
         sx={{ display: { xs: 'none', md: 'flex' } }}
@@ -95,8 +143,11 @@ export default function Header({ headerOnDark }: Props) {
       >
         <Stack direction="row">
           {socials.map((social) => (
-            <Link target='_blank' rel="noopener noreferrer" href={social.link}>
-              <IconButton key={social.value} sx={{ color: offset ? 'text.primary' : 'common.white' }}>
+            <Link target="_blank" rel="noopener noreferrer" href={social.link}>
+              <IconButton
+                key={social.value}
+                sx={{ color: offset ? 'text.primary' : 'common.white' }}
+              >
                 <Iconify icon={social.icon} />
               </IconButton>
             </Link>
@@ -113,8 +164,7 @@ export default function Header({ headerOnDark }: Props) {
         variant="text"
         onClick={mobileOpen.onTrue}
         startIcon={<Iconify icon="carbon:menu" />}
-      >
-      </Button>
+      />
 
       <Drawer
         open={mobileOpen.value}
@@ -134,6 +184,10 @@ export default function Header({ headerOnDark }: Props) {
       </Drawer>
     </>
   );
+
+  if (navlinksLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <AppBar>
@@ -220,129 +274,23 @@ const NAV_ITEMS = [
           { title: 'Members', path: '#' },
         ],
       },
-      {
-        subheader: 'Construction Machinery',
-        items: [
-          { title: 'Building Material Making Machinery', path: '#' },
-          { title: 'Lifting Equipment', path: '#' },
-          { title: 'Excavator', path: '#' },
-          { title: 'Concrete Machinery', path: '#' },
-          { title: 'Stone Processing Machinery', path: '#' },
-        ],
-      },
-      {
-        subheader: 'Agriculture Machinery',
-        items: [
-          { title: 'Agriculture Machinery', path: '#' },
-          { title: 'Livestock MachineryFeed', path: '#' },
-          { title: 'Feed Processing Machinery', path: '#' },
-          { title: 'Tiller', path: '#' },
-          { title: 'Harvesting Machine', path: '#' },
-        ],
-      },
-      {
-        subheader: 'Machine Tools',
-        items: [
-          { title: 'CNC Machine Tools', path: '#' },
-          { title: 'Lathe', path: '#' },
-          { title: 'Grinding Machine ', path: '#' },
-          { title: 'Drilling Machine ', path: '#' },
-          { title: 'Milling Machine ', path: '#' },
-        ],
-      },
     ],
   },
   {
-    title: 'Research',
+    title: 'Blogs',
     path: '#',
     icon: <Iconify icon="carbon:folder" sx={{ width: 1, height: 1 }} />,
     moreLink: {
-      title: 'More Research Papers',
+      title: 'More Blog Articles',
       path: '#',
     },
-    children: [
-      {
-        subheader: 'Other Machinery & Parts',
-        items: [
-          { title: 'Metallic Processing Machinery', path: '#' },
-          { title: 'Machinery for Food, Beverage & Cereal', path: '#' },
-          { title: 'Laser Equipment', path: '#' },
-          { title: 'Mould', path: '#' },
-          { title: 'Textile Machinery & Parts', path: '#' },
-          { title: 'Cutting & Fold-bend Machine', path: '#' },
-          { title: 'Paper Machinery', path: '#' },
-          { title: 'Rubber Machinery', path: '#' },
-          { title: 'Chemical Equipment & Machinery', path: '#' },
-          { title: 'Mixing Equipment', path: '#' },
-          { title: 'Machinery for Garment, Shoes & Accessories', path: '#' },
-          { title: 'Crushing & Culling Machine', path: '#' },
-        ],
-      },
-      {
-        subheader: 'Plastic & Woodworking',
-        items: [
-          { title: 'Plastic Machinery', path: '#' },
-          { title: 'Woodworking Machinery', path: '#' },
-          { title: 'Blow Molding Machine', path: '#' },
-          { title: 'Plastic Recycling Machine', path: '#' },
-          { title: 'Injection Molding Machine', path: '#' },
-        ],
-      },
-      {
-        subheader: 'Construction Machinery',
-        items: [
-          { title: 'Building Material Making Machinery', path: '#' },
-          { title: 'Lifting Equipment', path: '#' },
-          { title: 'Excavator', path: '#' },
-          { title: 'Concrete Machinery', path: '#' },
-          { title: 'Stone Processing Machinery', path: '#' },
-        ],
-      },
-      {
-        subheader: 'Agriculture Machinery',
-        items: [
-          { title: 'Agriculture Machinery', path: '#' },
-          { title: 'Livestock MachineryFeed', path: '#' },
-          { title: 'Feed Processing Machinery', path: '#' },
-          { title: 'Tiller', path: '#' },
-          { title: 'Harvesting Machine', path: '#' },
-        ],
-      },
-      {
-        subheader: 'Machine Tools',
-        items: [
-          { title: 'CNC Machine Tools', path: '#' },
-          { title: 'Lathe', path: '#' },
-          { title: 'Grinding Machine ', path: '#' },
-          { title: 'Drilling Machine ', path: '#' },
-          { title: 'Milling Machine ', path: '#' },
-        ],
-      },
-    ],
+    children: [],
   },
   {
     title: 'Publications',
     path: '#',
     icon: <Iconify icon="carbon:document" sx={{ width: 1, height: 1 }} />,
-    children: [
-      {
-        subheader: '',
-        items: [
-          { title: 'Metallic Processing Machinery', path: '#' },
-          { title: 'Machinery for Food, Beverage & Cereal', path: '#' },
-          { title: 'Laser Equipment', path: '#' },
-          { title: 'Mould', path: '#' },
-          { title: 'Textile Machinery & Parts', path: '#' },
-          { title: 'Cutting & Fold-bend Machine', path: '#' },
-          { title: 'Paper Machinery', path: '#' },
-          { title: 'Rubber Machinery', path: '#' },
-          { title: 'Chemical Equipment & Machinery', path: '#' },
-          { title: 'Mixing Equipment', path: '#' },
-          { title: 'Machinery for Garment, Shoes & Accessories', path: '#' },
-          { title: 'Crushing & Culling Machine', path: '#' },
-        ],
-      },
-    ],
+    children: [],
   },
   {
     title: 'People',
