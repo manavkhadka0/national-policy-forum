@@ -84,7 +84,7 @@ const StyledNavItem = styled(ListItemButton, {
       marginLeft: theme.spacing(0.75),
     },
     ...(active && {
-      color: theme.palette.primary.main,
+      color: theme.palette.warning.main,
       fontWeight: theme.typography.fontWeightBold,
     }),
     ...(opened && {

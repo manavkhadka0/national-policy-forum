@@ -113,6 +113,39 @@ class PublicationListCreate(generics.ListCreateAPIView):
     queryset = Publication.objects.all()
     serializer_class = PublicationListSerializer
 
+    def get(self, request, *args, **kwargs):
+        is_featured = request.GET.get("is_featured")
+        is_latest = request.GET.get("is_latest")
+        per_page = request.GET.get("per_page")
+        category = request.GET.get("category")
+        tag = request.GET.get("tag")
+
+        queryset = self.get_queryset()
+
+        if is_featured:
+            queryset = queryset.filter(is_featured=True)
+        elif is_latest:
+            queryset = queryset.order_by("-created_at")[:3]
+        elif category:
+            queryset = queryset.filter(category__name=category)
+            if per_page:
+                try:
+                    per_page = int(per_page)
+                    queryset = queryset[:per_page]
+                except ValueError:
+                    pass
+        elif tag:
+            queryset = queryset.filter(tags__name=tag)
+            if per_page:
+                try:
+                    per_page = int(per_page)
+                    queryset = queryset[:per_page]
+                except ValueError:
+                    pass
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
 
 class PublicationRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Publication.objects.all()

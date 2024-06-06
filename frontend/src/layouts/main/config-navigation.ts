@@ -5,7 +5,7 @@ import { paths } from 'src/routes/paths';
 export const pageLinks = [
   {
     order: '1',
-    subheader: 'Marketing',
+    subheader: 'About',
     items: [
       { title: 'Landing', path: paths.marketing.root },
       { title: 'Services', path: paths.marketing.services },
@@ -102,13 +102,9 @@ export const pageLinks = [
   },
 ];
 
-
-
-
-
 export const navConfig = [
   { title: 'Home', path: '/' },
-  {title:'About',path:'/about'},
+  { title: 'About', path: '/about' },
   {
     title: 'Pages',
     path: paths.pages,
