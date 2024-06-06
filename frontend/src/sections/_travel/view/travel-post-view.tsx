@@ -1,6 +1,8 @@
 'use client';
 
-
+import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
+import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -15,7 +17,7 @@ import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
 import PostSocialsShare from 'src/sections/blog/common/post-socials-share';
 
-import { IBlogPostProps } from 'src/types/blog';
+import { IPublicationProps } from 'src/types/blog';
 
 import PostTags from '../../blog/common/post-tags';
 import TravelNewsletter from '../travel-newsletter';
@@ -45,7 +47,10 @@ export default function TravelPostView({ post, recentPosts, categories, tags: ma
           sx={{ my: 3 }}
           links={[
             { name: 'Home', href: '/' },
-            { name: 'Blog', href: paths.posts },
+            {
+              name: post?.pdf ? 'Publications' : 'Blog',
+              href: post?.pdf ? paths.publications : paths.posts,
+            },
             { name: title },
           ]}
         />
@@ -59,7 +64,33 @@ export default function TravelPostView({ post, recentPosts, categories, tags: ma
             <Typography variant="h5" sx={{ mb: 5 }}>
               {description}
             </Typography>
-            {post.pdf ? <PDFViewer file={post.pdf} /> : null}
+
+            {post.pdf && (
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-end',
+                  my: 2,
+                }}
+              >
+                <Link
+                  href={post.pdf}
+                  color="inherit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="go to homepage"
+                  alignSelf={{ xs: 'flex-start', md: 'flex-end' }}
+                  sx={{ lineHeight: 0, mb: 1, ml: 'auto' }}
+                >
+                  <Button variant="outlined" color="inherit">
+                    Full screen
+                  </Button>
+                </Link>
+
+                <embed type="application/pdf" src={post.pdf} width="100%" height="900px" />
+              </Box>
+            )}
 
             <Markdown content={content} firstLetter />
 

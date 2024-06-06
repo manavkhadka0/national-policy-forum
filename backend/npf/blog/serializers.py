@@ -112,7 +112,6 @@ class PublicationListSerializer(serializers.ModelSerializer):
             "category",
             "author",
             "tags",
-            "pdf",
         ]
 
     def get_tags(self, obj):
