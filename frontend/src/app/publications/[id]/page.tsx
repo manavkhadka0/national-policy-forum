@@ -2,7 +2,7 @@
 
 import { getTags } from 'src/actions/tag';
 import { getCategoriesNameOnly } from 'src/actions/categories';
-import { getSinglePublication, getFeaturedPublication } from 'src/actions/publications';
+import { getLatestPublication, getSinglePublication } from 'src/actions/publications';
 
 import TravelPostView from 'src/sections/_travel/view/travel-post-view';
 
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 
 export default async function TravelPostPage({ params }: { params: { id: string } }) {
     const post = await getSinglePublication(params.id);
-    const recentPublication = await getFeaturedPublication();
+    const recentPublication = await getLatestPublication();
     const tags: string[] = await getTags();
     const categories: string[] = await getCategoriesNameOnly();
 

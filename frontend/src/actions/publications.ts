@@ -41,9 +41,9 @@ export const getSinglePublication = async (slug: string) => {
     console.log(error);
   }
 };
-export const getFeaturedPublication = async () => {
+export const getLatestPublication = async () => {
   try {
-    const res = await axiosInstance.get(endpoints.publication.featured_publications);
+    const res = await axiosInstance.get(endpoints.publication.latest_publications);
 
     if (res.status === 200) {
       return res.data;
