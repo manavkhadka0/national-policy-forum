@@ -1,7 +1,6 @@
-from django.shortcuts import render
 from rest_framework import generics
-from .models import FAQ, Testimonial
-from .serializers import FAQSerializer, TestimonialSerializer
+from .models import FAQ, Testimonial, OurTeam
+from .serializers import FAQSerializer, TestimonialSerializer, OurTeamSerializer
 
 # Create your views here.
 
@@ -24,3 +23,13 @@ class TestimonialListCreate(generics.ListCreateAPIView):
 class TestimonialRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Testimonial.objects.all()
     serializer_class = TestimonialSerializer
+
+
+class OurTeamListCreate(generics.ListCreateAPIView):
+    queryset = OurTeam.objects.all()
+    serializer_class = OurTeamSerializer
+
+
+class OurTeamRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OurTeam.objects.all()
+    serializer_class = OurTeamSerializer

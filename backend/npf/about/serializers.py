@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import FAQ, Testimonial
+from .models import FAQ, Testimonial, OurTeam
 
 
 class FAQSerializer(serializers.ModelSerializer):
@@ -15,3 +15,9 @@ class TestimonialSerializer(serializers.ModelSerializer):
 
     # sort by created_at
     ordering = ["-created_at"]
+
+
+class OurTeamSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OurTeam
+        fields = "__all__"

@@ -18,4 +18,5 @@ urlpatterns = [
         views.TestimonialRetrieveUpdateDestroy.as_view(),
         name="testimonial_retrieve_update_destroy",
     ),
+    path("our-team/", views.OurTeamListCreate.as_view(), name="our_team_list_create"),
 ]

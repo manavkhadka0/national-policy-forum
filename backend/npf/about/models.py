@@ -21,3 +21,29 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return self.name
+
+
+# modal for our teams section
+# id: string;
+#     role: string;
+#     name: string;
+#     photo: string;
+#     socialLinks: {
+#         facebook: string;
+#         instagram: string;
+#         linkedin: string;
+#         twitter: string;
+#     };
+
+
+class OurTeam(models.Model):
+    role = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    photo = models.FileField()
+    facebook = models.URLField()
+    instagram = models.URLField()
+    linkedin = models.URLField()
+    twitter = models.URLField()
+
+    def __str__(self):
+        return self.name
