@@ -63,7 +63,7 @@ export default function OurClients({ clients }: Props) {
             </Stack>
 
             <Carousel {...carousel.carouselSettings}>
-                {clients.map((client) => (
+                {clients?.map((client) => (
                     <Box key={client.id} sx={{ px: 1.5 }}>
                         <Stack
                             component={Paper}

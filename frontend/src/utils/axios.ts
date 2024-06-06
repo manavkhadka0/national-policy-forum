@@ -54,7 +54,7 @@ export const endpoints = {
     list: '/api/faq/',
   },
   clients: {
-    list: '/api/our-clients/',
+    list: '/api/our-client/',
   },
   testimonial: {
     list: '/api/testimonial/',
