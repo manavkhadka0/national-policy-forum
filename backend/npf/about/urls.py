@@ -34,4 +34,7 @@ urlpatterns = [
         views.OutClientRetrieveUpdateDestroy.as_view(),
         name="our_client_retrieve_update_destroy",
     ),
+    path("images/", views.ImageListView.as_view(), name="image-list"),
+    path("videos/", views.VideoListView.as_view(), name="video-list"),
+    path("media/", views.ImageVideoListView.as_view(), name="image-video-list"),
 ]
