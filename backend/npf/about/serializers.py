@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import FAQ, Testimonial, OurTeam, OurClient
+from .models import FAQ, Testimonial, OurTeam, OurClient, Video, Image
 
 
 class FAQSerializer(serializers.ModelSerializer):
@@ -27,3 +27,51 @@ class OurClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = OurClient
         fields = "__all__"
+
+
+class ImageSerializer(serializers.ModelSerializer):
+    src = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Image
+        fields = ("src", "title", "description", "created_at")
+
+    def get_src(self, obj):
+        return obj.image.url
+
+
+class VideoSourceSerializer(serializers.Serializer):
+    src = serializers.URLField()
+    type = serializers.CharField()
+
+
+class VideoSerializer(serializers.ModelSerializer):
+    type = serializers.SerializerMethodField()
+    width = serializers.SerializerMethodField()
+    height = serializers.SerializerMethodField()
+    sources = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Video
+        fields = (
+            "type",
+            "title",
+            "description",
+            "poster",
+            "width",
+            "height",
+            "created_at",
+            "sources",
+        )
+
+    def get_type(self, obj):
+        return "video"
+
+    def get_width(self, obj):
+        return 1280
+
+    def get_height(self, obj):
+        return 720
+
+    def get_sources(self, obj):
+        return [{"src": obj.video.url, "type": "video/mp4"}]

@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
@@ -43,3 +44,38 @@ class OurClient(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Image(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    src = models.FileField(upload_to="images/")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Video(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    video = models.FileField(
+        upload_to="videos/", help_text="Upload your video here", blank=True
+    )
+    video_url = models.URLField(blank=True)
+    poster = models.FileField(upload_to="videos/posters/")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    def clean(self):
+        super().clean()
+        if not self.video and not self.video_url:
+            raise ValidationError("Either video or video_url must be provided.")
+        if self.video and self.video_url:
+            raise ValidationError("Only one of video or video_url should be provided.")
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super().save(*args, **kwargs)
