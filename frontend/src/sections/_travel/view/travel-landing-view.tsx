@@ -1,6 +1,7 @@
 'use client';
 
 import OurTeam from 'src/sections/_landing/our-team';
+import Gallery from 'src/sections/_landing/our-gallery';
 import OurClients from 'src/sections/_landing/our-clients';
 import MarketingTestimonial from 'src/sections/_marketing/testimonial/marketing-testimonial';
 import MarketingLandingFaqs, { Faq } from 'src/sections/_marketing/landing/marketing-landing-faqs';
@@ -8,6 +9,7 @@ import MarketingLandingFaqs, { Faq } from 'src/sections/_marketing/landing/marke
 import { IBrandProps } from 'src/types/brand';
 import { IOurTeamProps } from 'src/types/team';
 import { IBlogPostProps } from 'src/types/blog';
+import { IGalleryProps } from 'src/types/gallery';
 import { ITestimonialProps } from 'src/types/testimonial';
 
 import TravelNewsletter from '../travel-newsletter';
@@ -22,9 +24,10 @@ type TravelLandingViewProps = {
   latest_posts: IBlogPostProps[];
   members: IOurTeamProps[];
   clients: IBrandProps[];
+  galleries: IGalleryProps[];
 };
 
-export default function TravelLandingView({ faqs, testimonials, featured_posts, members,clients, latest_posts }: TravelLandingViewProps) {
+export default function TravelLandingView({ faqs, testimonials, featured_posts, members,clients,galleries, latest_posts }: TravelLandingViewProps) {
   return (
     <>
       <TravelLandingHero articles={featured_posts} />
@@ -38,6 +41,8 @@ export default function TravelLandingView({ faqs, testimonials, featured_posts, 
       <OurTeam members={members} />
 
       <OurClients clients={clients} />
+
+      <Gallery galleries={galleries}/>
 
       <TravelNewsletter />
     </>

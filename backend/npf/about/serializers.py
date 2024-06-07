@@ -30,14 +30,9 @@ class OurClientSerializer(serializers.ModelSerializer):
 
 
 class ImageSerializer(serializers.ModelSerializer):
-    src = serializers.SerializerMethodField()
-
     class Meta:
         model = Image
         fields = ("src", "title", "description", "created_at")
-
-    def get_src(self, obj):
-        return obj.image.url
 
 
 class VideoSourceSerializer(serializers.Serializer):

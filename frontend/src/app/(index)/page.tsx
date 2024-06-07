@@ -11,6 +11,8 @@ import { IBrandProps } from 'src/types/brand';
 import { IOurTeamProps } from 'src/types/team';
 import { IBlogPostProps } from 'src/types/blog';
 import { ITestimonialProps } from 'src/types/testimonial';
+import { getGallery } from 'src/actions/gallery';
+import { IGalleryProps } from 'src/types/gallery';
 
 // ----------------------------------------------------------------------
 
@@ -27,6 +29,8 @@ export default async function TravelLandingPage() {
   const latest_posts: IBlogPostProps[] = await getLatestPosts();
   const members: IOurTeamProps[] = await getTeamMembers();
   const clients: IBrandProps[] = await getClients();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const gallery: IGalleryProps[] = await getGallery();
 
   return (
     <TravelLandingView
@@ -35,6 +39,7 @@ export default async function TravelLandingPage() {
       featured_posts={featured_posts}
       latest_posts={latest_posts}
       members={members} 
-      clients={clients}    />
+      clients={clients} 
+      galleries={gallery}   />
   );
 }

@@ -63,6 +63,11 @@ export const endpoints = {
     list: '/api/category/',
     nameList: '/api/category-name/',
   },
+  gallery: {
+    list: '/api/media/',
+    images:'/api/images',
+    videos:'/api/videos',
+  },
   tag: {
     list: '/api/tag/',
   },
