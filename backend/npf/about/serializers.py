@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import FAQ, Testimonial, OurTeam, OurClient, Video, Image
+from .models import FAQ, Testimonial, OurTeam, OurClient, Video, Image, Donation
 
 
 class FAQSerializer(serializers.ModelSerializer):
@@ -75,3 +75,10 @@ class VideoSerializer(serializers.ModelSerializer):
 
     def get_sources(self, obj):
         return [{"src": obj.video.url, "type": "video/mp4"}]
+
+
+# donation serializer
+class DonationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Donation
+        fields = "__all__"
