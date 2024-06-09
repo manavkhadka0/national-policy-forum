@@ -24,7 +24,19 @@ export type IJobByCountryProps = {
   cover: string;
   totalJobs: number;
 };
-
+export type IDonationContentProps = {
+  id: string;
+  title: string;
+  content: string;
+};
+export type IDonationDataProps = {
+  id: string;
+  name: string;
+  email: string;
+  amount: number;
+  message: string;
+  image: string;
+};
 export type IJobProps = {
   id: string;
   type: string;

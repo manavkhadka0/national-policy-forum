@@ -26,7 +26,7 @@ const StyledMarkdown = styled('div', {
 
   // Link
   a: {
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',

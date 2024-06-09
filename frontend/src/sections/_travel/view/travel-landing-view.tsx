@@ -15,7 +15,7 @@ import { ITestimonialProps } from 'src/types/testimonial';
 
 import TravelNewsletter from '../travel-newsletter';
 import TravelLandingHero from '../landing/travel-landing-hero';
-import BlogTravelLandingLatestPosts from '../../blog/travel/travel-landing-posts';
+import BlogTravelLandingLatestPosts from '../../blog/travel/travel-landing-posts'; 
 
 // ----------------------------------------------------------------------
 type TravelLandingViewProps = {

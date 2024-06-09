@@ -59,6 +59,10 @@ export const endpoints = {
   testimonial: {
     list: '/api/testimonial/',
   },
+  donation: {
+    donation_content: '/api/donation-content/',
+    donation_data: '/api/donations/',
+  },
   category: {
     list: '/api/category/',
     nameList: '/api/category-name/',

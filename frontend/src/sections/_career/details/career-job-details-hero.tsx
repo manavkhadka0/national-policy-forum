@@ -50,7 +50,7 @@ export default function CareerJobDetailsHero({ job }: Props) {
         <CustomBreadcrumbs
           links={[
             { name: 'Home', href: '/' },
-            { name: 'Jobs', href: paths.career.jobs },
+            { name: 'Donations', href: paths.career.jobs },
             { name: job.slug },
           ]}
           sx={{
@@ -97,7 +97,7 @@ export default function CareerJobDetailsHero({ job }: Props) {
           >
             <Stack spacing={2} alignItems="center" sx={{ width: 1 }}>
               <Button fullWidth variant="contained" size="large" color="primary">
-                Apply Now
+                Donate Now
               </Button>
 
               <Typography variant="body2" sx={{ color: 'common.white' }}>
