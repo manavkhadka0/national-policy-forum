@@ -94,3 +94,40 @@ class DonationListCreate(generics.ListCreateAPIView):
 class DonationRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Donation.objects.all().order_by("-created_at")
     serializer_class = DonationSerializer
+
+
+# get top donors by adding amount of same email and sorting by amount
+# should also return the email and amount , latest image uploaded and latest donation message of the same email
+class TopDonors(APIView):
+    def get(self, request, *args, **kwargs):
+        donations = Donation.objects.all()
+        # get top donors
+        top_donors = {}
+        for donation in donations:
+            if donation.email in top_donors:
+                top_donors[donation.email] += donation.amount
+            else:
+                top_donors[donation.email] = donation.amount
+
+        # sort top donors by amount
+        top_donors = dict(sorted(top_donors.items(), key=lambda x: x[1], reverse=True))
+
+        # get latest image uploaded and latest donation message of the same email
+        top_donors_info = {}
+        for email in top_donors:
+            latest_donation = (
+                Donation.objects.filter(email=email).order_by("-created_at").first()
+            )
+            top_donors_info[email] = {
+                "amount": top_donors[email],
+                "latest_image": (
+                    latest_donation.image.url
+                    if latest_donation and latest_donation.image
+                    else None
+                ),
+                "latest_donation_message": (
+                    latest_donation.message if latest_donation else None
+                ),
+            }
+
+        return Response(top_donors_info)

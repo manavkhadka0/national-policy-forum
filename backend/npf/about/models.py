@@ -94,6 +94,7 @@ class Donation(models.Model):
     email = models.EmailField()
     image = models.FileField(null=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
+    message = models.TextField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -43,4 +43,6 @@ urlpatterns = [
         views.DonationRetrieveUpdateDestroy.as_view(),
         name="donation-retrieve-update-destroy",
     ),
+    # top donors
+    path("top-donors/", views.TopDonors.as_view(), name="top-donors"),
 ]
