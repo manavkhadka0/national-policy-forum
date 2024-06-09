@@ -1,5 +1,8 @@
+import { Slide } from 'yet-another-react-lightbox';
+
 import { getFaqs } from 'src/actions/faq';
 import { getClients } from 'src/actions/clients';
+import { getGallery } from 'src/actions/gallery';
 import { getTeamMembers } from 'src/actions/team';
 import { getTestimonials } from 'src/actions/testimonials';
 import { getLatestPosts, getFeaturedPosts } from 'src/actions/post';
@@ -11,8 +14,6 @@ import { IBrandProps } from 'src/types/brand';
 import { IOurTeamProps } from 'src/types/team';
 import { IBlogPostProps } from 'src/types/blog';
 import { ITestimonialProps } from 'src/types/testimonial';
-import { getGallery } from 'src/actions/gallery';
-import { IGalleryProps } from 'src/types/gallery';
 
 // ----------------------------------------------------------------------
 
@@ -29,8 +30,7 @@ export default async function TravelLandingPage() {
   const latest_posts: IBlogPostProps[] = await getLatestPosts();
   const members: IOurTeamProps[] = await getTeamMembers();
   const clients: IBrandProps[] = await getClients();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const gallery: IGalleryProps[] = await getGallery();
+  const gallery: Slide[] = await getGallery();
 
   return (
     <TravelLandingView
@@ -38,8 +38,9 @@ export default async function TravelLandingPage() {
       testimonials={testimonials}
       featured_posts={featured_posts}
       latest_posts={latest_posts}
-      members={members} 
-      clients={clients} 
-      galleries={gallery}   />
+      members={members}
+      clients={clients}
+      galleries={gallery}
+    />
   );
 }
