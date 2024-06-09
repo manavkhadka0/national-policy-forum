@@ -1,11 +1,12 @@
 from rest_framework import generics
-from .models import FAQ, Testimonial, OurTeam, OurClient, Image, Video
+from .models import FAQ, Testimonial, OurTeam, OurClient, Image, Video, Donation
 from .serializers import (
     FAQSerializer,
     TestimonialSerializer,
     OurTeamSerializer,
     OurClientSerializer,
     ImageSerializer,
+    DonationSerializer,
     VideoSerializer,
 )
 
@@ -80,3 +81,16 @@ class ImageVideoListView(APIView):
         combined.sort(key=lambda x: x["created_at"], reverse=True)
 
         return Response({"media": combined})
+
+
+# donation view
+
+
+class DonationListCreate(generics.ListCreateAPIView):
+    queryset = Donation.objects.all().order_by("-created_at")
+    serializer_class = DonationSerializer
+
+
+class DonationRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Donation.objects.all().order_by("-created_at")
+    serializer_class = DonationSerializer
