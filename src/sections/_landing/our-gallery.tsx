@@ -22,28 +22,7 @@ type GalleryProps = {
 // ----------------------------------------------------------------------
 
 export default function OurGallery({ galleries }: GalleryProps) {
-  const lightbox = useLightbox(appendHostToSlides(galleries, HOST_API as string));
-
-  function appendHostToSlides(slides: Slide[], host: string): Slide[] {
-    return slides.map((slide) => {
-      if (slide.type === 'video') {
-        const videoSlide = slide as SlideVideo;
-        if (!videoSlide?.poster?.startsWith(host)) {
-          videoSlide.poster = `${host}${videoSlide.poster}`;
-        }
-        videoSlide.sources = videoSlide.sources.map((source) => ({
-          ...source,
-          src: source.src.startsWith(host) ? source.src : `${host}${source.src}`,
-        }));
-      } else {
-        const imageSlide = slide as SlideImage;
-        if (!imageSlide.src.startsWith(host)) {
-          imageSlide.src = `${host}${imageSlide.src}`;
-        }
-      }
-      return slide;
-    });
-  }
+  const lightbox = useLightbox(galleries);
 
   return (
     <>
@@ -83,7 +62,7 @@ export default function OurGallery({ galleries }: GalleryProps) {
                         <Image
                           key={thumbnail}
                           alt={thumbnail}
-                          src={HOST_API ? `${HOST_API}${thumbnail}` : thumbnail}
+                          src={thumbnail}
                           ratio="1/1"
                           onClick={() => lightbox.onOpen(`${thumbnail}`)}
                           sx={{
@@ -112,7 +91,7 @@ export default function OurGallery({ galleries }: GalleryProps) {
       <Lightbox
         open={lightbox.open}
         close={lightbox.onClose}
-        slides={appendHostToSlides(galleries, HOST_API as string)}
+        slides={galleries}
         index={lightbox.selected}
       />
     </>
