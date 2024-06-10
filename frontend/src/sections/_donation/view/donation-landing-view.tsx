@@ -1,6 +1,5 @@
 'use client';
 
-
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
@@ -26,78 +25,77 @@ import { IDonationDataProps, IDonationContentProps } from 'src/types/job';
 // ----------------------------------------------------------------------
 
 type Props = {
-    donationContent: IDonationContentProps,
-    donationData: IDonationDataProps[]
-}
+  donationContent: IDonationContentProps;
+  donationData: IDonationDataProps[];
+};
 
-export default async function DonationLandingView({ donationContent, donationData }: Props) {
-    const mdUp = useResponsive('up', 'md');
+export default function DonationLandingView({ donationContent, donationData }: Props) {
+  const mdUp = useResponsive('up', 'md');
 
-    return (
-        <>
-            <DonationHero donation={donationContent} />
+  return (
+    <>
+      <DonationHero donation={donationContent} />
 
-            <Container
-                sx={{
-                    overflow: 'hidden',
-                    pt: { xs: 5, md: 10 },
-                    pb: 10,
-                }}
-            >
-                <Grid container spacing={{ xs: 5, md: 8 }}>
-                    {/* {!mdUp && (
+      <Container
+        sx={{
+          overflow: 'hidden',
+          pt: { xs: 5, md: 10 },
+          pb: 10,
+        }}
+      >
+        <Grid container spacing={{ xs: 5, md: 8 }}>
+          {/* {!mdUp && (
                         <Grid xs={12} md={5} lg={4}>
                             <DonationInfo job={_mockJob} />
                         </Grid>
                     )} */}
 
-                    <Grid xs={12} md={7} lg={8}>
-                        <DonationDetailsSummary donationContent={donationContent} />
+          <Grid xs={12} md={7} lg={8}>
+            <DonationDetailsSummary donationContent={donationContent} />
 
-                        <Divider sx={{ my: 5 }} />
+            <Divider sx={{ my: 5 }} />
 
-                        <Stack direction="row" flexWrap="wrap" sx={{ mt: 5 }}>
-                            <Typography variant="subtitle2" sx={{ mt: 0.75, mr: 1.5 }}>
-                                Share:
-                            </Typography>
+            <Stack direction="row" flexWrap="wrap" sx={{ mt: 5 }}>
+              <Typography variant="subtitle2" sx={{ mt: 0.75, mr: 1.5 }}>
+                Share:
+              </Typography>
 
-                            <Stack direction="row" alignItems="center" flexWrap="wrap">
-                                {_socials.map((social) => (
-                                    <Button
-                                        key={social.value}
-                                        size="small"
-                                        variant="outlined"
-                                        startIcon={<Iconify icon={social.icon} />}
-                                        sx={{
-                                            m: 0.5,
-                                            flexShrink: 0,
-                                            color: social.color,
-                                            borderColor: social.color,
-                                            '&:hover': {
-                                                borderColor: social.color,
-                                                bgcolor: alpha(social.color, 0.08),
-                                            },
-                                        }}
-                                    >
-                                        {social.label}
-                                    </Button>
-                                ))}
-                            </Stack>
-                        </Stack>
-                    </Grid>
+              <Stack direction="row" alignItems="center" flexWrap="wrap">
+                {_socials.map((social) => (
+                  <Button
+                    key={social.value}
+                    size="small"
+                    variant="outlined"
+                    startIcon={<Iconify icon={social.icon} />}
+                    sx={{
+                      m: 0.5,
+                      flexShrink: 0,
+                      color: social.color,
+                      borderColor: social.color,
+                      '&:hover': {
+                        borderColor: social.color,
+                        bgcolor: alpha(social.color, 0.08),
+                      },
+                    }}
+                  >
+                    {social.label}
+                  </Button>
+                ))}
+              </Stack>
+            </Stack>
+          </Grid>
 
-                    <Grid xs={12} md={5} lg={4}>
-                        <Stack spacing={5}>
-                            {mdUp && <DonatorInfo donationData={donationData} />}
+          <Grid xs={12} md={5} lg={4}>
+            <Stack spacing={5}>
+              {mdUp && <DonatorInfo donationData={donationData[0]} />}
 
-                            <DonationInfo donationData={donationData} />
+              <DonationInfo donationData={donationData.slice(1, donationData.length)} />
+            </Stack>
+          </Grid>
+        </Grid>
+      </Container>
 
-                        </Stack>
-                    </Grid>
-                </Grid>
-            </Container>
-
-            <CareerNewsletter />
-        </>
-    );
+      <CareerNewsletter />
+    </>
+  );
 }

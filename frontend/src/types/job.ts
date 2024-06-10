@@ -33,7 +33,7 @@ export type IDonationDataProps = {
   id: string;
   name: string;
   email: string;
-  amount: number;
+  amount: string;
   message: string;
   image: string;
 };

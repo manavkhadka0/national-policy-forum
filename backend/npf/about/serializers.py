@@ -76,4 +76,4 @@ class VideoSerializer(serializers.ModelSerializer):
 class DonationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Donation
-        fields = "__all__"
+        fields = ["id", "name", "email", "image", "amount", "message"]
