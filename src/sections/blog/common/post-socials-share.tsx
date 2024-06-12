@@ -3,8 +3,9 @@ import { usePathname } from 'next/navigation';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import Share from 'src/components/share';
 import { HOST_API } from 'src/config-global';
+
+import Share from 'src/components/share';
 
 type ShareProps = {
   quote?: string;
