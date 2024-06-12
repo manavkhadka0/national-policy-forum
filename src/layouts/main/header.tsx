@@ -144,7 +144,7 @@ export default function Header({ headerOnDark }: Props) {
       >
         <Stack direction="row">
           {socials.map((social) => (
-            <Link target="_blank" rel="noopener noreferrer" href={social.link}>
+            <Link key={social.label} target="_blank" rel="noopener noreferrer" href={social.link}>
               <IconButton
                 key={social.value}
                 sx={{
@@ -194,7 +194,7 @@ export default function Header({ headerOnDark }: Props) {
   );
 
   if (navlinksLoading) {
-    return <div>Loading...</div>;
+    return null;
   }
 
   return (
@@ -290,7 +290,7 @@ const NAV_ITEMS = [
     icon: <Iconify icon="carbon:folder" sx={{ width: 1, height: 1 }} />,
     moreLink: {
       title: 'More Blog Articles',
-      path: '#',
+      path: '/posts',
     },
     children: [],
   },
@@ -298,54 +298,14 @@ const NAV_ITEMS = [
     title: 'Publications',
     path: '/publications',
     icon: <Iconify icon="carbon:document" sx={{ width: 1, height: 1 }} />,
+    moreLink: {
+      title: 'More Publications',
+      path: '/publications',
+    },
     children: [],
   },
   {
-    title: 'People',
-    path: '#',
-    icon: <Iconify icon="carbon:user" sx={{ width: 1, height: 1 }} />,
-    children: [
-      {
-        subheader: '',
-        items: [
-          { title: 'Metallic Processing Machinery', path: '#' },
-          { title: 'Machinery for Food, Beverage & Cereal', path: '#' },
-          { title: 'Laser Equipment', path: '#' },
-          { title: 'Mould', path: '#' },
-          { title: 'Textile Machinery & Parts', path: '#' },
-          { title: 'Cutting & Fold-bend Machine', path: '#' },
-          { title: 'Paper Machinery', path: '#' },
-          { title: 'Rubber Machinery', path: '#' },
-          { title: 'Chemical Equipment & Machinery', path: '#' },
-          { title: 'Mixing Equipment', path: '#' },
-          { title: 'Machinery for Garment, Shoes & Accessories', path: '#' },
-          { title: 'Crushing & Culling Machine', path: '#' },
-        ],
-      },
-    ],
-  },
-  {
-    title: 'Events',
-    path: '#',
-    icon: <Iconify icon="carbon:event" sx={{ width: 1, height: 1 }} />,
-    children: [
-      {
-        subheader: '',
-        items: [
-          { title: 'Metallic Processing Machinery', path: '#' },
-          { title: 'Machinery for Food, Beverage & Cereal', path: '#' },
-          { title: 'Laser Equipment', path: '#' },
-          { title: 'Mould', path: '#' },
-          { title: 'Textile Machinery & Parts', path: '#' },
-          { title: 'Cutting & Fold-bend Machine', path: '#' },
-          { title: 'Paper Machinery', path: '#' },
-          { title: 'Rubber Machinery', path: '#' },
-          { title: 'Chemical Equipment & Machinery', path: '#' },
-          { title: 'Mixing Equipment', path: '#' },
-          { title: 'Machinery for Garment, Shoes & Accessories', path: '#' },
-          { title: 'Crushing & Culling Machine', path: '#' },
-        ],
-      },
-    ],
+    title: 'Donation',
+    path: '/donation',
   },
 ];
