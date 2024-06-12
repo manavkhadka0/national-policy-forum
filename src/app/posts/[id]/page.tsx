@@ -18,6 +18,8 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   };
 }
 
+export const revalidate = 10;
+
 export default async function TravelPostPage({ params }: { params: { id: string } }) {
   const post = await getSinglePost(params.id);
   const recentPosts = await getFeaturedPosts();

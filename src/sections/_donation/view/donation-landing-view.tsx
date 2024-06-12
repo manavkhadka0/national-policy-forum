@@ -1,23 +1,17 @@
 'use client';
 
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-import { alpha } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
-import Typography from '@mui/material/Typography';
 
 import { useResponsive } from 'src/hooks/use-responsive';
-
-import { _socials } from 'src/_mock';
-
-import Iconify from 'src/components/iconify';
 
 import CareerNewsletter from 'src/sections/_career/career-newsletter';
 import DonatorInfo from 'src/sections/_donation/details/donator-info';
 import DonationHero from 'src/sections/_donation/details/donation-hero';
 import DonationInfo from 'src/sections/_donation/details/donation-info';
+import PostSocialsShare from 'src/sections/blog/common/post-socials-share';
 import DonationDetailsSummary from 'src/sections/_donation/details/donation-details-summary';
 
 import { IDonationDataProps, IDonationContentProps } from 'src/types/job';
@@ -56,31 +50,8 @@ export default function DonationLandingView({ donationContent, donationData }: P
             <Divider sx={{ my: 5 }} />
 
             <Stack direction="row" flexWrap="wrap" sx={{ mt: 5 }}>
-              <Typography variant="subtitle2" sx={{ mt: 0.75, mr: 1.5 }}>
-                Share:
-              </Typography>
-
               <Stack direction="row" alignItems="center" flexWrap="wrap">
-                {_socials.map((social) => (
-                  <Button
-                    key={social.value}
-                    size="small"
-                    variant="outlined"
-                    startIcon={<Iconify icon={social.icon} />}
-                    sx={{
-                      m: 0.5,
-                      flexShrink: 0,
-                      color: social.color,
-                      borderColor: social.color,
-                      '&:hover': {
-                        borderColor: social.color,
-                        bgcolor: alpha(social.color, 0.08),
-                      },
-                    }}
-                  >
-                    {social.label}
-                  </Button>
-                ))}
+                <PostSocialsShare longButtons />
               </Stack>
             </Stack>
           </Grid>

@@ -9,8 +9,9 @@ import { paths } from 'src/routes/paths';
 
 import { bgGradient } from 'src/theme/css';
 
-import Iconify from 'src/components/iconify';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
+
+import PostSocialsShare from 'src/sections/blog/common/post-socials-share';
 
 import { IDonationContentProps } from 'src/types/job';
 
@@ -47,7 +48,7 @@ export default function DonationHero({ donation }: Props) {
           links={[
             { name: 'Home', href: '/' },
             { name: 'Donations', href: paths.career.jobs },
-            { name: 'Donation' },
+            { name: `${donation.title}` },
           ]}
           sx={{
             mb: { xs: 5, md: 8 },
@@ -67,11 +68,8 @@ export default function DonationHero({ donation }: Props) {
               {donation.title}
             </Typography>
 
-            <Stack spacing={3} direction={{ xs: 'column', md: 'row' }} sx={{ opacity: 0.48 }}>
-              <Stack direction="row" alignItems="center" sx={{ typography: 'body2' }}>
-                <Iconify icon="carbon:view" sx={{ mr: 1 }} /> Total Donations {100}
-              </Stack>
-            </Stack>
+            <PostSocialsShare longButtons={false} />
+
           </Stack>
 
           <Stack
