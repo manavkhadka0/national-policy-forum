@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
@@ -146,7 +147,14 @@ export default function Header({ headerOnDark }: Props) {
             <Link target="_blank" rel="noopener noreferrer" href={social.link}>
               <IconButton
                 key={social.value}
-                sx={{ color: offset ? 'text.primary' : 'common.white' }}
+                sx={{
+                  color:
+                    headerOnDark && !offset
+                      ? 'common.white'
+                      : !headerOnDark && offset
+                        ? social.color
+                        : 'common.black',
+                }}
               >
                 <Iconify icon={social.icon} />
               </IconButton>
