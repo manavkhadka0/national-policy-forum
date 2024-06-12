@@ -88,7 +88,13 @@ export default function TravelPostView({ post, recentPosts, categories, tags: ma
                   </Button>
                 </Link>
 
-                <embed type="application/pdf" src={post.pdf} width="100%" height="900px" />
+                <object
+                  className="pdf"
+                  aria-label="pdf"
+                  data={post.pdf}
+                  width="100%"
+                  height="900"
+                />
               </Box>
             )}
 
