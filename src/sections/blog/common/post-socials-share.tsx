@@ -25,7 +25,7 @@ export default function PostSocialsShare({ hashtag, quote, longButtons = false }
 
       <Stack direction="row" alignItems="center" flexWrap="wrap">
         <Share
-          url={`{process.env.NEXT_PUBLIC_BASE_URL}${pathname}`}
+          url={`${process.env.NEXT_PUBLIC_BASE_URL}${pathname}`}
           hashtag={hashtag}
           quote={quote}
           longButtons={longButtons}
