@@ -25,7 +25,7 @@ export default function OurGallery({ galleries }: GalleryProps) {
   const lightbox = useLightbox(appendHostToSlides(galleries, HOST_API as string));
 
   function appendHostToSlides(slides: Slide[], host: string): Slide[] {
-    return slides.map((slide) => {
+    return slides?.map((slide) => {
       if (slide.type === 'video') {
         const videoSlide = slide as SlideVideo;
         if (!videoSlide?.poster?.startsWith(host)) {

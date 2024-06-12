@@ -68,7 +68,7 @@ export const endpoints = {
     nameList: '/api/category-name/',
   },
   gallery: {
-    list: '/api/media',
+    list: '/api/gallery',
     images: '/api/images',
     videos: '/api/videos',
   },

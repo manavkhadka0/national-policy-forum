@@ -95,7 +95,7 @@ export default function TravelLandingPosts({ posts }: Props) {
             }}
           >
             <Button
-              color="primary"
+              color="secondary"
               component={RouterLink}
               href={paths.posts}
               endIcon={<Iconify icon="carbon:chevron-right" />}

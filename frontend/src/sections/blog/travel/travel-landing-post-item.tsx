@@ -20,17 +20,17 @@ type Props = {
 export default function TravelLandingPostItem({ post }: Props) {
   return (
     <div>
-      <Typography variant="caption" sx={{ color: 'primary.main' }}>
+      <Typography variant="caption" sx={{ color: 'secondary.main' }}>
         {fDate(post.created_at)}
       </Typography>
 
       <Link component={RouterLink} href={paths.post(post.slug)} sx={{ color: 'common.white' }}>
-        <TextMaxLine variant="h5" sx={{ mt: 1, mb: 2 }}>
+        <TextMaxLine variant="h4" sx={{ mt: 1, mb: 2 }}>
           {post.title}
         </TextMaxLine>
       </Link>
 
-      <TextMaxLine variant="body2" sx={{ color: 'text.secondary' }}>
+      <TextMaxLine variant="body1" sx={{ color: 'text.secondary' }}>
         {post.description}
       </TextMaxLine>
 

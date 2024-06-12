@@ -93,11 +93,11 @@ export default function TravelLandingHero({ articles }: Props) {
           justifyContent="center"
           sx={{
             top: 0,
-            height: 1,
             maxWidth: 440,
             position: 'absolute',
             right: 0,
             mx: 10,
+            mt:24
           }}
         >
           {!!articles.length && (
