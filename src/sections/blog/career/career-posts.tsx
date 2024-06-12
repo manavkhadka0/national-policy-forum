@@ -27,7 +27,7 @@ export default function CareerPosts({ posts }: Props) {
         }}
       >
         {posts.slice(0, 8).map((post, index) => (
-          <CareerPostItem key={post.id} post={post} index={index} />
+          <CareerPostItem key={post.slug} post={post} index={index} />
         ))}
       </Masonry>
 

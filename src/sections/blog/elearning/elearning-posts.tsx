@@ -26,7 +26,7 @@ export default function ElearningPosts({ posts }: Props) {
         }}
       >
         {posts.slice(0, 8).map((post) => (
-          <PostItem key={post.id} post={post} />
+          <PostItem key={post.slug} post={post} />
         ))}
       </Box>
 

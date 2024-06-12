@@ -64,7 +64,7 @@ export default function TravelLandingPosts({ posts }: Props) {
           >
             <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
               {posts.map((post) => (
-                <PostItemCarousel key={post.id} post={post} />
+                <PostItemCarousel key={post.slug} post={post} />
               ))}
             </Carousel>
           </CarouselArrows>
@@ -83,7 +83,7 @@ export default function TravelLandingPosts({ posts }: Props) {
 
           <Stack spacing={3}>
             {posts.slice(0, 3).map((post) => (
-              <PostItem key={post.id} post={post} />
+              <PostItem key={post.slug} post={post} />
             ))}
           </Stack>
 

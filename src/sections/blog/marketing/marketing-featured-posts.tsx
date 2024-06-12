@@ -66,7 +66,7 @@ export default function MarketingFeaturedPosts({ posts }: Props) {
         >
           <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
             {posts.map((post) => (
-              <MarketingFeaturedPostItem key={post.id} post={post} />
+              <MarketingFeaturedPostItem key={post.slug} post={post} />
             ))}
           </Carousel>
         </CarouselArrows>
@@ -76,7 +76,7 @@ export default function MarketingFeaturedPosts({ posts }: Props) {
         (post, index) =>
           carousel.currentIndex === index && (
             <Image
-              key={post.id}
+              key={post.slug}
               alt="post cover"
               src={post.cover}
               overlay={`linear-gradient(to bottom, ${alpha(theme.palette.common.black, 0)} 0%, ${

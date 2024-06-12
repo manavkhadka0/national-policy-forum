@@ -88,7 +88,7 @@ export default function PostSidebar({
       <Typography variant="h5">Recent Posts</Typography>
 
       {recentPosts.list.map((post) => (
-        <PostItemMobile key={post.id} post={post} onSiderbar />
+        <PostItemMobile key={post.slug} post={post} onSiderbar />
       ))}
     </Stack>
   );

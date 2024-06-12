@@ -26,7 +26,7 @@ export default function MarketingPosts({ posts }: Props) {
         }}
       >
         {posts.slice(0, 8).map((post) => (
-          <MarketingPostItem key={post.id} post={post} />
+          <MarketingPostItem key={post.slug} post={post} />
         ))}
       </Box>
 

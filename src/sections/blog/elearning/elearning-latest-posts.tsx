@@ -69,9 +69,9 @@ export default function ElearningLatestPosts({ posts }: Props) {
           .slice(0, 3)
           .map((post) =>
             mdUp ? (
-              <PostItem key={post.id} post={post} />
+              <PostItem key={post.slug} post={post} />
             ) : (
-              <PostItemMobile key={post.id} post={post} />
+              <PostItemMobile key={post.slug} post={post} />
             )
           )}
       </Box>

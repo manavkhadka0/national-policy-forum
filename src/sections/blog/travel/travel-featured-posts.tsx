@@ -48,7 +48,7 @@ export default function TravelFeaturedPosts({ posts }: Props) {
           }}
         >
           {posts.slice(1, 5).map((post) => (
-            <PostItem key={post.id} post={post} />
+            <PostItem key={post.slug} post={post} />
           ))}
         </Box>
       </Box>

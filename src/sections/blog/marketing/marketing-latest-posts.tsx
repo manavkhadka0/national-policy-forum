@@ -81,7 +81,7 @@ export default function MarketingLatestPosts({ posts }: Props) {
           <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
             {posts.map((post) => (
               <Box
-                key={post.id}
+                key={post.slug}
                 sx={{
                   px: 2,
                   py: { xs: 8, md: 10 },

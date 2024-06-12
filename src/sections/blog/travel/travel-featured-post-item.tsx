@@ -56,7 +56,7 @@ export default function TravelFeaturedPostItem({ post, largePost }: Props) {
           sx={{ color: 'inherit', opacity: 0.72 }}
         />
 
-        <Link component={RouterLink} href={paths.post(post.id)} color="inherit">
+        <Link component={RouterLink} href={paths.post(post.slug)} color="inherit">
           <TextMaxLine
             sx={{
               typography: 'h6',

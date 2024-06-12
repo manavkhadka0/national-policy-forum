@@ -93,14 +93,14 @@ export default function CareerLatestPosts({ posts }: Props) {
 
             <Masonry columns={{ xs: 1, md: 2 }} spacing={4}>
               {posts.slice(1, 5).map((post, index) => (
-                <CareerLatestPostItem key={post.id} post={post} order={index % 2} />
+                <CareerLatestPostItem key={post.slug} post={post} order={index % 2} />
               ))}
             </Masonry>
           </>
         ) : (
           <>
             {posts.slice(0, 5).map((post) => (
-              <PostItemMobile key={post.id} post={post} />
+              <PostItemMobile key={post.slug} post={post} />
             ))}
           </>
         )}
