@@ -43,7 +43,7 @@ export default function OurGallery({ galleries }: GalleryProps) {
             <Grid container spacing={3}>
               <Grid xs={12}>
                 <Box
-                  gap={1}
+                  gap={2}
                   display="grid"
                   gridTemplateColumns={{
                     xs: 'repeat(2, 1fr)',
@@ -70,12 +70,12 @@ export default function OurGallery({ galleries }: GalleryProps) {
                             cursor: 'pointer',
                           }}
                         />
-                        <Box>
-                          <Typography variant="body1" component="h1" style={{ font: 'bold' }}>
+                        <Box textAlign='left' sx={{pt:2}}>
+                          <Typography variant="h5" component="h1" sx={{}} style={{ font: 'bold' ,}}>
                             {slide.title}
                           </Typography>
-                          <Typography variant="body2" component="h1">
-                            {slide.description}
+                          <Typography variant="caption" component="h1" sx={{color:'gray',pt:1, pb:2}} >
+                            {slide.description?.slice(0,90)}...
                           </Typography>
                         </Box>
                       </Stack>

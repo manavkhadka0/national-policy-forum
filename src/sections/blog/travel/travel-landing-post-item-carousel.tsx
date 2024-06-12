@@ -39,7 +39,7 @@ export default function TravelLandingPostItemCarousel({ post }: Props) {
         }}
       >
         <Box sx={{ mx: 'auto', maxWidth: 400 }}>
-          <Typography variant="body2" sx={{ color: 'primary.main' }}>
+          <Typography variant="body2" sx={{ color: 'common.white' }}>
             {fDate(post.created_at)}
           </Typography>
 
