@@ -112,22 +112,23 @@ class TopDonors(APIView):
         # sort top donors by amount
         top_donors = dict(sorted(top_donors.items(), key=lambda x: x[1], reverse=True))
 
-        # get latest image uploaded and latest donation message of the same email
-        top_donors_info = {}
+        # get latest donation details for each top donor
+        top_donors_info = []
         for email in top_donors:
             latest_donation = (
                 Donation.objects.filter(email=email).order_by("-created_at").first()
             )
-            top_donors_info[email] = {
-                "amount": top_donors[email],
-                "latest_image": (
-                    latest_donation.image.url
-                    if latest_donation and latest_donation.image
-                    else None
-                ),
-                "latest_donation_message": (
-                    latest_donation.message if latest_donation else None
-                ),
-            }
+            if latest_donation:
+                donor_info = {
+                    "id": latest_donation.id,
+                    "name": latest_donation.name,
+                    "email": email,
+                    "amount": top_donors[email],
+                    "message": latest_donation.message,
+                    "image": (
+                        latest_donation.image.url if latest_donation.image else None
+                    ),
+                }
+                top_donors_info.append(donor_info)
 
-        return Response(top_donors_info)
+        return Response(top_donors_info[:5])

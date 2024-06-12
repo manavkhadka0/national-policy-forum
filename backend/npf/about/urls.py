@@ -37,12 +37,12 @@ urlpatterns = [
     path("images/", views.ImageListView.as_view(), name="image-list"),
     path("videos/", views.VideoListView.as_view(), name="video-list"),
     path("media/", views.ImageVideoListView.as_view(), name="image-video-list"),
-    path("donation/", views.DonationListCreate.as_view(), name="donation-list-create"),
+    path("donations/", views.DonationListCreate.as_view(), name="donation-list-create"),
     path(
-        "donation/<int:pk>/",
+        "donations/<int:pk>/",
         views.DonationRetrieveUpdateDestroy.as_view(),
         name="donation-retrieve-update-destroy",
     ),
     # top donors
-    path("top-donors/", views.TopDonors.as_view(), name="top-donors"),
+    path("top-donations/", views.TopDonors.as_view(), name="top-donors"),
 ]
