@@ -4,6 +4,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 import Share from 'src/components/share';
+import { HOST_API } from 'src/config-global';
 
 type ShareProps = {
   quote?: string;
@@ -25,7 +26,7 @@ export default function PostSocialsShare({ hashtag, quote, longButtons = false }
 
       <Stack direction="row" alignItems="center" flexWrap="wrap">
         <Share
-          url={`${process.env.NEXT_PUBLIC_BASE_URL}${pathname}`}
+          url={`${HOST_API}${pathname}`}
           hashtag={hashtag}
           quote={quote}
           longButtons={longButtons}
