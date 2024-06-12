@@ -4,10 +4,11 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
+import { fCurrency } from 'src/utils/format-number';
+
 import Image from 'src/components/image';
 
 import { IDonationDataProps } from 'src/types/job';
-import { fCurrency } from 'src/utils/format-number';
 
 // ----------------------------------------------------------------------
 

@@ -120,12 +120,8 @@ export default function NavList({ data }: NavListProps) {
 
 // ----------------------------------------------------------------------
 
-function NavSubList({ subheader, isNew, cover, items }: NavSubListProps) {
+function NavSubList({ subheader, isNew, items }: NavSubListProps) {
   const pathname = usePathname();
-
-  const coverPath = items.length ? items[0].path : '';
-
-  const commonList = subheader === 'Common';
 
   return (
     <Stack spacing={2}>

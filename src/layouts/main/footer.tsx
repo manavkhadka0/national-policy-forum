@@ -188,7 +188,7 @@ export default function Footer() {
     </>
   );
 
-  return <footer>{mainFooter}</footer>;
+  return <footer>{simpleFooter}</footer>;
 }
 
 // ----------------------------------------------------------------------

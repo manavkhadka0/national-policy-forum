@@ -1,3 +1,5 @@
+import { usePathname } from 'next/navigation';
+
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
@@ -12,6 +14,7 @@ type ShareProps = {
 // ----------------------------------------------------------------------
 
 export default function PostSocialsShare({ hashtag, quote, longButtons = false }: ShareProps) {
+  const pathname = usePathname();
   return (
     <Stack direction="row" sx={{ mt: 5 }}>
       {longButtons && (
@@ -22,7 +25,7 @@ export default function PostSocialsShare({ hashtag, quote, longButtons = false }
 
       <Stack direction="row" alignItems="center" flexWrap="wrap">
         <Share
-          url={`${window.location.origin}${window.location.pathname}`}
+          url={`{process.env.NEXT_PUBLIC_BASE_URL}${pathname}`}
           hashtag={hashtag}
           quote={quote}
           longButtons={longButtons}

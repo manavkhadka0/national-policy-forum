@@ -38,11 +38,11 @@ export default function DonationLandingView({ donationContent, donationData }: P
         }}
       >
         <Grid container spacing={{ xs: 5, md: 8 }}>
-          {/* {!mdUp && (
-                        <Grid xs={12} md={5} lg={4}>
-                            <DonationInfo job={_mockJob} />
-                        </Grid>
-                    )} */}
+          {!mdUp && (
+            <Grid xs={12} md={5} lg={4}>
+              <DonationInfo donationData={donationData.slice(1, donationData.length)} />
+            </Grid>
+          )}
 
           <Grid xs={12} md={7} lg={8}>
             <DonationDetailsSummary donationContent={donationContent} />

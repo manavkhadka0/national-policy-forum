@@ -1,3 +1,5 @@
+'use client';
+
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -19,13 +21,6 @@ import { IDonationContentProps } from 'src/types/job';
 
 type Props = {
   donation: IDonationContentProps;
-};
-
-export const donation_mock = {
-  id: 1,
-  title: 'Donation for Breast Cancer in America',
-  description:
-    'Breast cancer is a disease in which abnormal breast cells grow out of control and form tumours. If left unchecked, the tumours can spread throughout the body and become fatal.Breast cancer cells begin inside the milk ducts and/ or the milk-producing lobules of the breast.The earliest form(in situ) is not life - threatening.Cancer cells can spread into nearby breast tissue(invasion).This creates tumours that cause lumps or thickening.Invasive cancers can spread to nearby lymph nodes or other organs(metastasize).Metastasis can be fatal.Treatment is based on the person, the type of cancer and its spread.Treatment combines surgery, radiation therapy and medications.',
 };
 
 export default function DonationHero({ donation }: Props) {
@@ -69,7 +64,6 @@ export default function DonationHero({ donation }: Props) {
             </Typography>
 
             <PostSocialsShare longButtons={false} />
-
           </Stack>
 
           <Stack
