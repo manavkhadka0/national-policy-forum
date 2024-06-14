@@ -25,14 +25,12 @@ export default function PostSocialsShare({ hashtag, quote, longButtons = false }
         </Typography>
       )}
 
-      <Stack direction="row" alignItems="center" flexWrap="wrap">
-        <Share
-          url={`${HOST_API}${pathname}`}
-          hashtag={hashtag}
-          quote={quote}
-          longButtons={longButtons}
-        />
-      </Stack>
+      <Share
+        url={`${HOST_API}${pathname}`}
+        hashtag={hashtag}
+        quote={quote}
+        longButtons={longButtons}
+      />
     </Stack>
   );
 }

@@ -59,7 +59,7 @@ type ShareProps = {
 
 export default function Share({ url, hashtag, quote, longButtons }: ShareProps) {
   return (
-    <Stack spacing={1} direction="row">
+    <Stack spacing={1} direction="row" flexWrap='wrap'>
       {_socials.map((social) => {
         const ShareComponent = social.component;
         return (

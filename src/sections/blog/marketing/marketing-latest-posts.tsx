@@ -47,7 +47,7 @@ export default function MarketingLatestPosts({ posts }: Props) {
   const viewAllBtn = (
     <Button
       component={RouterLink}
-      href={paths.marketing.posts}
+      href={paths.publications}
       color="inherit"
       endIcon={<Iconify icon="carbon:chevron-right" />}
     >
@@ -66,7 +66,7 @@ export default function MarketingLatestPosts({ posts }: Props) {
         alignItems="center"
         justifyContent={{ xs: 'center', md: 'space-between' }}
       >
-        <Typography variant="h3">Latest Posts</Typography>
+        <Typography variant="h3">Latest Publications</Typography>
 
         {mdUp && viewAllBtn}
       </Stack>
@@ -75,7 +75,7 @@ export default function MarketingLatestPosts({ posts }: Props) {
         <CarouselArrows
           onNext={carousel.onNext}
           onPrev={carousel.onPrev}
-          leftButtonProps={{ sx: { left: { xs: 0, md: -40 } } }}
+          leftButtonProps={{ sx: { left: { xs: -10, md: -40 } } }}
           rightButtonProps={{ sx: { right: { xs: 0, md: -40 } } }}
         >
           <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>

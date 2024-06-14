@@ -4,22 +4,24 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import { _testimonials, _marketingPosts } from 'src/_mock';
-
 import { IPublicationProps } from 'src/types/blog';
+import { ITestimonialProps } from 'src/types/testimonial';
 
 import MarketingNewsletter from '../marketing-newsletter';
 import MarketingCaseStudyList from '../list/marketing-case-study-list';
 import MarketingTestimonial from '../testimonial/marketing-testimonial';
 import MarketingLandingFreeSEO from '../landing/marketing-landing-free-seo';
-import BlogMarketingLatestPosts from '../../blog/marketing/marketing-latest-posts';
 
 // ----------------------------------------------------------------------
 type MarketingCaseStudiesViewProps = {
   category: string[];
   publications: IPublicationProps[];
+  testimonials: ITestimonialProps[];
 };
-export default function MarketingCaseStudiesView({ category, publications }: MarketingCaseStudiesViewProps) {
+
+
+export default async function MarketingCaseStudiesView({ testimonials,category, publications }: MarketingCaseStudiesViewProps) {
+
   return (
     <>
       <Container>
@@ -41,9 +43,9 @@ export default function MarketingCaseStudiesView({ category, publications }: Mar
         <MarketingCaseStudyList publications={publications} categoriesFetched={category} />
       </Container>
 
-      <MarketingTestimonial testimonials={_testimonials} />
+      <MarketingTestimonial testimonials={testimonials} />
 
-      <BlogMarketingLatestPosts posts={_marketingPosts.slice(0, 4)} />
+      {/* <BlogMarketingLatestPosts posts={publications} /> */}
 
       <MarketingLandingFreeSEO />
 

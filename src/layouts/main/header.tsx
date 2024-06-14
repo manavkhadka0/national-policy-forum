@@ -187,7 +187,7 @@ export default function Header({ headerOnDark }: Props) {
         <Scrollbar>
           <Logo sx={{ mx: 2.5, my: 3 }} />
 
-          <MegaMenuMobile data={NAV_ITEMS} />
+          <MegaMenuMobile data={NAV_ITEMS_WITH_PUBLICATIONS} />
         </Scrollbar>
       </Drawer>
     </>

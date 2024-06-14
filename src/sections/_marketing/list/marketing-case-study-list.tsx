@@ -63,6 +63,7 @@ export default function MarketingCaseStudyList({ publications, categoriesFetched
 
       <Pagination
         count={10}
+
         color="primary"
         sx={{
           pb: 10,
