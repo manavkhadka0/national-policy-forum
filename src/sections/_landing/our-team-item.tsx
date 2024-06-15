@@ -97,18 +97,23 @@ export default function OurTeamItem({ member }: Props) {
           </Typography>
 
           <Stack direction="row">
-            {_socials.map((social) => (
-              <Link component={RouterLink} href={social.path || '#'}>
-                <IconButton
-                  key={social.value}
-                  sx={{
-                    color: social.color,
-                  }}
-                >
-                  <Iconify icon={social.icon} />
-                </IconButton>
-              </Link>
-            ))}
+            {_socials.map((social) => {
+              if (!social.path) {
+                return null;
+              }
+              return (
+                <Link component={RouterLink} href={social.path || '#'} key={social.value}>
+                  <IconButton
+                    key={social.value}
+                    sx={{
+                      color: social.color,
+                    }}
+                  >
+                    <Iconify icon={social.icon} />
+                  </IconButton>
+                </Link>
+              );
+            })}
           </Stack>
         </Stack>
       </StyledOverlay>
