@@ -1,11 +1,13 @@
 // ----------------------------------------------------------------------
 
 export const paths = {
-  // post 
+  // post
   post: (id: string) => `/posts/${id}`,
   posts: '/posts',
-  publication:(id: string)=> `/publications/${id}`,
-  publications:'/publications',
+  publication: (id: string) => `/publications/${id}`,
+  publications: '/publications',
+  events: '/events',
+  event: (id: string) => `/events/${id}`,
   // Marketing
   marketing: {
     root: '/marketing',

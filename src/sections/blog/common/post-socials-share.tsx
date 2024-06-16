@@ -18,7 +18,7 @@ type ShareProps = {
 export default function PostSocialsShare({ hashtag, quote, longButtons = false }: ShareProps) {
   const pathname = usePathname();
   return (
-    <Stack direction="row" sx={{ mt: 5 }}>
+    <Stack direction="row">
       {longButtons && (
         <Typography variant="subtitle2" sx={{ mt: 0.75, mr: 1.5 }}>
           Share:

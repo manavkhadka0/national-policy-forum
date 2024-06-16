@@ -119,7 +119,7 @@ export default function MarketingPostView() {
 
       <Divider />
 
-      <BlogMarketingLatestPosts posts={_marketingPosts.slice(0, 4)} />
+      {/* <BlogMarketingLatestPosts posts={_marketingPosts.slice(0, 4)} /> */}
 
       <MarketingLandingFreeSEO />
 

@@ -92,6 +92,20 @@ export default function Header({ headerOnDark }: Props) {
         ],
       };
     }
+    if (item.title === 'Events') {
+      return {
+        ...item,
+        children: [
+          {
+            subheader: '',
+            items: navlinks.event?.latest_events.map((event) => ({
+              title: event.title,
+              path: event.path,
+            })),
+          },
+        ],
+      };
+    }
     if (item.title === 'Blogs') {
       return {
         ...item,
@@ -303,10 +317,17 @@ const NAV_ITEMS = [
       path: '/publications',
     },
     children: [],
-  },
-  {
+  }, {
     title: 'Events',
     path: '/events',
+    icon: <Iconify icon="carbon:api" sx={{ width: 1, height: 1 }} />,
+    children: [
+      {
+        subheader: '',
+        items: [
+        ],
+      },
+    ],
   },
   {
     title: 'Careers',

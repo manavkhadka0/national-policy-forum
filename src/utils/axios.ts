@@ -47,6 +47,11 @@ export const endpoints = {
   navLinks: {
     list: '/api/nav-links/',
   },
+  event: {
+    list: '/api/events/',
+    event_details: (slug: string) => `/api/events/${slug}`,
+    latest_events: '/api/events?is_latest=True',
+  },
   team: {
     list: '/api/our-team/',
   },

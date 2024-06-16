@@ -12,8 +12,15 @@ type Publication = {
   title: string;
   path: string;
 };
+type Event = {
+  title: string;
+  path: string;
+};
 
 export type NavigationData = {
+  event: {
+    latest_events: Event[];
+  };
   blog: {
     latest_blogs: Blog[];
     featured_blogs: Blog[];

@@ -49,7 +49,7 @@ export default function MarketingLandingView() {
 
       <MarketingTestimonial testimonials={_testimonials} />
 
-      <BlogMarketingLatestPosts posts={_marketingPosts.slice(0, 4)} />
+      {/* <BlogMarketingLatestPosts posts={_marketingPosts.slice(0, 4)} /> */}
 
       <MarketingLandingFreeSEO />
 

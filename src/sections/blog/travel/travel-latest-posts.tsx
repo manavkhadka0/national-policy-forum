@@ -28,7 +28,7 @@ export default function TravelLatestPosts({ posts }: Props) {
   const viewAllBtn = (
     <Button
       component={RouterLink}
-      href={paths.travel.posts}
+      href={paths.publications}
       color="inherit"
       endIcon={<Iconify icon="carbon:chevron-right" />}
     >

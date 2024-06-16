@@ -13,14 +13,14 @@ import { useResponsive } from 'src/hooks/use-responsive';
 import Iconify from 'src/components/iconify';
 import Carousel, { useCarousel, CarouselDots, CarouselArrows } from 'src/components/carousel';
 
-import { IBlogPostProps } from 'src/types/blog';
+import { IPublicationProps } from 'src/types/blog';
 
 import MarketingLatestPostItem from './marketing-latest-post-item';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  posts: IBlogPostProps[];
+  posts: IPublicationProps[];
 };
 
 export default function MarketingLatestPosts({ posts }: Props) {

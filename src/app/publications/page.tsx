@@ -1,11 +1,11 @@
 import { getPublications } from 'src/actions/publications';
+import { getTestimonials } from 'src/actions/testimonials';
 import { getCategoriesNameOnly } from 'src/actions/categories';
 
 import MarketingCaseStudiesView from 'src/sections/_marketing/view/marketing-case-studies-view';
 
 import { IPublicationProps } from 'src/types/blog';
 import { ITestimonialProps } from 'src/types/testimonial';
-import { getTestimonials } from 'src/actions/testimonials';
 
 // ----------------------------------------------------------------------
 
