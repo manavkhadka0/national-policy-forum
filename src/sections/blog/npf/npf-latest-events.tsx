@@ -66,7 +66,7 @@ export default function NpfLatestEvents({ events }: Props) {
         alignItems="center"
         justifyContent={{ xs: 'center', md: 'space-between' }}
       >
-        <Typography variant="h3">Latest Publications</Typography>
+        <Typography variant="h3">Latest Events</Typography>
 
         {mdUp && viewAllBtn}
       </Stack>
