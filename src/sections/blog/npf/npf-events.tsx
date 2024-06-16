@@ -24,8 +24,8 @@ export default function NpfEvents({ events }: Props) {
           },
         }}
       >
-        {events.slice(0, 8).map((post) => (
-          <NpfEventItem key={post.slug} post={post} />
+        {events.slice(0, 8).map((event) => (
+          <NpfEventItem key={event.slug} event={event} />
         ))}
       </Box>
 

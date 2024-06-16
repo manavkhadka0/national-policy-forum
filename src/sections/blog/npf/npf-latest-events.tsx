@@ -15,7 +15,7 @@ import Carousel, { useCarousel, CarouselDots, CarouselArrows } from 'src/compone
 
 import { IPublicationProps } from 'src/types/blog';
 
-import MarketingLatestPostItem from './npf-latest-events-item';
+import NpfLatestEventsItem from './npf-latest-events-item';
 
 // ----------------------------------------------------------------------
 
@@ -87,7 +87,7 @@ export default function NpfLatestEvents({ events }: Props) {
                   py: { xs: 8, md: 10 },
                 }}
               >
-                <MarketingLatestPostItem post={post} />
+                <NpfLatestEventsItem event={post} />
               </Box>
             ))}
           </Carousel>

@@ -20,10 +20,10 @@ import PostTimeBlock from '../common/post-time-block';
 // ----------------------------------------------------------------------
 
 type Props = {
-  post: IPublicationProps;
+  event: IPublicationProps;
 };
 
-export default function NpfLatestEventsItem({ post }: Props) {
+export default function NpfLatestEventsItem({ event }: Props) {
   const theme = useTheme();
 
   return (
@@ -39,8 +39,8 @@ export default function NpfLatestEventsItem({ post }: Props) {
     >
       <m.div variants={varHover(1.25)} transition={varTranHover()}>
         <Image
-          src={post.cover}
-          alt={post.title}
+          src={event.cover}
+          alt={event.title}
           ratio="3/4"
           overlay={`linear-gradient(to top, ${alpha(theme.palette.common.black, 0)} 0%, ${
             theme.palette.common.black
@@ -61,25 +61,25 @@ export default function NpfLatestEventsItem({ post }: Props) {
       >
         <Stack spacing={2}>
           <PostTimeBlock
-            created_at={fDate(post.created_at)}
-            duration={post.duration}
+            created_at={fDate(event.created_at)}
+            duration={event.duration}
             sx={{ color: 'inherit', opacity: 0.72 }}
           />
 
           <Link
             component={RouterLink}
-            href={paths.publication(post.id)}
+            href={paths.event(event.slug)}
             variant="h4"
             color="inherit"
             underline="none"
           >
-            {post.title}
+            {event.title}
           </Link>
         </Stack>
 
         <Stack direction="row" alignItems="center" sx={{ typography: 'body2' }}>
-          <Avatar src={post.author.avatar} sx={{ mr: 1 }} />
-          {post.author.name}
+          <Avatar src={event.author.avatar} sx={{ mr: 1 }} />
+          {event.author.name}
         </Stack>
       </Stack>
     </Stack>

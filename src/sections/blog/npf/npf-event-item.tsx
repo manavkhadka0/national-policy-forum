@@ -21,10 +21,10 @@ import PostTimeBlock from '../common/post-time-block';
 // ----------------------------------------------------------------------
 
 type Props = {
-  post: IPublicationProps;
+  event: IPublicationProps;
 };
 
-export default function NpfEventItem({ post }: Props) {
+export default function NpfEventItem({ event }: Props) {
   const theme = useTheme();
 
   return (
@@ -37,8 +37,8 @@ export default function NpfEventItem({ post }: Props) {
     >
       <m.div variants={varHover(1.25)} transition={varTranHover()}>
         <Image
-          src={post.cover}
-          alt={post.title}
+          src={event.cover}
+          alt={event.title}
           ratio="3/4"
           overlay={`linear-gradient(to top, ${alpha(theme.palette.common.black, 0)} 0%, ${
             theme.palette.common.black
@@ -58,19 +58,23 @@ export default function NpfEventItem({ post }: Props) {
       >
         <Stack spacing={2}>
           <PostTimeBlock
-            duration={post.duration}
-            created_at={fDate(post.created_at)}
+            duration={event.duration}
+            created_at={fDate(event.created_at)}
             sx={{ color: 'inherit', opacity: 0.72 }}
           />
 
-          <Link component={RouterLink} href={paths.marketing.post} sx={{ color: 'common.white' }}>
-            <TextMaxLine variant="h4">{post.title}</TextMaxLine>
+          <Link
+            component={RouterLink}
+            href={paths.event(event.slug)}
+            sx={{ color: 'common.white' }}
+          >
+            <TextMaxLine variant="h4">{event.title}</TextMaxLine>
           </Link>
         </Stack>
 
         <Stack direction="row" alignItems="center" sx={{ typography: 'body2' }}>
-          <Avatar src={post.author.avatar} sx={{ mr: 1 }} />
-          {post.author.name}
+          <Avatar src={event.author.avatar} sx={{ mr: 1 }} />
+          {event.author.name}
         </Stack>
       </Stack>
     </Stack>

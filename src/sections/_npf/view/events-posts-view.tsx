@@ -5,6 +5,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 
 import NpfEvents from 'src/sections/blog/npf/npf-events';
 import TravelNewsletter from 'src/sections/_travel/travel-newsletter';
+import NpfLatestEvents from 'src/sections/blog/npf/npf-latest-events';
 import NpfFeaturedEvents from 'src/sections/blog/npf/npf-featured-events';
 import PostSearchMobile from 'src/sections/blog/common/post-search-mobile';
 
@@ -56,6 +57,8 @@ export default async function EventPostsView({
           </Grid>
         </Grid>
       </Container>
+
+      <NpfLatestEvents events={latest_events} />
       <TravelNewsletter />
     </>
   );

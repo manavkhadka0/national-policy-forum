@@ -17,10 +17,10 @@ import PostTimeBlock from '../common/post-time-block';
 // ----------------------------------------------------------------------
 
 type Props = {
-  post: IPublicationProps;
+  event: IPublicationProps;
 };
 
-export default function NpfFeaturedPostItem({ post }: Props) {
+export default function NpfFeaturedPostItem({ event }: Props) {
   return (
     <Stack
       direction={{
@@ -29,7 +29,7 @@ export default function NpfFeaturedPostItem({ post }: Props) {
       }}
       sx={{ bgcolor: 'background.default', borderRadius: 2 }}
     >
-      <Image src={post.cover} alt={post.title} sx={{ flexGrow: 1, height: { md: 560 } }} />
+      <Image src={event.cover} alt={event.title} sx={{ flexGrow: 1, height: { md: 560 } }} />
 
       <Stack
         justifyContent="space-between"
@@ -40,20 +40,20 @@ export default function NpfFeaturedPostItem({ post }: Props) {
         }}
       >
         <Stack spacing={1}>
-          <PostTimeBlock created_at={fDate(post.created_at)} duration={post.duration} />
+          <PostTimeBlock created_at={fDate(event.created_at)} duration={event.duration} />
 
-          <Link component={RouterLink} href={paths.marketing.post} color="inherit" variant="h3">
-            {post.title}
+          <Link component={RouterLink} href={paths.event(event.slug)} color="inherit" variant="h3">
+            {event.title}
           </Link>
 
           <TextMaxLine line={3} variant="body2" sx={{ color: 'text.secondary' }}>
-            {post.description}
+            {event.description}
           </TextMaxLine>
         </Stack>
 
         <Stack direction="row" alignItems="center" sx={{ pt: 2, typography: 'body2' }}>
-          <Avatar src={post.author.avatar} sx={{ mr: 1 }} />
-          {post.author.name}
+          <Avatar src={event.author.avatar} sx={{ mr: 1 }} />
+          {event.author.name}
         </Stack>
       </Stack>
     </Stack>
