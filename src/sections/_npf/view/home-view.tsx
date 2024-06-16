@@ -5,8 +5,8 @@ import { Slide } from 'yet-another-react-lightbox';
 import NpfLatestPost from 'src/sections/blog/npf/npf-landing-posts';
 import TravelNewsletter from 'src/sections/_travel/travel-newsletter';
 import NpfLatestEvents from 'src/sections/blog/npf/npf-latest-events';
-import NpfLatestPublications from 'src/sections/blog/npf/npf-latest-posts';
 import { Faq } from 'src/sections/_marketing/landing/marketing-landing-faqs';
+import NpfLatestPublications from 'src/sections/blog/npf/npf-latest-publications';
 
 import { IBrandProps } from 'src/types/brand';
 import { IOurTeamProps } from 'src/types/team';
@@ -52,7 +52,7 @@ export default function LandingView({
 
       <NpfLatestEvents events={latest_events} />
 
-      <NpfLatestPublications posts={latest_publications} />
+      <NpfLatestPublications publications={latest_publications} />
 
       <NpfTestimonial testimonials={testimonials} />
 
