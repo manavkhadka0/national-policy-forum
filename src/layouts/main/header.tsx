@@ -305,6 +305,15 @@ const NAV_ITEMS = [
     children: [],
   },
   {
+    title: 'Events',
+    path: '/events',
+  },
+  {
+    title: 'Careers',
+    path: '/careers',
+  },
+
+  {
     title: 'Donation',
     path: '/donation',
   },

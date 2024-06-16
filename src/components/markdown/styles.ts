@@ -1,4 +1,5 @@
 import { styled } from '@mui/material/styles';
+import { he } from 'date-fns/locale';
 
 // ----------------------------------------------------------------------
 
@@ -86,6 +87,9 @@ const StyledMarkdown = styled('div', {
   // Image
   '& img': {
     borderRadius: theme.spacing(1),
+    display: 'block',
+    height: 'auto',
+    width: 'auto',
   },
 
   // Table

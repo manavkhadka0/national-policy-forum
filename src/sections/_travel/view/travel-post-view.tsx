@@ -88,10 +88,11 @@ export default function TravelPostView({ post, recentPosts, categories, tags: ma
                   </Button>
                 </Link>
 
-                <object
+                <iframe
+                  title="publication-pdf"
                   className="pdf"
                   aria-label="pdf"
-                  data={post.pdf}
+                  src={post.pdf}
                   width="100%"
                   height="900"
                 />
