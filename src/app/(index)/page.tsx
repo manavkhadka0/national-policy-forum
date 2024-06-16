@@ -12,8 +12,10 @@ import TravelLandingView from 'src/sections/_travel/view/travel-landing-view';
 
 import { IBrandProps } from 'src/types/brand';
 import { IOurTeamProps } from 'src/types/team';
-import { IBlogPostProps } from 'src/types/blog';
+import { IBlogPostProps, IPublicationProps } from 'src/types/blog';
 import { ITestimonialProps } from 'src/types/testimonial';
+import { getLatestEvent } from 'src/actions/events';
+import { getLatestPublication } from 'src/actions/publications';
 
 // ----------------------------------------------------------------------
 
@@ -28,6 +30,8 @@ export default async function TravelLandingPage() {
   const testimonials: ITestimonialProps[] = await getTestimonials();
   const featured_posts: IBlogPostProps[] = await getFeaturedPosts();
   const latest_posts: IBlogPostProps[] = await getLatestPosts();
+  const latest_events: IPublicationProps[] = await getLatestEvent();
+  const latest_publications: IPublicationProps[] = await getLatestPublication();
   const members: IOurTeamProps[] = await getTeamMembers();
   const clients: IBrandProps[] = await getClients();
   const gallery: Slide[] = await getGallery();
@@ -39,6 +43,8 @@ export default async function TravelLandingPage() {
       featured_posts={featured_posts}
       latest_posts={latest_posts}
       members={members}
+      latest_events={latest_events}
+      latest_publications={latest_publications}
       clients={clients}
       galleries={gallery}
     />

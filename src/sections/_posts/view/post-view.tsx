@@ -20,7 +20,7 @@ import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
 import TravelNewsletter from 'src/sections/_travel/travel-newsletter';
 import PostSocialsShare from 'src/sections/blog/common/post-socials-share';
-import PublicationLatest from 'src/sections/_publication/list/publication-latest-posts';
+import LatestPublications from 'src/sections/blog/publication/latest-publication';
 
 import { IPublicationProps } from 'src/types/blog';
 
@@ -133,7 +133,7 @@ export default function PostView({ post, recentPosts, categories, tags: mainTag 
         </Grid>
       </Container>
 
-      <PublicationLatest posts={recentPosts} />
+      <LatestPublications posts={recentPosts} />
 
       <TravelNewsletter />
     </>

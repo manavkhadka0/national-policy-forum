@@ -16,11 +16,11 @@ import Image from 'src/components/image';
 import Markdown from 'src/components/markdown';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
+import LatestEvents from 'src/sections/blog/event/latest-event';
 import MarketingNewsletter from 'src/sections/_marketing/marketing-newsletter';
 
 import { IPublicationProps } from 'src/types/blog';
 
-import EventLatest from '../list/latest-event';
 import PostTags from '../../blog/common/post-tags';
 import PostAuthor from '../../blog/common/post-author';
 import PostSocialsShare from '../../blog/common/post-socials-share';
@@ -110,7 +110,7 @@ export default function EventPostView({ event, latest_events }: EventPostViewPro
 
       <Divider />
 
-      <EventLatest posts={latest_events} />
+      <LatestEvents posts={latest_events} />
 
       <MarketingNewsletter />
     </>

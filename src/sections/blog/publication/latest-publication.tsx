@@ -11,11 +11,10 @@ import { useResponsive } from 'src/hooks/use-responsive';
 
 import Iconify from 'src/components/iconify';
 
-import PostItemMobile from 'src/sections/blog/common/post-item-mobile';
-
 import { IBlogPostProps } from 'src/types/blog';
 
-import PostItem from '../../blog/travel/travel-latest-post-item';
+import PostItemMobile from '../common/post-item-mobile';
+import LatestPublicationItem from './latest-publication-item';
 
 // ----------------------------------------------------------------------
 
@@ -23,7 +22,7 @@ type Props = {
   posts: IBlogPostProps[];
 };
 
-export default function PublicationLatest({ posts }: Props) {
+export default function LatestPublications({ posts }: Props) {
   const mdUp = useResponsive('up', 'md');
 
   const viewAllBtn = (
@@ -53,7 +52,7 @@ export default function PublicationLatest({ posts }: Props) {
             mb: { xs: 8, md: 10 },
           }}
         >
-          <Typography variant="h3">Latest Publication</Typography>
+          <Typography variant="h3">Latest Posts</Typography>
 
           {mdUp && viewAllBtn}
         </Stack>
@@ -73,7 +72,7 @@ export default function PublicationLatest({ posts }: Props) {
             .slice(0, 4)
             .map((post) =>
               mdUp ? (
-                <PostItem key={post.slug} post={post} />
+                <LatestPublicationItem key={post.slug} post={post} />
               ) : (
                 <PostItemMobile key={post.slug} post={post} />
               )

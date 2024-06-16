@@ -11,11 +11,10 @@ import { useResponsive } from 'src/hooks/use-responsive';
 
 import Iconify from 'src/components/iconify';
 
-import PostItemMobile from 'src/sections/blog/common/post-item-mobile';
-
 import { IBlogPostProps } from 'src/types/blog';
 
-import PostItem from '../../blog/travel/travel-latest-post-item';
+import PostItemMobile from '../common/post-item-mobile';
+import LatestPublicationItem from './latest-event-item';
 
 // ----------------------------------------------------------------------
 
@@ -23,13 +22,13 @@ type Props = {
   posts: IBlogPostProps[];
 };
 
-export default function PostLatest({ posts }: Props) {
+export default function LatestEvents({ posts }: Props) {
   const mdUp = useResponsive('up', 'md');
 
   const viewAllBtn = (
     <Button
       component={RouterLink}
-      href={paths.posts}
+      href={paths.events}
       color="inherit"
       endIcon={<Iconify icon="carbon:chevron-right" />}
     >
@@ -73,7 +72,7 @@ export default function PostLatest({ posts }: Props) {
             .slice(0, 4)
             .map((post) =>
               mdUp ? (
-                <PostItem key={post.slug} post={post} />
+                <LatestPublicationItem key={post.slug} post={post} />
               ) : (
                 <PostItemMobile key={post.slug} post={post} />
               )
