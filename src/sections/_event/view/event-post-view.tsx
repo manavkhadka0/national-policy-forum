@@ -1,9 +1,11 @@
 'use client';
 
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
@@ -36,7 +38,6 @@ export default function EventPostView({ event, latest_events }: EventPostViewPro
   return (
     <>
       <Image alt="hero" src={cover} ratio="21/9" />
-
       <Container>
         <CustomBreadcrumbs
           sx={{ my: 3 }}
@@ -94,6 +95,41 @@ export default function EventPostView({ event, latest_events }: EventPostViewPro
             <Divider sx={{ mb: 6 }} />
 
             <Markdown content={content} firstLetter />
+
+            {event.pdf && (
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-end',
+                  my: 2,
+                }}
+              >
+                <Link
+                  href={event.pdf}
+                  color="inherit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="go to homepage"
+                  alignSelf={{ xs: 'flex-start', md: 'flex-end' }}
+                  sx={{ lineHeight: 0, mb: 1, ml: 'auto' }}
+                >
+                  <Button variant="outlined" color="inherit">
+                    Full screen
+                  </Button>
+                </Link>
+
+                <iframe
+                  title="publication-pdf"
+                  className="pdf"
+                  aria-label="pdf"
+                  src={event.pdf}
+                  width="100%"
+                  height="900"
+                />
+              </Box>
+            )}
+
 
             {tags.length && <PostTags tags={tags} />}
 
