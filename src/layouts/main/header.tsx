@@ -321,6 +321,10 @@ const NAV_ITEMS = [
     title: 'Events',
     path: '/events',
     icon: <Iconify icon="carbon:api" sx={{ width: 1, height: 1 }} />,
+    moreLink: {
+      title: 'More Events',
+      path: '/events',
+    },
     children: [
       {
         subheader: '',

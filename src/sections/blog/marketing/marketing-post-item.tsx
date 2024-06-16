@@ -40,9 +40,8 @@ export default function MarketingPostItem({ post }: Props) {
           src={post.cover}
           alt={post.title}
           ratio="3/4"
-          overlay={`linear-gradient(to top, ${alpha(theme.palette.common.black, 0)} 0%, ${
-            theme.palette.common.black
-          } 75%)`}
+          overlay={`linear-gradient(to top, ${alpha(theme.palette.common.black, 0)} 0%, ${theme.palette.common.black
+            } 75%)`}
         />
       </m.div>
 
@@ -63,7 +62,7 @@ export default function MarketingPostItem({ post }: Props) {
             sx={{ color: 'inherit', opacity: 0.72 }}
           />
 
-          <Link component={RouterLink} href={paths.marketing.post} sx={{ color: 'common.white' }}>
+          <Link component={RouterLink} href={paths.event(post.slug)} sx={{ color: 'common.white' }}>
             <TextMaxLine variant="h4">{post.title}</TextMaxLine>
           </Link>
         </Stack>

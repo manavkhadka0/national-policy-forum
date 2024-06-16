@@ -42,7 +42,7 @@ export default function MarketingFeaturedPostItem({ post }: Props) {
         <Stack spacing={1}>
           <PostTimeBlock created_at={fDate(post.created_at)} duration={post.duration} />
 
-          <Link component={RouterLink} href={paths.marketing.post} color="inherit" variant="h3">
+          <Link component={RouterLink} href={paths.event(post.slug)} color="inherit" variant="h3">
             {post.title}
           </Link>
 
