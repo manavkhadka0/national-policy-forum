@@ -3,9 +3,9 @@
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
@@ -18,7 +18,7 @@ import Image from 'src/components/image';
 import Markdown from 'src/components/markdown';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
-import LatestEvents from 'src/sections/blog/event/latest-event';
+import NpfLatestEvents from 'src/sections/blog/npf/npf-latest-events';
 import MarketingNewsletter from 'src/sections/_marketing/marketing-newsletter';
 
 import { IPublicationProps } from 'src/types/blog';
@@ -130,7 +130,6 @@ export default function EventPostView({ event, latest_events }: EventPostViewPro
               </Box>
             )}
 
-
             {tags.length && <PostTags tags={tags} />}
 
             <Box mt={5}>
@@ -146,7 +145,7 @@ export default function EventPostView({ event, latest_events }: EventPostViewPro
 
       <Divider />
 
-      <LatestEvents posts={latest_events} />
+      <NpfLatestEvents events={latest_events} />
 
       <MarketingNewsletter />
     </>
