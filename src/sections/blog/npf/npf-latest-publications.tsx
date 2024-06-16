@@ -13,7 +13,7 @@ import Iconify from 'src/components/iconify';
 
 import { IPublicationProps } from 'src/types/blog';
 
-import PostItem from './npf-latest-post-item';
+import PostItem from './npf-latest-publication-item';
 import PostItemMobile from '../common/post-item-mobile';
 
 // ----------------------------------------------------------------------
@@ -70,11 +70,11 @@ export default function NpfLatestPublications({ publications }: Props) {
         >
           {publications
             .slice(0, 4)
-            .map((post) =>
+            .map((publication) =>
               mdUp ? (
-                <PostItem key={post.slug} post={post} />
+                <PostItem key={publication.slug} publication={publication} />
               ) : (
-                <PostItemMobile key={post.slug} post={post} basePath="publications" />
+                <PostItemMobile key={publication.slug} post={publication} basePath="publications" />
               )
             )}
         </Box>
