@@ -8,13 +8,14 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { useResponsive } from 'src/hooks/use-responsive';
 
 import CareerNewsletter from 'src/sections/_career/career-newsletter';
-import DonatorInfo from 'src/sections/_donation/details/donator-info';
-import DonationHero from 'src/sections/_donation/details/donation-hero';
-import DonationInfo from 'src/sections/_donation/details/donation-info';
 import PostSocialsShare from 'src/sections/blog/common/post-socials-share';
-import DonationDetailsSummary from 'src/sections/_donation/details/donation-details-summary';
 
 import { IDonationDataProps, IDonationContentProps } from 'src/types/job';
+
+import DonatorInfo from '../details/donator-info';
+import DonationHero from '../details/donation-hero';
+import DonationInfo from '../details/donation-info';
+import DonationDetailsSummary from '../details/donation-details-summary';
 
 // ----------------------------------------------------------------------
 

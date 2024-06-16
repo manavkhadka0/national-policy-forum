@@ -1,6 +1,6 @@
 import { getDonationData, getDonationContent } from 'src/actions/donation';
 
-import DonationLandingView from 'src/sections/_donation/view/donation-landing-view';
+import DonationLandingView from 'src/sections/_npf/_donation/view/donation-landing-view';
 
 import { IDonationDataProps, IDonationContentProps } from 'src/types/job';
 
