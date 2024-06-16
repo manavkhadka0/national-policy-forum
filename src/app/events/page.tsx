@@ -4,7 +4,7 @@ import { getTags } from 'src/actions/tag';
 import { getCategoriesNameOnly } from 'src/actions/categories';
 import { getEvents, getLatestEvent } from 'src/actions/events';
 
-import EventPostsView from 'src/sections/_event/view/events-posts-view';
+import EventPostsView from 'src/sections/_npf/view/events-posts-view';
 
 import { IPublicationProps } from 'src/types/blog';
 
@@ -24,7 +24,7 @@ export default async function EventListPage() {
 
   return (
     <EventPostsView
-      event={events}
+      events={events}
       tags={tags}
       categories={categories}
       latest_events={latest_events}

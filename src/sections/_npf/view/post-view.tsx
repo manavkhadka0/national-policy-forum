@@ -2,9 +2,6 @@
 
 import { useScroll } from 'framer-motion';
 
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -18,24 +15,24 @@ import Markdown from 'src/components/markdown';
 import ScrollProgress from 'src/components/scroll-progress';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
+import NpfPostHero from 'src/sections/blog/npf/npf-post-hero';
+import NpfLatestPosts from 'src/sections/blog/npf/npf-latest-posts';
 import TravelNewsletter from 'src/sections/_travel/travel-newsletter';
 import PostSocialsShare from 'src/sections/blog/common/post-socials-share';
-import LatestPublications from 'src/sections/blog/publication/latest-publication';
 
-import { IPublicationProps } from 'src/types/blog';
+import { IBlogPostProps } from 'src/types/blog';
 
 import PostTags from '../../blog/common/post-tags';
 import PostAuthor from '../../blog/common/post-author';
 import PostSidebar from '../../blog/common/post-sidebar';
-import TravelPostHero from '../../blog/travel/travel-post-hero';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  post: IPublicationProps;
+  post: IBlogPostProps;
   tags: string[];
   categories: string[];
-  recentPosts: IPublicationProps[];
+  recentPosts: IBlogPostProps[];
 };
 
 export default function PostView({ post, recentPosts, categories, tags: mainTag }: Props) {
@@ -45,7 +42,7 @@ export default function PostView({ post, recentPosts, categories, tags: mainTag 
 
   return (
     <>
-      <TravelPostHero post={post} />
+      <NpfPostHero post={post} />
 
       <Container>
         <CustomBreadcrumbs
@@ -53,8 +50,8 @@ export default function PostView({ post, recentPosts, categories, tags: mainTag 
           links={[
             { name: 'Home', href: '/' },
             {
-              name: post?.pdf ? 'Publications' : 'Blog',
-              href: post?.pdf ? paths.publications : paths.posts,
+              name: 'Blog',
+              href: paths.posts,
             },
             { name: title },
           ]}
@@ -71,40 +68,6 @@ export default function PostView({ post, recentPosts, categories, tags: mainTag 
               {description}
             </Typography>
 
-            {post.pdf && (
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-end',
-                  my: 2,
-                }}
-              >
-                <Link
-                  href={post.pdf}
-                  color="inherit"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="go to homepage"
-                  alignSelf={{ xs: 'flex-start', md: 'flex-end' }}
-                  sx={{ lineHeight: 0, mb: 1, ml: 'auto' }}
-                >
-                  <Button variant="outlined" color="inherit">
-                    Full screen
-                  </Button>
-                </Link>
-
-                <iframe
-                  title="publication-pdf"
-                  className="pdf"
-                  aria-label="pdf"
-                  src={post.pdf}
-                  width="100%"
-                  height="900"
-                />
-              </Box>
-            )}
-
             <Markdown content={content} firstLetter />
 
             <PostTags tags={tags} />
@@ -120,7 +83,7 @@ export default function PostView({ post, recentPosts, categories, tags: mainTag 
             <PostSidebar
               popularTags={mainTag}
               author={author}
-              recentPosts={{ list: recentPosts }}
+              recentPosts={{ list: recentPosts, basePath: 'posts' }}
               categories={categories}
               advertisement={{
                 title: 'Advertisement',
@@ -133,7 +96,7 @@ export default function PostView({ post, recentPosts, categories, tags: mainTag 
         </Grid>
       </Container>
 
-      <LatestPublications posts={recentPosts} />
+      <NpfLatestPosts posts={recentPosts} />
 
       <TravelNewsletter />
     </>

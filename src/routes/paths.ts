@@ -8,6 +8,7 @@ export const paths = {
   publications: '/publications',
   events: '/events',
   event: (id: string) => `/events/${id}`,
+  dynamicLink: (slug: string, basePath: string) => `/${basePath}/${slug}`,
   // Marketing
   marketing: {
     root: '/marketing',

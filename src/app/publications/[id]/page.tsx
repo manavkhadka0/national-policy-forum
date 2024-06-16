@@ -4,7 +4,7 @@ import { getTags } from 'src/actions/tag';
 import { getCategoriesNameOnly } from 'src/actions/categories';
 import { getLatestPublication, getSinglePublication } from 'src/actions/publications';
 
-import PostView from 'src/sections/_posts/view/post-view';
+import PublicationView from 'src/sections/_npf/view/publication-view';
 
 // ----------------------------------------------------------------------
 
@@ -27,7 +27,7 @@ export default async function TravelPostPage({ params }: { params: { id: string 
   const categories: string[] = await getCategoriesNameOnly();
 
   return (
-    <PostView
+    <PublicationView
       categories={categories}
       tags={tags}
       post={publication}

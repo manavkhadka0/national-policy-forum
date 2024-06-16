@@ -11,18 +11,18 @@ import { useResponsive } from 'src/hooks/use-responsive';
 
 import Iconify from 'src/components/iconify';
 
-import { IBlogPostProps } from 'src/types/blog';
+import { IPublicationProps } from 'src/types/blog';
 
+import PostItem from './npf-latest-post-item';
 import PostItemMobile from '../common/post-item-mobile';
-import LatestPublicationItem from './latest-publication-item';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  posts: IBlogPostProps[];
+  publications: IPublicationProps[];
 };
 
-export default function LatestPublications({ posts }: Props) {
+export default function NpfLatestPublications({ publications }: Props) {
   const mdUp = useResponsive('up', 'md');
 
   const viewAllBtn = (
@@ -52,7 +52,7 @@ export default function LatestPublications({ posts }: Props) {
             mb: { xs: 8, md: 10 },
           }}
         >
-          <Typography variant="h3">Latest Posts</Typography>
+          <Typography variant="h3">Latest Publications</Typography>
 
           {mdUp && viewAllBtn}
         </Stack>
@@ -68,13 +68,13 @@ export default function LatestPublications({ posts }: Props) {
             },
           }}
         >
-          {posts
+          {publications
             .slice(0, 4)
             .map((post) =>
               mdUp ? (
-                <LatestPublicationItem key={post.slug} post={post} />
+                <PostItem key={post.slug} post={post} />
               ) : (
-                <PostItemMobile key={post.slug} post={post} />
+                <PostItemMobile key={post.slug} post={post} basePath="publications" />
               )
             )}
         </Box>

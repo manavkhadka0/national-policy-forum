@@ -100,7 +100,7 @@ export default function CareerLatestPosts({ posts }: Props) {
         ) : (
           <>
             {posts.slice(0, 5).map((post) => (
-              <PostItemMobile key={post.slug} post={post} />
+              <PostItemMobile key={post.slug} post={post} basePath="" />
             ))}
           </>
         )}

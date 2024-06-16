@@ -4,9 +4,9 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import MarketingNewsletter from 'src/sections/_marketing/marketing-newsletter';
-import LatestPublications from 'src/sections/blog/publication/latest-publication';
-import MarketingTestimonial from 'src/sections/_marketing/testimonial/marketing-testimonial';
+import TravelNewsletter from 'src/sections/_travel/travel-newsletter';
+import NpfTestimonial from 'src/sections/_npf/testimonial/npf-testimonial';
+import NpfLatestPublications from 'src/sections/blog/npf/npf-latest-publications';
 
 import { IPublicationProps } from 'src/types/blog';
 import { ITestimonialProps } from 'src/types/testimonial';
@@ -46,11 +46,11 @@ export default async function PublicationsView({
         <PublicationsList publications={publications} categoriesFetched={category} />
       </Container>
 
-      <MarketingTestimonial testimonials={testimonials} />
+      <NpfTestimonial testimonials={testimonials} />
 
-      <LatestPublications posts={publications} />
+      <NpfLatestPublications publications={publications} />
 
-      <MarketingNewsletter />
+      <TravelNewsletter />
     </>
   );
 }

@@ -18,9 +18,10 @@ import PostTimeBlock from './post-time-block';
 type Props = {
   post: IBlogPostProps;
   onSiderbar?: boolean;
+  basePath: string;
 };
 
-export default function PostItemMobile({ post, onSiderbar }: Props) {
+export default function PostItemMobile({ post, onSiderbar, basePath }: Props) {
   return (
     <Stack
       spacing={2}
@@ -40,7 +41,7 @@ export default function PostItemMobile({ post, onSiderbar }: Props) {
       />
 
       <Stack spacing={onSiderbar ? 0.5 : 1}>
-        <Link component={RouterLink} href={paths.post(post.slug)} color="inherit">
+        <Link component={RouterLink} href={paths.dynamicLink(post.slug, basePath)} color="inherit">
           <TextMaxLine variant="h6" persistent>
             {post.title}
           </TextMaxLine>

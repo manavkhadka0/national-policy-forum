@@ -4,32 +4,38 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 
 import { Category } from 'src/actions/categories';
-import { _tags, _mock, _categories } from 'src/_mock';
 
+import NpfPosts from 'src/sections/blog/npf/npf-posts';
 import TravelNewsletter from 'src/sections/_travel/travel-newsletter';
+import NpfFeaturedPosts from 'src/sections/blog/npf/npf-featured-posts';
+import NpfTrendingTopics from 'src/sections/blog/npf/npf-trending-topics';
 
 import { IBlogPostProps } from 'src/types/blog';
 
 import PostSidebar from '../../blog/common/post-sidebar';
-import TravelPosts from '../../blog/travel/travel-posts';
 import PostSearchMobile from '../../blog/common/post-search-mobile';
-import TravelFeaturedPosts from '../../blog/travel/travel-featured-posts';
-import TravelTrendingTopics from '../../blog/travel/travel-trending-topics';
 
 // ----------------------------------------------------------------------
 
 type TravelPostsViewProps = {
   posts: IBlogPostProps[];
   categories: Category[];
+  categoriesName: string[];
+  tags: string[];
 };
-export default function PostsView({ posts, categories }: TravelPostsViewProps) {
+export default function PostsView({
+  posts,
+  categories,
+  categoriesName,
+  tags,
+}: TravelPostsViewProps) {
   return (
     <>
       <PostSearchMobile />
 
-      <TravelFeaturedPosts posts={posts} />
+      <NpfFeaturedPosts posts={posts} />
 
-      <TravelTrendingTopics categories={categories} />
+      <NpfTrendingTopics categories={categories} />
 
       <Container
         sx={{
@@ -38,20 +44,20 @@ export default function PostsView({ posts, categories }: TravelPostsViewProps) {
       >
         <Grid container spacing={{ md: 8 }}>
           <Grid xs={12} md={8}>
-            <TravelPosts posts={posts} />
+            <NpfPosts posts={posts} />
           </Grid>
 
           <Grid xs={12} md={4}>
             <PostSidebar
-              popularTags={_tags}
-              categories={_categories}
-              recentPosts={{ list: posts }}
-              advertisement={{
-                title: 'Advertisement',
-                description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',
-                imageUrl: _mock.image.travel(9),
-                path: '',
-              }}
+              popularTags={tags}
+              categories={categoriesName}
+              recentPosts={{ list: posts, basePath: 'posts' }}
+              //   advertisement={{
+              //     title: 'Advertisement',
+              //     description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',
+              //     imageUrl: _mock.image.travel(9),
+              //     path: '',
+              //   }}
             />
           </Grid>
         </Grid>

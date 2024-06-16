@@ -2,7 +2,7 @@ import { getPublications } from 'src/actions/publications';
 import { getTestimonials } from 'src/actions/testimonials';
 import { getCategoriesNameOnly } from 'src/actions/categories';
 
-import PublicationsView from 'src/sections/_publication/view/publications-view';
+import PublicationsView from 'src/sections/_npf/view/publications-view';
 
 import { IPublicationProps } from 'src/types/blog';
 import { ITestimonialProps } from 'src/types/testimonial';

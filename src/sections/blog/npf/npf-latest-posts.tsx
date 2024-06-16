@@ -13,7 +13,7 @@ import Iconify from 'src/components/iconify';
 
 import { IBlogPostProps } from 'src/types/blog';
 
-import PostItem from './travel-latest-post-item';
+import PostItem from './npf-latest-post-item';
 import PostItemMobile from '../common/post-item-mobile';
 
 // ----------------------------------------------------------------------
@@ -22,13 +22,13 @@ type Props = {
   posts: IBlogPostProps[];
 };
 
-export default function TravelLatestPosts({ posts }: Props) {
+export default function NpfLatestPosts({ posts }: Props) {
   const mdUp = useResponsive('up', 'md');
 
   const viewAllBtn = (
     <Button
       component={RouterLink}
-      href={paths.publications}
+      href={paths.posts}
       color="inherit"
       endIcon={<Iconify icon="carbon:chevron-right" />}
     >
@@ -74,7 +74,7 @@ export default function TravelLatestPosts({ posts }: Props) {
               mdUp ? (
                 <PostItem key={post.slug} post={post} />
               ) : (
-                <PostItemMobile key={post.slug} post={post} basePath="" />
+                <PostItemMobile key={post.slug} post={post} basePath="posts" />
               )
             )}
         </Box>

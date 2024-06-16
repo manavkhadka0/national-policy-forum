@@ -2,7 +2,7 @@
 
 import { getLatestEvent, getSingleEvent } from 'src/actions/events';
 
-import EventPostView from 'src/sections/_event/view/event-post-view';
+import EventPostView from 'src/sections/_npf/view/event-post-view';
 
 import { IPublicationProps } from 'src/types/blog';
 

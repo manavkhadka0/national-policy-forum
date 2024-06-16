@@ -71,7 +71,7 @@ export default function ElearningLatestPosts({ posts }: Props) {
             mdUp ? (
               <PostItem key={post.slug} post={post} />
             ) : (
-              <PostItemMobile key={post.slug} post={post} />
+              <PostItemMobile key={post.slug} post={post} basePath="" />
             )
           )}
       </Box>

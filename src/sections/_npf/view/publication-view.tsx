@@ -12,22 +12,22 @@ import Typography from '@mui/material/Typography';
 
 import { paths } from 'src/routes/paths';
 
-import { _mock } from 'src/_mock';
+import { useResponsive } from 'src/hooks/use-responsive';
 
 import Markdown from 'src/components/markdown';
 import ScrollProgress from 'src/components/scroll-progress';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
+import NpfPostHero from 'src/sections/blog/npf/npf-post-hero';
+import NpfLatestPosts from 'src/sections/blog/npf/npf-latest-posts';
+import TravelNewsletter from 'src/sections/_travel/travel-newsletter';
 import PostSocialsShare from 'src/sections/blog/common/post-socials-share';
 
 import { IPublicationProps } from 'src/types/blog';
 
 import PostTags from '../../blog/common/post-tags';
-import TravelNewsletter from '../travel-newsletter';
 import PostAuthor from '../../blog/common/post-author';
 import PostSidebar from '../../blog/common/post-sidebar';
-import TravelPostHero from '../../blog/travel/travel-post-hero';
-import TravelLatestPosts from '../../blog/travel/travel-latest-posts';
 
 // ----------------------------------------------------------------------
 
@@ -38,14 +38,16 @@ type Props = {
   recentPosts: IPublicationProps[];
 };
 
-export default function TravelPostView({ post, recentPosts, categories, tags: mainTag }: Props) {
+export default function PublicationView({ post, recentPosts, categories, tags: mainTag }: Props) {
   const { title, description, author, tags, content } = post;
 
   const { scrollYProgress } = useScroll();
 
+  const mdUp = useResponsive('up', 'md');
+
   return (
     <>
-      <TravelPostHero post={post} />
+      <NpfPostHero post={post} />
 
       <Container>
         <CustomBreadcrumbs
@@ -53,8 +55,8 @@ export default function TravelPostView({ post, recentPosts, categories, tags: ma
           links={[
             { name: 'Home', href: '/' },
             {
-              name: post?.pdf ? 'Publications' : 'Blog',
-              href: post?.pdf ? paths.publications : paths.posts,
+              name: 'Blog',
+              href: paths.posts,
             },
             { name: title },
           ]}
@@ -71,7 +73,7 @@ export default function TravelPostView({ post, recentPosts, categories, tags: ma
               {description}
             </Typography>
 
-            {post.pdf && (
+            {post.pdf && mdUp && (
               <Box
                 sx={{
                   display: 'flex',
@@ -105,6 +107,31 @@ export default function TravelPostView({ post, recentPosts, categories, tags: ma
               </Box>
             )}
 
+            {!mdUp && post.pdf && (
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-end',
+                  my: 2,
+                }}
+              >
+                <Link
+                  href={post.pdf}
+                  color="inherit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="go to homepage"
+                  alignSelf={{ xs: 'flex-start', md: 'flex-end' }}
+                  sx={{ lineHeight: 0, mb: 1, ml: 'auto' }}
+                >
+                  <Button variant="outlined" color="inherit">
+                    Download Pdf
+                  </Button>
+                </Link>
+              </Box>
+            )}
+
             <Markdown content={content} firstLetter />
 
             <PostTags tags={tags} />
@@ -120,20 +147,14 @@ export default function TravelPostView({ post, recentPosts, categories, tags: ma
             <PostSidebar
               popularTags={mainTag}
               author={author}
-              recentPosts={{ list: recentPosts, basePath: 'posts' }}
+              recentPosts={{ list: recentPosts, basePath: 'publications' }}
               categories={categories}
-              advertisement={{
-                title: 'Advertisement',
-                description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',
-                imageUrl: _mock.image.travel(9),
-                path: '',
-              }}
             />
           </Grid>
         </Grid>
       </Container>
 
-      <TravelLatestPosts posts={recentPosts} />
+      <NpfLatestPosts posts={recentPosts} />
 
       <TravelNewsletter />
     </>

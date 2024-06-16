@@ -34,7 +34,7 @@ export default function ElearningPostsView() {
             <PostSidebar
               popularTags={_tags}
               categories={_categories}
-              recentPosts={{ list: _coursePosts.slice(-4) }}
+              recentPosts={{ list: _coursePosts.slice(-4), basePath: '' }}
               advertisement={{
                 title: 'Advertisement',
                 description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',

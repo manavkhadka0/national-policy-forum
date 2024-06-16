@@ -3,26 +3,24 @@
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 
-import { _mock } from 'src/_mock';
-
+import NpfEvents from 'src/sections/blog/npf/npf-events';
+import TravelNewsletter from 'src/sections/_travel/travel-newsletter';
+import NpfFeaturedEvents from 'src/sections/blog/npf/npf-featured-events';
 import PostSearchMobile from 'src/sections/blog/common/post-search-mobile';
-import MarketingNewsletter from 'src/sections/_marketing/marketing-newsletter';
 
 import { IPublicationProps } from 'src/types/blog';
 
 import PostSidebar from '../../blog/common/post-sidebar';
-import BlogMarketingPosts from '../../blog/marketing/marketing-posts';
-import BlogMarketingFeaturedPosts from '../../blog/marketing/marketing-featured-posts';
 
 // ----------------------------------------------------------------------
 type EventPostsViewProps = {
-  event: IPublicationProps[];
+  events: IPublicationProps[];
   tags: string[];
   categories: string[];
   latest_events: IPublicationProps[];
 };
 export default async function EventPostsView({
-  event,
+  events,
   categories,
   tags,
   latest_events,
@@ -31,7 +29,7 @@ export default async function EventPostsView({
     <>
       <PostSearchMobile />
 
-      <BlogMarketingFeaturedPosts posts={event.slice(0, 5)} />
+      <NpfFeaturedEvents posts={events} />
 
       <Container
         sx={{
@@ -40,25 +38,25 @@ export default async function EventPostsView({
       >
         <Grid container columnSpacing={{ xs: 0, md: 8 }}>
           <Grid xs={12} md={8}>
-            <BlogMarketingPosts posts={event} />
+            <NpfEvents events={events} />
           </Grid>
 
           <Grid xs={12} md={4}>
             <PostSidebar
               popularTags={tags}
               categories={categories}
-              recentPosts={{ list: latest_events }}
-              advertisement={{
-                title: 'Advertisement',
-                description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',
-                imageUrl: _mock.image.marketing(9),
-                path: '',
-              }}
+              recentPosts={{ list: latest_events, basePath: 'events' }}
+              // advertisement={{
+              //   title: 'Advertisement',
+              //   description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',
+              //   imageUrl: _mock.image.marketing(9),
+              //   path: '',
+              // }}
             />
           </Grid>
         </Grid>
       </Container>
-      <MarketingNewsletter />
+      <TravelNewsletter />
     </>
   );
 }

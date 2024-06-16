@@ -4,7 +4,7 @@ import { getTags } from 'src/actions/tag';
 import { getCategoriesNameOnly } from 'src/actions/categories';
 import { getSinglePost, getFeaturedPosts } from 'src/actions/post';
 
-import PostView from 'src/sections/_posts/view/post-view';
+import PostView from 'src/sections/_npf/view/post-view';
 
 // ----------------------------------------------------------------------
 

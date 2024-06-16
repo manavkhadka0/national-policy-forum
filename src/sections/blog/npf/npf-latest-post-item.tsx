@@ -21,7 +21,7 @@ type Props = {
   post: IBlogPostProps;
 };
 
-export default function LatestEventItem({ post }: Props) {
+export default function TravelLatestPostItem({ post }: Props) {
   return (
     <Stack spacing={2.5}>
       <Image src={post.cover} alt={post.title} ratio="1/1" sx={{ borderRadius: 2 }} />
@@ -29,7 +29,7 @@ export default function LatestEventItem({ post }: Props) {
       <Stack spacing={1}>
         <PostTimeBlock created_at={fDate(post.created_at)} duration={post.duration} />
 
-        <Link component={RouterLink} href={paths.event(post.slug)} color="inherit">
+        <Link component={RouterLink} href={paths.post(post.slug)} color="inherit">
           <TextMaxLine variant="h6" persistent>
             {post.title}
           </TextMaxLine>

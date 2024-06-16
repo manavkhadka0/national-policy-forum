@@ -32,7 +32,7 @@ export default function CareerPostsView() {
             <PostSidebar
               popularTags={_tags}
               categories={_categories}
-              recentPosts={{ list: _careerPosts.slice(-4) }}
+              recentPosts={{ list: _careerPosts.slice(-4), basePath: '' }}
               advertisement={{
                 title: 'Advertisement',
                 description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',

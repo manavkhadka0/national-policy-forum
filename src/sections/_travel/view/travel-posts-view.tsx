@@ -44,7 +44,7 @@ export default function TravelPostsView({ posts, categories }: TravelPostsViewPr
             <PostSidebar
               popularTags={_tags}
               categories={_categories}
-              recentPosts={{ list: posts }}
+              recentPosts={{ list: posts, basePath: '' }}
               advertisement={{
                 title: 'Advertisement',
                 description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',

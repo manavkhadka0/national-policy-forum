@@ -1,7 +1,6 @@
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
@@ -21,7 +20,7 @@ type Props = {
   post: IBlogPostProps;
 };
 
-export default function LatestPublicationItem({ post }: Props) {
+export default function NpfPostItem({ post }: Props) {
   return (
     <Stack spacing={2.5}>
       <Image src={post.cover} alt={post.title} ratio="1/1" sx={{ borderRadius: 2 }} />
@@ -29,16 +28,16 @@ export default function LatestPublicationItem({ post }: Props) {
       <Stack spacing={1}>
         <PostTimeBlock created_at={fDate(post.created_at)} duration={post.duration} />
 
-        <Link component={RouterLink} href={paths.publication(post.slug)} color="inherit">
-          <TextMaxLine variant="h6" persistent>
+        <Link component={RouterLink} href={paths.post(post.slug)} color="inherit">
+          <TextMaxLine variant="h5" persistent>
             {post.title}
           </TextMaxLine>
         </Link>
       </Stack>
 
-      <Stack spacing={1} direction="row" alignItems="center">
-        <Avatar src={post.author.avatar} sx={{ width: 32, height: 32 }} />
-        <Typography variant="body2">{post.author.name}</Typography>
+      <Stack direction="row" alignItems="center" sx={{ typography: 'body2' }}>
+        <Avatar src={post.author.avatar} sx={{ mr: 1 }} />
+        {post.author.name}
       </Stack>
     </Stack>
   );

@@ -13,7 +13,7 @@ import Iconify from 'src/components/iconify';
 import SocialLinks from 'src/components/social-links/social-links';
 
 import { IAuthorProps } from 'src/types/author';
-import { IBlogPostProps } from 'src/types/blog';
+import { IBlogPostProps, IPublicationProps } from 'src/types/blog';
 
 import PostItemMobile from './post-item-mobile';
 import Advertisement, { AdvertisementProps } from '../../advertisement';
@@ -26,7 +26,8 @@ interface Props extends StackProps {
   categories?: string[];
   advertisement?: AdvertisementProps;
   recentPosts?: {
-    list: IBlogPostProps[];
+    list: IBlogPostProps[] | IPublicationProps[];
+    basePath: string;
   };
 }
 
@@ -88,7 +89,7 @@ export default function PostSidebar({
       <Typography variant="h5">Recent Posts</Typography>
 
       {recentPosts.list.map((post) => (
-        <PostItemMobile key={post.slug} post={post} onSiderbar />
+        <PostItemMobile key={post.slug} post={post} onSiderbar basePath={recentPosts.basePath} />
       ))}
     </Stack>
   );

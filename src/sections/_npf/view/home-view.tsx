@@ -2,23 +2,23 @@
 
 import { Slide } from 'yet-another-react-lightbox';
 
-import NpfFaqs from 'src/sections/_npf/landing/faqs';
-import OurTeam from 'src/sections/_npf/landing/our-team';
-import OurClients from 'src/sections/_npf/landing/our-clients';
-import OurGallery from 'src/sections/_npf/landing/our-gallery';
+import NpfLatestPost from 'src/sections/blog/npf/npf-landing-posts';
+import TravelNewsletter from 'src/sections/_travel/travel-newsletter';
 import NpfLatestEvents from 'src/sections/blog/npf/npf-latest-events';
-import NpfTestimonial from 'src/sections/_npf/testimonial/npf-testimonial';
+import NpfLatestPublications from 'src/sections/blog/npf/npf-latest-posts';
 import { Faq } from 'src/sections/_marketing/landing/marketing-landing-faqs';
-import NpfLatestPublications from 'src/sections/blog/npf/npf-latest-publications';
 
 import { IBrandProps } from 'src/types/brand';
 import { IOurTeamProps } from 'src/types/team';
 import { ITestimonialProps } from 'src/types/testimonial';
 import { IBlogPostProps, IPublicationProps } from 'src/types/blog';
 
-import TravelNewsletter from '../travel-newsletter';
-import TravelLandingHero from '../landing/travel-landing-hero';
-import BlogTravelLandingLatestPosts from '../../blog/travel/travel-landing-posts';
+import Hero from '../landing/hero';
+import NpfFaqs from '../landing/faqs';
+import OurTeam from '../landing/our-team';
+import OurClients from '../landing/our-clients';
+import OurGallery from '../landing/our-gallery';
+import NpfTestimonial from '../testimonial/npf-testimonial';
 
 // ----------------------------------------------------------------------
 type TravelLandingViewProps = {
@@ -33,7 +33,7 @@ type TravelLandingViewProps = {
   latest_publications: IPublicationProps[];
 };
 
-export default function TravelLandingView({
+export default function LandingView({
   faqs,
   testimonials,
   featured_posts,
@@ -46,13 +46,13 @@ export default function TravelLandingView({
 }: TravelLandingViewProps) {
   return (
     <>
-      <TravelLandingHero articles={featured_posts} />
+      <Hero articles={featured_posts} />
 
-      <BlogTravelLandingLatestPosts posts={latest_posts} />
+      <NpfLatestPost posts={latest_posts} />
 
       <NpfLatestEvents events={latest_events} />
 
-      <NpfLatestPublications publications={latest_publications} />
+      <NpfLatestPublications posts={latest_publications} />
 
       <NpfTestimonial testimonials={testimonials} />
 

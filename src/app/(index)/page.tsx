@@ -4,18 +4,18 @@ import { getFaqs } from 'src/actions/faq';
 import { getClients } from 'src/actions/clients';
 import { getGallery } from 'src/actions/gallery';
 import { getTeamMembers } from 'src/actions/team';
+import { getLatestEvent } from 'src/actions/events';
 import { getTestimonials } from 'src/actions/testimonials';
+import { getLatestPublication } from 'src/actions/publications';
 import { getLatestPosts, getFeaturedPosts } from 'src/actions/post';
 
+import LandingView from 'src/sections/_npf/view/home-view';
 import { Faq } from 'src/sections/_marketing/landing/marketing-landing-faqs';
-import TravelLandingView from 'src/sections/_travel/view/travel-landing-view';
 
 import { IBrandProps } from 'src/types/brand';
 import { IOurTeamProps } from 'src/types/team';
-import { IBlogPostProps, IPublicationProps } from 'src/types/blog';
 import { ITestimonialProps } from 'src/types/testimonial';
-import { getLatestEvent } from 'src/actions/events';
-import { getLatestPublication } from 'src/actions/publications';
+import { IBlogPostProps, IPublicationProps } from 'src/types/blog';
 
 // ----------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ export default async function TravelLandingPage() {
   const gallery: Slide[] = await getGallery();
 
   return (
-    <TravelLandingView
+    <LandingView
       faqs={faqs}
       testimonials={testimonials}
       featured_posts={featured_posts}
