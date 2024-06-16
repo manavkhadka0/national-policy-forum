@@ -39,3 +39,15 @@ export const getLatestEvent = async () => {
     console.log(error);
   }
 };
+
+export const getFeaturedEvents = async () => {
+  try {
+    const res = await axiosInstance.get(endpoints.event.featured_events);
+
+    if (res.status === 200) {
+      return res.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};

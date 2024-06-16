@@ -43,7 +43,7 @@ export default function PostsView({
         }}
       >
         <Grid container spacing={{ md: 8 }}>
-          <Grid xs={12} md={8}>
+          <Grid xs={12} md={8} sx={{ my: 3 }}>
             <NpfPosts posts={posts} />
           </Grid>
 

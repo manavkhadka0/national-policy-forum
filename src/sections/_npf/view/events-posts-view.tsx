@@ -15,14 +15,16 @@ import PostSidebar from '../../blog/common/post-sidebar';
 
 // ----------------------------------------------------------------------
 type EventPostsViewProps = {
+  featured_events: IPublicationProps[];
   events: IPublicationProps[];
   tags: string[];
   categories: string[];
   latest_events: IPublicationProps[];
 };
 export default async function EventPostsView({
-  events,
+  featured_events,
   categories,
+  events,
   tags,
   latest_events,
 }: EventPostsViewProps) {
@@ -30,7 +32,7 @@ export default async function EventPostsView({
     <>
       <PostSearchMobile />
 
-      <NpfFeaturedEvents posts={events} />
+      <NpfFeaturedEvents posts={featured_events} />
 
       <Container
         sx={{

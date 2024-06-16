@@ -3,11 +3,10 @@ import { useState, useCallback } from 'react';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import Pagination, { paginationClasses } from '@mui/material/Pagination';
-
-import ElearningPostItem from 'src/sections/blog/elearning/elearning-post-item';
 
 import { IPublicationProps } from 'src/types/blog';
+
+import PublicationPostItem from './publication-post-item';
 
 // ----------------------------------------------------------------------
 
@@ -55,20 +54,9 @@ export default function PublicationsList({ publications, categoriesFetched }: Pr
         }}
       >
         {filtered.map((project) => (
-          <ElearningPostItem key={project.id} post={project} />
+          <PublicationPostItem key={project.id} post={project} />
         ))}
       </Box>
-
-      <Pagination
-        count={10}
-        color="primary"
-        sx={{
-          pb: 10,
-          [`& .${paginationClasses.ul}`]: {
-            justifyContent: 'center',
-          },
-        }}
-      />
     </>
   );
 }
