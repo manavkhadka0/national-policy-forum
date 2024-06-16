@@ -66,7 +66,7 @@ export default function NpfFeaturedEvents({ posts }: Props) {
         >
           <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
             {posts.map((post) => (
-              <MarketingFeaturedPostItem key={post.slug} post={post} />
+              <MarketingFeaturedPostItem key={post.slug} event={post} />
             ))}
           </Carousel>
         </CarouselArrows>
