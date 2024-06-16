@@ -54,9 +54,9 @@ export default function LandingView({
 
       <NpfLatestPublications publications={latest_publications} />
 
-      <NpfTestimonial testimonials={testimonials} />
-
       <NpfFaqs faqs={faqs} />
+
+      <NpfTestimonial testimonials={testimonials} />
 
       <OurTeam members={members} />
 

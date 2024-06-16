@@ -2,6 +2,7 @@
 
 import { useScroll } from 'framer-motion';
 
+import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -72,7 +73,9 @@ export default function PostView({ post, recentPosts, categories, tags: mainTag 
 
             <PostTags tags={tags} />
 
-            <PostSocialsShare longButtons />
+            <Box sx={{ mt: 5 }}>
+              <PostSocialsShare longButtons />
+            </Box>
 
             <Divider sx={{ mt: 8 }} />
 

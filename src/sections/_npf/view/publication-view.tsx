@@ -136,7 +136,9 @@ export default function PublicationView({ post, recentPosts, categories, tags: m
 
             <PostTags tags={tags} />
 
-            <PostSocialsShare longButtons />
+            <Box sx={{ mt: 5 }}>
+              <PostSocialsShare longButtons />
+            </Box>
 
             <Divider sx={{ mt: 8 }} />
 

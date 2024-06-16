@@ -2,7 +2,7 @@
 
 import { getTags } from 'src/actions/tag';
 import { getCategoriesNameOnly } from 'src/actions/categories';
-import { getSinglePost, getFeaturedPosts } from 'src/actions/post';
+import { getSinglePost, getFeaturedPosts, getLatestPosts } from 'src/actions/post';
 
 import PostView from 'src/sections/_npf/view/post-view';
 
@@ -22,7 +22,7 @@ export const revalidate = 10;
 
 export default async function PostDetailPage({ params }: { params: { id: string } }) {
   const post = await getSinglePost(params.id);
-  const recentPosts = await getFeaturedPosts();
+  const recentPosts = await getLatestPosts();
   const tags: string[] = await getTags();
   const categories: string[] = await getCategoriesNameOnly();
 
