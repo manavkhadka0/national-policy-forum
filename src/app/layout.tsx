@@ -21,10 +21,11 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: 'Zone UI Kit',
+  title: 'National Policy Forum',
   description:
-    'The ZONE is built on top of MUI, a powerful library that provides flexible, customizable, and easy-to-use components.',
-  keywords: 'react,material,kit,application,dashboard,admin,template',
+    'The National Policy Forum is a platform for the development of policy in the Labour Party. It is a key part of the Labour Party’s policy-making process, bringing together representatives from across the Labour movement to discuss, debate and help shape Labour’s policy agenda. It aims to Educate, Engage and Empower members to participate in the policy-making process.',
+  keywords:
+    'Labour Party, National Policy Forum, Policy, Policy Development, Policy Making, Policy Forum, Policy Agenda, Policy Process, Policy Platform, Policy Engagement, Policy Education, Policy Empowerment',
   manifest: '/manifest.json',
   icons: [
     { rel: 'icon', url: '/favicon/favicon.ico' },
