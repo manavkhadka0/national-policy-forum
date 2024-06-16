@@ -1,14 +1,18 @@
 'use client';
 
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
 import { paths } from 'src/routes/paths';
+
+import { useResponsive } from 'src/hooks/use-responsive';
 
 import { fDate } from 'src/utils/format-time';
 
@@ -32,6 +36,8 @@ type EventPostViewProps = {
 };
 export default function EventPostView({ event, latest_events }: EventPostViewProps) {
   const { title, description, duration, created_at, author, cover, tags, content } = event;
+
+  const mdUp = useResponsive('up', 'md');
 
   return (
     <>
@@ -94,6 +100,65 @@ export default function EventPostView({ event, latest_events }: EventPostViewPro
             <Divider sx={{ mb: 6 }} />
 
             <Markdown content={content} firstLetter />
+
+            {event.pdf && mdUp && (
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-end',
+                  my: 2,
+                }}
+              >
+                <Link
+                  href={event.pdf}
+                  color="inherit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="go to homepage"
+                  alignSelf={{ xs: 'flex-start', md: 'flex-end' }}
+                  sx={{ lineHeight: 0, mb: 1, ml: 'auto' }}
+                >
+                  <Button variant="outlined" color="inherit">
+                    Full screen
+                  </Button>
+                </Link>
+
+                <iframe
+                  title="publication-pdf"
+                  className="pdf"
+                  aria-label="pdf"
+                  src={event.pdf}
+                  width="100%"
+                  height="900"
+                />
+              </Box>
+            )}
+
+            {!mdUp && event.pdf && (
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-end',
+                  my: 2,
+                }}
+              >
+                <Link
+                  href={event.pdf}
+                  color="inherit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="go to homepage"
+                  alignSelf={{ xs: 'flex-start', md: 'flex-end' }}
+                  sx={{ lineHeight: 0, mb: 1, ml: 'auto' }}
+                >
+                  <Button variant="outlined" color="inherit">
+                    Download Pdf
+                  </Button>
+                </Link>
+              </Box>
+            )}
 
             {tags.length && <PostTags tags={tags} />}
 
