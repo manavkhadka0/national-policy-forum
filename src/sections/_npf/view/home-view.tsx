@@ -18,6 +18,7 @@ import NpfFaqs from '../landing/faqs';
 import OurTeam from '../landing/our-team';
 import OurClients from '../landing/our-clients';
 import OurGallery from '../landing/our-gallery';
+import NpfOurMission from '../landing/our-mission';
 import NpfTestimonial from '../testimonial/npf-testimonial';
 
 // ----------------------------------------------------------------------
@@ -53,6 +54,8 @@ export default function LandingView({
       <NpfLatestEvents events={latest_events} />
 
       <NpfLatestPublications publications={latest_publications} />
+
+      <NpfOurMission />
 
       <NpfFaqs faqs={faqs} />
 

@@ -2,7 +2,7 @@
 
 import { getTags } from 'src/actions/tag';
 import { getCategoriesNameOnly } from 'src/actions/categories';
-import { getSinglePost, getFeaturedPosts, getLatestPosts } from 'src/actions/post';
+import { getSinglePost, getLatestPosts } from 'src/actions/post';
 
 import PostView from 'src/sections/_npf/view/post-view';
 
