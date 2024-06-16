@@ -17,7 +17,7 @@ import Markdown from 'src/components/markdown';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
 import NpfLatestEvents from 'src/sections/blog/npf/npf-latest-events';
-import MarketingNewsletter from 'src/sections/_marketing/marketing-newsletter';
+import TravelNewsletter from 'src/sections/_travel/travel-newsletter';
 
 import { IPublicationProps } from 'src/types/blog';
 
@@ -112,7 +112,7 @@ export default function EventPostView({ event, latest_events }: EventPostViewPro
 
       <NpfLatestEvents events={latest_events} />
 
-      <MarketingNewsletter />
+      <TravelNewsletter />
     </>
   );
 }

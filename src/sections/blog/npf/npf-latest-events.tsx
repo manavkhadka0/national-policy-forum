@@ -47,7 +47,7 @@ export default function NpfLatestEvents({ events }: Props) {
   const viewAllBtn = (
     <Button
       component={RouterLink}
-      href={paths.publications}
+      href={paths.events}
       color="inherit"
       endIcon={<Iconify icon="carbon:chevron-right" />}
     >
