@@ -4,8 +4,8 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
+import TravelLatestPosts from 'src/sections/blog/travel/travel-latest-posts';
 import MarketingNewsletter from 'src/sections/_marketing/marketing-newsletter';
-import MarketingLatestPosts from 'src/sections/blog/marketing/marketing-latest-posts';
 import MarketingTestimonial from 'src/sections/_marketing/testimonial/marketing-testimonial';
 
 import { IPublicationProps } from 'src/types/blog';
@@ -48,7 +48,7 @@ export default async function PublicationsView({
 
       <MarketingTestimonial testimonials={testimonials} />
 
-      <MarketingLatestPosts posts={publications} />
+      <TravelLatestPosts posts={publications} />
 
       <MarketingNewsletter />
     </>

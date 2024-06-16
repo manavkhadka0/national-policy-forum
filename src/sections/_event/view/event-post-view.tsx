@@ -1,6 +1,5 @@
 'use client';
 
-
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
@@ -21,97 +20,99 @@ import MarketingNewsletter from 'src/sections/_marketing/marketing-newsletter';
 
 import { IPublicationProps } from 'src/types/blog';
 
+import EventLatest from '../list/latest-event';
 import PostTags from '../../blog/common/post-tags';
 import PostAuthor from '../../blog/common/post-author';
 import PostSocialsShare from '../../blog/common/post-socials-share';
-import BlogMarketingLatestPosts from '../../blog/marketing/marketing-latest-posts';
 
 // ----------------------------------------------------------------------
 type EventPostViewProps = {
-    event: IPublicationProps;
-    latest_events: IPublicationProps[];
+  event: IPublicationProps;
+  latest_events: IPublicationProps[];
 };
 export default function EventPostView({ event, latest_events }: EventPostViewProps) {
-    const { title, description, duration, created_at, author, cover, tags, content } =
-        event;
+  const { title, description, duration, created_at, author, cover, tags, content } = event;
 
-    return (
-        <>
-            <Image alt="hero" src={cover} ratio="21/9" />
+  return (
+    <>
+      <Image alt="hero" src={cover} ratio="21/9" />
 
-            <Container>
-                <CustomBreadcrumbs
-                    sx={{ my: 3 }}
-                    links={[
-                        { name: 'Home', href: '/' },
-                        { name: 'Events', href: paths.events },
-                        { name: title },
-                    ]}
-                />
-            </Container>
+      <Container>
+        <CustomBreadcrumbs
+          sx={{ my: 3 }}
+          links={[
+            { name: 'Home', href: '/' },
+            { name: 'Events', href: paths.events },
+            { name: title },
+          ]}
+        />
+      </Container>
 
-            <Divider />
+      <Divider />
 
-            <Container>
-                <Grid container spacing={3} justifyContent={{ md: 'center' }}>
-                    <Grid xs={12} md={8}>
-                        <Stack
-                            spacing={3}
-                            sx={{
-                                textAlign: 'center',
-                                pt: { xs: 5, md: 10 },
-                                pb: 5,
-                            }}
-                        >
-                            <Typography variant="body2" sx={{ color: 'text.disabled' }}>
-                                {duration}
-                            </Typography>
+      <Container>
+        <Grid container spacing={3} justifyContent={{ md: 'center' }}>
+          <Grid xs={12} md={8}>
+            <Stack
+              spacing={3}
+              sx={{
+                textAlign: 'center',
+                pt: { xs: 5, md: 10 },
+                pb: 5,
+              }}
+            >
+              <Typography variant="body2" sx={{ color: 'text.disabled' }}>
+                {duration}
+              </Typography>
 
-                            <Typography variant="h2" component="h1">
-                                {title}
-                            </Typography>
-                            <Typography variant="h5">{description}</Typography>
-                        </Stack>
-
-                        <Divider />
-                        <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={1.5} sx={{ py: 3 }}>
-                            <Avatar src={author.avatar} sx={{ width: 48, height: 48 }} />
-
-                            <Stack spacing={0.5} flexGrow={1}>
-                                <Typography variant="subtitle2">{author.name}</Typography>
-                                <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                                    {fDate(created_at, 'dd/MM/yyyy p')}
-                                </Typography>
-                            </Stack>
-
-                            <PostSocialsShare />
-                        </Stack>
-
-                        <Divider sx={{ mb: 6 }} />
-
-                        <Markdown content={content} firstLetter />
-
-                        {tags.length && <PostTags tags={tags} />}
-
-                        <Box mt={5}>
-
-                            <PostSocialsShare longButtons />
-                        </Box>
-
-
-                        <Divider sx={{ mt: 8 }} />
-
-                        <PostAuthor author={author} />
-                    </Grid>
-                </Grid>
-            </Container>
+              <Typography variant="h2" component="h1">
+                {title}
+              </Typography>
+              <Typography variant="h5">{description}</Typography>
+            </Stack>
 
             <Divider />
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+              spacing={1.5}
+              sx={{ py: 3 }}
+            >
+              <Avatar src={author.avatar} sx={{ width: 48, height: 48 }} />
 
-            <BlogMarketingLatestPosts posts={latest_events} />
+              <Stack spacing={0.5} flexGrow={1}>
+                <Typography variant="subtitle2">{author.name}</Typography>
+                <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                  {fDate(created_at, 'dd/MM/yyyy p')}
+                </Typography>
+              </Stack>
 
+              <PostSocialsShare />
+            </Stack>
 
-            <MarketingNewsletter />
-        </>
-    );
+            <Divider sx={{ mb: 6 }} />
+
+            <Markdown content={content} firstLetter />
+
+            {tags.length && <PostTags tags={tags} />}
+
+            <Box mt={5}>
+              <PostSocialsShare longButtons />
+            </Box>
+
+            <Divider sx={{ mt: 8 }} />
+
+            <PostAuthor author={author} />
+          </Grid>
+        </Grid>
+      </Container>
+
+      <Divider />
+
+      <EventLatest posts={latest_events} />
+
+      <MarketingNewsletter />
+    </>
+  );
 }

@@ -20,6 +20,7 @@ import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
 import TravelNewsletter from 'src/sections/_travel/travel-newsletter';
 import PostSocialsShare from 'src/sections/blog/common/post-socials-share';
+import PublicationLatest from 'src/sections/_publication/list/publication-latest-posts';
 
 import { IPublicationProps } from 'src/types/blog';
 
@@ -27,7 +28,6 @@ import PostTags from '../../blog/common/post-tags';
 import PostAuthor from '../../blog/common/post-author';
 import PostSidebar from '../../blog/common/post-sidebar';
 import TravelPostHero from '../../blog/travel/travel-post-hero';
-import TravelLatestPosts from '../../blog/travel/travel-latest-posts';
 
 // ----------------------------------------------------------------------
 
@@ -133,7 +133,7 @@ export default function PostView({ post, recentPosts, categories, tags: mainTag 
         </Grid>
       </Container>
 
-      <TravelLatestPosts posts={recentPosts} />
+      <PublicationLatest posts={recentPosts} />
 
       <TravelNewsletter />
     </>
