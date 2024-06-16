@@ -28,7 +28,7 @@ export const getSingleEvent = async (slug: string) => {
   }
 };
 
-export const getLatestEvent = async (slug: string) => {
+export const getLatestEvent = async () => {
   try {
     const res = await axiosInstance.get(endpoints.event.latest_events);
 

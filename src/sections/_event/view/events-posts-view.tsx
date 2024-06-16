@@ -4,8 +4,6 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 
 import { _mock } from 'src/_mock';
-import { getTags } from 'src/actions/tag';
-import { getCategoriesNameOnly } from 'src/actions/categories';
 
 import PostSearchMobile from 'src/sections/blog/common/post-search-mobile';
 import MarketingNewsletter from 'src/sections/_marketing/marketing-newsletter';
@@ -19,10 +17,16 @@ import BlogMarketingFeaturedPosts from '../../blog/marketing/marketing-featured-
 // ----------------------------------------------------------------------
 type EventPostsViewProps = {
   event: IPublicationProps[];
+  tags: string[];
+  categories: string[];
+  latest_events: IPublicationProps[];
 };
-export default async function EventPostsView({ event }: EventPostsViewProps) {
-  const tags: string[] = await getTags();
-  const categories: string[] = await getCategoriesNameOnly();
+export default async function EventPostsView({
+  event,
+  categories,
+  tags,
+  latest_events,
+}: EventPostsViewProps) {
   return (
     <>
       <PostSearchMobile />
@@ -43,7 +47,7 @@ export default async function EventPostsView({ event }: EventPostsViewProps) {
             <PostSidebar
               popularTags={tags}
               categories={categories}
-              recentPosts={{ list: event.slice(-4) }}
+              recentPosts={{ list: latest_events }}
               advertisement={{
                 title: 'Advertisement',
                 description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',

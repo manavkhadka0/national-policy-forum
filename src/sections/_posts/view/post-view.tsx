@@ -18,12 +18,12 @@ import Markdown from 'src/components/markdown';
 import ScrollProgress from 'src/components/scroll-progress';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
+import TravelNewsletter from 'src/sections/_travel/travel-newsletter';
 import PostSocialsShare from 'src/sections/blog/common/post-socials-share';
 
 import { IPublicationProps } from 'src/types/blog';
 
 import PostTags from '../../blog/common/post-tags';
-import TravelNewsletter from '../travel-newsletter';
 import PostAuthor from '../../blog/common/post-author';
 import PostSidebar from '../../blog/common/post-sidebar';
 import TravelPostHero from '../../blog/travel/travel-post-hero';
@@ -38,7 +38,7 @@ type Props = {
   recentPosts: IPublicationProps[];
 };
 
-export default function TravelPostView({ post, recentPosts, categories, tags: mainTag }: Props) {
+export default function PostView({ post, recentPosts, categories, tags: mainTag }: Props) {
   const { title, description, author, tags, content } = post;
 
   const { scrollYProgress } = useScroll();

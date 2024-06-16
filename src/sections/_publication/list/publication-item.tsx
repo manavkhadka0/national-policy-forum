@@ -16,7 +16,7 @@ type Props = {
   project: ICaseStudyProps;
 };
 
-export default function MarketingCaseStudyItem({ project }: Props) {
+export default function PublicaitonItem({ project }: Props) {
   const { title, cover, category } = project;
 
   return (

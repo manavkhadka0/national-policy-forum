@@ -13,7 +13,7 @@ import Iconify from 'src/components/iconify';
 
 import { ICaseStudyProps } from 'src/types/case-study';
 
-import MarketingCaseStudyItem from './marketing-case-study-item';
+import PublicaitonItem from './publication-item';
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +21,7 @@ type Props = {
   caseStudies: ICaseStudyProps[];
 };
 
-export default function MarketingCaseStudyListSimilar({ caseStudies }: Props) {
+export default function SimilarPublications({ caseStudies }: Props) {
   const mdUp = useResponsive('up', 'md');
 
   const viewAllBtn = (
@@ -66,7 +66,7 @@ export default function MarketingCaseStudyListSimilar({ caseStudies }: Props) {
         }}
       >
         {caseStudies.map((project) => (
-          <MarketingCaseStudyItem key={project.id} project={project} />
+          <PublicaitonItem key={project.id} project={project} />
         ))}
       </Box>
 

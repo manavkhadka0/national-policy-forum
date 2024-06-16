@@ -1,6 +1,9 @@
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 
+import { paths } from 'src/routes/paths';
+import { RouterLink } from 'src/routes/components';
+
 import { fDate } from 'src/utils/format-time';
 
 import Image from 'src/components/image';
@@ -37,8 +40,10 @@ export default function PostItemMobile({ post, onSiderbar }: Props) {
       />
 
       <Stack spacing={onSiderbar ? 0.5 : 1}>
-        <Link color="inherit">
-          <TextMaxLine variant={onSiderbar ? 'subtitle2' : 'h6'}>{post.title}</TextMaxLine>
+        <Link component={RouterLink} href={paths.post(post.slug)} color="inherit">
+          <TextMaxLine variant="h6" persistent>
+            {post.title}
+          </TextMaxLine>
         </Link>
 
         <PostTimeBlock created_at={fDate(post.created_at)} duration={post.duration} />

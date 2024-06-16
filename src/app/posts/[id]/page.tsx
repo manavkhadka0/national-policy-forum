@@ -4,7 +4,7 @@ import { getTags } from 'src/actions/tag';
 import { getCategoriesNameOnly } from 'src/actions/categories';
 import { getSinglePost, getFeaturedPosts } from 'src/actions/post';
 
-import TravelPostView from 'src/sections/_travel/view/travel-post-view';
+import PostView from 'src/sections/_posts/view/post-view';
 
 // ----------------------------------------------------------------------
 
@@ -26,7 +26,5 @@ export default async function PostDetailPage({ params }: { params: { id: string 
   const tags: string[] = await getTags();
   const categories: string[] = await getCategoriesNameOnly();
 
-  return (
-    <TravelPostView categories={categories} tags={tags} post={post} recentPosts={recentPosts} />
-  );
+  return <PostView categories={categories} tags={tags} post={post} recentPosts={recentPosts} />;
 }

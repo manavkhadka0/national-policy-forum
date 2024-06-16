@@ -1,8 +1,7 @@
-
 import { getFeaturedPosts } from 'src/actions/post';
 import { Category, getCategories } from 'src/actions/categories';
 
-import TravelPostsView from 'src/sections/_travel/view/travel-posts-view';
+import PostsView from 'src/sections/_posts/view/posts-view';
 
 import { IBlogPostProps } from 'src/types/blog';
 
@@ -19,5 +18,5 @@ export default async function TravelPostsPage() {
 
   const categories: Category[] = await getCategories();
 
-  return <TravelPostsView posts={posts} categories={categories} />;
+  return <PostsView posts={posts} categories={categories} />;
 }

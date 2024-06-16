@@ -1,5 +1,4 @@
 import { styled } from '@mui/material/styles';
-import { he } from 'date-fns/locale';
 
 // ----------------------------------------------------------------------
 
@@ -17,7 +16,7 @@ const StyledMarkdown = styled('div', {
   h4: { margin: 0, ...theme.typography.h4 },
   h5: { margin: 0, ...theme.typography.h5 },
   h6: { margin: 0, ...theme.typography.h6 },
-  p: { margin: 0, ...theme.typography.body1 },
+  p: { margin: 0, ...theme.typography.body1, lineHeight: 2 },
 
   br: {
     display: 'grid',

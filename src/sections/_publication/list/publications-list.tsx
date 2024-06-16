@@ -5,24 +5,23 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Pagination, { paginationClasses } from '@mui/material/Pagination';
 
-import { ICaseStudyProps } from 'src/types/case-study';
+import ElearningPostItem from 'src/sections/blog/elearning/elearning-post-item';
 
-import MarketingCaseStudyItem from './marketing-case-study-item';
+import { IPublicationProps } from 'src/types/blog';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  caseStudies: ICaseStudyProps[];
+  publications: IPublicationProps[];
+  categoriesFetched: string[];
 };
 
-export default function MarketingCaseStudyList({ caseStudies }: Props) {
+export default function PublicationsList({ publications, categoriesFetched }: Props) {
   const [tab, setTab] = useState('All');
 
-  const getCategories = caseStudies.map((project) => project.category);
+  const categories = ['All', ...Array.from(new Set(categoriesFetched))];
 
-  const categories = ['All', ...Array.from(new Set(getCategories))];
-
-  const filtered = applyFilter(caseStudies, tab);
+  const filtered = applyFilter(publications, tab);
 
   const handleChangeTab = useCallback((event: React.SyntheticEvent, newValue: string) => {
     setTab(newValue);
@@ -56,7 +55,7 @@ export default function MarketingCaseStudyList({ caseStudies }: Props) {
         }}
       >
         {filtered.map((project) => (
-          <MarketingCaseStudyItem key={project.id} project={project} />
+          <ElearningPostItem key={project.id} post={project} />
         ))}
       </Box>
 
@@ -76,7 +75,7 @@ export default function MarketingCaseStudyList({ caseStudies }: Props) {
 
 // ----------------------------------------------------------------------
 
-function applyFilter(arr: ICaseStudyProps[], category: string) {
+function applyFilter(arr: IPublicationProps[], category: string) {
   if (category !== 'All') {
     arr = arr.filter((project) => project.category === category);
   }

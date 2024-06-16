@@ -51,6 +51,7 @@ export const endpoints = {
     list: '/api/events/',
     event_details: (slug: string) => `/api/events/${slug}`,
     latest_events: '/api/events?is_latest=True',
+    featured_events: '/api/events?is_featured=True',
   },
   team: {
     list: '/api/our-team/',

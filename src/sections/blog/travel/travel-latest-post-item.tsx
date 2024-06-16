@@ -29,7 +29,7 @@ export default function TravelLatestPostItem({ post }: Props) {
       <Stack spacing={1}>
         <PostTimeBlock created_at={fDate(post.created_at)} duration={post.duration} />
 
-        <Link component={RouterLink} href={paths.travel.post} color="inherit">
+        <Link component={RouterLink} href={paths.post(post.slug)} color="inherit">
           <TextMaxLine variant="h6" persistent>
             {post.title}
           </TextMaxLine>
