@@ -25,8 +25,11 @@ export default function NpfPostHero({ post }: Props) {
   return (
     <Box
       sx={{
-        py: 20,
+        py: { xs: 10, md: 14 },
         position: 'relative',
+        // resize image and put in on right"
+
+        height: { xs: 360, md: 660 },
         ...bgGradient({
           startColor: `${alpha(theme.palette.common.black, 0)} 0%`,
           endColor: `${theme.palette.common.black} 75%`,
