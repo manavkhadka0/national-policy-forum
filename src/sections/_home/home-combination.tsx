@@ -76,7 +76,7 @@ export default function HomeCombination() {
               },
             }}
           >
-            Minimal UI Kit is a professional dashboard used by many of our clients.
+            Minimal UI Kit is a professional dashboard used by many of Our Collaborators.
           </Typography>
         </m.div>
 

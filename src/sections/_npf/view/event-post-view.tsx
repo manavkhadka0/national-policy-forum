@@ -1,5 +1,7 @@
 'use client';
 
+import { useScroll } from 'framer-motion';
+
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
@@ -19,6 +21,7 @@ import { fDate } from 'src/utils/format-time';
 import Image from 'src/components/image';
 import Markdown from 'src/components/markdown';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
+import ScrollProgress from 'src/components/scroll-progress/scroll-progress';
 
 import NpfLatestEvents from 'src/sections/blog/npf/npf-latest-events';
 import TravelNewsletter from 'src/sections/_travel/travel-newsletter';
@@ -38,6 +41,8 @@ export default function EventPostView({ event, latest_events }: EventPostViewPro
   const { title, description, duration, created_at, author, cover, tags, content } = event;
 
   const mdUp = useResponsive('up', 'md');
+
+  const { scrollYProgress } = useScroll();
 
   return (
     <>
@@ -59,6 +64,7 @@ export default function EventPostView({ event, latest_events }: EventPostViewPro
       <Container>
         <Grid container spacing={3} justifyContent={{ md: 'center' }}>
           <Grid xs={12} md={8}>
+            <ScrollProgress scrollYProgress={scrollYProgress} />
             <Stack
               spacing={3}
               sx={{

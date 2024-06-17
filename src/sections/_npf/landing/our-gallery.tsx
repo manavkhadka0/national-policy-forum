@@ -34,8 +34,8 @@ export default function OurGallery({ galleries }: GalleryProps) {
         >
           <Typography variant="h2">Our Gallery</Typography>
           <Typography sx={{ color: 'text.secondary', pb: 4 }}>
-            Curabitur a felis in nunc fringilla tristique. Fusce egestas elit eget lorem. Etiam
-            vitae tortor.
+            {/* A very creative line here */}
+            Visual Stories of Our Impact
           </Typography>
           <Grid container spacing={3}>
             <Grid xs={12}>

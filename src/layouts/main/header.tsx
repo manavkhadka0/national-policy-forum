@@ -53,12 +53,12 @@ export const socials = [
     label: 'Linkedin',
     icon: 'carbon:logo-linkedin',
     color: '#007EBB',
-    link: '#',
+    link: ' https://www.linkedin.com/company/99445568/admin/feed/posts/',
   },
   {
     value: 'twitter',
     label: 'Twitter',
-    icon: 'carbon:logo-twitter',
+    icon: 'arcticons:x-twitter',
     color: '#00AAEC',
     link: 'https://twitter.com/nnpolicyforum',
   },
@@ -260,28 +260,28 @@ const NAV_ITEMS = [
   {
     title: 'Home',
     path: '/',
-    icon: <Iconify icon="carbon:home" sx={{ width: 1, height: 1 }} />,
+    // icon: <Iconify icon="carbon:home" sx={{ width: 1, height: 1 }} />,
   },
   {
     title: 'About',
     path: '#',
-    icon: <Iconify icon="carbon:building" sx={{ width: 1, height: 1 }} />,
+    // icon: <Iconify icon="carbon:building" sx={{ width: 1, height: 1 }} />,
     // products: [...Array(10)].map((_, index) => ({
     //   name: _mock.productName(index),
     //   cover: _mock.image.product(index),
     //   path: '#',
     // })),
-    moreLink: {
-      title: 'More Categories',
-      path: '#',
-    },
-    tags: [
-      { title: 'Paper Cup', path: '#' },
-      { title: 'Lotion Pump', path: '#' },
-      { title: 'Brush Cutter', path: '#' },
-      { title: 'Display Rack', path: '#' },
-      { title: 'Glass Bottle', path: '#' },
-    ],
+    // moreLink: {
+    //   title: 'More Categories',
+    //   path: '#',
+    // },
+    // tags: [
+    //   { title: 'Paper Cup', path: '#' },
+    //   { title: 'Lotion Pump', path: '#' },
+    //   { title: 'Brush Cutter', path: '#' },
+    //   { title: 'Display Rack', path: '#' },
+    //   { title: 'Glass Bottle', path: '#' },
+    // ],
     children: [
       {
         subheader: 'Organization',
@@ -290,7 +290,7 @@ const NAV_ITEMS = [
       {
         subheader: 'Our Teams',
         items: [
-          { title: 'Board of Directors', path: '#' },
+          // { title: 'Board of Directors', path: '#' },
           { title: 'Advisory Board', path: '#' },
           { title: 'Founders', path: '#' },
           { title: 'Members', path: '#' },
@@ -301,7 +301,7 @@ const NAV_ITEMS = [
   {
     title: 'Blogs',
     path: '/posts',
-    icon: <Iconify icon="carbon:folder" sx={{ width: 1, height: 1 }} />,
+    // icon: <Iconify icon="carbon:folder" sx={{ width: 1, height: 1 }} />,
     moreLink: {
       title: 'More Blog Articles',
       path: '/posts',
@@ -311,16 +311,17 @@ const NAV_ITEMS = [
   {
     title: 'Publications',
     path: '/publications',
-    icon: <Iconify icon="carbon:document" sx={{ width: 1, height: 1 }} />,
+    // icon: <Iconify icon="carbon:document" sx={{ width: 1, height: 1 }} />,
     moreLink: {
       title: 'More Publications',
       path: '/publications',
     },
     children: [],
-  }, {
+  },
+  {
     title: 'Events',
     path: '/events',
-    icon: <Iconify icon="carbon:api" sx={{ width: 1, height: 1 }} />,
+    // icon: <Iconify icon="carbon:api" sx={{ width: 1, height: 1 }} />,
     moreLink: {
       title: 'More Events',
       path: '/events',
@@ -328,8 +329,7 @@ const NAV_ITEMS = [
     children: [
       {
         subheader: '',
-        items: [
-        ],
+        items: [],
       },
     ],
   },

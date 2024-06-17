@@ -1,10 +1,10 @@
 import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
+import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import { IOurTeamProps } from 'src/types/team';
 
-import OurTeamItem from './our-team-item';
+import MarketingTeamItem from './our-team-item';
 
 // ----------------------------------------------------------------------
 
@@ -14,41 +14,44 @@ type Props = {
 
 export default function OurTeam({ members }: Props) {
   return (
-    <Stack
+    <Container
       sx={{
-        pt: { xs: 5, md: 10 },
+        py: { xs: 10, md: 15 },
       }}
     >
-      <Stack
-        spacing={3}
+      <Typography variant="h2" sx={{ textAlign: 'center' }}>
+        Our Team
+      </Typography>
+
+      <Typography
         sx={{
+          mt: 3,
           mx: 'auto',
           maxWidth: 480,
           textAlign: 'center',
           mb: { xs: 8, md: 10 },
+          color: 'text.secondary',
         }}
       >
-        <Typography variant="h2">Our Team</Typography>
-
-        <Typography sx={{ color: 'text.secondary' }}>
-          Meet the amazing team behind the scenes that made it all happen.
-        </Typography>
-      </Stack>
+        Dedicated Experts Driving Change
+      </Typography>
 
       <Box
         sx={{
+          columnGap: 3,
           display: 'grid',
+          rowGap: { xs: 4, md: 5 },
           gridTemplateColumns: {
-            xs: 'repeat(2, 1fr)',
+            xs: 'repeat(1, 1fr)',
             sm: 'repeat(2, 1fr)',
             md: 'repeat(4, 1fr)',
           },
         }}
       >
         {members.map((member) => (
-          <OurTeamItem key={member.name} member={member} />
+          <MarketingTeamItem key={member.id} member={member} />
         ))}
       </Box>
-    </Stack>
+    </Container>
   );
 }

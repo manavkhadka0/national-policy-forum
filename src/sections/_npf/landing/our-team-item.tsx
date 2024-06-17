@@ -1,16 +1,17 @@
+import { m } from 'framer-motion';
+
 import Box from '@mui/material/Box';
 import { Link } from '@mui/material';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import { alpha, styled } from '@mui/material/styles';
-
-import { RouterLink } from 'src/routes/components';
+import Stack, { StackProps } from '@mui/material/Stack';
 
 import { bgGradient } from 'src/theme/css';
 
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
+import { varHover, varTranHover } from 'src/components/animate';
 
 import { IOurTeamProps } from 'src/types/team';
 
@@ -18,8 +19,8 @@ import { IOurTeamProps } from 'src/types/team';
 
 const StyledOverlay = styled('div')(({ theme }) => ({
   ...bgGradient({
-    startColor: alpha(theme.palette.grey[900], 0.88),
-    endColor: alpha(theme.palette.grey[900], 0.88),
+    startColor: `${alpha(theme.palette.common.black, 0)} 0%`,
+    endColor: `${theme.palette.common.black} 75%`,
   }),
   top: 0,
   left: 0,
@@ -37,72 +38,65 @@ const StyledOverlay = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-type Props = {
+interface TeamMarketingMemberProps extends StackProps {
   member: IOurTeamProps;
-};
+}
 
-export default function OurTeamItem({ member }: Props) {
+export default function OurTeamItem({ member, ...other }: TeamMarketingMemberProps) {
+  const { name, role, photo } = member;
+
   const _socials = [
     {
       value: 'facebook',
       label: 'FaceBook',
       icon: 'carbon:logo-facebook',
-      color: '#1877F2',
+      color: '#fff',
       path: member.facebook,
     },
     {
       value: 'instagram',
       label: 'Instagram',
       icon: 'carbon:logo-instagram',
-      color: '#E02D69',
+      color: '#fff',
       path: member.instagram,
     },
     {
       value: 'linkedin',
       label: 'Linkedin',
       icon: 'carbon:logo-linkedin',
-      color: '#007EBB',
+      color: '#fff',
       path: member.linkedin,
     },
     {
       value: 'twitter',
       label: 'Twitter',
-      icon: 'carbon:logo-twitter',
-      color: '#00AAEC',
+      icon: 'arcticons:x-twitter',
+      color: '#fff',
       path: member.twitter,
     },
   ];
 
   return (
-    <Box sx={{ position: 'relative' }}>
-      <StyledOverlay>
-        <Stack
-          spacing={1}
-          alignItems="center"
-          justifyContent="center"
-          sx={{
-            top: 0,
-            width: 1,
-            bottom: 0,
-            zIndex: 9,
-            m: 'auto',
-            position: 'absolute',
-            color: 'common.white',
-          }}
-        >
-          <Typography variant="h6">{member.name}</Typography>
-
-          <Typography variant="body2" sx={{ opacity: 0.72, pb: 1 }}>
-            {member.role}
-          </Typography>
-
-          <Stack direction="row">
+    <Stack {...other}>
+      <Box
+        component={m.div}
+        whileHover="hover"
+        variants={varHover(0.95)}
+        transition={varTranHover()}
+        sx={{ position: 'relative', borderRadius: 2, overflow: 'hidden' }}
+      >
+        <StyledOverlay>
+          <Stack
+            direction="row"
+            justifyContent="center"
+            sx={{ width: 1, zIndex: 9, bottom: 24, position: 'absolute' }}
+          >
             {_socials.map((social) => {
               if (!social.path) {
                 return null;
               }
               return (
-                <Link component={RouterLink} href={social.path || '#'} key={social.value}>
+                <Link target="_blank" href={social.path || '#'} key={social.value}>
                   <IconButton
                     key={social.value}
                     sx={{
@@ -115,10 +109,20 @@ export default function OurTeamItem({ member }: Props) {
               );
             })}
           </Stack>
-        </Stack>
-      </StyledOverlay>
+        </StyledOverlay>
 
-      <Image src={member.photo} alt={member.name} ratio="1/1" />
-    </Box>
+        <m.div variants={varHover(1.15)} transition={varTranHover()}>
+          <Image src={photo} alt={name} ratio="3/4" />
+        </m.div>
+      </Box>
+
+      <Stack spacing={0.5} sx={{ mt: 2.5, textAlign: 'center' }}>
+        <Typography variant="h6">{name}</Typography>
+
+        <Typography variant="body2" sx={{ color: 'text.disabled' }}>
+          {role}
+        </Typography>
+      </Stack>
+    </Stack>
   );
 }

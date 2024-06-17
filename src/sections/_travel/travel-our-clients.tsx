@@ -32,7 +32,7 @@ export default function TravelOurClients({ brands }: Props) {
           },
         }}
       >
-        <Typography variant="h2">Our Clients</Typography>
+        <Typography variant="h2">Our Collaborators</Typography>
 
         <Stack spacing={2}>
           <Typography variant="h4" paragraph>

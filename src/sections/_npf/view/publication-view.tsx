@@ -55,8 +55,8 @@ export default function PublicationView({ post, recentPosts, categories, tags: m
           links={[
             { name: 'Home', href: '/' },
             {
-              name: 'Blog',
-              href: paths.posts,
+              name: 'Publications',
+              href: paths.publications,
             },
             { name: title },
           ]}

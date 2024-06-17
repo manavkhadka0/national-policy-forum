@@ -21,7 +21,7 @@ export default function MarketingAboutOurClients({ brands }: Props) {
       }}
     >
       <Stack alignItems="center" spacing={5}>
-        <Typography variant="h2">Our Clients</Typography>
+        <Typography variant="h2">Our Collaborators</Typography>
 
         <Stack
           direction="row"

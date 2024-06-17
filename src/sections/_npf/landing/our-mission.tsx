@@ -42,9 +42,7 @@ export default function NpfOurMission() {
       >
         <Typography variant="h2">Our Mission</Typography>
 
-        <Typography sx={{ color: 'text.secondary' }}>
-          The National Policy Forum Nepal aims to EDUCATE , AWARE and ELEVATE the Youth.
-        </Typography>
+        <Typography sx={{ color: 'text.secondary' }}>EDUCATE , AWARE and ELEVATE.</Typography>
       </Stack>
 
       <Grid

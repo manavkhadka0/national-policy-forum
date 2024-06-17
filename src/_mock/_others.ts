@@ -41,7 +41,7 @@ export const _socials = [
   {
     value: 'twitter',
     label: 'Twitter',
-    icon: 'carbon:logo-twitter',
+    icon: 'arcticons:x-twitter',
     color: '#00AAEC',
   },
 ];

@@ -30,7 +30,7 @@ const _socials = [
   {
     value: 'twitter',
     label: 'Twitter',
-    icon: 'carbon:logo-twitter',
+    icon: 'arcticons:x-twitter',
     color: '#00AAEC',
     component: TwitterShareButton,
   },
@@ -59,7 +59,7 @@ type ShareProps = {
 
 export default function Share({ url, hashtag, quote, longButtons }: ShareProps) {
   return (
-    <Stack spacing={1} direction="row" flexWrap='wrap'>
+    <Stack spacing={1} direction="row" flexWrap="wrap">
       {_socials.map((social) => {
         const ShareComponent = social.component;
         return (

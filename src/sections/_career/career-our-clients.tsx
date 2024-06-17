@@ -54,7 +54,7 @@ export default function CareerOurClients({ brands }: Props) {
           mb: { xs: 8, md: 10 },
         }}
       >
-        <Typography variant="h2">Our Clients</Typography>
+        <Typography variant="h2">Our Collaborators</Typography>
 
         <Typography sx={{ color: 'text.secondary' }}>
           Curabitur a felis in nunc fringilla tristique. Fusce egestas elit eget lorem. Etiam vitae
