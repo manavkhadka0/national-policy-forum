@@ -3,11 +3,11 @@ import { Slide } from 'yet-another-react-lightbox';
 import { getFaqs } from 'src/actions/faq';
 import { getClients } from 'src/actions/clients';
 import { getGallery } from 'src/actions/gallery';
-import { getTeamMembers } from 'src/actions/team';
 import { getLatestEvent } from 'src/actions/events';
 import { getTestimonials } from 'src/actions/testimonials';
 import { getLatestPublication } from 'src/actions/publications';
 import { getLatestPosts, getFeaturedPosts } from 'src/actions/post';
+import { getTeamMembers, getTeamMembersRoles } from 'src/actions/team';
 
 import LandingView from 'src/sections/_npf/view/home-view';
 import { Faq } from 'src/sections/_marketing/landing/marketing-landing-faqs';
@@ -33,6 +33,7 @@ export default async function TravelLandingPage() {
   const latest_events: IPublicationProps[] = await getLatestEvent();
   const latest_publications: IPublicationProps[] = await getLatestPublication();
   const members: IOurTeamProps[] = await getTeamMembers();
+  const roles: string[] = await getTeamMembersRoles();
   const clients: IBrandProps[] = await getClients();
   const gallery: Slide[] = await getGallery();
 
@@ -43,6 +44,7 @@ export default async function TravelLandingPage() {
       featured_posts={featured_posts}
       latest_posts={latest_posts}
       members={members}
+      roles={roles}
       latest_events={latest_events}
       latest_publications={latest_publications}
       clients={clients}

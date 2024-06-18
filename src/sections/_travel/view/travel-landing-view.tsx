@@ -58,7 +58,7 @@ export default function TravelLandingView({
 
       <NpfFaqs faqs={faqs} />
 
-      <OurTeam members={members} />
+      {/* <OurTeam members={members} /> */}
 
       <OurClients clients={clients} />
 

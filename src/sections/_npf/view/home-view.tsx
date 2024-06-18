@@ -31,6 +31,7 @@ type TravelLandingViewProps = {
   clients: IBrandProps[];
   galleries: Slide[];
   latest_events: IPublicationProps[];
+  roles: string[];
   latest_publications: IPublicationProps[];
 };
 
@@ -43,6 +44,7 @@ export default function LandingView({
   galleries,
   latest_posts,
   latest_events,
+  roles,
   latest_publications,
 }: TravelLandingViewProps) {
   return (
@@ -61,7 +63,7 @@ export default function LandingView({
 
       <NpfTestimonial testimonials={testimonials} />
 
-      <OurTeam members={members} />
+      <OurTeam members={members} roles={roles} />
 
       <OurClients clients={clients} />
 

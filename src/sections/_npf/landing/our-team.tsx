@@ -1,18 +1,36 @@
+'use client';
+
+import { useState, useCallback } from 'react';
+
 import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import { IOurTeamProps } from 'src/types/team';
 
-import MarketingTeamItem from './our-team-item';
+import OurTeamItem from './our-team-item';
 
 // ----------------------------------------------------------------------
 
 type Props = {
   members: IOurTeamProps[];
+  roles: string[];
+  seletecRole?: string;
 };
 
-export default function OurTeam({ members }: Props) {
+export default function OurTeam({ members, seletecRole, roles: rolesFetched }: Props) {
+  const [tab, setTab] = useState(seletecRole || 'All');
+
+  const roles = ['All', ...Array.from(new Set(rolesFetched))];
+
+  const filtered = applyFilter(members, tab);
+
+  const handleChangeTab = useCallback((event: React.SyntheticEvent, newValue: string) => {
+    setTab(newValue);
+  }, []);
+
   return (
     <Container
       sx={{
@@ -36,6 +54,19 @@ export default function OurTeam({ members }: Props) {
         Dedicated Experts Driving Change
       </Typography>
 
+      <Tabs
+        value={tab}
+        scrollButtons="auto"
+        variant="scrollable"
+        sx={{ my: 5 }}
+        allowScrollButtonsMobile
+        onChange={handleChangeTab}
+      >
+        {roles.map((role) => (
+          <Tab key={role} value={role} label={role} />
+        ))}
+      </Tabs>
+
       <Box
         sx={{
           columnGap: 3,
@@ -48,10 +79,17 @@ export default function OurTeam({ members }: Props) {
           },
         }}
       >
-        {members.map((member) => (
-          <MarketingTeamItem key={member.id} member={member} />
+        {filtered.map((member) => (
+          <OurTeamItem key={member.id} member={member} />
         ))}
       </Box>
     </Container>
   );
+}
+
+function applyFilter(arr: IOurTeamProps[], roles: string) {
+  if (roles !== 'All') {
+    arr = arr.filter((project) => project.role === roles);
+  }
+  return arr;
 }

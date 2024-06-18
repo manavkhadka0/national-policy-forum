@@ -20,7 +20,7 @@ import { IOurTeamProps } from 'src/types/team';
 const StyledOverlay = styled('div')(({ theme }) => ({
   ...bgGradient({
     startColor: `${alpha(theme.palette.common.black, 0)} 0%`,
-    endColor: `${theme.palette.common.black} 75%`,
+    endColor: `${alpha(theme.palette.common.black, 0.5)} 95%`,
   }),
   top: 0,
   left: 0,

@@ -127,6 +127,24 @@ export default function Header({ headerOnDark }: Props) {
         ],
       };
     }
+    if (item.title === 'About') {
+      return {
+        ...item,
+        children: [
+          {
+            subheader: 'Organization',
+            items: [{ title: 'About Organization', path: '#' }],
+          },
+          {
+            subheader: 'Our Teams',
+            items: navlinks.our_team?.roles.map((role) => ({
+              title: role.name,
+              path: role.path,
+            })),
+          },
+        ],
+      };
+    }
     return item;
   });
 
@@ -289,12 +307,7 @@ const NAV_ITEMS = [
       },
       {
         subheader: 'Our Teams',
-        items: [
-          // { title: 'Board of Directors', path: '#' },
-          { title: 'Advisory Board', path: '#' },
-          { title: 'Founders', path: '#' },
-          { title: 'Members', path: '#' },
-        ],
+        items: [],
       },
     ],
   },

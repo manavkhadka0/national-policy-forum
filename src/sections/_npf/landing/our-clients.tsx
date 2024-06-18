@@ -38,6 +38,8 @@ export default function OurClients({ clients }: Props) {
     ],
   });
 
+  if (!clients.length) return null;
+
   return (
     <Container
       sx={{

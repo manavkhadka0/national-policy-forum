@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   return {
     title: `${publication.title} | National Policy Forum`,
     description: publication.description,
-    image: publication.image,
+    image: publication.hero,
   };
 }
 

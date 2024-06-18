@@ -17,6 +17,11 @@ type Event = {
   path: string;
 };
 
+type RolePath = {
+  name: string;
+  path: string;
+};
+
 export type NavigationData = {
   event: {
     latest_events: Event[];
@@ -28,6 +33,9 @@ export type NavigationData = {
   publication: {
     latest_publications: Publication[];
     featured_publications: Publication[];
+  };
+  our_team: {
+    roles: RolePath[];
   };
 };
 

@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   return {
     title: `${event.title} | National Policy Forum`,
     description: event.description,
-    image: event.image,
+    image: event.hero,
   };
 }
 
