@@ -40,7 +40,36 @@ const StyledAppStoreButton = styled(Button)(({ theme }) => ({
 }));
 
 // ----------------------------------------------------------------------
-
+export const socials = [
+  {
+    value: 'facebook',
+    label: 'FaceBook',
+    icon: 'carbon:logo-facebook',
+    color: '#1877F2',
+    link: 'https://www.facebook.com/profile.php?id=61555066314243',
+  },
+  {
+    value: 'instagram',
+    label: 'Instagram',
+    icon: 'carbon:logo-instagram',
+    color: '#E02D69',
+    link: 'https://www.instagram.com/nnpolicyforum/',
+  },
+  {
+    value: 'linkedin',
+    label: 'Linkedin',
+    icon: 'carbon:logo-linkedin',
+    color: '#007EBB',
+    link: ' https://www.linkedin.com/company/99445568/admin/feed/posts/',
+  },
+  {
+    value: 'twitter',
+    label: 'Twitter',
+    icon: 'arcticons:x-twitter',
+    color: '#00AAEC',
+    link: 'https://twitter.com/nnpolicyforum',
+  },
+];
 export default function Footer() {
   const mdUp = useResponsive('up', 'md');
 
@@ -53,6 +82,7 @@ export default function Footer() {
   const renderLists = mdUp ? desktopList : mobileList;
 
   const isHome = pathname === '/';
+
 
   const simpleFooter = (
     <Container sx={{ py: 8, textAlign: 'center' }}>
@@ -78,7 +108,7 @@ export default function Footer() {
           <Grid xs={12} md={4}>
             <Stack spacing={{ xs: 3, md: 5 }}>
               <Stack alignItems="flex-start" spacing={3}>
-                <Logo />
+                {/* <Logo  /> */}
 
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                   The starting point for your next project based on easy-to-customize Material-UI ©
@@ -86,20 +116,6 @@ export default function Footer() {
                 </Typography>
               </Stack>
 
-              <Stack spacing={1} alignItems="flex-start">
-                <Typography variant="h6">Community</Typography>
-                <Link variant="body2" sx={{ color: 'text.primary' }}>
-                  Documentation
-                </Link>
-
-                <Link variant="body2" sx={{ color: 'text.primary' }}>
-                  Changelog
-                </Link>
-
-                <Link variant="body2" sx={{ color: 'text.primary' }}>
-                  Contributing
-                </Link>
-              </Stack>
 
               <Stack spacing={2}>
                 <Stack spacing={1}>
@@ -126,20 +142,17 @@ export default function Footer() {
               </Stack>
 
               <Stack spacing={2}>
-                <Typography variant="h6">Social</Typography>
+                <Typography variant="h6">Socials</Typography>
                 <Stack direction="row" alignItems="center">
-                  {_socials.map((social) => (
+                  {socials.map((social) => (
                     <IconButton key={social.value} color="primary">
-                      <Iconify icon={social.icon} />
+                      <Link href={social.link}><Iconify icon={social.icon} /></Link>
                     </IconButton>
                   ))}
                 </Stack>
               </Stack>
 
-              <Stack spacing={2}>
-                <Typography variant="h6">Apps</Typography>
-                <AppStoreButton />
-              </Stack>
+
             </Stack>
           </Grid>
 
@@ -188,7 +201,7 @@ export default function Footer() {
     </>
   );
 
-  return <footer>{simpleFooter}</footer>;
+  return <footer>{mainFooter}</footer>;
 }
 
 // ----------------------------------------------------------------------
