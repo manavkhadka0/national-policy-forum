@@ -31,6 +31,7 @@ export const pageLinks = [
     items: [
       { title: 'Organization', path: paths.eLearning.root },
       { title: 'Privacy Policy', path: paths.marketing.contact },
+      { title: 'Terms and conditions', path: paths.marketing.contact },
     ],
   },
   {
