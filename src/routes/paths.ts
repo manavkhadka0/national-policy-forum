@@ -2,10 +2,13 @@
 
 export const paths = {
   // post
-  list:'#',
-  home:'/',
+  list: '#',
+  home: '/',
   post: (id: string) => `/posts/${id}`,
   posts: '/posts',
+  latest_posts: '/blog?is_latest=True',
+  latest_publications: '/publications?is_latest=True',
+  latest_events: '/events?is_latest=True',
   publication: (id: string) => `/publications/${id}`,
   publications: '/publications',
   events: '/events',

@@ -11,9 +11,9 @@ export const pageLinks = [
     items: [
       { title: 'Home', path: paths.home },
       { title: 'Donation', path: paths.marketing.services },
-      { title: 'Latest Posts', path: endpoints.blog.latest_posts },
-      { title: 'Latest Events', path: endpoints.event.latest_events },
-      { title: 'Latest Publications', path: endpoints.publication.latest_publications },
+      { title: 'Latest Posts', path: paths.latest_posts },
+      { title: 'Latest Events', path: paths.latest_events },
+      { title: 'Latest Publications', path: paths.latest_publications },
     ],
   },
   {
