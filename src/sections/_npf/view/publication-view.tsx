@@ -69,17 +69,13 @@ export default function PublicationView({ post, recentPosts, categories, tags: m
         <Grid container spacing={{ md: 8 }}>
           <ScrollProgress scrollYProgress={scrollYProgress} />
           <Grid xs={12} md={8}>
-            <Typography variant="h5" sx={{ mb: 5 }}>
-              {description}
-            </Typography>
-
             {post.pdf && mdUp && (
               <Box
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'flex-end',
-                  my: 2,
+                  mb: 2,
                 }}
               >
                 <Link
@@ -113,7 +109,7 @@ export default function PublicationView({ post, recentPosts, categories, tags: m
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'flex-end',
-                  my: 2,
+                  mb: 2,
                 }}
               >
                 <Link

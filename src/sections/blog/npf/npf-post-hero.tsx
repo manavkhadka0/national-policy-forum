@@ -1,16 +1,20 @@
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
+import Avatar from '@mui/material/Avatar';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
-import { alpha, useTheme } from '@mui/material/styles';
+
+import { paths } from 'src/routes/paths';
+import { RouterLink } from 'src/routes/components';
 
 import { fDate } from 'src/utils/format-time';
 
-import { bgGradient } from 'src/theme/css';
+import Image from 'src/components/image';
 
 import { IBlogPostProps } from 'src/types/blog';
 
+import PostTimeBlock from '../common/post-time-block';
 import PostSocialsShare from '../common/post-socials-share';
 
 // ----------------------------------------------------------------------
@@ -20,56 +24,53 @@ type Props = {
 };
 
 export default function NpfPostHero({ post }: Props) {
-  const theme = useTheme();
-
   return (
     <Box
       sx={{
-        py: { xs: 10, md: 14 },
-        position: 'relative',
-        // resize image and put in on right"
-
-        height: { xs: 360, md: 660 },
-        ...bgGradient({
-          startColor: `${alpha(theme.palette.common.black, 0)} 0%`,
-          endColor: `${theme.palette.common.black} 75%`,
-          imgUrl: post.hero,
-        }),
+        bgcolor: 'background.neutral',
+        py: { xs: 8, md: 10 },
       }}
     >
       <Container>
-        <Grid container spacing={3}>
-          <Grid xs={12} md={6}>
-            <Stack
-              spacing={3}
-              alignItems={{
-                xs: 'center',
-                md: 'flex-start',
-              }}
-              sx={{
-                color: 'common.white',
-                textAlign: {
-                  xs: 'center',
-                  md: 'left',
-                },
-              }}
-            >
-              <Typography variant="body2" sx={{ opacity: 0.72 }}>
-                {post.duration}
-              </Typography>
+        <Stack direction={{ xs: 'column', md: 'row' }}>
+          <Image
+            src={post.cover}
+            alt={post.title}
+            sx={{ flexGrow: 1, height: 560, borderRadius: 2 }}
+          />
 
-              <Typography variant="h2" component="h1">
-                {post.title}
-              </Typography>
+          <Stack
+            spacing={1}
+            sx={{
+              mx: 'auto',
+              pl: { md: 8 },
+              py: { xs: 3, md: 5 },
+              maxWidth: { md: 408 },
+            }}
+          >
+            <PostTimeBlock created_at={fDate(post.created_at)} duration={post.duration} />
 
-              <Typography variant="caption" sx={{ opacity: 0.72 }}>
-                {fDate(post.created_at, 'dd/MM/yyyy p')}
-              </Typography>
+            <Typography color="inherit" variant="h3">
+              {post.title}
+            </Typography>
 
-              <PostSocialsShare longButtons={false} />
+            <Typography sx={{ color: 'text.secondary', flexGrow: 1 }}>
+              {post.description}
+            </Typography>
+
+            <Box sx={{ mt: 3 }}>
+              <Typography variant="overline" sx={{ color: 'text.secondary' }}>
+                Share this post
+              </Typography>
+              <PostSocialsShare />
+            </Box>
+
+            <Stack direction="row" alignItems="center" sx={{ pt: 1.5, typography: 'body2' }}>
+              <Avatar src={post.author.avatar} sx={{ mr: 1 }} />
+              {post.author.name}
             </Stack>
-          </Grid>
-        </Grid>
+          </Stack>
+        </Stack>
       </Container>
     </Box>
   );

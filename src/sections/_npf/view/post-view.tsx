@@ -65,10 +65,6 @@ export default function PostView({ post, recentPosts, categories, tags: mainTag 
         <Grid container spacing={{ md: 8 }}>
           <ScrollProgress scrollYProgress={scrollYProgress} />
           <Grid xs={12} md={8}>
-            <Typography variant="h5" sx={{ mb: 5 }}>
-              {description}
-            </Typography>
-
             <Markdown content={content} firstLetter />
 
             <PostTags tags={tags} />
