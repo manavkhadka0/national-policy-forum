@@ -16,10 +16,9 @@ function Logo({ single = false, sx }: LogoProps) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="500"
-      zoomAndPan="magnify"
+      width="100"
+      height="90"
       viewBox="0 0 375 374.999991"
-      height="300"
       preserveAspectRatio="xMidYMid meet"
       version="1.0"
     >

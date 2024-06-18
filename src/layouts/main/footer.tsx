@@ -1,15 +1,12 @@
 import Link from '@mui/material/Link';
 import Masonry from '@mui/lab/Masonry';
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Collapse from '@mui/material/Collapse';
-import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import InputAdornment from '@mui/material/InputAdornment';
 
 import { usePathname } from 'src/routes/hooks';
 import { RouterLink } from 'src/routes/components';
@@ -17,6 +14,7 @@ import { RouterLink } from 'src/routes/components';
 import { useBoolean } from 'src/hooks/use-boolean';
 import { useResponsive } from 'src/hooks/use-responsive';
 
+import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify';
 
 import { NavSubListProps } from './nav/types';
@@ -78,36 +76,32 @@ export default function Footer() {
           <Grid xs={12} md={4}>
             <Stack spacing={{ xs: 3, md: 5 }}>
               <Stack alignItems="flex-start" spacing={3}>
-                {/* <Logo  /> */}
+                <Logo />
 
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                  The starting point for your next project based on easy-to-customize Material-UI ©
-                  helps you build apps faster and better.
+                  National Policy Forum is a non-profit organization that aims to provide a platform
+                  for discussion and debate on policy issues in Nepal. We are a group of young
+                  professionals committed to promoting evidence-based policy making in Nepal.
                 </Typography>
               </Stack>
 
               <Stack spacing={2}>
                 <Stack spacing={1}>
                   <Typography variant="h6">Let’s stay in touch</Typography>
+                  <Link href="mailto:nnopolicyforum@gmail.com" color="inherit">
+                    <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                      nnpolicyforum@gmail.com
+                    </Typography>
+                  </Link>
+                  <Link href="tel:+977-9767276347" color="inherit">
+                    <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                      +977-9767276347
+                    </Typography>
+                  </Link>
                   <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                    Ubscribe to our newsletter to receive latest articles to your inbox weekly.
+                    Bharatpur, Chitwan, Nepal
                   </Typography>
                 </Stack>
-
-                <TextField
-                  fullWidth
-                  hiddenLabel
-                  placeholder="Email address"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <Button variant="contained" color="inherit" size="large" sx={{ mr: -1.25 }}>
-                          Subscribe
-                        </Button>
-                      </InputAdornment>
-                    ),
-                  }}
-                />
               </Stack>
 
               <Stack spacing={2}>
@@ -153,7 +147,7 @@ export default function Footer() {
           sx={{ py: 3, textAlign: 'center' }}
         >
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            © 2023. All rights reserved National Policy Forum
+            © {new Date().getFullYear()}. All rights reserved National Policy Forum
           </Typography>
 
           <Stack direction="row" spacing={3} justifyContent="center">

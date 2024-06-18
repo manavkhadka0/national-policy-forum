@@ -5,10 +5,11 @@ import { paths } from 'src/routes/paths';
 export const pageLinks = [
   {
     order: '1',
-    subheader: 'Useful links',
+    subheader: 'Quick links',
     items: [
       { title: 'Career', path: paths.careers },
       { title: 'Donation', path: paths.donations },
+      { title: 'Oppurtunities', path: paths.comingsoon },
     ],
   },
   {
@@ -27,6 +28,9 @@ export const pageLinks = [
     subheader: 'About',
     items: [
       { title: 'Organization', path: paths.comingsoon },
+      { title: 'What we do', path: paths.comingsoon },
+      { title: 'Contact Us', path: paths.comingsoon },
+      { title: 'Support', path: paths.support },
       { title: 'Privacy Policy', path: paths.comingsoon },
       { title: 'Terms and conditions', path: paths.comingsoon },
     ],
