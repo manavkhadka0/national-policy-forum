@@ -10,10 +10,8 @@ export const pageLinks = [
     subheader: 'Useful links',
     items: [
       { title: 'Home', path: paths.home },
+      { title: 'Career', path: paths.marketing.services },
       { title: 'Donation', path: paths.marketing.services },
-      { title: 'Latest Posts', path: paths.latest_posts },
-      { title: 'Latest Events', path: paths.latest_events },
-      { title: 'Latest Publications', path: paths.latest_publications },
     ],
   },
   {
@@ -32,7 +30,7 @@ export const pageLinks = [
     subheader: 'About',
     items: [
       { title: 'Organization', path: paths.eLearning.root },
-      { title: 'Contacts', path: paths.marketing.contact },
+      { title: 'Privacy Policy', path: paths.marketing.contact },
     ],
   },
   {
