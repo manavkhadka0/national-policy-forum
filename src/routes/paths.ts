@@ -2,12 +2,16 @@
 
 export const paths = {
   // post
+  list:'#',
+  home:'/',
   post: (id: string) => `/posts/${id}`,
   posts: '/posts',
   publication: (id: string) => `/publications/${id}`,
   publications: '/publications',
   events: '/events',
   event: (id: string) => `/events/${id}`,
+  careers: '/careers',
+  donations: '/donation',
   dynamicLink: (slug: string, basePath: string) => `/${basePath}/${slug}`,
   // Marketing
   marketing: {
