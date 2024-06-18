@@ -1,12 +1,8 @@
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-
-import { paths } from 'src/routes/paths';
-import { RouterLink } from 'src/routes/components';
 
 import { fDate } from 'src/utils/format-time';
 
@@ -34,9 +30,9 @@ export default function NpfPostHero({ post }: Props) {
       <Container>
         <Stack direction={{ xs: 'column', md: 'row' }}>
           <Image
-            src={post.cover}
+            src={post.hero}
             alt={post.title}
-            sx={{ flexGrow: 1, height: 560, borderRadius: 2 }}
+            sx={{ flexGrow: 1, height: { md: '400px', sm: 'auto' }, borderRadius: 2 }}
           />
 
           <Stack
