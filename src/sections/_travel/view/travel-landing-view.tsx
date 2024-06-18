@@ -3,7 +3,6 @@
 import { Slide } from 'yet-another-react-lightbox';
 
 import NpfFaqs from 'src/sections/_npf/landing/faqs';
-import OurTeam from 'src/sections/_npf/landing/our-team';
 import OurClients from 'src/sections/_npf/landing/our-clients';
 import OurGallery from 'src/sections/_npf/landing/our-gallery';
 import NpfLatestEvents from 'src/sections/blog/npf/npf-latest-events';

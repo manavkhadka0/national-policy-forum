@@ -38,7 +38,7 @@ type Props = {
 };
 
 export default function PublicationView({ post, recentPosts, categories, tags: mainTag }: Props) {
-  const { title, description, author, tags, content } = post;
+  const { title, author, tags, content } = post;
 
   const { scrollYProgress } = useScroll();
 

@@ -15,6 +15,8 @@ export const paths = {
   event: (id: string) => `/events/${id}`,
   careers: '/careers',
   donations: '/donation',
+  teams: '/teams',
+  teamByRole: (role: string) => `/teams/${role}`,
   dynamicLink: (slug: string, basePath: string) => `/${basePath}/${slug}`,
   // Marketing
   marketing: {

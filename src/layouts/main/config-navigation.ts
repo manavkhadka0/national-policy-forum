@@ -1,7 +1,5 @@
 import { paths } from 'src/routes/paths';
 
-import { endpoints } from 'src/utils/axios';
-
 // ----------------------------------------------------------------------
 
 export const pageLinks = [
@@ -9,9 +7,8 @@ export const pageLinks = [
     order: '1',
     subheader: 'Useful links',
     items: [
-      { title: 'Home', path: paths.home },
-      { title: 'Career', path: paths.marketing.services },
-      { title: 'Donation', path: paths.marketing.services },
+      { title: 'Career', path: paths.careers },
+      { title: 'Donation', path: paths.donations },
     ],
   },
   {
@@ -29,33 +26,20 @@ export const pageLinks = [
     order: '2',
     subheader: 'About',
     items: [
-      { title: 'Organization', path: paths.eLearning.root },
-      { title: 'Privacy Policy', path: paths.marketing.contact },
-      { title: 'Terms and conditions', path: paths.marketing.contact },
+      { title: 'Organization', path: paths.comingsoon },
+      { title: 'Privacy Policy', path: paths.comingsoon },
+      { title: 'Terms and conditions', path: paths.comingsoon },
     ],
   },
   {
     order: '4',
     subheader: 'Our team',
     items: [
-      { title: 'Advisory Board', path: paths.list },
-      { title: 'Founders', path: paths.list },
-      { title: 'Members', path: paths.list },
+      { title: 'Advisory Board', path: paths.teamByRole('Advisory Board') },
+      { title: 'Founders', path: paths.teamByRole('Founder') },
+      { title: 'Reseachers', path: paths.teamByRole('Researcher') },
     ],
   },
-  // {
-  //   isNew: true,
-  //   order: '5',
-  //   subheader: 'E-commerce',
-  //   items: [{ title: 'Landing', path: paths.eCommerce.root }],
-  // },
-  // {
-  //   order: '6',
-  //   subheader: 'Travel',
-  //   items: [
-  //     { title: 'Landing', path: paths.travel.root },
-  //   ],
-  // },
 ];
 
 export const navConfig = [
@@ -64,7 +48,7 @@ export const navConfig = [
   {
     title: 'Pages',
     path: paths.pages,
-    children: [pageLinks[0], pageLinks[1], pageLinks[2], pageLinks[3], pageLinks[4], pageLinks[5]],
+    children: [pageLinks[0], pageLinks[1], pageLinks[2], pageLinks[3]],
   },
   { title: 'Docs', path: paths.docs },
 ];

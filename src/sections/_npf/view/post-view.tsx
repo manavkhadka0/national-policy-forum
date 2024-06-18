@@ -6,7 +6,6 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
-import Typography from '@mui/material/Typography';
 
 import { paths } from 'src/routes/paths';
 
@@ -37,7 +36,7 @@ type Props = {
 };
 
 export default function PostView({ post, recentPosts, categories, tags: mainTag }: Props) {
-  const { title, description, author, tags, content } = post;
+  const { title, author, tags, content } = post;
 
   const { scrollYProgress } = useScroll();
 

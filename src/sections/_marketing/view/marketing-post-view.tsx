@@ -28,7 +28,6 @@ import PostAuthor from '../../blog/common/post-author';
 import MarketingNewsletter from '../marketing-newsletter';
 import PostSocialsShare from '../../blog/common/post-socials-share';
 import MarketingLandingFreeSEO from '../landing/marketing-landing-free-seo';
-import BlogMarketingLatestPosts from '../../blog/marketing/marketing-latest-posts';
 
 // ----------------------------------------------------------------------
 

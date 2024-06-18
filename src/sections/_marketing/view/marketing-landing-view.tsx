@@ -6,7 +6,6 @@ import {
   _members,
   _caseStudies,
   _testimonials,
-  _marketingPosts,
   _pricingMarketing,
 } from 'src/_mock';
 
@@ -21,7 +20,6 @@ import PricingMarketing from '../../pricing/marketing/pricing-marketing';
 import MarketingLandingProcess from '../landing/marketing-landing-process';
 import MarketingLandingFreeSEO from '../landing/marketing-landing-free-seo';
 import MarketingLandingServices from '../landing/marketing-landing-services';
-import BlogMarketingLatestPosts from '../../blog/marketing/marketing-latest-posts';
 import MarketingLandingCaseStudies from '../landing/marketing-landing-case-studies';
 
 // ----------------------------------------------------------------------
