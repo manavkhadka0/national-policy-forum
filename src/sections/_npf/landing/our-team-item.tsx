@@ -1,11 +1,14 @@
 import { m } from 'framer-motion';
 
 import Box from '@mui/material/Box';
-import { Link } from '@mui/material';
+import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { alpha, styled } from '@mui/material/styles';
 import Stack, { StackProps } from '@mui/material/Stack';
+
+import { paths } from 'src/routes/paths';
+import { RouterLink } from 'src/routes/components';
 
 import { bgGradient } from 'src/theme/css';
 
@@ -43,7 +46,7 @@ interface TeamMarketingMemberProps extends StackProps {
 }
 
 export default function OurTeamItem({ member, ...other }: TeamMarketingMemberProps) {
-  const { name, role, photo } = member;
+  const { name, role, photo, id } = member;
 
   const _socials = [
     {
@@ -117,7 +120,14 @@ export default function OurTeamItem({ member, ...other }: TeamMarketingMemberPro
       </Box>
 
       <Stack spacing={0.5} sx={{ mt: 2.5, textAlign: 'center' }}>
-        <Typography variant="h6">{name}</Typography>
+        <Link component={RouterLink} href={paths.teamMemberDetail(id)}>
+          <Stack direction="row" alignItems="center" justifyContent="center" gap={2}>
+            <Typography variant="h6">{name}</Typography>
+            <IconButton size="small">
+              <Iconify icon="fluent:open-16-filled" />
+            </IconButton>
+          </Stack>
+        </Link>
 
         <Typography variant="body2" sx={{ color: 'text.disabled' }}>
           {role}

@@ -22,6 +22,8 @@ type GalleryProps = {
 export default function OurGallery({ galleries }: GalleryProps) {
   const lightbox = useLightbox(galleries);
 
+  if (!galleries.length) return null;
+
   return (
     <>
       <Container sx={{ my: 10 }} maxWidth={false}>

@@ -7,7 +7,7 @@ import { getLatestEvent } from 'src/actions/events';
 import { getTestimonials } from 'src/actions/testimonials';
 import { getLatestPublication } from 'src/actions/publications';
 import { getLatestPosts, getFeaturedPosts } from 'src/actions/post';
-import { getTeamMembers, getTeamMembersRoles } from 'src/actions/team';
+import { getTeamMembers, getTeamMembersRoles, TeamMemberRoles } from 'src/actions/team';
 
 import LandingView from 'src/sections/_npf/view/home-view';
 import { Faq } from 'src/sections/_marketing/landing/marketing-landing-faqs';
@@ -33,7 +33,7 @@ export default async function TravelLandingPage() {
   const latest_events: IPublicationProps[] = await getLatestEvent();
   const latest_publications: IPublicationProps[] = await getLatestPublication();
   const members: IOurTeamProps[] = await getTeamMembers();
-  const roles: string[] = await getTeamMembersRoles();
+  const roles: TeamMemberRoles[] = await getTeamMembersRoles();
   const clients: IBrandProps[] = await getClients();
   const gallery: Slide[] = await getGallery();
 

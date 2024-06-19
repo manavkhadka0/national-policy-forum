@@ -10,10 +10,10 @@ export type ITeamMemberProps = {
   socialLinks?: ISocialLinks;
 };
 
-
 export type IOurTeamProps = {
   id: string;
   name: string;
+  bio: string;
   role: string;
   photo: string;
   facebook?: string;

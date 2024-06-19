@@ -8,6 +8,8 @@ import Tabs from '@mui/material/Tabs';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
+import { TeamMemberRoles } from 'src/actions/team';
+
 import { IOurTeamProps } from 'src/types/team';
 
 import OurTeamItem from './our-team-item';
@@ -16,14 +18,16 @@ import OurTeamItem from './our-team-item';
 
 type Props = {
   members: IOurTeamProps[];
-  roles: string[];
-  seletecRole?: string;
+  roles: TeamMemberRoles[];
+  seletecRoleSlug?: string;
 };
 
-export default function OurTeam({ members, seletecRole, roles: rolesFetched }: Props) {
-  const [tab, setTab] = useState(seletecRole || 'All');
+export default function OurTeam({ members, seletecRoleSlug, roles: rolesFetched }: Props) {
+  const [tab, setTab] = useState(
+    rolesFetched.find((role) => role.slug === seletecRoleSlug)?.name || 'All'
+  );
 
-  const roles = ['All', ...Array.from(new Set(rolesFetched))];
+  const roles = ['All', ...Array.from(new Set(rolesFetched.map((role) => role.name)))];
 
   const filtered = applyFilter(members, tab);
 
@@ -45,13 +49,14 @@ export default function OurTeam({ members, seletecRole, roles: rolesFetched }: P
         sx={{
           mt: 3,
           mx: 'auto',
-          maxWidth: 480,
           textAlign: 'center',
           mb: { xs: 8, md: 10 },
           color: 'text.secondary',
         }}
       >
-        Dedicated Experts Driving Change
+        Our dedicated team of 6 members from across Nepal brings together a wealth of expertise and
+        accomplishments in research, analysis, and publishing. At NPF, we are committed to driving
+        informed public discourse and fostering active citizenship across Nepal.
       </Typography>
 
       <Tabs

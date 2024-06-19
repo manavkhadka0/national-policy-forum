@@ -2,6 +2,8 @@
 
 import { Slide } from 'yet-another-react-lightbox';
 
+import { TeamMemberRoles } from 'src/actions/team';
+
 import NpfLatestPost from 'src/sections/blog/npf/npf-landing-posts';
 import TravelNewsletter from 'src/sections/_travel/travel-newsletter';
 import NpfLatestEvents from 'src/sections/blog/npf/npf-latest-events';
@@ -31,7 +33,7 @@ type TravelLandingViewProps = {
   clients: IBrandProps[];
   galleries: Slide[];
   latest_events: IPublicationProps[];
-  roles: string[];
+  roles: TeamMemberRoles[];
   latest_publications: IPublicationProps[];
 };
 

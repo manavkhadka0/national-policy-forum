@@ -56,6 +56,7 @@ export const endpoints = {
   team: {
     list: '/api/our-team/',
     roles: '/api/roles/',
+    detail: (id: string) => `/api/our-team/${id}`,
   },
   faq: {
     list: '/api/faq/',
