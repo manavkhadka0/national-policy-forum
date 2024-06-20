@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 
 import Iconify from '../iconify';
 import StyledLightbox from './styles';
+import Player from '../player/player';
 import { LightBoxProps } from './types';
 
 // ----------------------------------------------------------------------
@@ -68,6 +69,16 @@ export default function Lightbox({
           iconNext: () => <Iconify width={32} icon="carbon:chevron-right" />,
           iconExitFullscreen: () => <Iconify width={24} icon="carbon:center-to-fit" />,
           iconEnterFullscreen: () => <Iconify width={24} icon="carbon:fit-to-screen" />,
+          slide: ({ slide }) => {
+            if (slide.type === 'video') {
+              return (
+                <Box sx={{ width: '100%', height: '90%' }}>
+                  <Player controls url={slide.sources[0].src} />;
+                </Box>
+              );
+            }
+            return null;
+          },
         }}
         {...other}
       />

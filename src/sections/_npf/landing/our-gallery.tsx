@@ -88,6 +88,7 @@ export default function OurGallery({ galleries }: GalleryProps) {
 
       <Lightbox
         open={lightbox.open}
+        disabledVideo
         close={lightbox.onClose}
         slides={galleries}
         index={lightbox.selected}
