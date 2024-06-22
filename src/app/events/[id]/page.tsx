@@ -14,6 +14,18 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
     title: `${event.title} | National Policy Forum`,
     description: event.description,
     image: event.hero,
+    openGraph: {
+      title: `${event.title} | National Policy Forum`,
+      description: event.description,
+      images: [event.hero, event.cover],
+      type: 'article',
+      article: {
+        publishedTime: event.publishedAt,
+        modifiedTime: event.updatedAt,
+        tags: event.tags,
+        authors: event.author,
+      },
+    },
   };
 }
 

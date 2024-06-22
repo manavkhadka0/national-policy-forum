@@ -17,6 +17,7 @@ import { useOffSetTop } from 'src/hooks/use-off-set-top';
 import { useResponsive } from 'src/hooks/use-responsive';
 
 import { useGetNavlinks } from 'src/api/navlinks';
+import { WEBSITE_CONFIG } from 'src/config-global';
 
 import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify/iconify';
@@ -32,37 +33,6 @@ import HeaderShadow from '../common/header-shadow';
 type Props = {
   headerOnDark: boolean;
 };
-
-export const socials = [
-  {
-    value: 'facebook',
-    label: 'FaceBook',
-    icon: 'carbon:logo-facebook',
-    color: '#1877F2',
-    link: 'https://www.facebook.com/profile.php?id=61555066314243',
-  },
-  {
-    value: 'instagram',
-    label: 'Instagram',
-    icon: 'carbon:logo-instagram',
-    color: '#E02D69',
-    link: 'https://www.instagram.com/nnpolicyforum/',
-  },
-  {
-    value: 'linkedin',
-    label: 'Linkedin',
-    icon: 'carbon:logo-linkedin',
-    color: '#007EBB',
-    link: ' https://www.linkedin.com/company/99445568/admin/feed/posts/',
-  },
-  {
-    value: 'twitter',
-    label: 'Twitter',
-    icon: 'arcticons:x-twitter',
-    color: '#00AAEC',
-    link: 'https://twitter.com/nnpolicyforum',
-  },
-];
 
 export default function Header({ headerOnDark }: Props) {
   const theme = useTheme();
@@ -133,7 +103,7 @@ export default function Header({ headerOnDark }: Props) {
         children: [
           {
             subheader: 'Organization',
-            items: [{ title: 'About Organization', path: '#' }],
+            items: [{ title: 'About Organization', path: '/organization' }],
           },
           {
             subheader: 'Our Teams',
@@ -145,6 +115,26 @@ export default function Header({ headerOnDark }: Props) {
         ],
       };
     }
+    if (item.title === 'Opportunities') {
+      const opportunityTypes = navlinks.opportunity?.opportunity_types?.children || [];
+      const latestOpportunities =
+        navlinks.opportunity?.latest_opportunities?.map((opportunity) => ({
+          title: opportunity.title,
+          path: opportunity.path,
+        })) || [];
+
+      return {
+        ...item,
+        children: [
+          {
+            subheader: 'Latest Opportunities',
+            items: latestOpportunities,
+          },
+          ...opportunityTypes,
+        ],
+      };
+    }
+
     return item;
   });
 
@@ -175,7 +165,7 @@ export default function Header({ headerOnDark }: Props) {
         justifyContent="flex-end"
       >
         <Stack direction="row">
-          {socials.map((social) => (
+          {WEBSITE_CONFIG.socials.map((social) => (
             <Link key={social.label} target="_blank" rel="noopener noreferrer" href={social.link}>
               <IconButton
                 key={social.value}
@@ -262,10 +252,17 @@ export default function Header({ headerOnDark }: Props) {
             py: 1,
           }}
         >
-          <Box sx={{ lineHeight: 0, position: 'relative' }}>
-            <Logo />
-          </Box>
+          {mdUp && (
+            <Box sx={{ lineHeight: 0, position: 'relative' }}>
+              <Logo />
+            </Box>
+          )}
           {mdUp ? renderHorizontal : renderMobile}
+          {!mdUp && (
+            <Box sx={{ lineHeight: 0, position: 'relative' }}>
+              <Logo />
+            </Box>
+          )}
         </Container>
       </Toolbar>
 
@@ -303,7 +300,7 @@ const NAV_ITEMS = [
     children: [
       {
         subheader: 'Organization',
-        items: [{ title: 'About Organization', path: '#' }],
+        items: [{ title: 'About Organization', path: '/organization' }],
       },
       {
         subheader: 'Our Teams',
@@ -347,10 +344,23 @@ const NAV_ITEMS = [
     ],
   },
   {
+    title: 'Opportunities',
+    path: '/opportunities',
+    // icon: <Iconify icon="carbon:connect" sx={{ width: 1, height: 1 }} />,
+    moreLink: {
+      title: 'More Opportunities',
+      path: '/opportunities',
+    },
+    children: [],
+  },
+  {
     title: 'Careers',
     path: '/careers',
   },
-
+  {
+    title: 'Contact',
+    path: '/contact',
+  },
   {
     title: 'Donation',
     path: '/donation',

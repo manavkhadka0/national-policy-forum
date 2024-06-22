@@ -22,6 +22,53 @@ type RolePath = {
   path: string;
 };
 
+// "opportunity": {
+//         "latest_opportunities": [
+//             {
+//                 "title": "Our Team Page",
+//                 "path": "/opportunities/our-team-page"
+//             }
+//         ],
+//         "opportunity_types": {
+//             "title": "Opportunities",
+//             "path": "#",
+//             "children": [
+//                 {
+//                     "subheader": "Opportunities",
+//                     "items": [
+//                         {
+//                             "title": "Hello",
+//                             "path": "/opportunities-type/hello"
+//                         }
+//                     ]
+//                 },
+//                 {
+//                     "subheader": "Grants",
+//                     "items": [
+//                         {
+//                             "title": "dsadas",
+//                             "path": "/opportunities-type/dsadas"
+//                         }
+//                     ]
+//                 }
+//             ]
+//         }
+//     }
+
+type Opportunity = {
+  title: string;
+  path: string;
+};
+
+type OpportunityType = {
+  title: string;
+  path: string;
+  children: {
+    subheader: string;
+    items: Opportunity[];
+  }[];
+};
+
 export type NavigationData = {
   event: {
     latest_events: Event[];
@@ -36,6 +83,10 @@ export type NavigationData = {
   };
   our_team: {
     roles: RolePath[];
+  };
+  opportunity: {
+    latest_opportunities: Opportunity[];
+    opportunity_types: OpportunityType;
   };
 };
 

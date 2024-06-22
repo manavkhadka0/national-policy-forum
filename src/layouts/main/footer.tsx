@@ -14,8 +14,12 @@ import { RouterLink } from 'src/routes/components';
 import { useBoolean } from 'src/hooks/use-boolean';
 import { useResponsive } from 'src/hooks/use-responsive';
 
+import { WEBSITE_CONFIG } from 'src/config-global';
+
 import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify';
+
+import ContactInfo from 'src/sections/_npf/contact/contact-info';
 
 import { NavSubListProps } from './nav/types';
 import { pageLinks, navConfig } from './config-navigation';
@@ -23,36 +27,7 @@ import { pageLinks, navConfig } from './config-navigation';
 // ----------------------------------------------------------------------
 
 // ----------------------------------------------------------------------
-export const socials = [
-  {
-    value: 'facebook',
-    label: 'FaceBook',
-    icon: 'carbon:logo-facebook',
-    color: '#1877F2',
-    link: 'https://www.facebook.com/profile.php?id=61555066314243',
-  },
-  {
-    value: 'instagram',
-    label: 'Instagram',
-    icon: 'carbon:logo-instagram',
-    color: '#E02D69',
-    link: 'https://www.instagram.com/nnpolicyforum/',
-  },
-  {
-    value: 'linkedin',
-    label: 'Linkedin',
-    icon: 'carbon:logo-linkedin',
-    color: '#007EBB',
-    link: ' https://www.linkedin.com/company/99445568/admin/feed/posts/',
-  },
-  {
-    value: 'twitter',
-    label: 'Twitter',
-    icon: 'arcticons:x-twitter',
-    color: '#00AAEC',
-    link: 'https://twitter.com/nnpolicyforum',
-  },
-];
+
 export default function Footer() {
   const mdUp = useResponsive('up', 'md');
 
@@ -64,6 +39,7 @@ export default function Footer() {
 
   const mainFooter = (
     <>
+      <ContactInfo />
       <Divider />
 
       <Container
@@ -107,7 +83,7 @@ export default function Footer() {
               <Stack spacing={2}>
                 <Typography variant="h6">Socials</Typography>
                 <Stack direction="row" alignItems="center">
-                  {socials.map((social) => (
+                  {WEBSITE_CONFIG.socials.map((social) => (
                     <IconButton key={social.value} color="primary">
                       <Link href={social.link}>
                         <Iconify icon={social.icon} />

@@ -7,6 +7,7 @@ export const paths = {
   post: (id: string) => `/posts/${id}`,
   posts: '/posts',
   latest_posts: '/blog?is_latest=True',
+  aboutOrgranization: '/organization',
   latest_publications: '/publications?is_latest=True',
   latest_events: '/events?is_latest=True',
   publication: (id: string) => `/publications/${id}`,
