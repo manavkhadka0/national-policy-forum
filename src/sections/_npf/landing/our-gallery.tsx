@@ -36,7 +36,6 @@ export default function OurGallery({ galleries }: GalleryProps) {
         >
           <Typography variant="h2">Our Gallery</Typography>
           <Typography sx={{ color: 'text.secondary', pb: 4 }}>
-            {/* A very creative line here */}
             Visual Stories of Our Impact
           </Typography>
           <Grid container spacing={3}>
@@ -45,7 +44,7 @@ export default function OurGallery({ galleries }: GalleryProps) {
                 gap={2}
                 display="grid"
                 gridTemplateColumns={{
-                  xs: 'repeat(2, 1fr)',
+                  xs: 'repeat(1, 1fr)',
                   sm: 'repeat(3, 1fr)',
                   md: 'repeat(4, 1fr)',
                 }}

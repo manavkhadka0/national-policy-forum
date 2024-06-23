@@ -47,14 +47,15 @@ export default function TravelNewsletter() {
               spacing={3}
               sx={{
                 color: 'common.white',
-                textAlign: { xs: 'center', md: 'left' },
+                textAlign: { xs: 'left' },
               }}
             >
               <Typography variant="h2">Newsletter</Typography>
 
               <Typography>
-                Sign up now to receive hot special offers
-                <br /> and information about the best tours!
+                Sign up for our newsletter to get the
+                <br />
+                latest news, announcements, and special offers
               </Typography>
 
               <TextField
