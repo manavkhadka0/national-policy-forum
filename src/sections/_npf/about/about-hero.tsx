@@ -37,7 +37,7 @@ export default function AboutHero() {
             textAlign: { xs: 'center', md: 'left' },
           }}
         >
-          <Typography variant="h2">Who We Are?</Typography>
+          <Typography variant="h2">About NPF</Typography>
 
           <Typography sx={{ mt: 3, mb: 5, color: 'text.secondary' }}>
             The National Policy Forum (NPF), established in 2024 and registered under the Companies
