@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
@@ -12,7 +13,6 @@ import Iconify from 'src/components/iconify';
 import Markdown from 'src/components/markdown/markdown';
 
 import { IOurTeamProps } from 'src/types/team';
-import { Box } from '@mui/material';
 
 // ----------------------------------------------------------------------
 type OurTeamDetailItemProps = {

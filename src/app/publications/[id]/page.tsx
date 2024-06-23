@@ -20,12 +20,10 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
       description: publication.description,
       images: [publication.hero, publication.cover],
       type: 'article',
-      article: {
-        publishedTime: publication.publishedAt,
-        modifiedTime: publication.updatedAt,
-        tags: publication.tags,
-        authors: publication.author,
-      },
+      publishedTime: publication.publishedAt,
+      modifiedTime: publication.updatedAt,
+      tags: publication.tags,
+      authors: [publication.author],
     },
   };
 }

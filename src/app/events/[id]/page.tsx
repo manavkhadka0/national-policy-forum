@@ -19,12 +19,10 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
       description: event.description,
       images: [event.hero, event.cover],
       type: 'article',
-      article: {
-        publishedTime: event.publishedAt,
-        modifiedTime: event.updatedAt,
-        tags: event.tags,
-        authors: event.author,
-      },
+      publishedTime: event.publishedAt,
+      modifiedTime: event.updatedAt,
+      tags: event.tags,
+      authors: [event.author.name],
     },
   };
 }

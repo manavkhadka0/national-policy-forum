@@ -6,10 +6,12 @@ import { getSinglePost, getLatestPosts } from 'src/actions/post';
 
 import PostView from 'src/sections/_npf/view/post-view';
 
+import { IBlogPostProps } from 'src/types/blog';
+
 // ----------------------------------------------------------------------
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-  const post = await getSinglePost(params.id);
+  const post: IBlogPostProps = await getSinglePost(params.id);
 
   return {
     title: `${post.title} | National Policy Forum`,
@@ -20,12 +22,9 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
       description: post.description,
       images: [post.hero, post.cover],
       type: 'article',
-      article: {
-        publishedTime: post.publishedAt,
-        modifiedTime: post.updatedAt,
-        tags: post.tags,
-        authors: post.author,
-      },
+      publishedTime: post.created_at,
+      modifiedTime: post.updated_at,
+      authors: [post.author.name],
     },
   };
 }
