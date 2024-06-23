@@ -63,7 +63,7 @@ export default function OurTeamDetailItem({ member }: OurTeamDetailItemProps) {
         <Grid
           container
           spacing={3}
-          alignItems={{ md: 'center' }}
+          alignItems={{ md: 'flex-start' }}
           justifyContent={{ md: 'space-between' }}
         >
           {mdUp && (
