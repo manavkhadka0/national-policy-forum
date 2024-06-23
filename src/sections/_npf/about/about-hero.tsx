@@ -1,50 +1,89 @@
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
+
+import { useResponsive } from 'src/hooks/use-responsive';
 
 import Image from 'src/components/image';
 
 // ----------------------------------------------------------------------
 
+// ----------------------------------------------------------------------
+
+// ----------------------------------------------------------------------
+
 export default function AboutHero() {
+  const mdUp = useResponsive('up', 'md');
+
   return (
-    <Box
+    <Container
       sx={{
-        py: { xs: 10, md: 20 },
-        overflow: 'hidden',
-        bgcolor: 'primary.lighter',
+        pt: { xs: 5, md: 10 },
+        pb: 10,
       }}
     >
-      <Container>
-        <Grid container spacing={{ xs: 8, md: 3 }} justifyContent="space-between">
-          <Grid
-            xs={12}
-            md={6}
-            lg={5}
-            sx={{
-              color: 'grey.800',
-              textAlign: { xs: 'center', md: 'left' },
-            }}
-          >
-            <Typography variant="h1">Online Courses</Typography>
+      <Grid container spacing={3} justifyContent="space-between" alignItems="center">
+        {mdUp && (
+          <Grid xs={12} md={6} lg={5}>
+            <Image alt="teams" src="/assets/illustrations/illustration_teams.svg" />
+          </Grid>
+        )}
 
-            <Typography sx={{ mt: 3, mb: 6 }}>
-              Nunc nulla. Ut leo. Pellentesque commodo eros a enim. Nunc egestas, augue at
-              pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede.
+        <Grid
+          xs={12}
+          md={6}
+          lg={6}
+          sx={{
+            textAlign: { xs: 'center', md: 'left' },
+          }}
+        >
+          <Typography variant="h2">Who We Are?</Typography>
+
+          <Typography sx={{ mt: 3, mb: 5, color: 'text.secondary' }}>
+            The National Policy Forum (NPF), established in 2024 and registered under the Companies
+            Act, operates as a consulting agency dedicated to educating, informing, and gathering
+            opinions on public affairs in Nepal. Committed to promoting good governance,
+            evidence-based decision-making, active citizenship, and civic awareness, NPF&apos;s
+            mission extends to every corner of the country. By fostering informed discourse among
+            citizens, NPF aims to cultivate a more engaged and knowledgeable society, thereby
+            driving positive change and contributing to the holistic betterment of Nepal. Through
+            these efforts, NPF envisions a future where civic participation and awareness lead to
+            sustainable and inclusive national development.
+          </Typography>
+        </Grid>
+      </Grid>
+
+      {/* <Box
+        sx={{
+          mt: 10,
+          textAlign: 'center',
+          display: 'grid',
+          gap: { xs: 5, md: 8 },
+          gridTemplateColumns: {
+            xs: 'repeat(1, 1fr)',
+            sm: 'repeat(2, 1fr)',
+            md: 'repeat(4, 1fr)',
+          },
+        }}
+      >
+        {SUMMARY.map((value, index) => (
+          <div key={value.title}>
+            <StyledIcon color={COLORS[index]}>
+              <Iconify icon={value.icon} width={48} />
+            </StyledIcon>
+
+            <Typography variant="h2" sx={{ mt: 2, mb: 1 }}>
+              <CountUp
+                start={value.total / 5}
+                end={value.total}
+                formattingFn={(newValue: number) => fShortenNumber(newValue)}
+              />
             </Typography>
 
-            <Button variant="contained" size="large" color="primary">
-              Browse Courses
-            </Button>
-          </Grid>
-
-          <Grid xs={12} md={6} lg={6}>
-            <Image alt="courses-online" src="/assets/illustrations/illustration_courses_hero.svg" />
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+            <Typography sx={{ color: 'text.secondary' }}>{value.title}</Typography>
+          </div>
+        ))}
+      </Box> */}
+    </Container>
   );
 }

@@ -55,15 +55,18 @@ export default function Footer() {
                 <Logo />
 
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                  National Policy Forum is a non-profit organization that aims to provide a platform
-                  for discussion and debate on policy issues in Nepal. We are a group of young
-                  professionals committed to promoting evidence-based policy making in Nepal.
+                  The National Policy Forum (NPF), established in 2024 and registered under the
+                  Companies Act, is a consulting agency dedicated to educating and gathering
+                  opinions on public affairs in Nepal. NPF promotes good governance, evidence-based
+                  decision-making, and civic awareness across the country. By fostering informed
+                  discourse, NPF aims to cultivate a more engaged and knowledgeable society, driving
+                  positive change and sustainable, inclusive national development.
                 </Typography>
               </Stack>
 
               <Stack spacing={2}>
                 <Stack spacing={1}>
-                  <Typography variant="h6">Let’s stay in touch</Typography>
+                  <Typography variant="h6">Contact Us</Typography>
                   <Link href="mailto:nnopolicyforum@gmail.com" color="inherit">
                     <Typography variant="caption" sx={{ color: 'text.secondary' }}>
                       nnpolicyforum@gmail.com

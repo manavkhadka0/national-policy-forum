@@ -10,7 +10,6 @@ import { IOurTeamProps } from 'src/types/team';
 import { IBlogPostProps } from 'src/types/blog';
 import { ITestimonialProps } from 'src/types/testimonial';
 
-import About from '../about/about';
 import OurTeam from '../landing/our-team';
 import AboutHero from '../about/about-hero';
 import OurClients from '../landing/our-clients';
@@ -37,7 +36,7 @@ export default function AboutView({
     <>
       <AboutHero />
 
-      <About />
+      {/* <About /> */}
 
       <AboutCoreValues />
 

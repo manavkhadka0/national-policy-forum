@@ -7,7 +7,7 @@ import { getLatestEvent } from 'src/actions/events';
 import { getTestimonials } from 'src/actions/testimonials';
 import { getLatestPublication } from 'src/actions/publications';
 import { getLatestPosts, getFeaturedPosts } from 'src/actions/post';
-import { getTeamMembers, getTeamMembersRoles, TeamMemberRoles } from 'src/actions/team';
+import { getTeamMembers, TeamMemberRoles, getTeamMembersRoles } from 'src/actions/team';
 
 import LandingView from 'src/sections/_npf/view/home-view';
 import { Faq } from 'src/sections/_marketing/landing/marketing-landing-faqs';

@@ -52,12 +52,25 @@ export default function AboutCoreValues() {
             textAlign: { xs: 'center', md: 'left' },
           }}
         >
-          <Typography variant="h2">Core Values</Typography>
+          <Typography variant="h2">What do we do?</Typography>
 
           <Typography sx={{ color: 'text.secondary', maxWidth: { md: 540 } }}>
-            Etiam ultricies nisi vel augue. Suspendisse potenti. Sed mollis, eros et ultrices
-            tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a orci. Phasellus viverra
-            nulla ut metus varius laoreet.
+            NPF aims for evidence-based research that promotes accountability, transparency,
+            evidence-based decision-making, and good governance. With a team of highly equipped
+            research expertise and skills alongside guidance from our advisors, NPF aims to
+            regularly educate people regarding the ongoing political and public affairs of Nepal and
+            drive change in society through necessary policy intervention.
+            <br />
+            <br />
+            NPF has fostered close collaborations with governmental and non-governmental
+            organizations. This strategic partnership empowers NPF to offer invaluable assistance
+            and support in several key areas, including conducting rigorous policy research,
+            facilitating inclusive policy discussions, enhancing capacity-building initiatives, and
+            actively contributing to the formulation of impactful laws and policies. By fostering
+            effective partnerships and engaging with stakeholders, NPF aims to promote
+            evidence-based decision-making and drive positive policy reforms for Nepal&apos;s
+            betterment. Together, let&apos;s shape a future of policies that drive positive change
+            and sustainable development in Nepal.
           </Typography>
         </Stack>
 

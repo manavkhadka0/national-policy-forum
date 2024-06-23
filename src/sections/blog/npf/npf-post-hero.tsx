@@ -28,20 +28,17 @@ export default function NpfPostHero({ post }: Props) {
       }}
     >
       <Container>
-        <Stack direction={{ xs: 'column', md: 'row' }}>
+        <Stack>
           <Image
             src={post.hero}
             alt={post.title}
-            sx={{ flexGrow: 1, height: { md: '400px', sm: 'auto' }, borderRadius: 2 }}
+            sx={{ flexGrow: 1, height: 'auto', borderRadius: 2 }}
           />
 
           <Stack
             spacing={1}
             sx={{
-              mx: 'auto',
-              pl: { md: 8 },
               py: { xs: 3, md: 5 },
-              maxWidth: { md: 408 },
             }}
           >
             <PostTimeBlock created_at={fDate(post.created_at)} duration={post.duration} />
@@ -61,9 +58,21 @@ export default function NpfPostHero({ post }: Props) {
               <PostSocialsShare />
             </Box>
 
-            <Stack direction="row" alignItems="center" sx={{ pt: 1.5, typography: 'body2' }}>
-              <Avatar src={post.author.avatar} sx={{ mr: 1 }} />
-              {post.author.name}
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={2}
+              sx={{ pt: 1.5, typography: 'body2' }}
+            >
+              <Avatar src={post.author.avatar} />
+              <Stack spacing={0.5}>
+                <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
+                  {post.author.name}
+                </Typography>
+                <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                  {post.author.role}
+                </Typography>
+              </Stack>
             </Stack>
           </Stack>
         </Stack>

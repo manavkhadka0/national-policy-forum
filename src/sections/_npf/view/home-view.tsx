@@ -18,9 +18,11 @@ import { IBlogPostProps, IPublicationProps } from 'src/types/blog';
 import Hero from '../landing/hero';
 import NpfFaqs from '../landing/faqs';
 import OurTeam from '../landing/our-team';
+import AboutHero from '../about/about-hero';
 import OurClients from '../landing/our-clients';
 import OurGallery from '../landing/our-gallery';
 import NpfOurMission from '../landing/our-mission';
+import AboutCoreValues from '../about/core-values';
 import NpfTestimonial from '../testimonial/npf-testimonial';
 
 // ----------------------------------------------------------------------
@@ -53,13 +55,17 @@ export default function LandingView({
     <>
       <Hero articles={featured_posts} />
 
+      <AboutHero />
+
+      <AboutCoreValues />
+
+      <NpfOurMission />
+
       <NpfLatestPost posts={latest_posts} />
 
       <NpfLatestEvents events={latest_events} />
 
       <NpfLatestPublications publications={latest_publications} />
-
-      <NpfOurMission />
 
       <NpfFaqs faqs={faqs} />
 

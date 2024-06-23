@@ -54,7 +54,7 @@ export default function OurTeam({ members, seletecRoleSlug, roles: rolesFetched 
           color: 'text.secondary',
         }}
       >
-        Our dedicated team of 6 members from across Nepal brings together a wealth of expertise and
+        Our dedicated team from across Nepal brings together a wealth of expertise and
         accomplishments in research, analysis, and publishing. At NPF, we are committed to driving
         informed public discourse and fostering active citizenship across Nepal.
       </Typography>
