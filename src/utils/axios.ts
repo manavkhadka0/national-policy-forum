@@ -37,6 +37,14 @@ export const endpoints = {
     latest_posts: '/api/blog?is_latest=True',
     featured_posts: '/api/blog?is_featured=True',
   },
+  opportunity: {
+    list: '/api/opportunity/',
+    opportunity_details: (slug: string) => `/api/opportunity/${slug}`,
+    latest_opportunities: '/api/opportunity?is_latest=True',
+    featured_opportunities: '/api/opportunity?is_featured=True',
+    type: '/api/opportunity-type',
+    type_name: '/api/opportunity-type-name',
+  },
   publication: {
     list: '/api/publication/',
     publication_details: (slug: string) => `/api/publication/${slug}`,

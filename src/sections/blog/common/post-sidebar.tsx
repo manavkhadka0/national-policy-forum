@@ -86,7 +86,7 @@ export default function PostSidebar({
 
   const renderRecentPosts = recentPosts && (
     <Stack spacing={3}>
-      <Typography variant="h5">Recent Posts</Typography>
+      <Typography variant="h5">Recent {recentPosts.basePath.toUpperCase()}</Typography>
 
       {recentPosts.list.map((post) => (
         <PostItemMobile key={post.slug} post={post} onSiderbar basePath={recentPosts.basePath} />

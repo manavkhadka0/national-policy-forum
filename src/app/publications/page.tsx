@@ -10,7 +10,7 @@ import { ITestimonialProps } from 'src/types/testimonial';
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'Home - National Policy Forum',
+  title: 'Publications - National Policy Forum',
 };
 
 export const revalidate = 10;

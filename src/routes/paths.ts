@@ -12,6 +12,8 @@ export const paths = {
   latest_events: '/events?is_latest=True',
   publication: (id: string) => `/publications/${id}`,
   publications: '/publications',
+  opportunity: (id: string) => `/opportunities/${id}`,
+  opportunities: '/opportunities',
   events: '/events',
   event: (id: string) => `/events/${id}`,
   careers: '/careers',
