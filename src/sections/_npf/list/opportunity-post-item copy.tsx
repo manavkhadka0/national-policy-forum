@@ -36,7 +36,7 @@ export default function OpportunityPostItem({ post }: Props) {
         </Stack>
 
         <Stack spacing={1}>
-          <Link component={RouterLink} href={paths.publication(post.slug)} color="inherit">
+          <Link component={RouterLink} href={paths.opportunity(post.slug)} color="inherit">
             <TextMaxLine variant="h6" persistent>
               {post.title}
             </TextMaxLine>
