@@ -27,12 +27,12 @@ export default function TravelNewsletter() {
         ...bgGradient({
           startColor: `${alpha(theme.palette.grey[900], 0.88)}`,
           endColor: `${alpha(theme.palette.grey[900], 0.88)}`,
-          imgUrl: '/assets/images/travel/travel_newsletter.jpg',
+          imgUrl: '/assets/images/travel/travel_newsletter.webp',
           ...(mdUp && {
             direction: 'to right',
             startColor: `${alpha(theme.palette.grey[900], 0)} 0%`,
             endColor: `${alpha(theme.palette.grey[900], 1)} 50%`,
-            imgUrl: '/assets/images/travel/travel_newsletter.jpg',
+            imgUrl: '/assets/images/travel/travel_newsletter.webp',
           }),
         }),
         py: 10,
@@ -53,9 +53,9 @@ export default function TravelNewsletter() {
               <Typography variant="h2">Newsletter</Typography>
 
               <Typography>
-                Sign up for our newsletter to get the
+                Sign up to receive latest updates on trending stories, blogs,
                 <br />
-                latest news, announcements, and special offers
+                publications and multiple opportunities.
               </Typography>
 
               <TextField

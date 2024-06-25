@@ -66,20 +66,18 @@ export default function OurTeamDetailItem({ member }: OurTeamDetailItemProps) {
           alignItems={{ md: 'flex-start' }}
           justifyContent={{ md: 'space-between' }}
         >
-          {mdUp && (
-            <Grid xs={12} md={6} lg={5}>
-              <Image alt={member.name} src={member.photo} ratio="1/1" sx={{ borderRadius: 2 }} />
-              <Typography variant="h4" sx={{ mt: 3, textAlign: 'center' }}>
-                {member.name}
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{ mt: 0.5, textAlign: 'center', color: 'text.secondary' }}
-              >
-                {member.role}
-              </Typography>
-            </Grid>
-          )}
+          <Grid xs={12} md={6} lg={5}>
+            <Image alt={member.name} src={member.photo} ratio="1/1" sx={{ borderRadius: 2 }} />
+            <Typography variant="h4" sx={{ mt: 3, textAlign: 'center' }}>
+              {member.name}
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{ mt: 0.5, textAlign: 'center', color: 'text.secondary' }}
+            >
+              {member.role}
+            </Typography>
+          </Grid>
 
           <Grid xs={12} md={6} lg={6}>
             <Stack direction="row" alignItems="center">
