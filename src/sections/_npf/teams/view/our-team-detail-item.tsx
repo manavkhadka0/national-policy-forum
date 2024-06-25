@@ -6,8 +6,6 @@ import Grid from '@mui/material/Unstable_Grid2';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
-import { useResponsive } from 'src/hooks/use-responsive';
-
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 import Markdown from 'src/components/markdown/markdown';
@@ -20,8 +18,6 @@ type OurTeamDetailItemProps = {
 };
 
 export default function OurTeamDetailItem({ member }: OurTeamDetailItemProps) {
-  const mdUp = useResponsive('up', 'md');
-
   const _socials = [
     {
       value: 'facebook',

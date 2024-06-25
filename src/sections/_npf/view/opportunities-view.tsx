@@ -41,8 +41,8 @@ export default async function OpportunitiesView({
           <Typography variant="h2">Our Opportunities</Typography>
 
           <Typography sx={{ color: 'text.secondary' }}>
-            Here are some of our opportunities.
-            <br /> Check them out!
+            Find out latest opportunities from
+            <br /> Nepal and accross the globe.
           </Typography>
         </Stack>
 
