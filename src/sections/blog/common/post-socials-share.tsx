@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import { HOST_API } from 'src/config-global';
+import { FRONTEND_URL, HOST_API } from 'src/config-global';
 
 import Share from 'src/components/share';
 
@@ -26,7 +26,7 @@ export default function PostSocialsShare({ hashtag, quote, longButtons = false }
       )}
 
       <Share
-        url={`${HOST_API}${pathname}`}
+        url={`${FRONTEND_URL}${pathname}`}
         hashtag={hashtag}
         quote={quote}
         longButtons={longButtons}

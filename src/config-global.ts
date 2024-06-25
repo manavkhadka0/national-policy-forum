@@ -6,6 +6,8 @@ export const HOST_API =
     ? process.env.NEXT_PUBLIC_HOST_API_PROD
     : process.env.NEXT_PUBLIC_HOST_API_DEV;
 
+export const FRONTEND_URL = 'https://nationalpolicyforum.com';
+
 export const WEBSITE_CONFIG = {
   name: 'National Policy Forum',
   contact_email: 'nnpolicyforum@gmail.com',
