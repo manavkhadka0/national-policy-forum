@@ -22,7 +22,6 @@ import AboutHero from '../about/about-hero';
 import OurClients from '../landing/our-clients';
 import OurGallery from '../landing/our-gallery';
 import NpfOurMission from '../landing/our-mission';
-import AboutCoreValues from '../about/core-values';
 import NpfTestimonial from '../testimonial/npf-testimonial';
 
 // ----------------------------------------------------------------------
