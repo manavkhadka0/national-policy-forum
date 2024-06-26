@@ -6,6 +6,7 @@ export const paths = {
   home: '/',
   post: (id: string) => `/posts/${id}`,
   posts: '/posts',
+  contact: '/contact',
   latest_posts: '/blog?is_latest=True',
   aboutOrgranization: '/organization',
   latest_publications: '/publications?is_latest=True',

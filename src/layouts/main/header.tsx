@@ -363,6 +363,6 @@ const NAV_ITEMS = [
   },
   {
     title: 'Donation',
-    path: '/donation',
+    path: '/coming-soon',
   },
 ];
