@@ -57,8 +57,6 @@ export default function LandingView({
 
       <AboutHero />
 
-      <AboutCoreValues />
-
       <NpfOurMission />
 
       <NpfLatestPost posts={latest_posts} />

@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import { FRONTEND_URL, HOST_API } from 'src/config-global';
+import { FRONTEND_URL } from 'src/config-global';
 
 import Share from 'src/components/share';
 
