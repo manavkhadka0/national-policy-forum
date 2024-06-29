@@ -94,10 +94,12 @@ const StyledMarkdown = styled('div', {
   // Table
   table: {
     width: '100%',
+    display: 'block',
+    overflow: 'auto',
     borderCollapse: 'collapse',
     border: `1px solid ${theme.palette.divider}`,
     'th, td': {
-      padding: theme.spacing(1),
+      padding: theme.spacing(0.3),
       border: `1px solid ${theme.palette.divider}`,
     },
     'tbody tr:nth-of-type(odd)': {
