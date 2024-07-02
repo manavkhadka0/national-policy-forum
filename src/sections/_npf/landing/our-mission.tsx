@@ -45,9 +45,12 @@ export default function NpfOurMission() {
         <Typography sx={{ color: 'text.secondary' }}>EDUCATE , AWARE and ELEVATE.</Typography>
 
         <Typography sx={{ color: 'text.secondary' }}>
-          The National Policy Forum Nepal aims to educate the public on the importance of the
-          National Policy Forum, make the public aware of the National Policy Forum, and elevate the
-          Youth in the National Policy Forum.
+          We at NPF believe that democracies are strengthened only when the people are empowered.
+          Our mission is to work with the public to understand what works and shape what matters.
+          NPF brings forward innovative ideas and solutions through research and effective policy
+          designs to respond to the most pressing needs of our societies. We envision plans,
+          dialogues and actions for national prosperity and nation building with the people, for the
+          people.
         </Typography>
       </Stack>
 
