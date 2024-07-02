@@ -55,6 +55,10 @@ export const endpoints = {
   navLinks: {
     list: '/api/nav-links/',
   },
+  jobs: {
+    list: '/api/jobs/',
+    job_details: (slug: string) => `/api/jobs/${slug}`,
+  },
   event: {
     list: '/api/events/',
     event_details: (slug: string) => `/api/events/${slug}`,

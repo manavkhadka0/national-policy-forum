@@ -112,6 +112,33 @@ export const _jobs = [...Array(12)].map((_, index) => {
   };
 });
 
+export const jobs = [...Array(12)].map((_, index) => {
+  const type = (index % 2 && 'part time') || (index % 4 && 'freelance') || 'full time';
+
+  const level = (index % 2 && 'manager') || (index % 4 && 'intern/student') || 'No experience';
+
+  const skills = _tags.slice(0, 5);
+
+  return {
+    id: _mock.id(index),
+    slug: _mock.jobTitle(index),
+    title: type,
+    created_at: new Date(),
+    updated_at: new Date(),
+    cover: _mock.image.avatar(index),
+    location: _mock.jobTitle(index),
+    salary: (index % 3 && 12000) || 'competitive',
+    type,
+    experience: index + 1,
+    level,
+    skills,
+    deadline: add(new Date(), { months: index }),
+    description: _mock.description(index),
+    content: CONTENT,
+    urgent: index % 3 === 0,
+  };
+});
+
 export const _jobsByCompanies = [...Array(12)].map((_, index) => ({
   id: _mock.id(index),
   name: _mock.companyName(index),
