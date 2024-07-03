@@ -60,10 +60,6 @@ export default function LandingView({
 
       <NpfLatestPost posts={latest_posts} />
 
-      <NpfLatestEvents events={latest_events} />
-
-      <NpfLatestPublications publications={latest_publications} />
-
       <NpfFaqs faqs={faqs} />
 
       <NpfTestimonial testimonials={testimonials} />
@@ -71,6 +67,10 @@ export default function LandingView({
       <OurTeam members={members} roles={roles} />
 
       <OurClients clients={clients} />
+
+      <NpfLatestEvents events={latest_events} />
+
+      <NpfLatestPublications publications={latest_publications} />
 
       <OurGallery galleries={galleries} />
 

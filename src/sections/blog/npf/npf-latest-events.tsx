@@ -56,49 +56,52 @@ export default function NpfLatestEvents({ events }: Props) {
   );
 
   return (
-    <Container
+    <Box
       sx={{
-        py: { xs: 8, md: 8 },
+        bgcolor: 'background.neutral',
+        py: 8,
       }}
     >
-      <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent={{ xs: 'center', md: 'space-between' }}
-      >
-        <Typography variant="h3">Latest Events</Typography>
-
-        {mdUp && viewAllBtn}
-      </Stack>
-
-      <Box sx={{ position: 'relative' }}>
-        <CarouselArrows
-          onNext={carousel.onNext}
-          onPrev={carousel.onPrev}
-          leftButtonProps={{ sx: { left: { xs: -10, md: -40 } } }}
-          rightButtonProps={{ sx: { right: { xs: 0, md: -40 } } }}
+      <Container>
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent={{ xs: 'center', md: 'space-between' }}
         >
-          <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
-            {events.map((post) => (
-              <Box
-                key={post.slug}
-                sx={{
-                  px: 2,
-                  py: { xs: 8, md: 10 },
-                }}
-              >
-                <NpfLatestEventsItem event={post} />
-              </Box>
-            ))}
-          </Carousel>
-        </CarouselArrows>
-      </Box>
+          <Typography variant="h3">Latest Events</Typography>
 
-      {!mdUp && (
-        <Stack alignItems="center" sx={{ mt: 8 }}>
-          {viewAllBtn}
+          {mdUp && viewAllBtn}
         </Stack>
-      )}
-    </Container>
+
+        <Box sx={{ position: 'relative' }}>
+          <CarouselArrows
+            onNext={carousel.onNext}
+            onPrev={carousel.onPrev}
+            leftButtonProps={{ sx: { left: { xs: -10, md: -40 } } }}
+            rightButtonProps={{ sx: { right: { xs: 0, md: -40 } } }}
+          >
+            <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
+              {events.map((post) => (
+                <Box
+                  key={post.slug}
+                  sx={{
+                    px: 2,
+                    py: { xs: 8, md: 10 },
+                  }}
+                >
+                  <NpfLatestEventsItem event={post} />
+                </Box>
+              ))}
+            </Carousel>
+          </CarouselArrows>
+        </Box>
+
+        {!mdUp && (
+          <Stack alignItems="center" sx={{ mt: 8 }}>
+            {viewAllBtn}
+          </Stack>
+        )}
+      </Container>
+    </Box>
   );
 }

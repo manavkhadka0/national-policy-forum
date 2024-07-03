@@ -37,54 +37,51 @@ export default function NpfLatestPublications({ publications }: Props) {
   );
 
   return (
-    <Box
+    <Container
       sx={{
-        bgcolor: 'background.neutral',
-        py: { xs: 8, md: 8 },
+        py: 8,
       }}
     >
-      <Container>
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent={{ xs: 'center', md: 'space-between' }}
-          sx={{
-            mb: { xs: 8, md: 10 },
-          }}
-        >
-          <Typography variant="h3">Latest Publications</Typography>
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent={{ xs: 'center', md: 'space-between' }}
+        sx={{
+          mb: { xs: 8, md: 10 },
+        }}
+      >
+        <Typography variant="h3">Latest Publications</Typography>
 
-          {mdUp && viewAllBtn}
+        {mdUp && viewAllBtn}
+      </Stack>
+
+      <Box
+        sx={{
+          gap: 3,
+          display: 'grid',
+          gridTemplateColumns: {
+            xs: 'repeat(1, 1fr)',
+            sm: 'repeat(2, 1fr)',
+            md: 'repeat(4, 1fr)',
+          },
+        }}
+      >
+        {publications
+          .slice(0, 4)
+          .map((publication) =>
+            mdUp ? (
+              <PostItem key={publication.slug} publication={publication} />
+            ) : (
+              <PostItemMobile key={publication.slug} post={publication} basePath="publications" />
+            )
+          )}
+      </Box>
+
+      {!mdUp && (
+        <Stack alignItems="center" sx={{ mt: 8 }}>
+          {viewAllBtn}
         </Stack>
-
-        <Box
-          sx={{
-            gap: 3,
-            display: 'grid',
-            gridTemplateColumns: {
-              xs: 'repeat(1, 1fr)',
-              sm: 'repeat(2, 1fr)',
-              md: 'repeat(4, 1fr)',
-            },
-          }}
-        >
-          {publications
-            .slice(0, 4)
-            .map((publication) =>
-              mdUp ? (
-                <PostItem key={publication.slug} publication={publication} />
-              ) : (
-                <PostItemMobile key={publication.slug} post={publication} basePath="publications" />
-              )
-            )}
-        </Box>
-
-        {!mdUp && (
-          <Stack alignItems="center" sx={{ mt: 8 }}>
-            {viewAllBtn}
-          </Stack>
-        )}
-      </Container>
-    </Box>
+      )}
+    </Container>
   );
 }
