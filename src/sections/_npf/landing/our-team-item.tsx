@@ -115,7 +115,7 @@ export default function OurTeamItem({ member, ...other }: TeamMarketingMemberPro
         </StyledOverlay>
 
         <m.div variants={varHover(1.15)} transition={varTranHover()}>
-          <Image src={photo} alt={name} ratio="3/4" />
+          <Image src={photo} alt={name} ratio="1/1" />
         </m.div>
       </Box>
 

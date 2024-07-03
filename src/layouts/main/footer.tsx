@@ -19,8 +19,6 @@ import { WEBSITE_CONFIG } from 'src/config-global';
 import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify';
 
-import ContactInfo from 'src/sections/_npf/contact/contact-info';
-
 import { NavSubListProps } from './nav/types';
 import { pageLinks, navConfig } from './config-navigation';
 
@@ -39,7 +37,6 @@ export default function Footer() {
 
   const mainFooter = (
     <>
-      <ContactInfo />
       <Divider />
 
       <Container
@@ -49,55 +46,71 @@ export default function Footer() {
         }}
       >
         <Grid container spacing={3} justifyContent={{ md: 'space-between' }}>
-          <Grid xs={12} md={4}>
-            <Stack spacing={{ xs: 3, md: 5 }}>
-              <Stack alignItems="flex-start" spacing={3}>
-                <Logo />
+          <Grid xs={12} md={4} lg={4}>
+            <Logo sx={{ py: 2 }} />
 
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                  The National Policy Forum (NPF), established in 2024 and registered under the
-                  Companies Act, is a consulting agency dedicated to educating and gathering
-                  opinions on public affairs in Nepal. NPF promotes good governance, evidence-based
-                  decision-making, and civic awareness across the country. By fostering informed
-                  discourse, NPF aims to cultivate a more engaged and knowledgeable society, driving
-                  positive change and sustainable, inclusive national development.
-                </Typography>
-              </Stack>
-
-              <Stack spacing={2}>
-                <Stack spacing={1}>
-                  <Typography variant="h6">Contact Us</Typography>
-                  <Link href="mailto:nnopolicyforum@gmail.com" color="inherit">
-                    <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                      nnpolicyforum@gmail.com
-                    </Typography>
-                  </Link>
-                  <Link href="tel:+977-9767276347" color="inherit">
-                    <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                      +977-9767276347
-                    </Typography>
-                  </Link>
-                  <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                    Bharatpur, Chitwan, Nepal
-                  </Typography>
+            <Stack spacing={3} alignItems={{ xs: 'flex-start', md: 'flex-start' }}>
+              <Stack spacing={1}>
+                <Stack direction="row" alignItems="center" sx={{ typography: 'subtitle2' }}>
+                  <Iconify icon="carbon:email" width={24} sx={{ mr: 1 }} /> Email
                 </Stack>
+
+                <Link
+                  color="inherit"
+                  variant="body2"
+                  href={`mailto:${WEBSITE_CONFIG.contact_email}`}
+                >
+                  {WEBSITE_CONFIG.contact_email}
+                </Link>
               </Stack>
 
-              <Stack spacing={2}>
-                <Typography variant="h6">Socials</Typography>
-                <Stack direction="row" alignItems="center">
-                  {WEBSITE_CONFIG.socials.map((social) => (
-                    <IconButton key={social.value} color="primary">
-                      <Link href={social.link}>
-                        <Iconify icon={social.icon} />
+              <Stack spacing={1}>
+                <Stack direction="row" alignItems="center" sx={{ typography: 'subtitle2' }}>
+                  <Iconify icon="carbon:mobile" width={24} sx={{ mr: 1 }} /> Phone
+                </Stack>
+
+                {/* <Typography variant="body2">{WEBSITE_CONFIG.contact_phone}</Typography> */}
+                <Link color="inherit" variant="body2" href={`tel:${WEBSITE_CONFIG.contact_phone}`}>
+                  {WEBSITE_CONFIG.contact_phone}
+                </Link>
+              </Stack>
+
+              <Stack spacing={1}>
+                <Stack direction="row" alignItems="center" sx={{ typography: 'subtitle2' }}>
+                  <Iconify icon="carbon:location" width={24} sx={{ mr: 1 }} /> Address
+                </Stack>
+
+                <Typography variant="body2">{WEBSITE_CONFIG.contact_address}</Typography>
+              </Stack>
+
+              <Divider sx={{ borderStyle: 'dashed', width: 1 }} />
+
+              <Stack spacing={1} alignItems={{ xs: 'flex-start', md: 'flex-start' }}>
+                <Typography variant="overline">Follow Us</Typography>
+                <Stack direction="row">
+                  <Stack direction="row">
+                    {WEBSITE_CONFIG.socials.map((social) => (
+                      <Link
+                        key={social.label}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={social.link}
+                      >
+                        <IconButton
+                          key={social.value}
+                          sx={{
+                            color: social.color,
+                          }}
+                        >
+                          <Iconify icon={social.icon} />
+                        </IconButton>
                       </Link>
-                    </IconButton>
-                  ))}
+                    ))}
+                  </Stack>
                 </Stack>
               </Stack>
             </Stack>
           </Grid>
-
           <Grid xs={12} md={6}>
             {mdUp ? (
               <Masonry columns={4} spacing={2} defaultColumns={4} defaultSpacing={2}>

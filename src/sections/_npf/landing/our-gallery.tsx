@@ -9,7 +9,6 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Container from '@mui/material/Container';
 
 import Image from 'src/components/image';
-import TextMaxLine from 'src/components/text-max-line/text-max-line';
 import Lightbox, { SlideVideo, useLightbox } from 'src/components/lightbox';
 
 // ----------------------------------------------------------------------
@@ -68,14 +67,6 @@ export default function OurGallery({ galleries }: GalleryProps) {
                           cursor: 'pointer',
                         }}
                       />
-                      <Box textAlign="left" sx={{ pt: 2 }}>
-                        <Typography variant="h5" component="h1" sx={{}} style={{ font: 'bold' }}>
-                          {slide.title} {slide.type === 'video' && '🎥'}
-                        </Typography>
-                        <TextMaxLine variant="body2" line={2}>
-                          {slide.description}
-                        </TextMaxLine>
-                      </Box>
                     </Stack>
                   );
                 })}

@@ -25,7 +25,7 @@ export default function TravelLandingPostItem({ post }: Props) {
       </Typography>
 
       <Link component={RouterLink} href={paths.post(post.slug)} sx={{ color: 'common.white' }}>
-        <TextMaxLine variant="h4" sx={{ mt: 1, mb: 2 }}>
+        <TextMaxLine variant="h5" sx={{ mt: 1, mb: 2 }}>
           {post.title}
         </TextMaxLine>
       </Link>

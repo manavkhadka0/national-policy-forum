@@ -15,11 +15,10 @@ import { useResponsive } from 'src/hooks/use-responsive';
 
 import { fDate } from 'src/utils/format-time';
 
-import { bgBlur, bgGradient } from 'src/theme/css';
+import { bgGradient } from 'src/theme/css';
 
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
-import TextMaxLine from 'src/components/text-max-line';
 import Carousel, { useCarousel, CarouselDots, CarouselArrows } from 'src/components/carousel';
 
 import { IBlogPostProps } from 'src/types/blog';
@@ -51,23 +50,9 @@ export default function Hero({ articles }: Props) {
     }),
   });
 
-  const carouselThumb = useCarousel({
-    vertical: true,
-    slidesToShow: 3,
-    centerMode: true,
-    slidesToScroll: 1,
-    swipeToSlide: true,
-    focusOnSelect: true,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    centerPadding: '0px',
-    verticalSwiping: true,
-  });
-
   useEffect(() => {
     carouselLarge.onSetNav();
-    carouselThumb.onSetNav();
-  }, [carouselLarge, carouselThumb]);
+  }, [carouselLarge]);
 
   if (!articles?.length) {
     return null;
@@ -76,56 +61,28 @@ export default function Hero({ articles }: Props) {
   return (
     <Box sx={{ minHeight: { md: '100vh' }, position: 'relative' }}>
       {!!articles.length && (
-        <Carousel
-          {...carouselLarge.carouselSettings}
-          asNavFor={carouselThumb.nav}
-          ref={carouselLarge.carouselRef}
-        >
+        <Carousel {...carouselLarge.carouselSettings} ref={carouselLarge.carouselRef}>
           {articles.map((article) => (
             <CarouselItem key={article.id} article={article} />
           ))}
         </Carousel>
       )}
 
-      {mdUp && (
-        <Stack
+      {mdUp && !!articles.length && (
+        <CarouselArrows
           spacing={2}
+          filled
           justifyContent="center"
+          onNext={carouselLarge.onNext}
+          onPrev={carouselLarge.onPrev}
           sx={{
-            top: 0,
-            height: 1,
-            maxWidth: 440,
+            width: 1,
+            alignItems: 'center',
             position: 'absolute',
-            right: 0,
-            mx: 10,
+            top: '90%',
+            transform: 'translateY(-50%)',
           }}
-        >
-          {!!articles.length && (
-            <>
-              <Carousel
-                {...carouselThumb.carouselSettings}
-                asNavFor={carouselLarge.nav}
-                ref={carouselThumb.carouselRef}
-              >
-                {articles.map((article, index) => (
-                  <ThumbnailItem
-                    key={article.id}
-                    article={article}
-                    selected={carouselLarge.currentIndex === index}
-                  />
-                ))}
-              </Carousel>
-              <CarouselArrows
-                spacing={2}
-                filled
-                justifyContent="center"
-                onNext={carouselThumb.onNext}
-                onPrev={carouselThumb.onPrev}
-                sx={{ width: 1 }}
-              />
-            </>
-          )}
-        </Stack>
+        />
       )}
     </Box>
   );
@@ -173,7 +130,7 @@ function CarouselItem({ article }: CarouselItemProps) {
         sx={{
           zIndex: 9,
           py: { xs: 14, md: 0 },
-          px: { xs: 2, md: 5 },
+          px: { xs: 2, md: 14 },
           mt: { lg: 8 },
           position: { md: 'absolute' },
         }}
@@ -273,57 +230,5 @@ function CarouselItem({ article }: CarouselItemProps) {
         />
       </Box>
     </Box>
-  );
-}
-
-// ----------------------------------------------------------------------
-
-type ThumbnailItemProps = {
-  article: IBlogPostProps;
-  selected?: boolean;
-};
-
-function ThumbnailItem({ article, selected }: ThumbnailItemProps) {
-  const theme = useTheme();
-
-  return (
-    <Stack
-      direction="row"
-      alignItems="center"
-      spacing={2.5}
-      sx={{
-        px: 2,
-        py: 1.5,
-        my: 1,
-        cursor: 'pointer',
-        color: 'common.white',
-        borderRadius: 2,
-        ...bgBlur({
-          opacity: 0.08,
-          color: theme.palette.common.white,
-        }),
-        ...(selected && {
-          ...bgBlur({
-            opacity: 0.5,
-            color: theme.palette.common.white,
-          }),
-        }),
-      }}
-    >
-      <Avatar src={article.cover} sx={{ width: 48, height: 48, borderRadius: '8px' }} />
-
-      <Stack spacing={0.5}>
-        <TextMaxLine variant="h6" line={1}>
-          {article.title}
-        </TextMaxLine>
-
-        <Stack direction="row" alignItems="center">
-          <Iconify icon="carbon:category" sx={{ mr: 1, color: 'common.white' }} />
-          <TextMaxLine variant="caption" line={1} sx={{ opacity: 0.48 }}>
-            {article.category}
-          </TextMaxLine>
-        </Stack>
-      </Stack>
-    </Stack>
   );
 }

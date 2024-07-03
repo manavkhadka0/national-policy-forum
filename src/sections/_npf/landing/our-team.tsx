@@ -80,8 +80,9 @@ export default function OurTeam({ members, seletecRoleSlug, roles: rolesFetched 
           gridTemplateColumns: {
             xs: 'repeat(1, 1fr)',
             sm: 'repeat(2, 1fr)',
-            md: 'repeat(4, 1fr)',
+            md: 'repeat(3, 1fr)',
           },
+          alignItems: 'center',
         }}
       >
         {filtered.map((member) => (

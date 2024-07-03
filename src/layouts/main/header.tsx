@@ -353,16 +353,28 @@ const NAV_ITEMS = [
     },
     children: [],
   },
+
   {
-    title: 'Careers',
-    path: '/careers',
-  },
-  {
-    title: 'Contact',
-    path: '/contact',
-  },
-  {
-    title: 'Donation',
-    path: '/coming-soon',
+    title: 'More',
+    path: '#',
+    children: [
+      {
+        subheader: '',
+        items: [
+          {
+            title: 'Careers',
+            path: '/careers',
+          },
+          {
+            title: 'Contact',
+            path: '/contact',
+          },
+          {
+            title: 'Donation',
+            path: '/coming-soon',
+          },
+        ],
+      },
+    ],
   },
 ];
