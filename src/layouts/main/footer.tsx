@@ -16,8 +16,9 @@ import { useResponsive } from 'src/hooks/use-responsive';
 
 import { WEBSITE_CONFIG } from 'src/config-global';
 
-import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify';
+
+import ContactInfo from 'src/sections/_npf/contact/contact-info';
 
 import { NavSubListProps } from './nav/types';
 import { pageLinks, navConfig } from './config-navigation';
@@ -47,8 +48,6 @@ export default function Footer() {
       >
         <Grid container spacing={3} justifyContent={{ md: 'space-between' }}>
           <Grid xs={12} md={4} lg={4}>
-            <Logo sx={{ py: 2 }} />
-
             <Stack spacing={3} alignItems={{ xs: 'flex-start', md: 'flex-start' }}>
               <Stack spacing={1}>
                 <Stack direction="row" alignItems="center" sx={{ typography: 'subtitle2' }}>
