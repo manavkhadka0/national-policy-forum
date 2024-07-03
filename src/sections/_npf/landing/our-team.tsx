@@ -38,7 +38,7 @@ export default function OurTeam({ members, seletecRoleSlug, roles: rolesFetched 
   return (
     <Container
       sx={{
-        py: { xs: 10, md: 15 },
+        py: { xs: 8, md: 8 },
       }}
     >
       <Typography variant="h2" sx={{ textAlign: 'center' }}>

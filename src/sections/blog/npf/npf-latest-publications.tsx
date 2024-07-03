@@ -40,7 +40,7 @@ export default function NpfLatestPublications({ publications }: Props) {
     <Box
       sx={{
         bgcolor: 'background.neutral',
-        py: { xs: 10, md: 15 },
+        py: { xs: 8, md: 8 },
       }}
     >
       <Container>

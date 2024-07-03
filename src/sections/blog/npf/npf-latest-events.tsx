@@ -58,7 +58,7 @@ export default function NpfLatestEvents({ events }: Props) {
   return (
     <Container
       sx={{
-        py: { xs: 8, md: 15 },
+        py: { xs: 8, md: 8 },
       }}
     >
       <Stack

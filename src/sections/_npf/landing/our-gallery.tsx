@@ -26,8 +26,13 @@ export default function OurGallery({ galleries }: GalleryProps) {
   if (!galleries.length) return null;
 
   return (
-    <>
-      <Container sx={{ my: 10 }} maxWidth={false}>
+    <Box
+      sx={{
+        backgroundColor: 'background.neutral',
+        py: 8,
+      }}
+    >
+      <Container maxWidth={false}>
         <Stack
           direction="column"
           spacing={3}
@@ -112,6 +117,6 @@ export default function OurGallery({ galleries }: GalleryProps) {
         slides={galleries}
         index={lightbox.selected}
       />
-    </>
+    </Box>
   );
 }
