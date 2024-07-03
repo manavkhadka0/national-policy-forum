@@ -11,14 +11,14 @@ import { useResponsive } from 'src/hooks/use-responsive';
 
 import Iconify from 'src/components/iconify';
 
-import { IJobProps } from 'src/types/job';
+import { INPFJobProps } from 'src/types/job';
 
 import CareerJobItem from './job-item';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  jobs: IJobProps[];
+  jobs: INPFJobProps[];
 };
 
 export default function JobListSimilar({ jobs }: Props) {
