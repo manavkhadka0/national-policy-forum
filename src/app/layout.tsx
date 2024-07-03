@@ -10,6 +10,7 @@ import { LocalizationProvider } from 'src/locales';
 import ProgressBar from 'src/components/progress-bar';
 import { MotionLazy } from 'src/components/animate/motion-lazy';
 import { SettingsDrawer, SettingsProvider } from 'src/components/settings';
+import ScrollToTop from 'src/components/scroll-to-top/scroll-top-top';
 
 // ----------------------------------------------------------------------
 
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: Props) {
             <ThemeProvider>
               <MotionLazy>
                 <ProgressBar />
+                <ScrollToTop />
                 <SettingsDrawer />
                 {children}
               </MotionLazy>

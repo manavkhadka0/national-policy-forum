@@ -18,8 +18,6 @@ import { WEBSITE_CONFIG } from 'src/config-global';
 
 import Iconify from 'src/components/iconify';
 
-import ContactInfo from 'src/sections/_npf/contact/contact-info';
-
 import { NavSubListProps } from './nav/types';
 import { pageLinks, navConfig } from './config-navigation';
 
@@ -49,6 +47,30 @@ export default function Footer() {
         <Grid container spacing={3} justifyContent={{ md: 'space-between' }}>
           <Grid xs={12} md={4} lg={4}>
             <Stack spacing={3} alignItems={{ xs: 'flex-start', md: 'flex-start' }}>
+              <Stack spacing={1} alignItems={{ xs: 'flex-start', md: 'flex-start' }}>
+                <Typography variant="overline">Follow Us</Typography>
+                <Stack direction="row">
+                  <Stack direction="row">
+                    {WEBSITE_CONFIG.socials.map((social) => (
+                      <Link
+                        key={social.label}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={social.link}
+                      >
+                        <IconButton
+                          key={social.value}
+                          sx={{
+                            color: social.color,
+                          }}
+                        >
+                          <Iconify icon={social.icon} />
+                        </IconButton>
+                      </Link>
+                    ))}
+                  </Stack>
+                </Stack>
+              </Stack>
               <Stack spacing={1}>
                 <Stack direction="row" alignItems="center" sx={{ typography: 'subtitle2' }}>
                   <Iconify icon="carbon:email" width={24} sx={{ mr: 1 }} /> Email
@@ -83,31 +105,6 @@ export default function Footer() {
               </Stack>
 
               <Divider sx={{ borderStyle: 'dashed', width: 1 }} />
-
-              <Stack spacing={1} alignItems={{ xs: 'flex-start', md: 'flex-start' }}>
-                <Typography variant="overline">Follow Us</Typography>
-                <Stack direction="row">
-                  <Stack direction="row">
-                    {WEBSITE_CONFIG.socials.map((social) => (
-                      <Link
-                        key={social.label}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={social.link}
-                      >
-                        <IconButton
-                          key={social.value}
-                          sx={{
-                            color: social.color,
-                          }}
-                        >
-                          <Iconify icon={social.icon} />
-                        </IconButton>
-                      </Link>
-                    ))}
-                  </Stack>
-                </Stack>
-              </Stack>
             </Stack>
           </Grid>
           <Grid xs={12} md={6}>
