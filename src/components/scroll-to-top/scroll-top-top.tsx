@@ -29,9 +29,9 @@ export default function ScrollToTop() {
           zIndex: 9,
           position: 'fixed',
           color: (theme) => alpha(theme.palette.common.white, 1),
-          bgcolor: (theme) => alpha(theme.palette.common.black, 1),
+          bgcolor: (theme) => alpha(theme.palette.primary.main, 1),
           '&:hover': {
-            bgcolor: (theme) => alpha(theme.palette.common.black, 0.66),
+            bgcolor: (theme) => alpha(theme.palette.primary.lighter, 0.01),
           },
         }}
       >
