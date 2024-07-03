@@ -38,7 +38,7 @@ export default function NpfOurMission() {
               <Typography variant="h2">Our Mission</Typography>
 
               <Typography variant="h5" fontWeight={600}>
-                EDUCATE. ELEVATE. AWARE.
+                EDUCATE. AWARE. ELEVATE.
               </Typography>
 
               <Typography sx={{ color: 'text.secondary' }}>
