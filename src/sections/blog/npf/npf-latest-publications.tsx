@@ -39,7 +39,7 @@ export default function NpfLatestPublications({ publications }: Props) {
   return (
     <Container
       sx={{
-        py: 8,
+        py: 6,
       }}
     >
       <Stack
@@ -47,7 +47,7 @@ export default function NpfLatestPublications({ publications }: Props) {
         alignItems="center"
         justifyContent={{ xs: 'center', md: 'space-between' }}
         sx={{
-          mb: { xs: 8, md: 10 },
+          mb: 6,
         }}
       >
         <Typography variant="h3">Latest Publications</Typography>

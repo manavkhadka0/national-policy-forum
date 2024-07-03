@@ -59,7 +59,7 @@ export default function NpfLatestEvents({ events }: Props) {
     <Box
       sx={{
         bgcolor: 'background.neutral',
-        py: 8,
+        py: 6,
       }}
     >
       <Container>
@@ -86,7 +86,7 @@ export default function NpfLatestEvents({ events }: Props) {
                   key={post.slug}
                   sx={{
                     px: 2,
-                    py: { xs: 8, md: 10 },
+                    py: 6,
                   }}
                 >
                   <NpfLatestEventsItem event={post} />

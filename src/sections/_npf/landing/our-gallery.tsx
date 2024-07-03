@@ -29,21 +29,21 @@ export default function OurGallery({ galleries }: GalleryProps) {
     <Box
       sx={{
         backgroundColor: 'background.neutral',
-        py: 8,
+        py: 6,
       }}
     >
-      <Container maxWidth={false}>
-        <Stack
-          direction="column"
-          spacing={3}
-          sx={{
-            textAlign: 'center',
-          }}
-        >
-          <Typography variant="h2">Our Gallery</Typography>
-          <Typography sx={{ color: 'text.secondary', pb: 4 }}>
-            Visual Stories of Our Impact
-          </Typography>
+      <Container>
+        <Stack direction="column" spacing={3}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent={{ xs: 'center', md: 'space-between' }}
+            sx={{
+              mb: { xs: 6 },
+            }}
+          >
+            <Typography variant="h3">Our Gallery </Typography>
+          </Stack>
           <Grid container spacing={3}>
             <Grid xs={12}>
               <Box
@@ -51,8 +51,8 @@ export default function OurGallery({ galleries }: GalleryProps) {
                 display="grid"
                 gridTemplateColumns={{
                   xs: 'repeat(1, 1fr)',
-                  sm: 'repeat(3, 1fr)',
-                  md: 'repeat(4, 1fr)',
+                  sm: 'repeat(2, 1fr)',
+                  md: 'repeat(3, 1fr)',
                 }}
               >
                 {galleries?.map((slide, index) => {
