@@ -3,12 +3,14 @@
 import { Slide, SlideImage } from 'yet-another-react-lightbox';
 
 import Box from '@mui/material/Box';
-import { Stack } from '@mui/system';
-import { Typography } from '@mui/material';
+import Fab from '@mui/material/Fab';
+import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Unstable_Grid2';
 import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 
 import Image from 'src/components/image';
+import Iconify from 'src/components/iconify';
 import Lightbox, { SlideVideo, useLightbox } from 'src/components/lightbox';
 
 // ----------------------------------------------------------------------
@@ -55,19 +57,46 @@ export default function OurGallery({ galleries }: GalleryProps) {
                       : (slide as SlideImage).src;
 
                   return (
-                    <Stack direction="column" key={index}>
-                      <Image
-                        key={thumbnail}
-                        alt={thumbnail}
-                        src={thumbnail}
-                        ratio="1/1"
-                        onClick={() => lightbox.onOpen(`${thumbnail}`)}
+                    <Box
+                      key={index}
+                      sx={{
+                        position: 'relative',
+                      }}
+                    >
+                      <Stack
+                        alignItems="center"
+                        justifyContent="center"
                         sx={{
-                          borderRadius: 1,
-                          cursor: 'pointer',
+                          position: 'relative',
+                          borderRadius: 2,
+                          overflow: 'hidden',
                         }}
-                      />
-                    </Stack>
+                      >
+                        <Fab
+                          color="error"
+                          onClick={() => lightbox.onOpen(`${thumbnail}`)}
+                          sx={{
+                            zIndex: 9,
+                            position: 'absolute',
+                            display: slide.type === 'video' ? 'flex' : 'none',
+                          }}
+                        >
+                          <Iconify icon="carbon:play" width={24} />
+                        </Fab>
+
+                        <Image
+                          alt={thumbnail}
+                          key={thumbnail}
+                          src={thumbnail}
+                          ratio="1/1"
+                          sx={{
+                            borderRadius: 1,
+                            cursor: 'pointer',
+                            objectFit: 'cover',
+                          }}
+                        />
+                      </Stack>
+                    </Box>
                   );
                 })}
               </Box>
