@@ -63,6 +63,25 @@ export type IJobProps = {
   };
 };
 
+export type INPFJobProps = {
+  id: string;
+  slug: string;
+  title: string;
+  created_at: Date;
+  updated_at: Date;
+  cover: string;
+  location: string;
+  salary: string | number;
+  type: string;
+  experience: string | number;
+  level: string;
+  skills: string[];
+  deadline: Date;
+  description: string;
+  urgent: boolean;
+  content: string;
+};
+
 export type IJobFiltersProps = {
   filterType: string[];
   filterLevel: string[];

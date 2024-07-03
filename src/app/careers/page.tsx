@@ -1,3 +1,5 @@
+import { getJobsList } from 'src/actions/jobs';
+
 import JobsView from 'src/sections/_jobs/view/jobs-view';
 
 // ----------------------------------------------------------------------
@@ -9,5 +11,6 @@ export const metadata = {
 export const revalidate = 10;
 
 export default async function DonationLandingPage() {
-  return <JobsView />;
+  const jobs = await getJobsList();
+  return <JobsView jobs={jobs} />;
 }

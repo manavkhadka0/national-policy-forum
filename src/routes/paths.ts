@@ -18,6 +18,7 @@ export const paths = {
   events: '/events',
   event: (id: string) => `/events/${id}`,
   careers: '/careers',
+  career_details: (id: string) => `/careers/${id}`,
   donations: '/donation',
   teams: '/teams',
   teamMemberDetail: (id: string) => `/team-member/${id}`,

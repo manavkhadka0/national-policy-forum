@@ -1,10 +1,7 @@
-import { useState, useCallback } from 'react';
-
 import Card from '@mui/material/Card';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
-import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
@@ -14,38 +11,21 @@ import { RouterLink } from 'src/routes/components';
 import { fDate } from 'src/utils/format-time';
 import { fCurrency } from 'src/utils/format-number';
 
+import Logo from 'src/components/logo';
 import Label from 'src/components/label';
-import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 import TextMaxLine from 'src/components/text-max-line';
 
-import { IJobProps } from 'src/types/job';
+import { INPFJobProps } from 'src/types/job';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  job: IJobProps;
+  job: INPFJobProps;
 };
 
 export default function JobItem({ job }: Props) {
-  const {
-    slug,
-    type,
-    level,
-    salary,
-    location,
-    urgent,
-    created_at,
-    favorited,
-    experience,
-    company,
-  } = job;
-
-  const [favorite, setFavorite] = useState(favorited);
-
-  const handleChangeFavorite = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    setFavorite(event.target.checked);
-  }, []);
+  const { type, level, salary, location, urgent, created_at, experience, title } = job;
 
   return (
     <Card
@@ -55,35 +35,20 @@ export default function JobItem({ job }: Props) {
         },
       }}
     >
-      <Checkbox
-        color="error"
-        checked={favorite}
-        onChange={handleChangeFavorite}
-        icon={<Iconify icon="carbon:favorite" />}
-        checkedIcon={<Iconify icon="carbon:favorite-filled" />}
-        sx={{ position: 'absolute', right: 16, top: 16 }}
-      />
-
       <Stack sx={{ p: 3, pb: 0 }}>
-        <Stack direction="row" alignItems="center" spacing={2.5}>
-          <Image
-            alt={company.name}
-            src={company.logo}
-            sx={{ width: 48, height: 48, borderRadius: 1 }}
-          />
-
-          {urgent && <Label color="error">Urgent</Label>}
-        </Stack>
-
+        <Logo />
         <Stack spacing={0.5} sx={{ mt: 3, mb: 2 }}>
-          <Link component={RouterLink} href={paths.career.job} color="inherit">
-            <TextMaxLine variant="h6" line={1}>
-              {slug}
-            </TextMaxLine>
-          </Link>
+          <Stack direction="row" alignItems="center" justifyContent="space-between">
+            <Link component={RouterLink} href={paths.career_details(job.slug)} color="inherit">
+              <TextMaxLine variant="h6" line={1}>
+                {title}
+              </TextMaxLine>
+            </Link>
+            {urgent && <Label color="error">Urgent</Label>}
+          </Stack>
 
           <Typography variant="body2" sx={{ color: 'info.main' }}>
-            {company.name}
+            National Policy Forum
           </Typography>
 
           <Stack

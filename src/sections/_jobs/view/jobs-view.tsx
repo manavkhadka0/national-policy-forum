@@ -6,15 +6,19 @@ import Container from '@mui/material/Container';
 
 import { useBoolean } from 'src/hooks/use-boolean';
 
-import { _jobs } from 'src/_mock';
-
 import CareerNewsletter from 'src/sections/_career/career-newsletter';
+
+import { IJobProps } from 'src/types/job';
 
 import JobList from '../list/job-list';
 
 // ----------------------------------------------------------------------
 
-export default function JobsView() {
+type JobsViewProps = {
+  jobs: IJobProps[];
+};
+
+export default function JobsView({ jobs }: JobsViewProps) {
   const loading = useBoolean(true);
 
   useEffect(() => {
@@ -28,7 +32,7 @@ export default function JobsView() {
   return (
     <>
       <Container sx={{ py: 6 }}>
-        <JobList jobs={_jobs} loading={loading.value} />
+        <JobList jobs={jobs} loading={loading.value} />
       </Container>
 
       <CareerNewsletter />
