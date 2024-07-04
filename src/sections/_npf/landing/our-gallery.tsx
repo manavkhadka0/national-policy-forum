@@ -78,10 +78,11 @@ export default function OurGallery({ galleries }: GalleryProps) {
                         }}
                       >
                         <Fab
-                          color="error"
+                          color="primary"
                           onClick={() => lightbox.onOpen(`${thumbnail}`)}
                           sx={{
                             zIndex: 9,
+
                             position: 'absolute',
                             display: slide.type === 'video' ? 'flex' : 'none',
                           }}
