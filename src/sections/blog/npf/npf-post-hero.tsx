@@ -42,7 +42,11 @@ export default function NpfPostHero({ post, updatedViewCount }: Props) {
               py: { xs: 3, md: 5 },
             }}
           >
-            <PostTimeBlock created_at={fDate(post.created_at)} duration={post.duration} />
+            <PostTimeBlock
+              created_at={fDate(post.created_at)}
+              duration={post.duration}
+              viewsCount={updatedViewCount}
+            />
 
             <Typography color="inherit" variant="h3">
               {post.title}
