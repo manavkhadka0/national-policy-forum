@@ -8,9 +8,10 @@ import { fDate } from 'src/utils/format-time';
 interface Props extends StackProps {
   created_at: string;
   duration?: string;
+  viewsCount?: number;
 }
 
-export default function PostTimeBlock({ created_at, duration, sx, ...other }: Props) {
+export default function PostTimeBlock({ created_at, duration, viewsCount, sx, ...other }: Props) {
   return (
     <Stack
       flexWrap="wrap"
@@ -35,6 +36,21 @@ export default function PostTimeBlock({ created_at, duration, sx, ...other }: Pr
           />
 
           {duration}
+        </>
+      )}
+      {viewsCount && (
+        <>
+          <Box
+            component="span"
+            sx={{
+              mx: 1,
+              width: 4,
+              height: 4,
+              borderRadius: '50%',
+              backgroundColor: 'currentColor',
+            }}
+          />
+          {viewsCount} views
         </>
       )}
     </Stack>

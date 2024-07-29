@@ -1,6 +1,7 @@
 'use-client';
 
 import { getTags } from 'src/actions/tag';
+import { incrementViews } from 'src/actions/increment-views';
 import { getCategoriesNameOnly } from 'src/actions/categories';
 import { getSinglePost, getLatestPosts } from 'src/actions/post';
 
@@ -34,8 +35,17 @@ export const revalidate = 10;
 export default async function PostDetailPage({ params }: { params: { id: string } }) {
   const post = await getSinglePost(params.id);
   const recentPosts = await getLatestPosts();
+  const updatedViewCount = await incrementViews('blog', params.id);
   const tags: string[] = await getTags();
   const categories: string[] = await getCategoriesNameOnly();
 
-  return <PostView categories={categories} tags={tags} post={post} recentPosts={recentPosts} />;
+  return (
+    <PostView
+      updatedViewCount={updatedViewCount || 0}
+      categories={categories}
+      tags={tags}
+      post={post}
+      recentPosts={recentPosts}
+    />
+  );
 }

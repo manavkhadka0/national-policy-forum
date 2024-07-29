@@ -34,16 +34,23 @@ type Props = {
   tags: string[];
   categories: string[];
   recentPosts: IBlogPostProps[];
+  updatedViewCount: number;
 };
 
-export default function PostView({ post, recentPosts, categories, tags: mainTag }: Props) {
+export default function PostView({
+  post,
+  recentPosts,
+  updatedViewCount,
+  categories,
+  tags: mainTag,
+}: Props) {
   const { title, author, tags, content } = post;
 
   const { scrollYProgress } = useScroll();
 
   return (
     <>
-      <NpfPostHero post={post} />
+      <NpfPostHero updatedViewCount={updatedViewCount} post={post} />
 
       <Container>
         <CustomBreadcrumbs

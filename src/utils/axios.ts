@@ -37,6 +37,9 @@ export const endpoints = {
     latest_posts: '/api/blog?is_latest=True',
     featured_posts: '/api/blog?is_featured=True',
   },
+  views: {
+    increment: (modelName: string, slug: string) => `/api/increment-views/${modelName}/${slug}/`,
+  },
   opportunity: {
     list: '/api/opportunity/',
     opportunity_details: (slug: string) => `/api/opportunity/${slug}`,

@@ -17,9 +17,10 @@ import PostSocialsShare from '../common/post-socials-share';
 
 type Props = {
   post: IBlogPostProps;
+  updatedViewCount: number;
 };
 
-export default function NpfPostHero({ post }: Props) {
+export default function NpfPostHero({ post, updatedViewCount }: Props) {
   return (
     <Box
       sx={{
