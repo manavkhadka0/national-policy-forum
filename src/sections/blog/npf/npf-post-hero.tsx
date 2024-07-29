@@ -10,6 +10,7 @@ import Image from 'src/components/image';
 
 import { IBlogPostProps } from 'src/types/blog';
 
+import { useIncrementViews } from 'src/utils/useIncrementViews';
 import PostTimeBlock from '../common/post-time-block';
 import PostSocialsShare from '../common/post-socials-share';
 
@@ -17,10 +18,10 @@ import PostSocialsShare from '../common/post-socials-share';
 
 type Props = {
   post: IBlogPostProps;
-  updatedViewCount: number;
 };
 
-export default function NpfPostHero({ post, updatedViewCount }: Props) {
+export default function NpfPostHero({ post }: Props) {
+  const viewCount = useIncrementViews('blog', post.slug);
   return (
     <Box
       sx={{
@@ -45,7 +46,7 @@ export default function NpfPostHero({ post, updatedViewCount }: Props) {
             <PostTimeBlock
               created_at={fDate(post.created_at)}
               duration={post.duration}
-              viewsCount={updatedViewCount}
+              viewsCount={viewCount}
             />
 
             <Typography color="inherit" variant="h3">

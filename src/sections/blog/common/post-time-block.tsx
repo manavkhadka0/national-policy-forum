@@ -8,7 +8,7 @@ import { fDate } from 'src/utils/format-time';
 interface Props extends StackProps {
   created_at: string;
   duration?: string;
-  viewsCount?: number;
+  viewsCount?: number | null;
 }
 
 export default function PostTimeBlock({ created_at, duration, viewsCount, sx, ...other }: Props) {
