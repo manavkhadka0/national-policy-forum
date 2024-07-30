@@ -1,40 +1,20 @@
+import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
-
-import { useResponsive } from 'src/hooks/use-responsive';
 
 import Image from 'src/components/image';
 
-// ----------------------------------------------------------------------
-
-// ----------------------------------------------------------------------
-
-// ----------------------------------------------------------------------
-
 export default function AboutHero() {
-  const mdUp = useResponsive('up', 'md');
-
   return (
-    <Container
+    <Box
       sx={{
         pt: { xs: 5, md: 10 },
-        pb: 10,
       }}
     >
-      <Grid container spacing={3} justifyContent="space-between" alignItems="center">
-        {mdUp && (
-          <Grid xs={12} md={6} lg={5}>
-            <Image alt="teams" src="/assets/illustrations/illustration_teams.svg" />
-          </Grid>
-        )}
-
-        <Grid
-          xs={12}
-          md={6}
-          lg={6}
+      <Container>
+        <Box
           sx={{
-            textAlign: { xs: 'center', md: 'left' },
+            textAlign: 'center',
           }}
         >
           <Typography variant="h2">About NPF</Typography>
@@ -50,40 +30,16 @@ export default function AboutHero() {
             these efforts, NPF envisions a future where civic participation and awareness lead to
             sustainable and inclusive national development.
           </Typography>
-        </Grid>
-      </Grid>
-
-      {/* <Box
+        </Box>
+      </Container>
+      <Image
+        src="/about.png"
+        alt="About"
+        ratio="21/9"
         sx={{
-          mt: 10,
-          textAlign: 'center',
-          display: 'grid',
-          gap: { xs: 5, md: 8 },
-          gridTemplateColumns: {
-            xs: 'repeat(1, 1fr)',
-            sm: 'repeat(2, 1fr)',
-            md: 'repeat(4, 1fr)',
-          },
+          backgroundColor: '#F4F4F4',
         }}
-      >
-        {SUMMARY.map((value, index) => (
-          <div key={value.title}>
-            <StyledIcon color={COLORS[index]}>
-              <Iconify icon={value.icon} width={48} />
-            </StyledIcon>
-
-            <Typography variant="h2" sx={{ mt: 2, mb: 1 }}>
-              <CountUp
-                start={value.total / 5}
-                end={value.total}
-                formattingFn={(newValue: number) => fShortenNumber(newValue)}
-              />
-            </Typography>
-
-            <Typography sx={{ color: 'text.secondary' }}>{value.title}</Typography>
-          </div>
-        ))}
-      </Box> */}
-    </Container>
+      />
+    </Box>
   );
 }

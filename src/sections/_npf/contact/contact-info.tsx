@@ -52,6 +52,9 @@ export default function ContactInfo() {
               <Link color="inherit" variant="body2" href={`tel:${WEBSITE_CONFIG.contact_phone}`}>
                 {WEBSITE_CONFIG.contact_phone}
               </Link>
+              <Link color="inherit" variant="body2" href={`tel:${WEBSITE_CONFIG.contact_phone2}`}>
+                {WEBSITE_CONFIG.contact_phone2}
+              </Link>
             </Stack>
 
             <Stack spacing={1}>

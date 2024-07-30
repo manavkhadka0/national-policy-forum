@@ -86,6 +86,7 @@ export default function NavList({ data, slotProps }: NavListProps) {
               width: rectWidth - 8,
             },
           }}
+          anchor="right"
         >
           <NavSubList
             title={data.title}

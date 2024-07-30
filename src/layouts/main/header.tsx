@@ -7,10 +7,10 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import AppBar from '@mui/material/AppBar';
 import Drawer from '@mui/material/Drawer';
+import { IconButton } from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import { useTheme } from '@mui/material/styles';
-import { Button, IconButton } from '@mui/material';
 
 import { useBoolean } from 'src/hooks/use-boolean';
 import { useOffSetTop } from 'src/hooks/use-off-set-top';
@@ -189,16 +189,18 @@ export default function Header({ headerOnDark }: Props) {
 
   const renderMobile = (
     <>
-      <Button
-        color="inherit"
-        variant="text"
+      <IconButton
+        sx={{ display: { xs: 'block', md: 'none' } }}
         onClick={mobileOpen.onTrue}
-        startIcon={<Iconify icon="carbon:menu" />}
-      />
+        color="inherit"
+      >
+        <Iconify icon="carbon:menu" />
+      </IconButton>
 
       <Drawer
         open={mobileOpen.value}
         onClose={mobileOpen.onFalse}
+        anchor="right"
         PaperProps={{
           sx: {
             pb: 5,
@@ -257,12 +259,12 @@ export default function Header({ headerOnDark }: Props) {
               <Logo />
             </Box>
           )}
-          {mdUp ? renderHorizontal : renderMobile}
           {!mdUp && (
             <Box sx={{ lineHeight: 0, position: 'relative' }}>
               <Logo />
             </Box>
           )}
+          {mdUp ? renderHorizontal : renderMobile}
         </Container>
       </Toolbar>
 
