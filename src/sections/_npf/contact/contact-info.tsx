@@ -48,10 +48,6 @@ export default function ContactInfo() {
                 <Iconify icon="carbon:mobile" width={24} sx={{ mr: 1 }} /> Phone
               </Stack>
 
-              {/* <Typography variant="body2">{WEBSITE_CONFIG.contact_phone}</Typography> */}
-              <Link color="inherit" variant="body2" href={`tel:${WEBSITE_CONFIG.contact_phone}`}>
-                {WEBSITE_CONFIG.contact_phone}
-              </Link>
               <Link color="inherit" variant="body2" href={`tel:${WEBSITE_CONFIG.contact_phone2}`}>
                 {WEBSITE_CONFIG.contact_phone2}
               </Link>

@@ -11,7 +11,6 @@ export const FRONTEND_URL = 'https://nationalpolicyforum.com';
 export const WEBSITE_CONFIG = {
   name: 'National Policy Forum',
   contact_email: 'nnpolicyforum@gmail.com',
-  contact_phone: '+977-9767276347',
   contact_phone2: '+977-9851319855',
   contact_address: 'Bharatpur, Chitwan, Nepal',
   socials: [

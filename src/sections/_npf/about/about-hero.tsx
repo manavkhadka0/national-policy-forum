@@ -33,7 +33,7 @@ export default function AboutHero() {
         </Box>
       </Container>
       <Image
-        src="/about.png"
+        src="/about.webp"
         alt="About"
         ratio="21/9"
         sx={{

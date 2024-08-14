@@ -80,59 +80,59 @@ export default function OurTeamItem({ member, ...other }: TeamMarketingMemberPro
   ];
 
   return (
-    <Stack {...other}>
-      <Box
-        component={m.div}
-        whileHover="hover"
-        variants={varHover(0.95)}
-        transition={varTranHover()}
-        sx={{ position: 'relative', borderRadius: 2, overflow: 'hidden' }}
-      >
-        <StyledOverlay>
-          <Stack
-            direction="row"
-            justifyContent="center"
-            sx={{ width: 1, zIndex: 9, bottom: 24, position: 'absolute' }}
-          >
-            {_socials.map((social) => {
-              if (!social.path) {
-                return null;
-              }
-              return (
-                <Link target="_blank" href={social.path || '#'} key={social.value}>
-                  <IconButton
-                    key={social.value}
-                    sx={{
-                      color: social.color,
-                    }}
-                  >
-                    <Iconify icon={social.icon} />
-                  </IconButton>
-                </Link>
-              );
-            })}
-          </Stack>
-        </StyledOverlay>
+    <Link component={RouterLink} href={paths.teamMemberDetail(id)}>
+      <Stack {...other}>
+        <Box
+          component={m.div}
+          whileHover="hover"
+          variants={varHover(0.95)}
+          transition={varTranHover()}
+          sx={{ position: 'relative', borderRadius: 2, overflow: 'hidden' }}
+        >
+          <StyledOverlay>
+            <Stack
+              direction="row"
+              justifyContent="center"
+              sx={{ width: 1, zIndex: 9999, bottom: 24, position: 'absolute' }}
+            >
+              {_socials.map((social) => {
+                if (!social.path) {
+                  return null;
+                }
+                return (
+                  <Link target="_blank" href={social.path || '#'} key={social.value}>
+                    <IconButton
+                      key={social.value}
+                      sx={{
+                        color: social.color,
+                      }}
+                    >
+                      <Iconify icon={social.icon} />
+                    </IconButton>
+                  </Link>
+                );
+              })}
+            </Stack>
+          </StyledOverlay>
 
-        <m.div variants={varHover(1.15)} transition={varTranHover()}>
-          <Image src={photo} alt={name} ratio="1/1" />
-        </m.div>
-      </Box>
+          <m.div variants={varHover(1.15)} transition={varTranHover()}>
+            <Image src={photo} alt={name} ratio="1/1" />
+          </m.div>
+        </Box>
 
-      <Stack spacing={0.5} sx={{ mt: 2.5, textAlign: 'center' }}>
-        <Link component={RouterLink} href={paths.teamMemberDetail(id)}>
-          <Stack direction="row" alignItems="center" justifyContent="center" gap={2}>
+        <Stack spacing={0.5} sx={{ mt: 2.5, textAlign: 'left' }}>
+          <Stack direction="row" alignItems="center" gap={2}>
             <Typography variant="h6">{name}</Typography>
             <IconButton size="small">
               <Iconify icon="fluent:open-16-filled" />
             </IconButton>
           </Stack>
-        </Link>
 
-        <Typography variant="body2" sx={{ color: 'text.disabled' }}>
-          {role}
-        </Typography>
+          <Typography variant="body2" sx={{ color: 'text.disabled' }}>
+            {role}
+          </Typography>
+        </Stack>
       </Stack>
-    </Stack>
+    </Link>
   );
 }
