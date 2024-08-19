@@ -24,11 +24,7 @@ export default function AboutHero() {
             Act, operates as a consulting agency dedicated to educating, informing, and gathering
             opinions on public affairs in Nepal. Committed to promoting good governance,
             evidence-based decision-making, active citizenship, and civic awareness, NPF&apos;s
-            mission extends to every corner of the country. By fostering informed discourse among
-            citizens, NPF aims to cultivate a more engaged and knowledgeable society, thereby
-            driving positive change and contributing to the holistic betterment of Nepal. Through
-            these efforts, NPF envisions a future where civic participation and awareness lead to
-            sustainable and inclusive national development.
+            mission extends to every corner of the country.
           </Typography>
         </Box>
       </Container>

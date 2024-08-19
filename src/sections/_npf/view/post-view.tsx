@@ -26,6 +26,7 @@ import { IBlogPostProps } from 'src/types/blog';
 import PostTags from '../../blog/common/post-tags';
 import PostAuthor from '../../blog/common/post-author';
 import PostSidebar from '../../blog/common/post-sidebar';
+import TableOfContents from './table-of-content';
 
 // ----------------------------------------------------------------------
 
@@ -61,10 +62,13 @@ export default function PostView({ post, recentPosts, categories, tags: mainTag 
 
       <Divider sx={{ mb: { xs: 6, md: 10 } }} />
 
-      <Container>
+      <Container maxWidth={false}>
         <Grid container spacing={{ md: 8 }}>
           <ScrollProgress scrollYProgress={scrollYProgress} />
-          <Grid xs={12} md={8}>
+          <Grid xs={12} md={3}>
+            <TableOfContents content={content} />
+          </Grid>
+          <Grid xs={12} md={6}>
             <Markdown content={content} firstLetter />
 
             <PostTags tags={tags} />
@@ -78,18 +82,12 @@ export default function PostView({ post, recentPosts, categories, tags: mainTag 
             <PostAuthor author={author} />
           </Grid>
 
-          <Grid xs={12} md={4}>
+          <Grid xs={12} md={3}>
             <PostSidebar
               popularTags={mainTag}
               author={author}
               recentPosts={{ list: recentPosts, basePath: 'posts' }}
               categories={categories}
-              advertisement={{
-                title: 'Advertisement',
-                description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',
-                imageUrl: _mock.image.travel(9),
-                path: '',
-              }}
             />
           </Grid>
         </Grid>

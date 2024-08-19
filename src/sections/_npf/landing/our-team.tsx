@@ -1,13 +1,6 @@
-'use client';
+import React, { useState, useCallback } from 'react';
 
-import { useState, useCallback } from 'react';
-
-import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
-import Tabs from '@mui/material/Tabs';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Unstable_Grid2';
-import Typography from '@mui/material/Typography';
+import { Box, Tab, Tabs, Container, Typography } from '@mui/material';
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
@@ -19,29 +12,27 @@ import { IOurTeamProps } from 'src/types/team';
 
 import OurTeamItem from './our-team-item';
 
-// ----------------------------------------------------------------------
-
 type Props = {
   members: IOurTeamProps[];
   roles: TeamMemberRoles[];
-  seletecRoleSlug?: string;
+  selectedRoleSlug?: string;
 };
 
-export default function OurTeam({ members, seletecRoleSlug, roles: rolesFetched }: Props) {
+export default function OurTeam({ members, selectedRoleSlug, roles: rolesFetched }: Props) {
   const [tab, setTab] = useState(
-    rolesFetched.find((role) => role.slug === seletecRoleSlug)?.name || 'All'
+    rolesFetched.find((role) => role.slug === selectedRoleSlug)?.name || 'All'
   );
 
   const mdUp = useResponsive('up', 'sm');
 
   const carousel = useCarousel({
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
     ...CarouselDots({
       sx: {
-        mt: { xs: 8, md: 10 },
+        mt: { xs: 4, md: 5 },
       },
     }),
   });
@@ -55,11 +46,7 @@ export default function OurTeam({ members, seletecRoleSlug, roles: rolesFetched 
   }, []);
 
   return (
-    <Container
-      sx={{
-        py: { xs: 8, md: 8 },
-      }}
-    >
+    <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 }, overflow: 'hidden' }}>
       <Typography variant="h2" sx={{ textAlign: 'center' }}>
         Our Team
       </Typography>
@@ -69,7 +56,7 @@ export default function OurTeam({ members, seletecRoleSlug, roles: rolesFetched 
           mt: 3,
           mx: 'auto',
           textAlign: 'center',
-          mb: { xs: 8, md: 10 },
+          mb: { xs: 4, md: 5 },
           color: 'text.secondary',
         }}
       >
@@ -78,7 +65,7 @@ export default function OurTeam({ members, seletecRoleSlug, roles: rolesFetched 
         informed public discourse and fostering active citizenship across Nepal.
       </Typography>
 
-      {mdUp && (
+      {mdUp ? (
         <>
           <Tabs
             value={tab}
@@ -95,15 +82,12 @@ export default function OurTeam({ members, seletecRoleSlug, roles: rolesFetched 
 
           <Box
             sx={{
-              columnGap: 3,
               display: 'grid',
-              rowGap: { xs: 4, md: 5 },
+              gap: 3,
               gridTemplateColumns: {
-                xs: 'repeat(1, 1fr)',
                 sm: 'repeat(2, 1fr)',
                 md: 'repeat(3, 1fr)',
               },
-              alignItems: 'center',
             }}
           >
             {filtered.map((member) => (
@@ -111,33 +95,35 @@ export default function OurTeam({ members, seletecRoleSlug, roles: rolesFetched 
             ))}
           </Box>
         </>
-      )}
-
-      {!mdUp && (
-        <CarouselArrows
-          onNext={carousel.onNext}
-          onPrev={carousel.onPrev}
-          leftButtonProps={{ sx: { opacity: { xs: 1, md: 0 } } }}
-          rightButtonProps={{ sx: { opacity: { xs: 1, md: 0 } } }}
-        >
-          <Grid container spacing={10} justifyContent="center">
-            <Grid xs={12} md={8}>
-              <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
-                {members.map((member) => (
-                  <OurTeamItem key={member.id} member={member} />
-                ))}
-              </Carousel>
-            </Grid>
-          </Grid>
-        </CarouselArrows>
+      ) : (
+        <Box sx={{ position: 'relative', mx: -2 }}>
+          <CarouselArrows
+            onNext={carousel.onNext}
+            onPrev={carousel.onPrev}
+            sx={{
+              '& .arrow': {
+                position: 'absolute',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                '&.left': { left: 8 },
+                '&.right': { right: 8 },
+              },
+            }}
+          >
+            <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
+              {members.map((member) => (
+                <Box key={member.id} sx={{ px: 2 }}>
+                  <OurTeamItem member={member} />
+                </Box>
+              ))}
+            </Carousel>
+          </CarouselArrows>
+        </Box>
       )}
     </Container>
   );
 }
 
-function applyFilter(arr: IOurTeamProps[], roles: string) {
-  if (roles !== 'All') {
-    arr = arr.filter((project) => project.role === roles);
-  }
-  return arr;
+function applyFilter(arr: IOurTeamProps[], role: string) {
+  return role === 'All' ? arr : arr.filter((member) => member.role === role);
 }
