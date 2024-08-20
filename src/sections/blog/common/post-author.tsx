@@ -47,7 +47,7 @@ export default function PostAuthor({ author }: Props) {
           {about}
         </Typography>
 
-        <Typography variant="caption" sx={{ color: 'text.disabled' }}>
+        <Typography variant="caption" sx={{ color: 'text.disabled', textAlign: 'justify' }}>
           {quotes}
         </Typography>
       </Stack>
