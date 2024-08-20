@@ -17,5 +17,5 @@ export default async function PostDetailPage({ params }: { params: { role: strin
   const teams = await getTeamMembers();
   const roles = await getTeamMembersRoles();
 
-  return <OurTeam members={teams} roles={roles} seletecRoleSlug={decodeURI(params.role)} />;
+  return <OurTeam members={teams} roles={roles} selectedRoleSlug={decodeURI(params.role)} />;
 }
