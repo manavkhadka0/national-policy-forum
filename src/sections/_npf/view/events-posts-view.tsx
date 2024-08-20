@@ -45,17 +45,7 @@ export default async function EventPostsView({
           </Grid>
 
           <Grid xs={12} md={4}>
-            <PostSidebar
-              popularTags={tags}
-              categories={categories}
-              recentPosts={{ list: latest_events, basePath: 'events' }}
-              // advertisement={{
-              //   title: 'Advertisement',
-              //   description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',
-              //   imageUrl: _mock.image.marketing(9),
-              //   path: '',
-              // }}
-            />
+            <PostSidebar recentPosts={{ list: latest_events, basePath: 'events' }} />
           </Grid>
         </Grid>
       </Container>

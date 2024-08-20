@@ -3,7 +3,7 @@
 import Grid from '@mui/material/Unstable_Grid2';
 import Container from '@mui/material/Container';
 
-import { _tags, _mock, _categories, _coursePosts } from 'src/_mock';
+import { _mock, _coursePosts } from 'src/_mock';
 
 import PostSidebar from '../../blog/common/post-sidebar';
 import ElearningNewsletter from '../elearning-newsletter';
@@ -31,17 +31,7 @@ export default function ElearningPostsView() {
           </Grid>
 
           <Grid xs={12} md={4}>
-            <PostSidebar
-              popularTags={_tags}
-              categories={_categories}
-              recentPosts={{ list: _coursePosts.slice(-4), basePath: '' }}
-              advertisement={{
-                title: 'Advertisement',
-                description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',
-                imageUrl: _mock.image.course(10),
-                path: '',
-              }}
-            />
+            <PostSidebar recentPosts={{ list: _coursePosts.slice(-4), basePath: '' }} />
           </Grid>
         </Grid>
       </Container>

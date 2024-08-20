@@ -117,18 +117,7 @@ export default function TravelPostView({ post, recentPosts, categories, tags: ma
           </Grid>
 
           <Grid xs={12} md={4}>
-            <PostSidebar
-              popularTags={mainTag}
-              author={author}
-              recentPosts={{ list: recentPosts, basePath: 'posts' }}
-              categories={categories}
-              advertisement={{
-                title: 'Advertisement',
-                description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',
-                imageUrl: _mock.image.travel(9),
-                path: '',
-              }}
-            />
+            <PostSidebar author={author} recentPosts={{ list: recentPosts, basePath: 'posts' }} />
           </Grid>
         </Grid>
       </Container>

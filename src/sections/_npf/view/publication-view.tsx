@@ -142,10 +142,8 @@ export default function PublicationView({ post, recentPosts, categories, tags: m
 
           <Grid xs={12} md={4}>
             <PostSidebar
-              popularTags={mainTag}
               author={author}
               recentPosts={{ list: recentPosts, basePath: 'publications' }}
-              categories={categories}
             />
           </Grid>
         </Grid>

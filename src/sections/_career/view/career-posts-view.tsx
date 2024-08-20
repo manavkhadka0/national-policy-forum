@@ -29,17 +29,7 @@ export default function CareerPostsView() {
           </Grid>
 
           <Grid xs={12} md={4}>
-            <PostSidebar
-              popularTags={_tags}
-              categories={_categories}
-              recentPosts={{ list: _careerPosts.slice(-4), basePath: '' }}
-              advertisement={{
-                title: 'Advertisement',
-                description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',
-                imageUrl: _mock.image.career(10),
-                path: '',
-              }}
-            />
+            <PostSidebar recentPosts={{ list: _careerPosts.slice(-4), basePath: '' }} />
           </Grid>
         </Grid>
       </Container>

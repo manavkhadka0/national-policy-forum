@@ -83,12 +83,7 @@ export default function PostView({ post, recentPosts, categories, tags: mainTag 
           </Grid>
 
           <Grid xs={12} md={3}>
-            <PostSidebar
-              popularTags={mainTag}
-              author={author}
-              recentPosts={{ list: recentPosts, basePath: 'posts' }}
-              categories={categories}
-            />
+            <PostSidebar author={author} recentPosts={{ list: recentPosts, basePath: 'posts' }} />
           </Grid>
         </Grid>
       </Container>

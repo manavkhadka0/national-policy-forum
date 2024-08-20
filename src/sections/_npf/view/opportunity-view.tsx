@@ -141,10 +141,8 @@ export default function OpportunityView({ post, recentPosts, categories, tags: m
 
           <Grid xs={12} md={4}>
             <PostSidebar
-              popularTags={mainTag}
               author={author}
               recentPosts={{ list: recentPosts, basePath: 'opportunity' }}
-              categories={categories}
             />
           </Grid>
         </Grid>

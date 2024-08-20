@@ -48,17 +48,7 @@ export default function PostsView({
           </Grid>
 
           <Grid xs={12} md={4}>
-            <PostSidebar
-              popularTags={tags}
-              categories={categoriesName}
-              recentPosts={{ list: posts, basePath: 'posts' }}
-              //   advertisement={{
-              //     title: 'Advertisement',
-              //     description: 'Duis leo. Donec orci lectus, aliquam ut, faucibus non',
-              //     imageUrl: _mock.image.travel(9),
-              //     path: '',
-              //   }}
-            />
+            <PostSidebar recentPosts={{ list: posts, basePath: 'posts' }} />
           </Grid>
         </Grid>
       </Container>

@@ -1,6 +1,3 @@
-import Box from '@mui/material/Box';
-import Chip from '@mui/material/Chip';
-import Link from '@mui/material/Link';
 import Avatar from '@mui/material/Avatar';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -22,8 +19,6 @@ import Advertisement, { AdvertisementProps } from '../../advertisement';
 
 interface Props extends StackProps {
   author?: IAuthorProps;
-  popularTags?: string[];
-  categories?: string[];
   advertisement?: AdvertisementProps;
   recentPosts?: {
     list: IBlogPostProps[] | IPublicationProps[];
@@ -31,15 +26,7 @@ interface Props extends StackProps {
   };
 }
 
-export default function PostSidebar({
-  author,
-  categories,
-  popularTags,
-  recentPosts,
-  advertisement,
-  sx,
-  ...other
-}: Props) {
+export default function PostSidebar({ author, recentPosts, advertisement, sx, ...other }: Props) {
   const mdUp = useResponsive('up', 'md');
 
   const renderAuthor = author && (
@@ -58,32 +45,6 @@ export default function PostSidebar({
     </Stack>
   );
 
-  const renderCategories = categories && (
-    <Stack spacing={1}>
-      <Typography variant="h5" gutterBottom>
-        Popular Categories
-      </Typography>
-
-      {categories.map((category) => (
-        <Stack key={category} direction="row" alignItems="center">
-          <Box
-            sx={{
-              mr: 2,
-              width: 6,
-              height: 6,
-              borderRadius: '50%',
-              bgcolor: 'primary.main',
-            }}
-          />
-
-          <Link variant="body2" href="#" color="inherit">
-            {category}
-          </Link>
-        </Stack>
-      ))}
-    </Stack>
-  );
-
   const renderRecentPosts = recentPosts && (
     <Stack spacing={3}>
       <Typography variant="h5">Recent {recentPosts.basePath.toUpperCase()}</Typography>
@@ -91,18 +52,6 @@ export default function PostSidebar({
       {recentPosts.list.map((post) => (
         <PostItemMobile key={post.slug} post={post} onSiderbar basePath={recentPosts.basePath} />
       ))}
-    </Stack>
-  );
-
-  const renderPopularTags = popularTags && (
-    <Stack spacing={3}>
-      <Typography variant="h5">Popular Tags</Typography>
-
-      <Stack direction="row" flexWrap="wrap" spacing={1}>
-        {popularTags.map((tag) => (
-          <Chip key={tag} label={tag} variant="soft" size="small" onClick={() => {}} />
-        ))}
-      </Stack>
     </Stack>
   );
 
@@ -134,11 +83,7 @@ export default function PostSidebar({
         }}
         {...other}
       >
-        {renderCategories}
-
         {renderRecentPosts}
-
-        {renderPopularTags}
 
         {advertisement && <Advertisement advertisement={advertisement} />}
       </Stack>

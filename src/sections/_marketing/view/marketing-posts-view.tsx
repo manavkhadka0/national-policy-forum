@@ -33,8 +33,6 @@ export default function MarketingPostsView() {
 
           <Grid xs={12} md={4}>
             <PostSidebar
-              popularTags={_tags}
-              categories={_categories}
               recentPosts={{ list: _marketingPosts.slice(-4), basePath: '' }}
               advertisement={{
                 title: 'Advertisement',
