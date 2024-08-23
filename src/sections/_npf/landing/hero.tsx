@@ -21,12 +21,12 @@ import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 import Carousel, { useCarousel, CarouselDots, CarouselArrows } from 'src/components/carousel';
 
-import { IBlogPostProps } from 'src/types/blog';
+import { IPublicationProps } from 'src/types/blog';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  articles: IBlogPostProps[];
+  articles: IPublicationProps[];
 };
 
 export default function Hero({ articles }: Props) {
@@ -91,7 +91,7 @@ export default function Hero({ articles }: Props) {
 // ----------------------------------------------------------------------
 
 type CarouselItemProps = {
-  article: IBlogPostProps;
+  article: IPublicationProps;
 };
 
 function CarouselItem({ article }: CarouselItemProps) {
