@@ -19,21 +19,21 @@ import PostSearchMobile from '../../blog/common/post-search-mobile';
 
 type TravelPostsViewProps = {
   posts: IBlogPostProps[];
+  recentPosts: IBlogPostProps[];
+  featuredPosts: IBlogPostProps[];
   categories: Category[];
-  categoriesName: string[];
-  tags: string[];
 };
 export default function PostsView({
   posts,
   categories,
-  categoriesName,
-  tags,
+  recentPosts,
+  featuredPosts,
 }: TravelPostsViewProps) {
   return (
     <>
       <PostSearchMobile />
 
-      <NpfFeaturedPosts posts={posts} />
+      <NpfFeaturedPosts posts={featuredPosts} />
 
       <NpfTrendingTopics categories={categories} />
 
@@ -48,7 +48,7 @@ export default function PostsView({
           </Grid>
 
           <Grid xs={12} md={4}>
-            <PostSidebar recentPosts={{ list: posts, basePath: 'posts' }} />
+            <PostSidebar recentPosts={{ list: recentPosts, basePath: 'posts' }} />
           </Grid>
         </Grid>
       </Container>

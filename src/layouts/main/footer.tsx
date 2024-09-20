@@ -79,6 +79,13 @@ export default function Footer() {
                 <Link
                   color="inherit"
                   variant="body2"
+                  href={`mailto:${WEBSITE_CONFIG.contact_email2}`}
+                >
+                  {WEBSITE_CONFIG.contact_email2}
+                </Link>
+                <Link
+                  color="inherit"
+                  variant="body2"
                   href={`mailto:${WEBSITE_CONFIG.contact_email}`}
                 >
                   {WEBSITE_CONFIG.contact_email}

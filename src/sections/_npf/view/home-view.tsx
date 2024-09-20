@@ -52,7 +52,7 @@ export default function LandingView({
 }: TravelLandingViewProps) {
   return (
     <>
-      <Hero articles={latest_publications} />
+      <Hero articles={latest_posts} />
 
       <AboutHero />
 

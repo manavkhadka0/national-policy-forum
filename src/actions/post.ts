@@ -13,6 +13,18 @@ export const getFeaturedPosts = async () => {
   }
 };
 
+export const getAllPosts = async () => {
+  try {
+    const res = await axiosInstance.get(endpoints.blog.list);
+
+    if (res.status === 200) {
+      return res.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getLatestPosts = async () => {
   try {
     const res = await axiosInstance.get(endpoints.blog.latest_posts);

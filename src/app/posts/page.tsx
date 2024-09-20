@@ -1,6 +1,5 @@
-import { getTags } from 'src/actions/tag';
-import { getFeaturedPosts } from 'src/actions/post';
-import { Category, getCategories, getCategoriesNameOnly } from 'src/actions/categories';
+import { Category, getCategories } from 'src/actions/categories';
+import { getAllPosts, getLatestPosts, getFeaturedPosts } from 'src/actions/post';
 
 import PostsView from 'src/sections/_npf/view/posts-view';
 
@@ -15,15 +14,19 @@ export const metadata = {
 export const revalidate = 10;
 
 export default async function TravelPostsPage() {
-  const posts: IBlogPostProps[] = await getFeaturedPosts();
+  const featuredPosts: IBlogPostProps[] = await getFeaturedPosts();
 
+  const recentPosts: IBlogPostProps[] = await getLatestPosts();
+
+  const posts: IBlogPostProps[] = await getAllPosts();
   const categories: Category[] = await getCategories();
 
-  const categorisName: string[] = await getCategoriesNameOnly();
-
-  const tags: string[] = await getTags();
-
   return (
-    <PostsView posts={posts} categories={categories} categoriesName={categorisName} tags={tags} />
+    <PostsView
+      posts={posts}
+      featuredPosts={featuredPosts}
+      recentPosts={recentPosts}
+      categories={categories}
+    />
   );
 }
