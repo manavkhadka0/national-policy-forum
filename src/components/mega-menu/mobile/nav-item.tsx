@@ -1,19 +1,21 @@
 import { forwardRef } from 'react';
-
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import { alpha, styled } from '@mui/material/styles';
 import ListItemButton from '@mui/material/ListItemButton';
 
 import { RouterLink } from 'src/routes/components';
-
 import Iconify from '../../iconify';
 import { NavItemProps, NavItemStateProps } from '../types';
 
 // ----------------------------------------------------------------------
 
-const NavItem = forwardRef<HTMLDivElement, NavItemProps>(
-  ({ title, path, icon, active, hasChild, externalLink, ...other }, ref) => {
+interface ExtendedNavItemProps extends NavItemProps {
+  onOpenMenu?: (event: React.MouseEvent<HTMLSpanElement>) => void;
+}
+
+const NavItem = forwardRef<HTMLDivElement, ExtendedNavItemProps>(
+  ({ title, path, icon, active, hasChild, externalLink, onOpenMenu, ...other }, ref) => {
     const renderContent = (
       <StyledNavItem ref={ref} active={active} {...other}>
         {icon && (
@@ -22,25 +24,40 @@ const NavItem = forwardRef<HTMLDivElement, NavItemProps>(
           </Box>
         )}
 
-        {title && (
-          <Box component="span" className="label">
-            {title}
+        <Box component="span" className="label">
+          {title}
+        </Box>
+
+        {hasChild && (
+          <Box
+            component="span"
+            className="arrow"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              if (onOpenMenu) onOpenMenu(e);
+            }}
+          >
+            <Iconify width={16} icon="eva:arrow-ios-forward-fill" />
           </Box>
         )}
-
-        {hasChild && <Iconify width={16} className="arrow" icon="eva:arrow-ios-forward-fill" />}
       </StyledNavItem>
     );
 
-    if (externalLink)
+    if (externalLink) {
       return (
         <Link href={path} target="_blank" rel="noopener" underline="none" color="inherit">
           {renderContent}
         </Link>
       );
+    }
 
     if (hasChild) {
-      return renderContent;
+      return (
+        <Link component={RouterLink} href={path} underline="none" color="inherit">
+          {renderContent}
+        </Link>
+      );
     }
 
     return (
@@ -73,6 +90,7 @@ const StyledNavItem = styled(ListItemButton, {
   },
   '& .arrow': {
     marginLeft: theme.spacing(0.75),
+    cursor: 'pointer',
   },
   ...(active && {
     color: theme.palette.primary.main,

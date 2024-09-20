@@ -7,7 +7,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 
 import { RouterLink } from 'src/routes/components';
 
-import Iconify from '../../iconify';
 import { NavItemProps, NavItemStateProps } from '../types';
 
 // ----------------------------------------------------------------------
@@ -35,7 +34,7 @@ const NavItem = forwardRef<HTMLDivElement, NavItemProps>(
           </Box>
         )}
 
-        {hasChild && <Iconify width={16} className="arrow" icon="eva:arrow-ios-downward-fill" />}
+        {/* Removed the dropdown arrow icon */}
       </StyledNavItem>
     );
 
@@ -80,9 +79,7 @@ const StyledNavItem = styled(ListItemButton, {
       flexShrink: 0,
       marginRight: theme.spacing(1),
     },
-    '& .arrow': {
-      marginLeft: theme.spacing(0.75),
-    },
+    // Removed the '.arrow' styling
     ...(active && {
       color: theme.palette.warning.main,
       fontWeight: theme.typography.fontWeightBold,

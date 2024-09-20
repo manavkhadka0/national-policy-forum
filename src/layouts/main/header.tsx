@@ -39,9 +39,94 @@ export default function Header({ headerOnDark }: Props) {
 
   const { navlinks, navlinksLoading } = useGetNavlinks();
 
-  // change Nav Items to  nav items with publication and add publications to the nav items
+  const NAV_ITEMS = [
+    {
+      title: 'ABOUT',
+      path: '/organization',
+      children: [
+        {
+          subheader: 'Organization',
+          items: [{ title: 'About Organization', path: '/organization' }],
+        },
+        {
+          subheader: 'Our Teams',
+          items: [],
+        },
+      ],
+    },
+    {
+      title: 'BLOGS',
+      path: '/posts',
+      moreLink: {
+        title: 'More Blog Articles',
+        path: '/posts',
+      },
+      children: [
+        {
+          subheader: 'Blogs',
+          items: [{ title: 'All Blogs', path: '/posts' }],
+        },
+      ],
+    },
+    {
+      title: 'PUBLICATIONS',
+      path: '/publications',
+      moreLink: {
+        title: 'More Publications',
+        path: '/publications',
+      },
+      children: [],
+    },
+    // {
+    //   title: 'EVENTS',
+    //   path: '/events',
+    //   moreLink: {
+    //     title: 'More Events',
+    //     path: '/events',
+    //   },
+    //   children: [
+    //     {
+    //       subheader: '',
+    //       items: [],
+    //     },
+    //   ],
+    // },
+    {
+      title: 'OPPORTUNITIES & MORE',
+      path: '/opportunities',
+      children: [
+        {
+          subheader: 'More',
+          items: [
+            {
+              title: 'Careers',
+              path: '/careers',
+            },
+            {
+              title: 'Contact',
+              path: '/contact',
+            },
+            {
+              title: 'Donation',
+              path: '/coming-soon',
+            },
+          ],
+        },
+      ],
+      moreLink: {
+        title: 'More Opportunities',
+        path: '/opportunities',
+      },
+    },
+    // {
+    //   title: 'PARTNERS',
+    //   path: '/partners',
+    // },
+  ];
+
+  // change Nav Items to nav items with publication and add publications to the nav items
   const NAV_ITEMS_WITH_PUBLICATIONS = NAV_ITEMS.map((item) => {
-    if (item.title === 'Publications') {
+    if (item.title.toLocaleLowerCase() === 'publications') {
       return {
         ...item,
         children: [
@@ -62,21 +147,21 @@ export default function Header({ headerOnDark }: Props) {
         ],
       };
     }
-    if (item.title === 'Events') {
-      return {
-        ...item,
-        children: [
-          {
-            subheader: '',
-            items: navlinks.event?.latest_events.map((event) => ({
-              title: event.title,
-              path: event.path,
-            })),
-          },
-        ],
-      };
-    }
-    if (item.title === 'Blogs') {
+    // if (item.title.toLocaleLowerCase() === 'events') {
+    //   return {
+    //     ...item,
+    //     children: [
+    //       {
+    //         subheader: '',
+    //         items: navlinks.event?.latest_events.map((event) => ({
+    //           title: event.title,
+    //           path: event.path,
+    //         })),
+    //       },
+    //     ],
+    //   };
+    // }
+    if (item.title.toLocaleLowerCase() === 'blogs') {
       return {
         ...item,
         children: [
@@ -97,7 +182,7 @@ export default function Header({ headerOnDark }: Props) {
         ],
       };
     }
-    if (item.title === 'About') {
+    if (item.title.toLocaleLowerCase() === 'about') {
       return {
         ...item,
         children: [
@@ -115,7 +200,7 @@ export default function Header({ headerOnDark }: Props) {
         ],
       };
     }
-    if (item.title === 'Opportunities') {
+    if (item.title.toLocaleLowerCase() === 'opportunities & more') {
       const opportunityTypes = navlinks.opportunity?.opportunity_types?.children || [];
       const latestOpportunities =
         navlinks.opportunity?.latest_opportunities?.map((opportunity) => ({
@@ -131,6 +216,7 @@ export default function Header({ headerOnDark }: Props) {
             items: latestOpportunities,
           },
           ...opportunityTypes,
+          ...item.children, // This will include the 'More' subheader and its items
         ],
       };
     }
@@ -272,111 +358,3 @@ export default function Header({ headerOnDark }: Props) {
     </AppBar>
   );
 }
-
-const NAV_ITEMS = [
-  {
-    title: 'Home',
-    path: '/',
-    // icon: <Iconify icon="carbon:home" sx={{ width: 1, height: 1 }} />,
-  },
-  {
-    title: 'About',
-    path: '#',
-    // icon: <Iconify icon="carbon:building" sx={{ width: 1, height: 1 }} />,
-    // products: [...Array(10)].map((_, index) => ({
-    //   name: _mock.productName(index),
-    //   cover: _mock.image.product(index),
-    //   path: '#',
-    // })),
-    // moreLink: {
-    //   title: 'More Categories',
-    //   path: '#',
-    // },
-    // tags: [
-    //   { title: 'Paper Cup', path: '#' },
-    //   { title: 'Lotion Pump', path: '#' },
-    //   { title: 'Brush Cutter', path: '#' },
-    //   { title: 'Display Rack', path: '#' },
-    //   { title: 'Glass Bottle', path: '#' },
-    // ],
-    children: [
-      {
-        subheader: 'Organization',
-        items: [{ title: 'About Organization', path: '/organization' }],
-      },
-      {
-        subheader: 'Our Teams',
-        items: [],
-      },
-    ],
-  },
-  {
-    title: 'Blogs',
-    path: '/posts',
-    // icon: <Iconify icon="carbon:folder" sx={{ width: 1, height: 1 }} />,
-    moreLink: {
-      title: 'More Blog Articles',
-      path: '/posts',
-    },
-    children: [],
-  },
-  {
-    title: 'Publications',
-    path: '/publications',
-    // icon: <Iconify icon="carbon:document" sx={{ width: 1, height: 1 }} />,
-    moreLink: {
-      title: 'More Publications',
-      path: '/publications',
-    },
-    children: [],
-  },
-  {
-    title: 'Events',
-    path: '/events',
-    // icon: <Iconify icon="carbon:api" sx={{ width: 1, height: 1 }} />,
-    moreLink: {
-      title: 'More Events',
-      path: '/events',
-    },
-    children: [
-      {
-        subheader: '',
-        items: [],
-      },
-    ],
-  },
-  {
-    title: 'Opportunities',
-    path: '/opportunities',
-    // icon: <Iconify icon="carbon:connect" sx={{ width: 1, height: 1 }} />,
-    moreLink: {
-      title: 'More Opportunities',
-      path: '/opportunities',
-    },
-    children: [],
-  },
-
-  {
-    title: 'More',
-    path: '#',
-    children: [
-      {
-        subheader: '',
-        items: [
-          {
-            title: 'Careers',
-            path: '/careers',
-          },
-          {
-            title: 'Contact',
-            path: '/contact',
-          },
-          {
-            title: 'Donation',
-            path: '/coming-soon',
-          },
-        ],
-      },
-    ],
-  },
-];

@@ -1,5 +1,5 @@
+// NavList.tsx
 import { useState, useEffect, useCallback } from 'react';
-
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import Stack from '@mui/material/Stack';
@@ -46,11 +46,16 @@ export default function NavList({ data, slotProps }: NavListProps) {
     }
   }, []);
 
-  const handleOpenMenu = useCallback(() => {
-    if (data.children) {
-      setOpenMenu(true);
-    }
-  }, [data.children]);
+  const handleOpenMenu = useCallback(
+    (event: React.MouseEvent) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (data.children) {
+        setOpenMenu(true);
+      }
+    },
+    [data.children]
+  );
 
   const handleCloseMenu = useCallback(() => {
     setOpenMenu(false);
@@ -60,15 +65,12 @@ export default function NavList({ data, slotProps }: NavListProps) {
     <>
       <NavItem
         open={openMenu}
-        onClick={handleOpenMenu}
-        //
+        onOpenMenu={handleOpenMenu}
         title={data.title}
         path={data.path}
         icon={data.icon}
-        //
         hasChild={!!data.children}
         externalLink={data.path.includes('http')}
-        //
         active={active}
         className={active ? 'active' : ''}
         sx={slotProps?.rootItem}
